@@ -2,4 +2,55 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="brandWhite">#F8F8FA</color>
+    <color name="brandBlack">#191919</color>
+
+    <color name="LoginLightSkyblue">#EEF4F9</color>
+    <color name="LoginDarkSkyblue">#C4DFF6</color>
+    <color name="LoginSkyblue">#B4E0F4</color>
+    <color name="LoginBlue">#4285F4</color>
+
+    <color name="HomeWeatherBlue1">#029FE4</color>
+    <color name="HomeWeatherBlue2">#4899E3</color>
+    <color name="HomeWeatherBlue3">#00A0E4</color>
+    <color name="HomeCalColorFrame">#CAE0FF</color>
+    <color name="HomeCalColor1">#BFEAE5</color>
+    <color name="HomeCalColor2">#DDEEEC</color>
+    <color name="HomeCalColor3">#93D4E3</color>
+    <color name="HomeCalColor4">#2E889C</color>
+    <color name="HomeCalColor5">#CFF5FE</color>
+    <color name="HomeCalColor6">#90CDE1</color>
+    <color name="HomeCalColor7">#4FA0BA</color>
+    <color name="HomeCalColor8">#B9EEFF</color>
+    <color name="HomeCalColor9">#C4DFF6</color>
+    <color name="HomeCalColor10">#0091CD</color>
+    <color name="HomeCalColor11">#C4DFF6</color>
+    <color name="HomePurple">#4300D1</color>
+    <color name="HomePetColor1">#E3EDFA</color>
+    <color name="HomePetColor2">#E2EDF9</color>
+
+    <color name="WalkColor1">#ECF2FB</color>
+    <color name="WalkColor2">#E3EDFA</color>
+    <color name="WalkColor3">#C4DFF6</color>
+    <color name="WalkColor4">#A0D0EF</color>
+    <color name="WalkColor5">#CFF5FE</color>
+    <color name="WalkColor6">#B9EEFF</color>
+
+    <color name="PetColor1">#E3EDFA</color>
+    <color name="PetColor2">#B9EEFF</color>
+    <color name="PetColor3">#CFF5FE</color>
+    <color name="PetColor4">#C4DFF6</color>
+    <color name="PetColor5">#EDF3F9</color>
+    <color name="PetColor6">#DFF4FC</color>
+    <color name="PetColor7">#ECF2FB</color>
+    <color name="PetColor8">#E2EDF9</color>
+
+    <color name="CommunityColor1">#47B2FF</color>
+    <color name="CommunityColor2">#C7D3EB</color>
+
+    <color name="TextColor1">#191919</color>
+    <color name="TextColor2">#141415</color>
+    <color name="TextColor3">#111111</color>
+    <color name="TextColor4">#262626</color>
 </resources>
