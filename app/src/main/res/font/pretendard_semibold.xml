@@ -2,6 +2,6 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
     <font
         android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/font_irishgrover" />
+        android:fontWeight="600"
+        android:font="@font/font_pretendard_semibold" />
 </font-family>
