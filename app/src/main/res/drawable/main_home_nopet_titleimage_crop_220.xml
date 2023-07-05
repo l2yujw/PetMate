@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/cat2_temp"
+        android:width="220dp"
+        android:height="124dp">
+
+    </item>
+</layer-list>
