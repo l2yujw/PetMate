@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -63,7 +63,7 @@
                 android:id="@+id/activity_find_account_findId_______"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_round_12dp_b4e0f4"
+                android:background="@drawable/background_login_logindarkskyblue_rightround_10dp"
                 android:text="아이디 찾기"
                 android:textSize="20dp" />
 
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="40dp"
             android:text="인증번호"
             android:textColor="#000000"
@@ -96,15 +96,15 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/background_round_12dp_f8f8fa" />
+            android:layout_marginHorizontal="24dp"
+            android:background="@drawable/background_brandwhite_round_10dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/background_round_12dp_b4e0f4"
+            android:background="@drawable/background_login_logindarkskyblue_round_10dp"
             android:text="아이디 찾기"
             android:textColor="#000000"
             android:textSize="25sp"

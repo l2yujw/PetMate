@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:background="@drawable/background_round_12dp_f8f8fa"
+                android:background="@drawable/background_brandwhite_round_10dp"
                 android:text="산책"
                 android:textColor="#000000"
                 android:textSize="18sp" />
@@ -41,9 +41,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa"
+        android:background="@drawable/background_brandwhite_round_10dp"
         android:drawableStart="@drawable/cat1_temp"
         android:paddingEnd="10dp"
         android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안 / 반려동물 나이 등등)"
@@ -54,20 +54,20 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa"
+        android:background="@drawable/background_brandwhite_round_10dp"
         android:text="페이지 표시"
         android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_round_12dp_029fe4"
+            android:background="@drawable/background_home_weather_homeweatherblue1_round_10dp"
             android:gravity="center"
             android:text="날씨"
             android:textSize="20sp" />
@@ -77,9 +77,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa">
+        android:background="@drawable/background_brandwhite_round_10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -95,9 +95,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/background_round_12dp_f8f8fa"
+        android:background="@drawable/background_brandwhite_round_10dp"
         android:gravity="center"
         android:text="오늘 한줄 평 / 산책가기에 어떤지"
         android:textColor="@color/black"

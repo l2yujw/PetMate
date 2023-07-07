@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -45,7 +45,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:text="이름*"
         android:textColor="#000000"
         android:textSize="20sp" />
@@ -54,13 +54,13 @@
         android:id="@+id/activity_register_editText_name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa" />
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/background_brandwhite_round_10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:text="이메일 주소*"
         android:textColor="#000000"
@@ -70,13 +70,13 @@
         android:id="@+id/activity_register_editText_email"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa" />
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/background_brandwhite_round_10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:text="비밀번호*"
         android:textColor="#000000"
@@ -86,13 +86,13 @@
         android:id="@+id/activity_register_editText_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa" />
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/background_brandwhite_round_10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:text="비밀번호 확인*"
         android:textColor="#000000"
@@ -102,13 +102,13 @@
         android:id="@+id/activity_register_editText_passwordMatch"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/background_round_12dp_f8f8fa" />
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/background_brandwhite_round_10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:text="약관 동의"
         android:textColor="#000000"
@@ -118,7 +118,7 @@
         android:id="@+id/activity_register_checkbox_allTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         android:text="전체 약관 동의"
         android:textColor="#000000"
@@ -127,16 +127,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/background_round_12dp_f8f8fa"
+        android:background="@drawable/background_brandwhite_round_10dp"
         android:orientation="vertical">
 
         <CheckBox
             android:id="@+id/activity_register_checkbox_terms1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="10dp"
             android:text="약관 1"
             android:textColor="#000000"
@@ -146,7 +146,7 @@
             android:id="@+id/activity_register_checkbox_terms2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="10dp"
             android:text="약관 2"
             android:textColor="#000000"
@@ -156,7 +156,7 @@
             android:id="@+id/activity_register_checkbox_terms3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="10dp"
             android:text="약관 3"
             android:textColor="#000000"
@@ -166,7 +166,7 @@
             android:id="@+id/activity_register_checkbox_terms4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="약관 4"
@@ -179,9 +179,9 @@
         android:id="@+id/activity_register_btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/background_round_12dp_b4e0f4"
+        android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:text="아이디 생성"
         android:textColor="#000000"
         android:textSize="25sp"
