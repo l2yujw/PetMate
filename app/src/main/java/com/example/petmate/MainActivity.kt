@@ -8,4 +8,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_0_0)
     }
+    //411*846
+    //기본보다 -28dp 탑 마진
 }
