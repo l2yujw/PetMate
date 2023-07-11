@@ -58,7 +58,8 @@
                         android:layout_marginTop="20dp"
                         android:text="탈주닌자"
                         android:textColor="@color/black"
-                        android:textSize="30sp" />
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -74,16 +75,111 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="end|center_vertical"
-                        android:background="@drawable/background_home_weather_homeweatherblue1_round_10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/background_home_abandonedinfo_sex_homepetcolor1_round_8_76dp"
+                        android:padding="2dp"
                         android:src="@drawable/woman" />
 
+
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:drawableLeft=""
+                android:text="탈주닌자에 대하여..."
+                android:textColor="@color/brandBlack"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="무게\n3.2kg"
+                    android:textColor="@color/brandBlack"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="중성화\n아니오"
+                    android:textColor="@color/brandBlack"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="색상\n흰갈"
+                    android:textColor="@color/brandBlack"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="사람을 좋아하고 얌전함"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:drawableLeft=""
+                android:text="탈주닌자 추가 정보"
+                android:textColor="@color/brandBlack"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_roundstroke_21_89dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="발생장소: 임은동 806-4"
+                    android:textColor="@color/brandBlack" />
 
             </LinearLayout>
 
