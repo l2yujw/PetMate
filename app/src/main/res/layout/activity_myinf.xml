@@ -1,0 +1,8 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/some_id"
+    android:layout_width="480dp"
+    android:layout_height="986dp"
+    android:clipToOutline="true"
+    android:background="@color/brandWhite"
+    />

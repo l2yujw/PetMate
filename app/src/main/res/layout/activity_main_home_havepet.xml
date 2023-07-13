@@ -1,107 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/brandWhite">
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/com_recyclerview_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:fontFamily="@font/irishgrover"
-            android:text="PetMate"
-            android:textColor="#000000"
-            android:textSize="30sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:background="@drawable/background_brandwhite_round_10dp"
-                android:text="산책"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_brandwhite_round_10dp"
-        android:drawableStart="@drawable/cat1_temp"
-        android:paddingEnd="10dp"
-        android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안 / 반려동물 나이 등등)"
-        android:textColor="@color/black" />
-
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_brandwhite_round_10dp"
-        android:text="페이지 표시"
-        android:textSize="15sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_home_weather_homeweatherblue1_round_10dp"
-            android:gravity="center"
-            android:text="날씨"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_brandwhite_round_10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="일정"
-            android:textSize="20sp" />
-
-
-    </ScrollView>
+        android:layout_alignParentBottom="true"
+        android:background="@color/brandWhite"
+        app:itemIconTint="@color/brandBlack"
+        app:itemTextColor="@color/brandBlack"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/btm_navi_menu">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/pet_mate"
+        android:layout_width="138dp"
+        android:layout_height="34dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:text="PET MATE"
+        android:textAppearance="@style/pet_mate"
+        android:lineSpacingExtra="-2sp"
+        android:gravity="top"
+        />
+
+    <Button
+        android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/background_brandwhite_round_10dp"
-        android:gravity="center"
-        android:text="오늘 한줄 평 / 산책가기에 어떤지"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="365dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/background_home_rectangle_1_2"/>
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="410dp"
+        android:layout_height="110dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="121dp" />
 
-</LinearLayout>
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="185dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="251dp"
+        android:layout_gravity="bottom"/>
+
+    <View
+        android:id="@+id/rectangle_3"
+        android:layout_width="410dp"
+        android:layout_height="125dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="293dp"
+        android:background="@drawable/background_home_rectangle_1"
+        android:elevation="4dp" />
+
+    <TextView
+        android:id="@+id/today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="54.11dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="303.48dp"
+        android:text="Today"
+        android:textAppearance="@style/today"
+        android:gravity="top"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="376dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="54dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="332dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+    <View
+        android:layout_width="410dp"
+        android:layout_height="350dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="456dp"
+        android:background="@drawable/background_home_rectangle_1_1"
+        android:elevation="4dp"
+        android:alpha="0.9"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="367dp"
+        android:layout_height="318dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="473dp"
+        />
+
+    <View
+        android:layout_width="410dp"
+        android:layout_height="42dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="838dp"
+        android:background="@drawable/background_home_rectangle_1_2"
+        />
+
+    <TextView
+        android:layout_width="264.13dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="58.65dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="850   "
+        android:text="오늘 한줄 평 / 산책가기에 어떤지 등"
+        android:textSize="15sp"
+        android:letterSpacing="-0.03"
+        android:textColor="#111111"
+        android:lineHeight="24sp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:lineSpacingExtra="6sp"
+        android:translationY="-3.05sp"
+        android:gravity="top"
+        />
+</RelativeLayout>
