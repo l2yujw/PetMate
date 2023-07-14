@@ -29,6 +29,7 @@
     <color name="HomePurple">#4300D1</color>
     <color name="HomePetColor1">#E3EDFA</color>
     <color name="HomePetColor2">#E2EDF9</color>
+    <color name="HomePetColor3">#B3FFFFFF</color>
 
     <color name="WalkColor1">#ECF2FB</color>
     <color name="WalkColor2">#E3EDFA</color>
