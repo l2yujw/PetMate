@@ -28,7 +28,7 @@
     <TextView
         android:id="@+id/pet_mate"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
@@ -41,11 +41,11 @@
     <TextView
         android:id="@+id/pet"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="25dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="135dp"
         android:text="투데이 PET"
         android:textSize="20sp"
         android:fontFamily="@font/pretendard_bold"
@@ -59,11 +59,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/com_recyclerview_0"
         android:layout_width="match_parent"
-        android:layout_height="126dp"
+        android:layout_height="125dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="175dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
@@ -73,7 +73,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="329dp"
+        android:layout_marginTop="330dp"
         />
 
 </RelativeLayout>

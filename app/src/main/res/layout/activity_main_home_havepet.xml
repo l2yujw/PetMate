@@ -19,8 +19,8 @@
 
     <TextView
         android:id="@+id/pet_mate"
-        android:layout_width="138dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
@@ -37,17 +37,17 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="365dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/background_home_rectangle_1_2"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
+        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="121dp" />
+        android:layout_marginTop="120dp" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
@@ -56,17 +56,17 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="185dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="251dp"
+        android:layout_marginTop="250dp"
         android:layout_gravity="bottom"/>
 
     <View
         android:id="@+id/rectangle_3"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
+        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="293dp"
+        android:layout_marginTop="295dp"
         android:background="@drawable/background_home_rectangle_1"
         android:elevation="4dp" />
 
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="54.11dp"
+        android:layout_marginLeft="55dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="303.48dp"
         android:text="Today"
@@ -84,10 +84,10 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="376dp"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="54dp"
+        android:layout_marginHorizontal="55dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="332dp"
         android:orientation="horizontal"
@@ -95,43 +95,42 @@
         />
 
     <View
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="456dp"
-        android:background="@drawable/background_home_rectangle_1_1"
-        android:elevation="4dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="455dp"
         android:alpha="0.9"
-        />
+        android:background="@drawable/background_home_rectangle_1_1"
+        android:elevation="4dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="367dp"
-        android:layout_height="318dp"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="61dp"
+        android:layout_marginHorizontal="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="473dp"
+        android:layout_marginTop="475dp"
         />
 
     <View
-        android:layout_width="410dp"
-        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
+        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="838dp"
+        android:layout_marginTop="840dp"
         android:background="@drawable/background_home_rectangle_1_2"
         />
 
     <TextView
-        android:layout_width="264.13dp"
-        android:layout_height="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="58.65dp"
+        android:layout_marginHorizontal="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="850   "
+        android:layout_marginTop="850dp"
         android:text="오늘 한줄 평 / 산책가기에 어떤지 등"
         android:textSize="15sp"
         android:letterSpacing="-0.03"
