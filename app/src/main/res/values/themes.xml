@@ -19,4 +19,40 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#111111</item>
     </style>
+
+    <style name="myinf_id">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#262626</item>
+    </style>
+
+    <style name="myinf_degree">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#262626</item>
+    </style>
+
+    <style name="myinf_point">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#262626</item>
+    </style>
+
+    <style name="myinf_name">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:lineHeight">26sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#262626</item>
+    </style>
+
+    <style name="myinf_introduce">
+        <item name="android:fontFamily">@font/poppins_black</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#262626</item>
+    </style>
+
 </resources>
