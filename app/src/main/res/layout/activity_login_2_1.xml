@@ -1,114 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F8FA"
-    android:orientation="vertical">
+    android:background="@color/brandWhite">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/activity_register_btn_back"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/left_arrow" />
 
-        <ImageButton
-            android:id="@+id/activity_find_account_btn_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/left_arrow" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="아이디 찾기"
+        android:textColor="@color/brandBlack"
+        android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="아이디 찾기"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:visibility="visible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="비밀번호 찾기"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:visibility="gone" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="40dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/irishgrover"
         android:gravity="center"
         android:text="PetMate"
-        android:textColor="#000000"
-        android:textSize="80sp" />
+        android:textColor="@color/brandBlack"
+        android:textSize="70sp" />
 
-    <TableLayout
+    <View
+        android:id="@+id/activity_login_2_0_division"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/activity_find_account_findId_______"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_alignRight="@id/activity_login_2_0_division"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="265dp"
+        android:background="@drawable/background_login_logindarkskyblue_rightround_10dp"
+        android:text="아이디 찾기"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@id/activity_login_2_0_division"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="265dp"
+        android:background="@android:color/transparent"
+        android:text="비밀번호 찾기"
+        android:textSize="20dp" />
+
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:stretchColumns="*">
+        android:layout_height="26dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="384dp"
+        android:text="인증번호"
+        android:textColor="@color/brandBlack"
+        android:textSize="20sp" />
 
-        <TableRow>
-            <Button
-                android:id="@+id/activity_find_account_findId_______"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background_login_logindarkskyblue_rightround_10dp"
-                android:text="아이디 찾기"
-                android:textSize="20dp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:text="비밀번호 찾기"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-    </TableLayout>
-
-
-    <LinearLayout
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="414dp"
+        android:background="@drawable/background_brandwhite_round_10dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="40dp"
-            android:text="인증번호"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="509dp"
+        android:background="@drawable/background_login_logindarkskyblue_round_10dp"
+        android:text="아이디 찾기"
+        android:textColor="@color/brandBlack"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="24dp"
-            android:background="@drawable/background_brandwhite_round_10dp" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/background_login_logindarkskyblue_round_10dp"
-            android:text="아이디 찾기"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
