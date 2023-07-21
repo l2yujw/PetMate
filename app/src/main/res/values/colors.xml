@@ -39,9 +39,9 @@
     <color name="WalkColor6">#B9EEFF</color>
 
     <color name="PetColor1">#E3EDFA</color>
-    <color name="PetColor2">#B9EEFF</color>
-    <color name="PetColor3">#CFF5FE</color>
-    <color name="PetColor4">#C4DFF6</color>
+    <color name="PetColor2">#66B9EEFF</color>
+    <color name="PetColor3">#66CFF5FE</color>
+    <color name="PetColor4">#66C4DFF6</color>
     <color name="PetColor5">#EDF3F9</color>
     <color name="PetColor6">#DFF4FC</color>
     <color name="PetColor7">#ECF2FB</color>
@@ -54,6 +54,7 @@
     <color name="TextColor2">#141415</color>
     <color name="TextColor3">#111111</color>
     <color name="TextColor4">#262626</color>
+
     <!-- 투명도
     100% - FF
     95% - F2
@@ -76,4 +77,5 @@
     10% - 1A
     5% - 0D
     0% - 00 -->
+
 </resources>

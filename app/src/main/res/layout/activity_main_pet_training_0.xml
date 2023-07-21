@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brandWhite">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/com_recyclerview_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/brandWhite"
+        app:itemIconTint="@color/brandBlack"
+        app:itemTextColor="@color/brandBlack"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/btm_navi_menu" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="55dp"
+        android:text="PET MATE"
+        android:textAppearance="@style/pet_mate" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/background_pet_training_search_petcolor5_roundstroke_12dp">
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="34dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="9dp"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="58dp"
+            android:background="@android:color/transparent"
+            android:hint="Search"
+            android:textColor="#717171"
+            android:textSize="21sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/activity_main_pet_training_division1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_alignEnd="@id/activity_main_pet_training_division1"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="3.5dp">
+
+        <View
+            android:id="@+id/activity_main_pet_training_division2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_alignEnd="@id/activity_main_pet_training_division2"
+            android:layout_marginEnd="3.5dp"
+            android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Trending"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_alignStart="@id/activity_main_pet_training_division2"
+            android:layout_marginStart="3.5dp"
+            android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Level 1"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_alignStart="@id/activity_main_pet_training_division1"
+        android:layout_marginStart="3.5dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="35dp">
+
+        <View
+            android:id="@+id/activity_main_pet_training_division3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_alignEnd="@id/activity_main_pet_training_division3"
+            android:layout_marginEnd="3.5dp"
+            android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Level 2"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_alignStart="@id/activity_main_pet_training_division3"
+            android:layout_marginStart="3.5dp"
+            android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Level 3"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="243dp"
+        android:background="#DDDDDD"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="272dp"
+        android:layout_marginHorizontal="35dp"
+        android:padding="20dp" />
+
+
+</RelativeLayout>

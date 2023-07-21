@@ -71,15 +71,13 @@
             android:layout_marginHorizontal="35dp"
             android:layout_marginTop="464dp">
 
-            <ListView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/activity_main_walk_gridView1"
-                android:numColumns="1"/>
+                android:padding="20dp" />
 
 
         </ScrollView>
-
 
 
     </FrameLayout>
