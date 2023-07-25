@@ -49,8 +49,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginTop="265dp"
         android:background="@drawable/background_login_logindarkskyblue_rightround_10dp"
-        android:text="아이디 찾기"
-        android:textSize="20dp" />
+        android:textAppearance="@style/login__button1"
+        android:text="아이디 찾기" />
 
     <Button
         android:layout_width="240dp"
@@ -59,8 +59,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="265dp"
         android:background="@android:color/transparent"
-        android:text="비밀번호 찾기"
-        android:textSize="20dp" />
+        android:textAppearance="@style/login__button1"
+        android:text="비밀번호 찾기" />
 
 
     <TextView
@@ -69,30 +69,28 @@
         android:layout_marginHorizontal="35dp"
         android:layout_marginTop="384dp"
         android:text="이름"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
+        android:textAppearance="@style/login__textview" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="414dp"
+        android:layout_marginTop="415dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="479dp"
+        android:layout_marginTop="480dp"
         android:text="이메일 주소"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
+        android:textAppearance="@style/login__textview" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="509dp"
+        android:layout_marginTop="510dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
 
     <Button
@@ -102,8 +100,6 @@
         android:layout_marginTop="623dp"
         android:background="@drawable/background_login_logindarkskyblue_round_10dp"
         android:text="아이디 찾기"
-        android:textColor="@color/brandBlack"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textAppearance="@style/login__button2" />
 
 </RelativeLayout>
