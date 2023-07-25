@@ -9,74 +9,114 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="95dp"
-        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="90dp"
         android:fontFamily="@font/irishgrover"
         android:gravity="center"
         android:text="PetMate"
         android:textColor="@color/brandBlack"
         android:textSize="80sp" />
 
-    <LinearLayout
+    <View
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="265dp"
+        android:background="@drawable/login_id_png"
+        android:elevation="1dp"
+        />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="24dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/background_login_input_light_skyblue"
+        />
+
+    <View
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/background_login_input_light_skyblue"
+        />
+
+    <EditText
+        android:id="@+id/some_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="120dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="260dp"
-        android:background="@drawable/background_login_input_light_skyblue"
-        android:elevation="4dp">
+        android:text="아이디"
+        android:textAppearance="@style/login_0_0_edittext"
+        android:lineSpacingExtra="1sp"
+        android:gravity="top"
+        />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:src="@drawable/login_id_png" />
 
-        <EditText
-            android:id="@+id/activity_login_editText_id_"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autofillHints="아이디"
-            android:background="@android:color/transparent"
-            android:hint="아이디"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            android:textColor="#80000000" />
-    </LinearLayout>
+    <View
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/login_password_png"
+        android:elevation="1dp"
+        />
 
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="315dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="334dp"
+        android:background="@drawable/background_login_input_light_skyblue" />
+
+    <View
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="335dp"
         android:background="@drawable/background_login_input_light_skyblue"
-        android:elevation="4dp">
+        />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:src="@drawable/login_password_png" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="345dp"
+        android:text="비밀번호"
+        android:textAppearance="@style/login_0_0_edittext"
+        android:lineSpacingExtra="1sp"
+        android:gravity="top"
+        />
 
-        <EditText
-            android:id="@+id/activity_login_editText_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autofillHints="비밀번호"
-            android:background="@android:color/transparent"
-            android:hint="비밀번호"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            android:textColor="#80000000" />
-    </LinearLayout>
+
 
     <Button
         android:id="@+id/activity_login_btn_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="375dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="35dp"
         android:background="#00000000"
         android:text="Forgot Password?"
         android:textColor="@color/LoginBlue"
@@ -85,29 +125,31 @@
     <Button
         android:id="@+id/activity_login_btn_login"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="445dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="490dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:enabled="false"
+        android:textAppearance="@style/login_0_0_button"
         android:text="로그인" />
 
     <Button
         android:id="@+id/activity_login_btn_register"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="508dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="570dp"
         android:background="@drawable/background_brandwhite_round_10dp"
+        android:textAppearance="@style/login_0_0_button"
         android:text="회원가입" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="45dp"
-        android:layout_marginTop="596dp">
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="680dp">
 
         <ImageButton
             android:id="@+id/activity_login_btn_naverLogin"

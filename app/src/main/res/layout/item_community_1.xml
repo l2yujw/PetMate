@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="480dp"
+    android:layout_height="350dp">
+
+    <View
+        android:layout_width="42dp"
+        android:layout_height="44dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:background="#D9D9D9"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="68dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:text="l2yu_"
+        android:textAppearance="@style/community_id"
+        android:lineSpacingExtra="-9sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="68dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="경기도"
+        android:textAppearance="@style/community_area"
+        android:gravity="top"
+        />
+
+    <View
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="308dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/search"
+        />
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="430dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/search"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="358dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:text="48.6*c"
+        android:textAppearance="@style/community_degree"
+        android:lineSpacingExtra="-9sp"
+        android:gravity="top"
+        />
+
+    <ProgressBar
+        android:layout_width="87dp"
+        android:layout_height="12dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="358dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="43dp"
+        />
+
+    <ImageView
+        android:layout_width="235dp"
+        android:layout_height="270dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/cat2_temp"
+        />
+
+    <View
+        android:layout_width="235dp"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="245dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/cat2_temp"
+        android:elevation="24dp"
+        />
+
+    <View
+        android:layout_width="235dp"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="245dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/cat2_temp"
+        android:elevation="24dp"
+        />
+</RelativeLayout>
