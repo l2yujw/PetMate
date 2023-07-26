@@ -23,36 +23,33 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="101dp"
+            android:layout_marginTop="100dp"
             android:scaleType="center"
             android:src="@drawable/main_home_nopet_titleimage_crop_480" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="130dp"
             android:layout_marginHorizontal="35dp"
             android:layout_marginTop="295dp"
             android:background="@drawable/main_home_abandonedinfo_gradient"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="탈주닌자"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textAppearance="@style/abandonedinfo_name" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="65dp"
                 android:text="놀라버린 고양이 1살"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                />
 
             <ImageView
                 android:layout_width="40dp"
@@ -65,29 +62,37 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="460dp"
+            android:background="@drawable/login_password_png"
+            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="453dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="460dp"
             android:drawableLeft=""
             android:text="탈주닌자에 대하여..."
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/abandonedinfo_about"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="484dp"
+            android:layout_marginTop="500dp"
             android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -97,9 +102,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
                     android:text="무게"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/abandonedinfo_inf_"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,9 +112,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="3.2kg"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    />
 
             </RelativeLayout>
 
@@ -118,7 +122,7 @@
                 android:layout_height="70dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -128,9 +132,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
                     android:text="중성화"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/abandonedinfo_inf_"/>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,9 +143,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="아니오"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    />
 
             </RelativeLayout>
 
@@ -148,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -158,9 +162,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
                     android:text="색상"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/abandonedinfo_inf_"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,9 +172,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="흰갈"
-                    android:textColor="@color/brandBlack"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    />
 
             </RelativeLayout>
 
@@ -178,40 +181,42 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="570dp"
+            android:layout_marginTop="580dp"
             android:text="사람을 좋아하고 얌전함"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="679dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="680dp"
             android:drawableLeft=""
             android:text="탈주닌자 추가 정보"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/abandonedinfo_about_plus"/>
 
-        <RelativeLayout
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="685dp"
+            android:background="@drawable/login_password_png"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="700dp"
-            android:padding="10dp">
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="720dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        </RelativeLayout>
 
 
     </FrameLayout>

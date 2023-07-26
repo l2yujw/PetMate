@@ -1,8 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <solid android:color="@color/HomePetColor1"/>
-    <corners
-        android:radius="8.76dp"/>
-
-</shape>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="39.41dp"
+    android:height="39.41dp"
+    android:viewportWidth="39.41"
+    android:viewportHeight="39.41"
+    >
+    <group>
+        <clip-path
+            android:pathData="M8.75674 0H30.6486C35.4848 0 39.4053 3.92053 39.4053 8.75674V30.6486C39.4053 35.4848 35.4848 39.4053 30.6486 39.4053H8.75674C3.92053 39.4053 0 35.4848 0 30.6486V8.75674C0 3.92053 3.92053 0 8.75674 0Z"
+            />
+        <path
+            android:pathData="M0 0V39.4053H39.4053V0"
+            android:fillColor="#E3EDFA"
+            />
+    </group>
+</vector>
