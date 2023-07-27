@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="bottom"
+    app:umanoDragView="@id/slide_layout">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/brandWhite">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginHorizontal="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/background_map_rectangle_0"
+            />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="103dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="65dp"
+            android:text="검색"
+            android:textAppearance="@style/map_search"
+            android:gravity=""
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/slide_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_nopet_rectangle_1">
+
+        <Button
+            android:id="@+id/btn_touch"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_toggle" />
+
+        <Button
+            android:id="@+id/btn_toggle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Finish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+

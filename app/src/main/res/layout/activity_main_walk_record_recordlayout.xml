@@ -1,155 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="392dp"
-    android:layout_height="wrap_content"
+    android:layout_width="410dp"
+    android:layout_height="210dp"
     android:background="@drawable/background_walk_record_recordbox_walkcolor1_round_23dp"
-    android:padding="15dp">
+    >
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/background_home_1_circleimage_textcolor3_circlestroke"
-        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
         android:src="" />
 
     <TextView
-        android:layout_width="181dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="45dp"
-        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
         android:text="보호자 1"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_user"/>
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="255dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/background_walk_record_button_walkcolor3_round_10dp"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
         android:text="버튼" />
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="75dp"
         android:text="00:29:02"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_detail"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="75dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="105dp"
         android:text="Training Time"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="190dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="75dp"
         android:text="310"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_detail"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="105dp"
         android:text="Calories"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="32"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="330dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="75dp"
-        android:gravity="center"
+        android:text="32"
+        android:textAppearance="@style/recordlayout_detail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="295dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="105dp"
         android:text="Avg. frequency"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="120dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
         android:text="65"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_detail"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="145dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp"
         android:text="Max. frequency"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="205dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
         android:text="1"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_detail"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="145dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="187dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp"
         android:text="Breaks"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="120dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="315dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
         android:text="00:32"
-        android:textColor="@color/TextColor3"
-        android:textSize="18sp" />
+        android:textAppearance="@style/recordlayout_detail" />
 
     <TextView
-        android:layout_width="110dp"
-        android:layout_height="25dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="145dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp"
         android:text="Break Time"
-        android:textColor="@color/TextColor3"
-        android:textSize="16sp" />
+        android:textAppearance="@style/recordlayout_detailName"/>
 
 
 </RelativeLayout>
