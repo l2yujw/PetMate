@@ -18,18 +18,13 @@
         />
 
     <TextView
-        android:id="@+id/pet_mate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
-        android:layout_alignParentTop="true"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="35dp"
         android:layout_marginTop="55dp"
         android:text="PET MATE"
-        android:textAppearance="@style/pet_mate"
-        android:lineSpacingExtra="-2sp"
-        android:gravity="top"
-        />
+        android:textAppearance="@style/pet_mate" />
 
     <View
         android:layout_width="match_parent"

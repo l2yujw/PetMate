@@ -66,9 +66,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="탈주닌자"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/pet_main_name"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -76,8 +74,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
             android:text="놀라버린 고양이 1살"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textAppearance="@style/pet_main_nameSub"/>
 
         <ImageView
             android:layout_width="40dp"
@@ -339,12 +336,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/kcal_num"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_centerVertical="true"
-            android:text="250kcal"
+            android:layout_marginLeft="10dp"
+            android:text="250"
+            android:textAppearance="@style/pet_health_kcalNum" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/kcal_num"
+            android:text="kcal"
             android:textAppearance="@style/pet_health_kcal" />
+
 
     </RelativeLayout>
 

@@ -34,8 +34,8 @@
     <Button
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="365dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="55dp"
         android:background="@drawable/background_home_rectangle_1_2"/>
