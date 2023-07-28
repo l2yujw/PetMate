@@ -105,8 +105,8 @@
         android:layout_marginTop="576dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="19dp"
-        android:layout_alignRight="@id/activity_main_pet_main_division"
-        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@id/activity_main_pet_main_division"
+        android:layout_alignParentStart="true"
         android:background="@drawable/background_pet_main_health_petcolor3_round_20dp">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -123,8 +123,8 @@
         android:layout_marginTop="576dp"
         android:layout_marginStart="19dp"
         android:layout_marginEnd="35dp"
-        android:layout_alignLeft="@id/activity_main_pet_main_division"
-        android:layout_alignParentRight="true"
+        android:layout_alignStart="@id/activity_main_pet_main_division"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/background_pet_main_training_petcolor4_round_20dp">
 
         <androidx.recyclerview.widget.RecyclerView
