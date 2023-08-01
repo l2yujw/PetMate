@@ -215,6 +215,13 @@
         <item name="android:textColor">#141415</item>
     </style>
 
+    <style name="abandonedinfo_additionalinformation">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">23sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#5F5F63</item>
+    </style>
+
     <style name="havepet_degree">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">10sp</item>
