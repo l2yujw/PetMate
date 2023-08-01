@@ -1,11 +1,11 @@
 package com.example.petmate
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainPetTrainingDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_pet_training_1)
@@ -24,6 +24,4 @@ class MainActivity : AppCompatActivity() {
         rv_board.adapter = boardAdapter
         rv_board.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
-    //411*846
-    //기본보다 -28dp 탑 마진
 }

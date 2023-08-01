@@ -6,6 +6,7 @@
     >
 
     <ImageView
+        android:id="@+id/walk_record_profileimage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/background_home_1_circleimage_textcolor3_circlestroke"
@@ -15,6 +16,7 @@
         android:layout_marginTop="13dp" />
 
     <TextView
+        android:id="@+id/walk_record_guardian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -25,6 +27,7 @@
         android:textAppearance="@style/recordlayout_user"/>
 
     <Button
+        android:id="@+id/walk_record_button"
         android:layout_width="135dp"
         android:layout_height="45dp"
         android:layout_alignParentLeft="true"
@@ -35,6 +38,7 @@
         android:text="버튼" />
 
     <TextView
+        android:id="@+id/walk_record_trainingtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -55,6 +59,7 @@
         android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
+        android:id="@+id/walk_record_calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -75,6 +80,7 @@
         android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
+        android:id="@+id/walk_record_avgfrequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -95,6 +101,7 @@
         android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
+        android:id="@+id/walk_record_maxfrequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -115,6 +122,7 @@
         android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
+        android:id="@+id/walk_record_breaks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -135,6 +143,7 @@
         android:textAppearance="@style/recordlayout_detailName"/>
 
     <TextView
+        android:id="@+id/walk_record_breaktimes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

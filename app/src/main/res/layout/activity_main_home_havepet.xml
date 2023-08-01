@@ -84,6 +84,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/havepet_weather"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
@@ -106,6 +107,7 @@
         android:elevation="4dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/havepet_schedule"
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_alignParentLeft="true"

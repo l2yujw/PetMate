@@ -1,30 +1,30 @@
 package com.example.petmate
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainHomeAbandonedinfoActivity(val itemList: ArrayList<MainHomeAbandonedinfoActivityData>) : RecyclerView.Adapter<MainHomeAbandonedinfoActivity.AbandonedViewHolder>() {
+class MainHomeAbandonedinfoActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main_home_abandonedinfo)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbandonedViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_main_home_abandonedinfo_infolayout, parent, false)
-        return AbandonedViewHolder(view)
-    }
+        val rv_board = findViewById<RecyclerView>(R.id.abandonedinfo_additionalinfo_recyclerview)
 
-    override fun onBindViewHolder(holder: AbandonedViewHolder, position: Int) {
-        holder.info_tag.text = itemList[position].info_tag
-        holder.info_info.text = itemList[position].info_info
-    }
+        val itemList = ArrayList<MainHomeAbandonedinfoData>()
 
-    override fun getItemCount(): Int {
-        return itemList.count()
-    }
+        itemList.add(MainHomeAbandonedinfoData("발생장소", "임은동 806-4"))
+        itemList.add(MainHomeAbandonedinfoData("접수일시", "2023-07-07"))
+        itemList.add(MainHomeAbandonedinfoData("관할기관", "경상북도 구미시"))
+        itemList.add(MainHomeAbandonedinfoData("상태", "보호중"))
+        itemList.add(MainHomeAbandonedinfoData("보호장소", "경상북도 구미시 인동22길 43-4 (진평동)"))
+        itemList.add(MainHomeAbandonedinfoData("보호센터연락처", "054-716-0211"))
 
+        val boardAdapter = MainHomeAbandonedinfo(itemList)
+        boardAdapter.notifyDataSetChanged()
 
-    inner class AbandonedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val info_tag = itemView.findViewById<TextView>(R.id.abandonedinfo_additionalinfo_tag)
-        val info_info = itemView.findViewById<TextView>(R.id.abandonedinfo_additionalinfo_info)
+        rv_board.adapter = boardAdapter
+        rv_board.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 }
