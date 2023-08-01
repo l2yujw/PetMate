@@ -2,14 +2,13 @@ package com.example.petmate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.RelativeLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_home_abandonedinfo_infolayout)
+        setContentView(R.layout.activity_main_home_abandonedinfo)
 
         val rv_board = findViewById<RecyclerView>(R.id.abandonedinfo_additionalinfo_recyclerview)
 
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         boardAdapter.notifyDataSetChanged()
 
         rv_board.adapter=boardAdapter
-        rv_board.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rv_board.layoutManager= LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
     }
     //411*846
     //기본보다 -28dp 탑 마진
