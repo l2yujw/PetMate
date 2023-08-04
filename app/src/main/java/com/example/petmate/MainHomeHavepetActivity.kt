@@ -1,12 +1,12 @@
 package com.example.petmate
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 
-class MainActivity : AppCompatActivity() {
+class MainHomeHavepetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_home_havepet)
@@ -47,6 +47,4 @@ class MainActivity : AppCompatActivity() {
         rv_board_weather.adapter = boardAdapterWeatherList
         rv_board_weather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
-    //411*846
-    //기본보다 -28dp 탑 마진
 }

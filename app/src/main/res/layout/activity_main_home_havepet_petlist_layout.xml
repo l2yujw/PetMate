@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginHorizontal="35dp"
+    android:background="@drawable/background_havepet_homepetcolor3_round_20dp">
+
+    <View
+        android:id="@+id/activity_main_home_havepet_petlist_division"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/havepet_petlist_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"
+        android:src="@drawable/cat2_temp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/havepet_petlist_randomtext"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_alignStart="@id/activity_main_home_havepet_petlist_division"
+        android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안/\n반려동물 나이 등)"
+        android:textAppearance="@style/havepet_randomtext" />
+
+</RelativeLayout>

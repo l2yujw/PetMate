@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/havepet_schedule_time"
+        android:layout_width="63dp"
+        android:layout_height="wrap_content"
+        android:text="08:00 am"
+        android:textAppearance="@style/havepet_schedule_time" />
+    
+    <View
+        android:id="@+id/havepet_schedule_timebar"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/background_havepet_homecalcolor1_round_8dp" />
+
+    <RelativeLayout
+        android:id="@+id/havepet_schedule_notebackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/background_havepet_homecalcolor12_round_4dp">
+        
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_havepet_homecalcolor2_leftround_4dp" />
+
+        <TextView
+            android:id="@+id/havepet_schedule_maintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temp1"
+            android:layout_marginStart="15dp" />
+
+        <TextView
+            android:id="@+id/havepet_schedule_subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temp2"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="26dp"/>
+        
+    </RelativeLayout>
+
+
+</RelativeLayout>
