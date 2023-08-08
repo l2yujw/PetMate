@@ -3,42 +3,30 @@ package com.example.petmate
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.petmate.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    private val fragmentManager = supportFragmentManager
+
+    private lateinit var binding : ActivityMainBinding
+
+    private var fragmentOneTest: FragmentOneTest? = null
+    private var fragmentTwoTest: FragmentTwoTest? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val bnv_main = findViewById<BottomNavigationView>(R.id.bnv_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.lifecycleOwner = this
 
-        bnv_main.setOnItemSelectedListener { item ->
-            changeFragment(
-                when (item.itemId) {
-                    R.id.tab_home -> {
-                        FragmentOneTest()
-                        // Respond to navigation item 1 click
-                    }
-                    R.id.tab_pet -> {
-                        FragmentTwoTest()
-                        // Respond to navigation item 2 click
-                    }
-                    R.id.tab_community -> {
-                        FragmentOneTest()
-                        // Respond to navigation item 3 click
-                    }
-                    else -> {
-                        FragmentTwoTest()
-                    }
-                }
-            )
-            true
-        }
+        initBottomNavigation()
+
 
 //        setContentView(R.layout.activity_main_home_havepet)
 //
@@ -78,10 +66,39 @@ class MainActivity : AppCompatActivity() {
 //        rv_board_weather.adapter = boardAdapterWeatherList
 //        rv_board_weather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fl_container, fragment)
-            .commit()
+    private fun initBottomNavigation(){
+        // 최초로 보이는 프래그먼트
+        fragmentOneTest = FragmentOneTest()
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragmentOneTest!!).commit()
+
+        binding.bnvMain.setOnItemSelectedListener {
+
+            // 최초 선택 시 fragment add, 선택된 프래그먼트 show, 나머지 프래그먼트 hide
+            when(it.itemId){
+                R.id.tab_home ->{
+                    if(fragmentOneTest == null){
+                        fragmentOneTest = FragmentOneTest()
+                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,fragmentOneTest!!).commit()
+                    }
+                    if(fragmentOneTest != null) fragmentManager.beginTransaction().show(fragmentOneTest!!).commit()
+                    if(fragmentTwoTest != null) fragmentManager.beginTransaction().hide(fragmentTwoTest!!).commit()
+
+                    return@setOnItemSelectedListener true
+                }
+                R.id.tab_pet ->{
+                    if(fragmentTwoTest == null){
+                        fragmentTwoTest = FragmentTwoTest()
+                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,fragmentTwoTest!!).commit()
+                    }
+                    if(fragmentOneTest != null) fragmentManager.beginTransaction().hide(fragmentOneTest!!).commit()
+                    if(fragmentTwoTest != null) fragmentManager.beginTransaction().show(fragmentTwoTest!!).commit()
+
+                    return@setOnItemSelectedListener true
+                }
+                else ->{
+                    return@setOnItemSelectedListener true
+                }
+            }
+        }
     }
 }
