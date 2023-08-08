@@ -1,15 +1,16 @@
-package com.example.petmate
+package com.example.petmate.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petmate.R
 
-class MainHomeHavepetPetlist(val itemList: ArrayList<MainHomeHavepetPetlistData>) : RecyclerView.Adapter<MainHomeHavepetPetlist.HavepetPetlistViewHolder>() {
+class HomeHavepetPetlist(val itemList: ArrayList<HomeHavepetPetlistData>) : RecyclerView.Adapter<HomeHavepetPetlist.HavepetPetlistViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HavepetPetlistViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_main_home_havepet_petlist_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_home_havepet_petlist_layout, parent, false)
         return HavepetPetlistViewHolder(view)
     }
 

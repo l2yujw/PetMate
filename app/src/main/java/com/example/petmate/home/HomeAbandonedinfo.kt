@@ -1,15 +1,16 @@
-package com.example.petmate
+package com.example.petmate.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petmate.R
 
-class MainHomeAbandonedinfo(val itemList: ArrayList<MainHomeAbandonedinfoData>) : RecyclerView.Adapter<MainHomeAbandonedinfo.AbandonedViewHolder>() {
+class HomeAbandonedinfo(val itemList: ArrayList<HomeAbandonedinfoData>) : RecyclerView.Adapter<HomeAbandonedinfo.AbandonedViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbandonedViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_main_home_abandonedinfo_infolayout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_home_abandonedinfo_infolayout, parent, false)
         return AbandonedViewHolder(view)
     }
 

@@ -41,7 +41,7 @@
         android:background="@drawable/background_home_rectangle_1_2"/>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/havepet_petlist_viewpager"
+        android:id="@+id/viewpager_havingpet_petlist"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_alignParentLeft="true"
@@ -50,7 +50,7 @@
         android:layout_marginTop="120dp" />
 
     <me.relex.circleindicator.CircleIndicator3
-        android:id="@+id/havepet_petlist_circleindicator"
+        android:id="@+id/circleindicator_havepet_petlist"
         android:layout_width="100dp"
         android:layout_height="10dp"
         android:layout_alignParentLeft="true"
@@ -84,7 +84,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/havepet_weather"
+        android:id="@+id/rcv_havepet_weather"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
@@ -107,7 +107,7 @@
         android:elevation="4dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/havepet_schedule"
+        android:id="@+id/rcv_havepet_schedule"
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_alignParentLeft="true"

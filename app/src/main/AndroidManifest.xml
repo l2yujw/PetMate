@@ -13,11 +13,13 @@
         android:theme="@style/Theme.PetMate"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".navigation.BottomNavActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".login.Login00Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
