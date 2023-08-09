@@ -3,19 +3,23 @@ package com.example.petmate.navigation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.petmate.FragmentOneTest
-import com.example.petmate.FragmentTwoTest
-import com.example.petmate.home.HomeHavingPetFragment
+import com.example.petmate.home.HomePetownerFragment
 import com.example.petmate.R
+import com.example.petmate.community.CommunityFragment
 import com.example.petmate.databinding.ActivityBottomNavBinding
+import com.example.petmate.myinf.MyinfFragment
+import com.example.petmate.pet.PetMainFragment
 
 class BottomNavActivity : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
 
     private lateinit var binding : ActivityBottomNavBinding
 
-    private var homeHavingPetFragment: HomeHavingPetFragment? = null
-    private var fragmentTwoTest: FragmentTwoTest? = null
+    private var homeHavingPetFragment: HomePetownerFragment? = null
+    private var petMainFragment: PetMainFragment? = null
+    private var communityFragment: CommunityFragment? = null
+    private var myinfFragment: MyinfFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,7 +31,7 @@ class BottomNavActivity : AppCompatActivity() {
 
     private fun initBottomNavigation(){
         // 최초로 보이는 프래그먼트
-        homeHavingPetFragment = HomeHavingPetFragment()
+        homeHavingPetFragment = HomePetownerFragment()
         fragmentManager.beginTransaction().replace(R.id.fragmentContainerView,homeHavingPetFragment!!).commit()
 
         binding.bnvMain.setOnItemSelectedListener {
@@ -36,21 +40,49 @@ class BottomNavActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.tab_home ->{
                     if(homeHavingPetFragment == null){
-                        homeHavingPetFragment = HomeHavingPetFragment()
+                        homeHavingPetFragment = HomePetownerFragment()
                         fragmentManager.beginTransaction().add(R.id.fragmentContainerView,homeHavingPetFragment!!).commit()
                     }
                     if(homeHavingPetFragment != null) fragmentManager.beginTransaction().show(homeHavingPetFragment!!).commit()
-                    if(fragmentTwoTest != null) fragmentManager.beginTransaction().hide(fragmentTwoTest!!).commit()
+                    if(petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+                    if(communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+                    if(myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
 
                     return@setOnItemSelectedListener true
                 }
                 R.id.tab_pet ->{
-                    if(fragmentTwoTest == null){
-                        fragmentTwoTest = FragmentTwoTest()
-                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,fragmentTwoTest!!).commit()
+                    if(petMainFragment == null){
+                        petMainFragment = PetMainFragment()
+                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,petMainFragment!!).commit()
                     }
                     if(homeHavingPetFragment != null) fragmentManager.beginTransaction().hide(homeHavingPetFragment!!).commit()
-                    if(fragmentTwoTest != null) fragmentManager.beginTransaction().show(fragmentTwoTest!!).commit()
+                    if(petMainFragment != null) fragmentManager.beginTransaction().show(petMainFragment!!).commit()
+                    if(communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+                    if(myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
+
+                    return@setOnItemSelectedListener true
+                }
+                R.id.tab_community ->{
+                    if(communityFragment == null){
+                        communityFragment = CommunityFragment()
+                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,communityFragment!!).commit()
+                    }
+                    if(homeHavingPetFragment != null) fragmentManager.beginTransaction().hide(homeHavingPetFragment!!).commit()
+                    if(petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+                    if(communityFragment != null) fragmentManager.beginTransaction().show(communityFragment!!).commit()
+                    if(myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
+
+                    return@setOnItemSelectedListener true
+                }
+                R.id.tab_myInf ->{
+                    if(myinfFragment == null){
+                        myinfFragment = MyinfFragment()
+                        fragmentManager.beginTransaction().add(R.id.fragmentContainerView,myinfFragment!!).commit()
+                    }
+                    if(homeHavingPetFragment != null) fragmentManager.beginTransaction().hide(homeHavingPetFragment!!).commit()
+                    if(petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+                    if(communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+                    if(myinfFragment != null) fragmentManager.beginTransaction().show(myinfFragment!!).commit()
 
                     return@setOnItemSelectedListener true
                 }

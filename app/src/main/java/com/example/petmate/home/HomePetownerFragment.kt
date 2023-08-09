@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.R
 
-class HomeHavingPetFragment : Fragment() {
+class HomePetownerFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,33 +23,33 @@ class HomeHavingPetFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var rootView = inflater.inflate(R.layout.fragment_home_havepet, container, false)
+        var rootView = inflater.inflate(R.layout.fragment_home_petowner, container, false)
 
         val rv_board_petlist = rootView.findViewById<ViewPager2>(R.id.viewpager_havingpet_petlist)
         val rv_board_schedule = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_schedule)
         val rv_board_weather = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_weather)
 
-        val PetList = ArrayList<HomeHavepetPetlistData>()
-        val ScheduleList = ArrayList<HomeHavepetScheduleData>()
-        val WeatherList = ArrayList<HomeHavepetWeatherData>()
+        val PetList = ArrayList<HomePetownerPetlistData>()
+        val ScheduleList = ArrayList<HomePetownerScheduleData>()
+        val WeatherList = ArrayList<HomePetownertWeatherData>()
 
-        PetList.add(HomeHavepetPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        PetList.add(HomeHavepetPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        PetList.add(HomeHavepetPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
 
-        ScheduleList.add(HomeHavepetScheduleData("08:00 am", "MainText", "SubText"))
-        ScheduleList.add(HomeHavepetScheduleData("08:00 am", "MainText", "SubText"))
-        ScheduleList.add(HomeHavepetScheduleData("08:00 am", "MainText", "SubText"))
+        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
 
-        WeatherList.add(HomeHavepetWeatherData("28℃", "17시"))
-        WeatherList.add(HomeHavepetWeatherData("27℃", "18시"))
-        WeatherList.add(HomeHavepetWeatherData("26℃", "19시"))
+        WeatherList.add(HomePetownertWeatherData("28℃", "17시"))
+        WeatherList.add(HomePetownertWeatherData("27℃", "18시"))
+        WeatherList.add(HomePetownertWeatherData("26℃", "19시"))
 
-        val boardAdapterPetList = HomeHavepetPetlist(PetList)
+        val boardAdapterPetList = HomePetownerPetlist(PetList)
         boardAdapterPetList.notifyDataSetChanged()
-        val boardAdapterScheduleList = HomeHavepetSchedule(ScheduleList)
+        val boardAdapterScheduleList = HomePetownerSchedule(ScheduleList)
         boardAdapterScheduleList.notifyDataSetChanged()
-        val boardAdapterWeatherList = HomeHavepetWeather(WeatherList)
+        val boardAdapterWeatherList = HomePetownerWeather(WeatherList)
         boardAdapterWeatherList.notifyDataSetChanged()
 
 //        rv_board_petlist.adapter = boardAdapterPetList
