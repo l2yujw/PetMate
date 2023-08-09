@@ -9,13 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.R
-
 class HomePetownerFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -25,17 +23,19 @@ class HomePetownerFragment : Fragment() {
 
         var rootView = inflater.inflate(R.layout.fragment_home_petowner, container, false)
 
-        val rv_board_petlist = rootView.findViewById<ViewPager2>(R.id.viewpager_havingpet_petlist)
+
+
+        val viewPager_petlist = rootView.findViewById<ViewPager2>(R.id.viewpager_havingpet_petlist)
         val rv_board_schedule = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_schedule)
         val rv_board_weather = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_weather)
 
-        val PetList = ArrayList<HomePetownerPetlistData>()
+//        val PetList = ArrayList<HomePetownerPetlistData>()
         val ScheduleList = ArrayList<HomePetownerScheduleData>()
         val WeatherList = ArrayList<HomePetownerWeatherData>()
 
-        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
 
         ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
         ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
@@ -45,15 +45,15 @@ class HomePetownerFragment : Fragment() {
         WeatherList.add(HomePetownerWeatherData("27℃", "18시"))
         WeatherList.add(HomePetownerWeatherData("26℃", "19시"))
 
-        val boardAdapterPetList = HomePetownerPetlist(PetList)
-        boardAdapterPetList.notifyDataSetChanged()
+//        val boardAdapterPetList = HomePetownerPetlistAdapter(PetList)
+//        boardAdapterPetList.notifyDataSetChanged()
         val boardAdapterScheduleList = HomePetownerSchedule(ScheduleList)
         boardAdapterScheduleList.notifyDataSetChanged()
         val boardAdapterWeatherList = HomePetownerWeather(WeatherList)
         boardAdapterWeatherList.notifyDataSetChanged()
 
-//        rv_board_petlist.adapter = boardAdapterPetList
-        rv_board_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        viewPager_petlist.adapter = HomePetownerPetlistAdapter(getPetList())
+        viewPager_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         rv_board_schedule.adapter = boardAdapterScheduleList
         rv_board_schedule.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
@@ -62,5 +62,9 @@ class HomePetownerFragment : Fragment() {
         rv_board_weather.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         return rootView
+    }
+
+    private fun getPetList(): ArrayList<Int>{
+        return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
     }
 }

@@ -32,8 +32,8 @@ class HomePetownerActivity : AppCompatActivity() {
         WeatherList.add(HomePetownerWeatherData("27℃", "18시"))
         WeatherList.add(HomePetownerWeatherData("26℃", "19시"))
 
-        val boardAdapterPetList = HomePetownerPetlist(PetList)
-        boardAdapterPetList.notifyDataSetChanged()
+//        val boardAdapterPetList = HomePetownerPetlistAdapter(PetList)
+//        boardAdapterPetList.notifyDataSetChanged()
         val boardAdapterScheduleList = HomePetownerSchedule(ScheduleList)
         boardAdapterScheduleList.notifyDataSetChanged()
         val boardAdapterWeatherList = HomePetownerWeather(WeatherList)
