@@ -8,7 +8,7 @@ import com.example.petmate.R
 import com.example.petmate.community.CommunityFragment
 import com.example.petmate.databinding.ActivityBottomNavBinding
 import com.example.petmate.myinf.MyinfFragment
-import com.example.petmate.pet.PetMainFragment
+import com.example.petmate.pet.main.PetMainFragment
 
 class BottomNavActivity : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager

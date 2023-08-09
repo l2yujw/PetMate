@@ -1,5 +1,6 @@
 package com.example.petmate.home.petowner
 
+import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
+
 class HomePetownerFragment : Fragment() {
 
 
@@ -24,35 +27,35 @@ class HomePetownerFragment : Fragment() {
         var rootView = inflater.inflate(R.layout.fragment_home_petowner, container, false)
 
 
+        val petTextList = ArrayList<HomePetownerPetlistData>()
+        val scheduleList = ArrayList<HomePetownerScheduleData>()
+        val weatherList = ArrayList<HomePetownerWeatherData>()
+
+        petTextList.add(HomePetownerPetlistData("aaaaaa"))
+        petTextList.add(HomePetownerPetlistData("bbbbbb"))
+        petTextList.add(HomePetownerPetlistData("ccccc"))
+
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+
+        weatherList.add(HomePetownerWeatherData("28℃", "17시"))
+        weatherList.add(HomePetownerWeatherData("27℃", "18시"))
+        weatherList.add(HomePetownerWeatherData("26℃", "19시"))
+
+        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
+        boardAdapterPetList.notifyDataSetChanged()
+        val boardAdapterScheduleList = HomePetownerScheduleAdapter(scheduleList)
+        boardAdapterScheduleList.notifyDataSetChanged()
+        val boardAdapterWeatherList = HomePetownerWeatherAdapter(weatherList)
+        boardAdapterWeatherList.notifyDataSetChanged()
+
 
         val viewPager_petlist = rootView.findViewById<ViewPager2>(R.id.viewpager_havingpet_petlist)
         val rv_board_schedule = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_schedule)
         val rv_board_weather = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_weather)
 
-//        val PetList = ArrayList<HomePetownerPetlistData>()
-        val ScheduleList = ArrayList<HomePetownerScheduleData>()
-        val WeatherList = ArrayList<HomePetownerWeatherData>()
-
-//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-//        PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-
-        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-
-        WeatherList.add(HomePetownerWeatherData("28℃", "17시"))
-        WeatherList.add(HomePetownerWeatherData("27℃", "18시"))
-        WeatherList.add(HomePetownerWeatherData("26℃", "19시"))
-
-//        val boardAdapterPetList = HomePetownerPetlistAdapter(PetList)
-//        boardAdapterPetList.notifyDataSetChanged()
-        val boardAdapterScheduleList = HomePetownerSchedule(ScheduleList)
-        boardAdapterScheduleList.notifyDataSetChanged()
-        val boardAdapterWeatherList = HomePetownerWeather(WeatherList)
-        boardAdapterWeatherList.notifyDataSetChanged()
-
-        viewPager_petlist.adapter = HomePetownerPetlistAdapter(getPetList())
+        viewPager_petlist.adapter = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
         viewPager_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         rv_board_schedule.adapter = boardAdapterScheduleList
@@ -60,11 +63,15 @@ class HomePetownerFragment : Fragment() {
 
         rv_board_weather.adapter = boardAdapterWeatherList
         rv_board_weather.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        rv_board_weather.addItemDecoration(VerticalItemDecorator(10))
+
 
         return rootView
     }
 
-    private fun getPetList(): ArrayList<Int>{
+    private fun getPetImageList(): ArrayList<Int>{
         return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
     }
+
+
 }

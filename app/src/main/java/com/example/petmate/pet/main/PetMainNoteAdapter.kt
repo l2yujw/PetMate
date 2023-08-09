@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
 
-class PetMainNote(val itemList: ArrayList<PetMainNoteData>) : RecyclerView.Adapter<PetMainNote.PetMainNoteViewHolder>() {
+class PetMainNoteAdapter(val itemList: ArrayList<PetMainNoteData>) : RecyclerView.Adapter<PetMainNoteAdapter.PetMainNoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainNoteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_main_note_layout, parent, false)

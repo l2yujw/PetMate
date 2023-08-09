@@ -1,53 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:background="@android:color/transparent">
+    android:layout_width="365dp"
+    android:layout_height="65dp">
 
     <TextView
-        android:id="@+id/havepet_schedule_time"
-        android:layout_width="63dp"
+        android:id="@+id/petowner_schedule_time"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:text="08:00 am"
-        android:textAppearance="@style/petowner_schedule_time" />
-    
+        android:textAppearance="@style/item_petowner_time"
+        android:gravity="top"
+        />
+
     <View
-        android:id="@+id/havepet_schedule_timebar"
+        android:id="@+id/petowner_schedule_timebar"
         android:layout_width="4dp"
-        android:layout_height="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="25dp"
-        android:background="@drawable/background_petowner_homecalcolor1_round_8dp" />
+        android:background="@drawable/background_item_petowner_rectangle_0"
+        />
+
+
 
     <RelativeLayout
-        android:id="@+id/havepet_schedule_notebackground"
+        android:id="@+id/petowner_schedule_notebackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="80dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/background_petowner_homecalcolor12_round_4dp">
-        
+
         <View
+            android:id="@+id/petowner_schedule_bar"
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:background="@drawable/background_petowner_homecalcolor2_leftround_4dp" />
 
         <TextView
-            android:id="@+id/havepet_schedule_maintext"
+            android:id="@+id/petowner_schedule_maintext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Temp1"
+            android:textAppearance="@style/petowner_shcedule_timeTitle"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="15dp" />
 
         <TextView
-            android:id="@+id/havepet_schedule_subtext"
+            android:id="@+id/petowner_schedule_subtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Temp2"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="26dp"/>
-        
-    </RelativeLayout>
+            android:layout_marginTop="26dp"
+            android:textAppearance="@style/petowner_shcedule_timeSub"/>
 
+    </RelativeLayout>
 
 </RelativeLayout>
