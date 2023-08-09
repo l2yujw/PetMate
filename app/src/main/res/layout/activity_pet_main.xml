@@ -86,6 +86,7 @@
         android:background="@drawable/background_pet_main_notes_petcolor2_round_24dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pet_main_note_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp" />
@@ -110,6 +111,7 @@
         android:background="@drawable/background_pet_main_health_petcolor3_round_20dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pet_main_health_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp" />
@@ -128,6 +130,7 @@
         android:background="@drawable/background_pet_main_training_petcolor4_round_20dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pet_main_training_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp" />

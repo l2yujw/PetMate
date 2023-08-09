@@ -1,4 +1,4 @@
-package com.example.petmate.home
+package com.example.petmate.home.shelterpetInfo
 
 import android.view.LayoutInflater
 import android.view.View

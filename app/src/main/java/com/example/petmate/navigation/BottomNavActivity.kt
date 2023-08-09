@@ -3,7 +3,7 @@ package com.example.petmate.navigation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.petmate.home.HomePetownerFragment
+import com.example.petmate.home.petowner.HomePetownerFragment
 import com.example.petmate.R
 import com.example.petmate.community.CommunityFragment
 import com.example.petmate.databinding.ActivityBottomNavBinding
