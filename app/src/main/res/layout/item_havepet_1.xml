@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="08:00 am"
-        android:textAppearance="@style/item_havepet_time"
+        android:textAppearance="@style/item_petowner_time"
         android:gravity="top"
         />
 
@@ -23,7 +23,7 @@
         android:layout_marginLeft="25dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/background_item_havepet_rectangle_0"
+        android:background="@drawable/background_item_petowner_rectangle_0"
         />
 
     <View
@@ -33,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="78.81dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/background_item_havepet_rectangle_1"
+        android:background="@drawable/background_item_petownerrectangle_1"
         />
     <View
         android:id="@+id/rectangle_8"
@@ -42,6 +42,6 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="78.81dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/background_item_havepet_rectangle_2"
+        android:background="@drawable/background_item_petowner_rectangle_2"
         />
 </RelativeLayout>

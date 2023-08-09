@@ -9,7 +9,7 @@
         android:layout_height="115dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/background_nopet_rectangle_0"
+        android:background="@drawable/background_petseeker_rectangle_0"
         />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
         android:text="견우"
-        android:textAppearance="@style/nopet_name"
+        android:textAppearance="@style/petseeker_name"
         android:lineSpacingExtra="-7sp"
         />
 
@@ -41,7 +41,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="45dp"
         android:text="2020(년생) * 3.2kg"
-        android:textAppearance="@style/nopet_etc"
+        android:textAppearance="@style/petseeker_etc"
         android:lineSpacingExtra="2sp"
         />
 
@@ -53,7 +53,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="70dp"
         android:text="사람을 좋아하고 얌전함"
-        android:textAppearance="@style/nopet_charic"
+        android:textAppearance="@style/petseeker_charic"
         android:lineSpacingExtra="2sp"
         />
 

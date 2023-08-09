@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="110dp"
     android:layout_marginHorizontal="35dp"
-    android:background="@drawable/background_havepet_homepetcolor3_round_20dp">
+    android:background="@drawable/background_petowner_homepetcolor3_round_20dp">
 
     <View
         android:id="@+id/activity_main_home_havepet_petlist_division"
@@ -26,6 +26,6 @@
         android:gravity="center"
         android:layout_alignStart="@id/activity_main_home_havepet_petlist_division"
         android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안/\n반려동물 나이 등)"
-        android:textAppearance="@style/havepet_randomtext" />
+        android:textAppearance="@style/petowner_randomtext" />
 
 </RelativeLayout>

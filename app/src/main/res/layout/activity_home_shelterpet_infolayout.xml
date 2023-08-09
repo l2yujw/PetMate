@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_home_abandonedinfo_additionalinfo_petcolor8_roundstroke_22dp"
+    android:background="@drawable/background_home_shelterpet_additionalinfo_petcolor8_roundstroke_22dp"
     android:paddingHorizontal="17dp"
     android:paddingVertical="8dp">
 
@@ -14,7 +14,7 @@
         android:background="@android:color/transparent"
         android:includeFontPadding="false"
         android:text="발생장소"
-        android:textAppearance="@style/abandonedinfo_additionalinformation" />
+        android:textAppearance="@style/shelterpet_additionalinformation" />
 
     <TextView
         android:id="@+id/abandonedinfo_additionalinfo_colon"
@@ -24,7 +24,7 @@
         android:background="@android:color/transparent"
         android:includeFontPadding="false"
         android:text=": "
-        android:textAppearance="@style/abandonedinfo_additionalinformation" />
+        android:textAppearance="@style/shelterpet_additionalinformation" />
 
     <TextView
         android:id="@+id/abandonedinfo_additionalinfo_info"
@@ -34,6 +34,6 @@
         android:background="@android:color/transparent"
         android:includeFontPadding="false"
         android:text="임은동 806-4"
-        android:textAppearance="@style/abandonedinfo_additionalinformation" />
+        android:textAppearance="@style/shelterpet_additionalinformation" />
 
 </RelativeLayout>

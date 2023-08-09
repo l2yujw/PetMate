@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="40dp"
     android:layout_height="75dp"
-    android:background="@drawable/background_havepet_rectangle_0">
+    android:background="@drawable/background_petowner_rectangle_0">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="7dp"
-        android:textAppearance="@style/havepet_degree"
+        android:textAppearance="@style/petowner_degree"
         android:text="28*c"/>
 
     <ImageView
@@ -24,6 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginHorizontal="10dp"
-        android:textAppearance="@style/havepet_degree"
+        android:textAppearance="@style/petowner_degree"
         android:text="17시"/>
 </RelativeLayout>

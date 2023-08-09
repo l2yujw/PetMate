@@ -25,14 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:scaleType="center"
-            android:src="@drawable/main_home_nopet_titleimage_crop_480" />
+            android:src="@drawable/main_home_petseeker_titleimage_crop_480" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginHorizontal="35dp"
             android:layout_marginTop="295dp"
-            android:background="@drawable/main_home_abandonedinfo_gradient"
+            android:background="@drawable/main_home_shelterpet_gradient"
             android:orientation="vertical">
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="탈주닌자"
-                android:textAppearance="@style/abandonedinfo_name" />
+                android:textAppearance="@style/shelterpet_name" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/background_home_abandonedinfo_sex_homepetcolor1_round_8_76dp"
+                android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
                 android:src="@drawable/woman" />
 
         </RelativeLayout>
@@ -78,7 +78,7 @@
             android:layout_marginRight="35dp"
             android:layout_marginTop="460dp"
             android:text="탈주닌자에 대하여..."
-            android:textAppearance="@style/abandonedinfo_about"/>
+            android:textAppearance="@style/shelterpet_about"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -103,7 +103,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:text="무게"
-                    android:textAppearance="@style/abandonedinfo_inf_"/>
+                    android:textAppearance="@style/shelterpet_inf_"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="3.2kg"
-                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    android:textAppearance="@style/shelterpet_inf_answer_"
                     />
 
             </RelativeLayout>
@@ -121,7 +121,7 @@
                 android:layout_height="70dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -133,7 +133,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:text="중성화"
-                    android:textAppearance="@style/abandonedinfo_inf_"/>
+                    android:textAppearance="@style/shelterpet_inf_"/>
 
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="아니오"
-                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    android:textAppearance="@style/shelterpet_inf_answer_"
                     />
 
             </RelativeLayout>
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:background="@drawable/background_home_abandonedinfo_info_homepetcolor2_round_17_51dp"
+                android:background="@drawable/background_home_abandonedinfo_info_HomePetColor2_round_17_51dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
@@ -163,7 +163,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:text="색상"
-                    android:textAppearance="@style/abandonedinfo_inf_"/>
+                    android:textAppearance="@style/shelterpet_inf_"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text="흰갈"
-                    android:textAppearance="@style/abandonedinfo_inf_answer_"
+                    android:textAppearance="@style/shelterpet_inf_answer_"
                     />
 
             </RelativeLayout>
@@ -193,7 +193,7 @@
             android:layout_marginRight="35dp"
             android:layout_marginTop="680dp"
             android:text="탈주닌자 추가 정보"
-            android:textAppearance="@style/abandonedinfo_about_plus"/>
+            android:textAppearance="@style/shelterpet_about_plus"/>
 
         <ImageView
             android:layout_width="17dp"

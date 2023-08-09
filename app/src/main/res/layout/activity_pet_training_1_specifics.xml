@@ -35,7 +35,7 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/background_pet_training_1_specific_round_20dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/main_home_nopet_titleimage_crop_480" />
+        android:src="@drawable/main_home_petseeker_titleimage_crop_480" />
 
     <!--
     둥근 이미지 적용을 어떻게...?

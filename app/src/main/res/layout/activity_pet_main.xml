@@ -48,7 +48,7 @@
         android:layout_height="128dp"
         android:layout_marginHorizontal="35dp"
         android:layout_marginTop="323dp"
-        android:background="@drawable/main_home_abandonedinfo_gradient"
+        android:background="@drawable/main_home_shelterpet_gradient"
         android:orientation="vertical">
 
         <TextView
@@ -73,7 +73,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/background_home_abandonedinfo_sex_homepetcolor1_round_8_76dp"
+            android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
             android:src="@drawable/woman" />
 
     </RelativeLayout>

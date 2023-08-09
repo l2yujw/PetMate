@@ -9,7 +9,7 @@
         android:layout_width="63dp"
         android:layout_height="wrap_content"
         android:text="08:00 am"
-        android:textAppearance="@style/havepet_schedule_time" />
+        android:textAppearance="@style/petowner_schedule_time" />
     
     <View
         android:id="@+id/havepet_schedule_timebar"
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:layout_marginStart="25dp"
-        android:background="@drawable/background_havepet_homecalcolor1_round_8dp" />
+        android:background="@drawable/background_petowner_homecalcolor1_round_8dp" />
 
     <RelativeLayout
         android:id="@+id/havepet_schedule_notebackground"
@@ -25,12 +25,12 @@
         android:layout_height="match_parent"
         android:layout_marginStart="80dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/background_havepet_homecalcolor12_round_4dp">
+        android:background="@drawable/background_petowner_homecalcolor12_round_4dp">
         
         <View
             android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@drawable/background_havepet_homecalcolor2_leftround_4dp" />
+            android:background="@drawable/background_petowner_homecalcolor2_leftround_4dp" />
 
         <TextView
             android:id="@+id/havepet_schedule_maintext"

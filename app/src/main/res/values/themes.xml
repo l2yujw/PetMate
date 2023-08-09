@@ -173,105 +173,105 @@
         <item name="android:textColor">#5F5F63</item>
     </style>
 
-    <style name="abandonedinfo_name">
+    <style name="shelterpet_name">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">39sp</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
-    <style name="abandonedinfo_type">
+    <style name="shelterpet_type">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">26sp</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
-    <style name="abandonedinfo_inf_">
+    <style name="shelterpet_inf_">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">23sp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
-    <style name="abandonedinfo_inf_answer_">
+    <style name="shelterpet_inf_answer_">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">29sp</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">#111111</item>
     </style>
 
-    <style name="abandonedinfo_about">
+    <style name="shelterpet_about">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">19sp</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
-    <style name="abandonedinfo_about_plus">
+    <style name="shelterpet_about_plus">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">27sp</item>
         <item name="android:textSize">21sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
-    <style name="abandonedinfo_additionalinformation">
+    <style name="shelterpet_additionalinformation">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">23sp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
-    <style name="havepet_degree">
+    <style name="petowner_degree">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">10sp</item>
         <item name="android:textSize">8sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="havepet_time">
+    <style name="petowner_time">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">12sp</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="havepet_randomtext">
+    <style name="petowner_randomtext">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">15sp</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">#111111</item>
     </style>
 
-    <style name="havepet_weather_temperature">
+    <style name="petowner_weather_temperature">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">10sp</item>
         <item name="android:textSize">8sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="havepet_weather_time">
+    <style name="petowner_weather_time">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">12sp</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="havepet_schedule_time">
+    <style name="petowner_schedule_time">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">17sp</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#111111</item>
     </style>
 
-    <style name="item_havepet_time">
+    <style name="item_petowner_time">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">17sp</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#111111</item>
     </style>
 
-    <style name="nopet_catagory">
+    <style name="petseeker_catagory">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">10sp</item>
         <item name="android:textSize">10sp</item>
@@ -279,21 +279,21 @@
         <item name="android:textColor">#111111</item>
     </style>
 
-    <style name="nopet_name">
+    <style name="petseeker_name">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">17sp</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
-    <style name="nopet_etc">
+    <style name="petseeker_etc">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">19sp</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
-    <style name="nopet_charic">
+    <style name="petseeker_charic">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">16sp</item>
         <item name="android:textSize">12sp</item>

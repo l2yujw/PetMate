@@ -10,7 +10,7 @@ import com.example.petmate.R
 class HomeShelterpetInfo(val itemList: ArrayList<HomeShelterpetInfoData>) : RecyclerView.Adapter<HomeShelterpetInfo.AbandonedViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbandonedViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_home_shelter_infolayout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_home_shelterpet_infolayout, parent, false)
         return AbandonedViewHolder(view)
     }
 
