@@ -31,7 +31,7 @@ class HomePetownerFragment : Fragment() {
 
         val PetList = ArrayList<HomePetownerPetlistData>()
         val ScheduleList = ArrayList<HomePetownerScheduleData>()
-        val WeatherList = ArrayList<HomePetownertWeatherData>()
+        val WeatherList = ArrayList<HomePetownerWeatherData>()
 
         PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
         PetList.add(HomePetownerPetlistData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
@@ -41,9 +41,9 @@ class HomePetownerFragment : Fragment() {
         ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
         ScheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
 
-        WeatherList.add(HomePetownertWeatherData("28℃", "17시"))
-        WeatherList.add(HomePetownertWeatherData("27℃", "18시"))
-        WeatherList.add(HomePetownertWeatherData("26℃", "19시"))
+        WeatherList.add(HomePetownerWeatherData("28℃", "17시"))
+        WeatherList.add(HomePetownerWeatherData("27℃", "18시"))
+        WeatherList.add(HomePetownerWeatherData("26℃", "19시"))
 
         val boardAdapterPetList = HomePetownerPetlist(PetList)
         boardAdapterPetList.notifyDataSetChanged()

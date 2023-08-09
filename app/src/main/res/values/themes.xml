@@ -339,4 +339,26 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
+
+    <style name="pet_main_note">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">34sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#191919</item>
+    </style>
+
+    <style name="pet_main_health">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#191919</item>
+    </style>
+
+    <style name="pet_main_training">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#191919</item>
+    </style>
+
 </resources>
