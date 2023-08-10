@@ -10,7 +10,7 @@ import com.example.petmate.R
 class PetTrainingDetail(val itemList: ArrayList<PetTrainingDetailData>) : RecyclerView.Adapter<PetTrainingDetail.TrainingDetailViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrainingDetailViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_training_1_specifics, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_training_detail_specifics, parent, false)
         return TrainingDetailViewHolder(view)
     }
 

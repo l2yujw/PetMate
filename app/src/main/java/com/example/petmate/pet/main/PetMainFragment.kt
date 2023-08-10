@@ -16,6 +16,7 @@ import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.pet.health.PetHealthActivity
+import com.example.petmate.pet.training.detail.PetTrainingActivity
 
 
 class PetMainFragment : Fragment() {
@@ -66,13 +67,9 @@ class PetMainFragment : Fragment() {
         rv_board_health.adapter = boardAdapterHealthList
         rv_board_health.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-
         //BottomNavigation으로 터치 인식 값 보내서 Fragment 전환 할 계획임
         boardAdapterHealthList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                Toast.makeText(context,
-                    "${HealthList[position].health}",
-                    Toast.LENGTH_SHORT).show()
                 activity?.let {
                     val intent = Intent(context, PetHealthActivity::class.java)
                     startActivity(intent)
@@ -83,7 +80,14 @@ class PetMainFragment : Fragment() {
         rv_board_training.adapter = boardAdapterCheckedTrainingList
         rv_board_training.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-
+        boardAdapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                activity?.let {
+                    val intent = Intent(context, PetTrainingActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        })
 
         return rootView
     }

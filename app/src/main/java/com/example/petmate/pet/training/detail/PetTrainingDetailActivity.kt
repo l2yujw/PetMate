@@ -9,7 +9,7 @@ import com.example.petmate.R
 class PetTrainingDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pet_training_1)
+        setContentView(R.layout.activity_pet_training_detail)
 
         val rv_board = findViewById<RecyclerView>(R.id.walk_training_detail_recyclerview)
 
