@@ -1,21 +1,29 @@
 package com.example.petmate.pet.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListAdapter
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.navigation.BottomNavActivity
+import com.example.petmate.pet.health.PetHealthActivity
 
 
 class PetMainFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,8 +66,24 @@ class PetMainFragment : Fragment() {
         rv_board_health.adapter = boardAdapterHealthList
         rv_board_health.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+
+        //BottomNavigation으로 터치 인식 값 보내서 Fragment 전환 할 계획임
+        boardAdapterHealthList.setItemClickListener(object : OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                Toast.makeText(context,
+                    "${HealthList[position].health}",
+                    Toast.LENGTH_SHORT).show()
+                activity?.let {
+                    val intent = Intent(context, PetHealthActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        })
+
         rv_board_training.adapter = boardAdapterCheckedTrainingList
         rv_board_training.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+
 
         return rootView
     }

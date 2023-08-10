@@ -5,9 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 
 class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : RecyclerView.Adapter<PetMainHealthAdapter.PetMainHealthViewHolder>() {
+
+
+    private lateinit var itemClickListener : OnItemClickListener
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainHealthViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_main_health_layout, parent, false)
@@ -16,7 +25,11 @@ class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : Recycle
 
     override fun onBindViewHolder(holder: PetMainHealthViewHolder, position: Int) {
         holder.health.text = itemList[position].health
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClick(it, position)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return itemList.count()

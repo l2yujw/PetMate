@@ -30,7 +30,7 @@
         android:background="@drawable/background_home_rectangle_1_2"/>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager_havingpet_petlist"
+        android:id="@+id/viewpager_petowner_petlist"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_alignParentLeft="true"
@@ -39,13 +39,14 @@
         android:layout_marginTop="120dp" />
 
     <me.relex.circleindicator.CircleIndicator3
-        android:id="@+id/circleindicator_havepet_petlist"
+        android:id="@+id/circleindicator_petowner_petlist"
         android:layout_width="100dp"
         android:layout_height="10dp"
         android:layout_alignParentLeft="true"
         android:layout_marginHorizontal="160dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="250dp"
+
         android:layout_gravity="bottom"/>
 
     <View
