@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tab_home">
+
+    <keep_state_fragment
+        android:id="@+id/tab_home"
+        android:name="com.example.petmate.home.petowner.HomePetownerFragment"
+        app:popUpToSaveState="true"
+        android:label="fragment_home_petowner"
+        tools:layout="@layout/fragment_home_petowner" >
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/tab_pet"
+        android:name="com.example.petmate.pet.main.PetMainFragment"
+        app:popUpToSaveState="true"
+        android:label="fragment_pet_main"
+        tools:layout="@layout/fragment_pet_main" >
+
+        <action
+            android:id="@+id/action_petMainFragment_to_petTrainingFragment"
+            app:destination="@id/tab_community" />
+    </keep_state_fragment>
+
+    <keep_state_fragment
+        android:id="@+id/tab_community"
+        android:name="com.example.petmate.pet.training.PetTrainingFragment"
+        app:popUpToSaveState="true"
+        android:label="fragment_pet_training"
+        tools:layout="@layout/fragment_pet_training" >
+    </keep_state_fragment>
+    <keep_state_fragment
+        android:id="@+id/tab_myInf"
+        android:name="com.example.petmate.community.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+    <keep_state_fragment
+        android:id="@+id/myinfFragment"
+        android:name="com.example.petmate.myinf.MyinfFragment"
+        android:label="fragment_myinf"
+        tools:layout="@layout/fragment_myinf" />
+</navigation>

@@ -1,30 +1,29 @@
 package com.example.petmate.pet.main
 
-import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListAdapter
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.pet.health.PetHealthActivity
-import com.example.petmate.pet.training.detail.PetTrainingActivity
-
+import com.example.petmate.pet.training.PetTrainingFragment
 
 class PetMainFragment : Fragment() {
+
+    private lateinit var petTrainingFragment: PetTrainingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,16 +79,20 @@ class PetMainFragment : Fragment() {
         rv_board_training.adapter = boardAdapterCheckedTrainingList
         rv_board_training.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+        val petTrainingFragment = PetTrainingFragment()
+
         boardAdapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                activity?.let {
-                    val intent = Intent(context, PetTrainingActivity::class.java)
-                    startActivity(intent)
-                }
+
             }
         })
 
         return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.petmate.pet.training.detail
+package com.example.petmate.pet.training
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
