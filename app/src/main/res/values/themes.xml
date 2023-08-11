@@ -300,6 +300,27 @@
         <item name="android:textColor">#5F5F63</item>
     </style>
 
+    <style name="petseeker_breed">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:lineHeight">17sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#141415</item>
+    </style>
+
+    <style name="petseeker_color">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#5F5F63</item>
+    </style>
+
+    <style name="petseeker_feature">
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">13sp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#5F5F63</item>
+    </style>
+
     <style name="recordlayout_detail">
         <item name="android:fontFamily">@font/sf_semibold</item>
         <item name="android:lineHeight">24sp</item>

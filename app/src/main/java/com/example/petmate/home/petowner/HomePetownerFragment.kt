@@ -40,6 +40,7 @@ class HomePetownerFragment : Fragment() {
         scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
         scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
 
+        // 24개
         weatherList.add(HomePetownerWeatherData("28℃", "17시"))
         weatherList.add(HomePetownerWeatherData("27℃", "18시"))
         weatherList.add(HomePetownerWeatherData("26℃", "19시"))
@@ -61,7 +62,8 @@ class HomePetownerFragment : Fragment() {
         viewPager_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         indicator.setViewPager(viewPager_petlist)
-        indicator.createIndicators(4, 0)
+//        indicator.createIndicators(4, 0)
+        indicator.createIndicators(petTextList.size, 0)
 
         //현재 page 받아옴 (fragment 혹은 image 어떤걸로 할지 고려중)
         viewPager_petlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){

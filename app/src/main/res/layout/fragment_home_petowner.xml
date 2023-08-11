@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.petowner.HomePetownerFragment">
 
     <TextView
@@ -11,51 +11,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="55dp"
-        android:text="PET MATE"
-        android:textAppearance="@style/pet_mate"
-        android:lineSpacingExtra="-2sp"
         android:gravity="top"
-        />
+        android:lineSpacingExtra="-2sp"
+        android:text="PET MATE"
+        android:textAppearance="@style/pet_mate" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="35dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="55dp"
-        android:background="@drawable/background_home_rectangle_1_2"/>
+        android:layout_marginRight="35dp"
+        android:background="@drawable/background_home_rectangle_1_2" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager_petowner_petlist"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
         android:layout_marginTop="120dp" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/circleindicator_petowner_petlist"
         android:layout_width="100dp"
         android:layout_height="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="160dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="160dp"
         android:layout_marginTop="250dp"
-
-        android:layout_gravity="bottom"/>
+        app:ci_drawable="@drawable/indicator_purple"
+        app:ci_drawable_unselected="@drawable/indicator_gray"/>
 
     <View
         android:id="@+id/rectangle_3"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
         android:layout_marginTop="295dp"
         android:background="@drawable/background_home_rectangle_1"
         android:elevation="4dp" />
@@ -65,25 +64,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="55dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="55dp"
         android:layout_marginTop="303.48dp"
-        android:text="Today"
-        android:textAppearance="@style/today"
         android:gravity="top"
-        />
+        android:text="Today"
+        android:textAppearance="@style/today" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_havepet_weather"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="55dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="55dp"
         android:layout_marginTop="332dp"
         android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <View
         android:layout_width="match_parent"
@@ -101,36 +98,33 @@
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="470dp"
-        />
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="470dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="35dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
         android:layout_marginTop="840dp"
-        android:background="@drawable/background_home_rectangle_1_2"
-        />
+        android:background="@drawable/background_home_rectangle_1_2" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="60dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="60dp"
         android:layout_marginTop="850dp"
-        android:text="오늘 한줄 평 / 산책가기에 어떤지 등"
-        android:textSize="15sp"
-        android:letterSpacing="-0.03"
-        android:textColor="#111111"
-        android:lineHeight="24sp"
         android:fontFamily="@font/pretendard_semibold"
-        android:lineSpacingExtra="6sp"
-        android:translationY="-3.05sp"
         android:gravity="top"
-        />
+        android:letterSpacing="-0.03"
+        android:lineHeight="24sp"
+        android:lineSpacingExtra="6sp"
+        android:text="오늘 한줄 평 / 산책가기에 어떤지 등"
+        android:textColor="#111111"
+        android:textSize="15sp"
+        android:translationY="-3.05sp" />
 </RelativeLayout>
