@@ -22,23 +22,27 @@
 
         <action
             android:id="@+id/action_petMainFragment_to_petTrainingFragment"
-            app:destination="@id/tab_community" />
+            app:destination="@id/tab_pet_training" />
     </keep_state_fragment>
 
     <keep_state_fragment
-        android:id="@+id/tab_community"
+        android:id="@+id/tab_pet_training"
         android:name="com.example.petmate.pet.training.PetTrainingFragment"
         app:popUpToSaveState="true"
         android:label="fragment_pet_training"
         tools:layout="@layout/fragment_pet_training" >
+        <action
+            android:id="@+id/action_tab_pet_training_to_tab_pet"
+            app:destination="@id/tab_pet" />
     </keep_state_fragment>
+
     <keep_state_fragment
-        android:id="@+id/tab_myInf"
+        android:id="@+id/tab_community"
         android:name="com.example.petmate.community.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
     <keep_state_fragment
-        android:id="@+id/myinfFragment"
+        android:id="@+id/tab_myInf"
         android:name="com.example.petmate.myinf.MyinfFragment"
         android:label="fragment_myinf"
         tools:layout="@layout/fragment_myinf" />

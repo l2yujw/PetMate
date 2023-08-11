@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
@@ -79,11 +80,9 @@ class PetMainFragment : Fragment() {
         rv_board_training.adapter = boardAdapterCheckedTrainingList
         rv_board_training.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        val petTrainingFragment = PetTrainingFragment()
-
         boardAdapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-
+                findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment)
             }
         })
 
