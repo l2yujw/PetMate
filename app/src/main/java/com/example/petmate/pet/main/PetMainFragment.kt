@@ -20,8 +20,6 @@ import com.example.petmate.pet.training.PetTrainingFragment
 
 class PetMainFragment : Fragment() {
 
-    private lateinit var petTrainingFragment: PetTrainingFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

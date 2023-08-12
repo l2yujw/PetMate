@@ -27,6 +27,7 @@
             app:itemIconTint="@color/brandBlack"
             app:itemTextColor="@color/brandBlack"
             app:labelVisibilityMode="labeled"
+            app:defaultNavHost="false"
             app:menu="@menu/btm_navi_menu">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 

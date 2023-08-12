@@ -19,8 +19,8 @@ class Login00Activity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             Log.d("ryu","D")
             val intent = Intent(this, BottomNavActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
+
         }
     }
 }

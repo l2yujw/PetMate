@@ -2,7 +2,9 @@ package com.example.petmate.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.petmate.KeepStateFragment
@@ -35,6 +37,7 @@ class BottomNavActivity : AppCompatActivity(){
         setNavigation()
     }
 
+
     private fun setNavigation() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -50,73 +53,73 @@ class BottomNavActivity : AppCompatActivity(){
         binding.mainNavi.setupWithNavController(navController)
 
     }
-
-    private fun initBottomNavigation() {
-        // 최초로 보이는 프래그먼트
-        homePetownerFragment = HomePetownerFragment()
-        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, homePetownerFragment!!).commit()
-
-        binding.mainNavi.setOnItemSelectedListener {
-
-            // 최초 선택 시 fragment add, 선택된 프래그먼트 show, 나머지 프래그먼트 hide
-            when (it.itemId) {
-                R.id.tab_home -> {
-                    if (homePetownerFragment == null) {
-                        homePetownerFragment = HomePetownerFragment()
-                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, homePetownerFragment!!).commit()
-                    }
-                    if (homePetownerFragment != null) fragmentManager.beginTransaction().show(homePetownerFragment!!).commit()
-                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
-                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
-                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
-
-                    return@setOnItemSelectedListener true
-                }
-
-                R.id.tab_pet -> {
-                    if (petMainFragment == null) {
-                        petMainFragment = PetMainFragment()
-                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, petMainFragment!!).commit()
-                    }
-                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
-                    if (petMainFragment != null) fragmentManager.beginTransaction().show(petMainFragment!!).commit()
-                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
-                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
-
-                    return@setOnItemSelectedListener true
-                }
-
-                R.id.tab_community -> {
-                    if (communityFragment == null) {
-                        communityFragment = CommunityFragment()
-                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, communityFragment!!).commit()
-                    }
-                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
-                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
-                    if (communityFragment != null) fragmentManager.beginTransaction().show(communityFragment!!).commit()
-                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
-
-                    return@setOnItemSelectedListener true
-                }
-
-                R.id.tab_myInf -> {
-                    if (myinfFragment == null) {
-                        myinfFragment = MyinfFragment()
-                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, myinfFragment!!).commit()
-                    }
-                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
-                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
-                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
-                    if (myinfFragment != null) fragmentManager.beginTransaction().show(myinfFragment!!).commit()
-
-                    return@setOnItemSelectedListener true
-                }
-
-                else -> {
-                    return@setOnItemSelectedListener true
-                }
-            }
-        }
-    }
+//
+//    private fun initBottomNavigation() {
+//        // 최초로 보이는 프래그먼트
+//        homePetownerFragment = HomePetownerFragment()
+//        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, homePetownerFragment!!).commit()
+//
+//        binding.mainNavi.setOnItemSelectedListener {
+//
+//            // 최초 선택 시 fragment add, 선택된 프래그먼트 show, 나머지 프래그먼트 hide
+//            when (it.itemId) {
+//                R.id.tab_home -> {
+//                    if (homePetownerFragment == null) {
+//                        homePetownerFragment = HomePetownerFragment()
+//                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, homePetownerFragment!!).commit()
+//                    }
+//                    if (homePetownerFragment != null) fragmentManager.beginTransaction().show(homePetownerFragment!!).commit()
+//                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+//                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+//                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
+//
+//                    return@setOnItemSelectedListener true
+//                }
+//
+//                R.id.tab_pet -> {
+//                    if (petMainFragment == null) {
+//                        petMainFragment = PetMainFragment()
+//                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, petMainFragment!!).commit()
+//                    }
+//                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
+//                    if (petMainFragment != null) fragmentManager.beginTransaction().show(petMainFragment!!).commit()
+//                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+//                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
+//
+//                    return@setOnItemSelectedListener true
+//                }
+//
+//                R.id.tab_community -> {
+//                    if (communityFragment == null) {
+//                        communityFragment = CommunityFragment()
+//                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, communityFragment!!).commit()
+//                    }
+//                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
+//                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+//                    if (communityFragment != null) fragmentManager.beginTransaction().show(communityFragment!!).commit()
+//                    if (myinfFragment != null) fragmentManager.beginTransaction().hide(myinfFragment!!).commit()
+//
+//                    return@setOnItemSelectedListener true
+//                }
+//
+//                R.id.tab_myInf -> {
+//                    if (myinfFragment == null) {
+//                        myinfFragment = MyinfFragment()
+//                        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, myinfFragment!!).commit()
+//                    }
+//                    if (homePetownerFragment != null) fragmentManager.beginTransaction().hide(homePetownerFragment!!).commit()
+//                    if (petMainFragment != null) fragmentManager.beginTransaction().hide(petMainFragment!!).commit()
+//                    if (communityFragment != null) fragmentManager.beginTransaction().hide(communityFragment!!).commit()
+//                    if (myinfFragment != null) fragmentManager.beginTransaction().show(myinfFragment!!).commit()
+//
+//                    return@setOnItemSelectedListener true
+//                }
+//
+//                else -> {
+//                    return@setOnItemSelectedListener true
+//                }
+//            }
+//        }
+//    }
 
 }
