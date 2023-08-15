@@ -24,6 +24,9 @@
             android:id="@+id/action_petMainFragment_to_petTrainingFragment"
             app:destination="@id/petTrainingFragment"
             />
+        <action
+            android:id="@+id/action_petMainFragment_to_petHealthFragment"
+            app:destination="@id/petHealthFragment" />
     </keep_state_fragment>
 
     <keep_state_fragment
@@ -35,6 +38,9 @@
         <action
             android:id="@+id/action_petTrainingFragment_to_petMainFragment"
             app:destination="@id/petMainFragment" />
+        <action
+            android:id="@+id/action_petTrainingFragment_to_petTrainingDetailFragment"
+            app:destination="@id/petTrainingDetailFragment" />
     </keep_state_fragment>
 
     <keep_state_fragment
@@ -47,4 +53,22 @@
         android:name="com.example.petmate.myinf.MyinfFragment"
         android:label="fragment_myinf"
         tools:layout="@layout/fragment_myinf" />
+    <keep_state_fragment
+        android:id="@+id/petHealthFragment"
+        android:name="com.example.petmate.pet.health.PetHealthFragment"
+        android:label="fragment_pet_health"
+        tools:layout="@layout/fragment_pet_health" >
+        <action
+            android:id="@+id/action_petHealthFragment_to_petMainFragment"
+            app:destination="@id/petMainFragment" />
+    </keep_state_fragment>
+    <keep_state_fragment
+        android:id="@+id/petTrainingDetailFragment"
+        android:name="com.example.petmate.pet.training.PetTrainingDetailFragment"
+        android:label="fragment_pet_training_detail"
+        tools:layout="@layout/fragment_pet_training_detail" >
+        <action
+            android:id="@+id/action_petTrainingDetailFragment_to_petTrainingFragment"
+            app:destination="@id/petTrainingFragment" />
+    </keep_state_fragment>
 </navigation>

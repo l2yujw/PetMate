@@ -65,13 +65,10 @@ class PetMainFragment : Fragment() {
         rv_board_health.adapter = boardAdapterHealthList
         rv_board_health.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        //BottomNavigation으로 터치 인식 값 보내서 Fragment 전환 할 계획임
+
         boardAdapterHealthList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                activity?.let {
-                    val intent = Intent(context, PetHealthActivity::class.java)
-                    startActivity(intent)
-                }
+                findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment)
             }
         })
 
