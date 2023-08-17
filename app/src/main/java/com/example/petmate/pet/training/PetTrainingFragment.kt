@@ -6,13 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 
 class PetTrainingFragment : Fragment() {
 
@@ -40,6 +44,9 @@ class PetTrainingFragment : Fragment() {
 
         rcv_training_list.adapter = adapterTrainingList
         rcv_training_list.layoutManager = GridLayoutManager(requireContext(), 2)
+        //item 간격 결정
+        rcv_training_list.addItemDecoration(VerticalItemDecorator(50))
+        rcv_training_list.addItemDecoration(HorizontalItemDecorator(50))
 
         adapterTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
