@@ -10,7 +10,7 @@ import com.example.petmate.R
 class WalkRecord(val itemList: ArrayList<WalkRecordData>) : RecyclerView.Adapter<WalkRecord.WalkRecordViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalkRecordViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_walk_record_recordlayout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_walk_record_list, parent, false)
         return WalkRecordViewHolder(view)
     }
 

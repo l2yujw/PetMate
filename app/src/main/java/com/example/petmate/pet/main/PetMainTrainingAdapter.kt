@@ -16,7 +16,7 @@ class PetMainTrainingAdapter(val itemList: ArrayList<PetMainTrainingData>) : Rec
         this.itemClickListener = onItemClickListener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainTrainingiewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_main_checkedtraining_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_training, parent, false)
         return PetMainTrainingiewHolder(view)
     }
 

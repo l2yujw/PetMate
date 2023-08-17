@@ -10,7 +10,7 @@ import com.example.petmate.R
 class PetMainNoteAdapter(val itemList: ArrayList<PetMainNoteData>) : RecyclerView.Adapter<PetMainNoteAdapter.PetMainNoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainNoteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_main_note_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_note, parent, false)
         return PetMainNoteViewHolder(view)
     }
 

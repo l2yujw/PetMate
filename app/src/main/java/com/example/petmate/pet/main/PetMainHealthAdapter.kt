@@ -19,7 +19,7 @@ class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : Recycle
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainHealthViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_main_health_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_health, parent, false)
         return PetMainHealthViewHolder(view)
     }
 

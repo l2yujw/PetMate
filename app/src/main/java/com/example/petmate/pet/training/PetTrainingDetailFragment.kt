@@ -29,7 +29,7 @@ class PetTrainingDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var rootView = inflater.inflate(R.layout.fragment_pet_training_detail, container, false)
-        val rv_board = rootView.findViewById<RecyclerView>(R.id.walk_training_detail_recyclerview)
+        val rv_board = rootView.findViewById<RecyclerView>(R.id.rcv_training_detail_ways)
 
         val itemList = ArrayList<PetTrainingDetailData>()
 
@@ -37,7 +37,7 @@ class PetTrainingDetailFragment : Fragment() {
         itemList.add(PetTrainingDetailData("2단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
         itemList.add(PetTrainingDetailData("3단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
 
-        val boardAdapter = PetTrainingDetail(itemList)
+        val boardAdapter = PetTrainingDetailAdapter(itemList)
         boardAdapter.notifyDataSetChanged()
 
         rv_board.adapter = boardAdapter

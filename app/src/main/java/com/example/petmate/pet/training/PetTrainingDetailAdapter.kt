@@ -7,10 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
 
-class PetTrainingDetail(val itemList: ArrayList<PetTrainingDetailData>) : RecyclerView.Adapter<PetTrainingDetail.TrainingDetailViewHolder>() {
+class PetTrainingDetailAdapter(val itemList: ArrayList<PetTrainingDetailData>) : RecyclerView.Adapter<PetTrainingDetailAdapter.TrainingDetailViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrainingDetailViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pet_training_detail_specifics, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_training_detail_ways, parent, false)
         return TrainingDetailViewHolder(view)
     }
 

@@ -16,10 +16,10 @@
             android:name=".navigation.TestNavActivity"
             android:exported="false" />
         <activity
-            android:name=".pet.training.PetTrainingActivity"
+            android:name=".notUse.PetTrainingActivity"
             android:exported="false" />
         <activity
-            android:name=".pet.health.PetHealthActivity"
+            android:name=".notUse.PetHealthActivity"
             android:exported="false" />
         <activity
             android:name=".navigation.BottomNavActivity"

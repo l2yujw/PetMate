@@ -1,22 +1,15 @@
 package com.example.petmate.pet.main
 
-import android.content.Context.MODE_PRIVATE
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
-import com.example.petmate.navigation.BottomNavActivity
-import com.example.petmate.pet.health.PetHealthActivity
-import com.example.petmate.pet.training.PetTrainingFragment
 
 class PetMainFragment : Fragment() {
 
