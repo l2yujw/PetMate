@@ -12,18 +12,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.R
-import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherCommon
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.WEATHER
-import me.relex.circleindicator.CircleIndicator3
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -66,7 +63,7 @@ class HomePetownerFragment : Fragment() {
         requestPermissions(permissionList, 1)
 
         // 날씨. 위치 정보를 기반으로 날씨 정보 요청
-        requestLocation()
+//        requestLocation()
 
         /*// <새로고침> 버튼 누를 때 위치 정보 & 날씨 정보 다시 가져오기
         binding.btnRefresh.setOnClickListener {

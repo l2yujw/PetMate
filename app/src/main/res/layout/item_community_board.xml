@@ -81,15 +81,17 @@
         />
 
     <ImageView
+        android:id="@+id/img_community_board1"
         android:layout_width="235dp"
         android:layout_height="270dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="80dp"
-        android:background="@drawable/cat2_temp"
+        android:src="@drawable/cat2_temp"
         />
 
-    <View
+    <ImageView
+        android:id="@+id/img_community_board2"
         android:layout_width="235dp"
         android:layout_height="130dp"
         android:layout_alignParentLeft="true"
@@ -100,7 +102,8 @@
         android:elevation="24dp"
         />
 
-    <View
+    <ImageView
+        android:id="@+id/img_community_board3"
         android:layout_width="235dp"
         android:layout_height="130dp"
         android:layout_alignParentLeft="true"

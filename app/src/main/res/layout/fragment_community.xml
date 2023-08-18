@@ -47,7 +47,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/com_recyclerview_0"
+        android:id="@+id/rcv_community_popular"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_alignParentLeft="true"
@@ -59,6 +59,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_community_board"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"

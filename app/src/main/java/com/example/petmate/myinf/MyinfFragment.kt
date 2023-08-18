@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,9 +30,9 @@ class MyinfFragment : Fragment() {
         var rcv_myinf_picList = rootView.findViewById<RecyclerView>(R.id.rcv_myinf_picList)
         var rcv_myinf_userList = rootView.findViewById<RecyclerView>(R.id.rcv_myinf_userList)
 
-        var adapterMyinfPicList = MyinfPicListAdapter(getPetImageList())
+        var adapterMyinfPicList = MyinfPicListAdapter(getImageList())
         adapterMyinfPicList.notifyDataSetChanged()
-        var adapterMyinfUserList = MyinfUserListAdapter(getPetImageList())
+        var adapterMyinfUserList = MyinfUserListAdapter(getImageList())
         adapterMyinfUserList.notifyDataSetChanged()
 
         rcv_myinf_picList.adapter = adapterMyinfPicList
@@ -51,7 +50,7 @@ class MyinfFragment : Fragment() {
         return rootView
     }
 
-    private fun getPetImageList(): ArrayList<Int>{
+    private fun getImageList(): ArrayList<Int>{
         return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
     }
 }
