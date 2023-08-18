@@ -1,117 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".myinf.MyinfFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="71dp"
+            android:text="Ryu_"
+            android:textAppearance="@style/myinf_id"
+            android:lineSpacingExtra="-10sp"
+            android:gravity="top"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="133dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="71dp"
+            android:text="46.8"
+            android:textAppearance="@style/myinf_degree"
+            android:lineSpacingExtra="-9sp"
+            android:gravity="top"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="298dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="69dp"
+            android:text="162P"
+            android:textAppearance="@style/myinf_point"
+            android:lineSpacingExtra="-10sp"
+            android:gravity="center_horizontal|top"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="38dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="71dp"
-        android:text="Ryu_"
-        android:textAppearance="@style/myinf_id"
-        android:lineSpacingExtra="-10sp"
-        android:gravity="top"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="133dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="71dp"
-        android:text="46.8"
-        android:textAppearance="@style/myinf_degree"
-        android:lineSpacingExtra="-9sp"
-        android:gravity="top"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="298dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="69dp"
-        android:text="162P"
-        android:textAppearance="@style/myinf_point"
-        android:lineSpacingExtra="-10sp"
-        android:gravity="center_horizontal|top"
-        />
+        <View
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/background_myinf_circle_1"
+            />
 
-    <View
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/background_myinf_circle_1"
-        />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="125dp"
-        app:cardCornerRadius="100dp">
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/cat2_temp" />
-    </androidx.cardview.widget.CardView>
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="125dp"
+            app:cardCornerRadius="100dp">
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/cat2_temp" />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/jacob_west"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="250dp"
-        android:text="이름"
-        android:textAppearance="@style/myinf_name"
-        android:gravity="top"
-        />
+        <TextView
+            android:id="@+id/jacob_west"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="250dp"
+            android:text="이름"
+            android:textAppearance="@style/myinf_name"
+            android:gravity="top"
+            />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_myinf_userList"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_myinf_userList"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="140dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginHorizontal="35dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="280dp"
-        android:gravity="top"
-        android:lineSpacingExtra="-6sp"
-        android:text="한줄 소개"
-        android:textAppearance="@style/myinf_introduce" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginHorizontal="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="280dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-6sp"
+            android:text="한줄 소개"
+            android:textAppearance="@style/myinf_introduce" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_myinf_picList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="360dp"
-        android:numColumns="3"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_myinf_picList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="360dp"
+            android:numColumns="3"/>
 
-</RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
