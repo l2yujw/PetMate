@@ -2,29 +2,38 @@ package com.example.petmate.home.petowner
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.petmate.R
+import com.example.petmate.databinding.ItemHomePetownerPetlistBinding
 
-class HomePetownerPetlistAdapter(petImageList: ArrayList<Int>, petTextList: ArrayList<HomePetownerPetlistData>) : RecyclerView.Adapter<HomePetownerPetlistAdapter.PetownerPetlistViewHolder>() {
+class HomePetownerPetlistAdapter(var petTextList: ArrayList<HomePetownerPetlistData>) : RecyclerView.Adapter<HomePetownerPetlistAdapter.PetownerPetlistViewHolder>() {
 
-    var imageItem = petImageList
-    var randomTextItem = petTextList
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PetownerPetlistViewHolder((parent))
+    lateinit var binding: ItemHomePetownerPetlistBinding
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetownerPetlistViewHolder {
+        binding = ItemHomePetownerPetlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PetownerPetlistViewHolder(binding)
+    }
 
-    override fun getItemCount(): Int = imageItem.size
+    override fun getItemCount(): Int = petTextList.size
 
     override fun onBindViewHolder(holder: PetownerPetlistViewHolder, position: Int) {
-        holder.image.setImageResource(imageItem[position])
-        holder.randomText.text = randomTextItem[position].petlist_randomtext
+        val item = petTextList[position]
+        holder.setItem(item)
+
     }
 
 
-    inner class PetownerPetlistViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder
-        (LayoutInflater.from(parent.context).inflate(R.layout.item_home_petowner_petlist, parent, false)) {
-
-        val randomText = itemView.findViewById<TextView>(R.id.petowner_petlist_randomtext)
-        val image = itemView.findViewById<ImageView>(R.id.petowner_petlist_image)
+    inner class PetownerPetlistViewHolder(binding: ItemHomePetownerPetlistBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun setItem(item: HomePetownerPetlistData) {
+            binding.petownerPetlistRandomtext.text = item.petlist_randomtext
+            Glide.with(binding.petownerPetlistImage)
+                .load(item.petlist_img)                         // 불러올 이미지 URL
+                .fallback(R.drawable.cat1_temp)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                .error(R.drawable.cat2_temp)                    // 로딩 에러 발생 시 표시할 이미지
+                .placeholder(R.drawable.weather_little_cloudy)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                .centerInside()                                 // scaletype
+                .into(binding.petownerPetlistImage)             // 이미지를 넣을 뷰
+        }
     }
 }

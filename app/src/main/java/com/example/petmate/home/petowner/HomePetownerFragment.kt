@@ -77,15 +77,15 @@ class HomePetownerFragment : Fragment() {
         val petTextList = ArrayList<HomePetownerPetlistData>()
         val scheduleList = ArrayList<HomePetownerScheduleData>()
 
-        petTextList.add(HomePetownerPetlistData("aaaaaa"))
-        petTextList.add(HomePetownerPetlistData("bbbbbb"))
-        petTextList.add(HomePetownerPetlistData("ccccc"))
+        petTextList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        petTextList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        petTextList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
 
         scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
         scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
         scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
 
-        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
+        val boardAdapterPetList = HomePetownerPetlistAdapter(/*getPetImageList(), */petTextList)
         boardAdapterPetList.notifyDataSetChanged()
         val boardAdapterScheduleList = HomePetownerScheduleAdapter(scheduleList)
         boardAdapterScheduleList.notifyDataSetChanged()
@@ -99,7 +99,7 @@ class HomePetownerFragment : Fragment() {
 
         /*viewPager_petlist.adapter = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
         viewPager_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL*/
-        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
+        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(/*getPetImageList(), */petTextList)
         binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
