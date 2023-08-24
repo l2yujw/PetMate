@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemHomePetownerPetlistBinding
 
-class HomePetownerPetlistAdapter(var petTextList: ArrayList<HomePetownerPetlistData>) : RecyclerView.Adapter<HomePetownerPetlistAdapter.PetownerPetlistViewHolder>() {
+class HomePetownerPetlistAdapter(var petList: ArrayList<HomePetownerPetlistData>) : RecyclerView.Adapter<HomePetownerPetlistAdapter.PetownerPetlistViewHolder>() {
 
     lateinit var binding: ItemHomePetownerPetlistBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetownerPetlistViewHolder {
@@ -15,10 +15,10 @@ class HomePetownerPetlistAdapter(var petTextList: ArrayList<HomePetownerPetlistD
         return PetownerPetlistViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = petTextList.size
+    override fun getItemCount(): Int = petList.size
 
     override fun onBindViewHolder(holder: PetownerPetlistViewHolder, position: Int) {
-        val item = petTextList[position]
+        val item = petList[position]
         holder.setItem(item)
 
     }

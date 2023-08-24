@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_home_rectangle_1_2">
 
     <View
@@ -14,9 +14,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="20dp"
         android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"
-        >
+        app:cardCornerRadius="20dp">
+
         <ImageView
             android:id="@+id/petowner_petlist_image"
             android:layout_width="match_parent"
@@ -30,8 +30,8 @@
         android:id="@+id/petowner_petlist_randomtext"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_alignStart="@id/activity_main_home_havepet_petlist_division"
+        android:gravity="center"
         android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안/\n반려동물 나이 등)"
         android:textAppearance="@style/petowner_randomtext" />
 
