@@ -63,7 +63,7 @@ class HomePetownerFragment : Fragment() {
         requestPermissions(permissionList, 1)
 
         // 날씨. 위치 정보를 기반으로 날씨 정보 요청
-//        requestLocation()
+        requestLocation()
 
         /*// <새로고침> 버튼 누를 때 위치 정보 & 날씨 정보 다시 가져오기
         binding.btnRefresh.setOnClickListener {
