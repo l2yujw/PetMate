@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp">
+
+        <View
+            android:id="@+id/item_home_petseeker_recommend_division"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@id/item_home_petseeker_recommend_division">
+
+            <ImageView
+                android:id="@+id/item_home_petseeker_recommend_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@id/item_home_petseeker_recommend_division"
+                android:layout_alignParentStart="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cat2_temp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/item_home_petseeker_recommend_breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/item_home_petseeker_recommend_division"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="17dp"
+            android:text="한국 고양이"
+            android:textAppearance="@style/petseeker_breed" />
+
+        <ImageView
+            android:id="@+id/item_home_petseeker_recommend_sex"
+            android:layout_width="16dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@id/item_home_petseeker_recommend_breed"
+            android:scaleType="centerCrop"
+            android:src="@drawable/woman" />
+
+        <TextView
+            android:id="@+id/item_home_petseeker_recommend_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/item_home_petseeker_recommend_division"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="40dp"
+            android:text="흰색, 갈색"
+            android:textAppearance="@style/petseeker_color" />
+
+        <TextView
+            android:id="@+id/item_home_petseeker_recommend_feature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/item_home_petseeker_recommend_division"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="65dp"
+            android:text="생후 60일 추정"
+            android:textAppearance="@style/petseeker_feature" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.petmate.home.shelterpetInfo
+package com.example.petmate.home.petseeker.shelterpetInfo
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
 
-class HomeShelterpetInfo(val itemList: ArrayList<HomeShelterpetInfoData>) : RecyclerView.Adapter<HomeShelterpetInfo.AbandonedViewHolder>() {
+class HomeShelterpetInfoAdapter(val itemList: ArrayList<HomeShelterpetInfoData>) : RecyclerView.Adapter<HomeShelterpetInfoAdapter.AbandonedViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbandonedViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_shelterpet_info, parent, false)

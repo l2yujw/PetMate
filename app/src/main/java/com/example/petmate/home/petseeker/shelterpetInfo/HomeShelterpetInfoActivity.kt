@@ -1,4 +1,4 @@
-package com.example.petmate.home.shelterpetInfo
+package com.example.petmate.home.petseeker.shelterpetInfo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +22,7 @@ class HomeShelterpetInfoActivity : AppCompatActivity() {
         itemList.add(HomeShelterpetInfoData("보호장소", "경상북도 구미시 인동22길 43-4 (진평동)"))
         itemList.add(HomeShelterpetInfoData("보호센터연락처", "054-716-0211"))
 
-        val boardAdapter = HomeShelterpetInfo(itemList)
+        val boardAdapter = HomeShelterpetInfoAdapter(itemList)
         boardAdapter.notifyDataSetChanged()
 
         rv_board.adapter = boardAdapter
