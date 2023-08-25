@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.databinding.ActivityLogin00Binding
+import com.example.petmate.navigation.BottomNavAnonyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import net.daum.mf.map.api.MapView
@@ -39,6 +40,10 @@ class Login00Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnAnonymousLogin.setOnClickListener{
+            anonymousLogin()
+        }
+
     }
 
     fun login(email:String,password:String){
@@ -47,7 +52,20 @@ class Login00Activity : AppCompatActivity() {
                     result->
                 if(result.isSuccessful){
                     var intent = Intent(this, BottomNavActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
+                }
+            }
+    }
+
+    fun anonymousLogin(){
+        auth.signInAnonymously()
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    var intent = Intent(this, BottomNavAnonyActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    //회원가입에 실패했을 때의 코드 추가
                 }
             }
     }

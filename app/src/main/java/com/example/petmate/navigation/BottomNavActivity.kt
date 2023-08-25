@@ -35,6 +35,7 @@ class BottomNavActivity : AppCompatActivity(){
 //        initBottomNavigation()
 
         setNavigation()
+
     }
 
 
@@ -46,8 +47,9 @@ class BottomNavActivity : AppCompatActivity(){
         val navigator = KeepStateFragment(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
 
         navController.navigatorProvider.addNavigator(navigator)
-
-        navController.setGraph(R.navigation.nav_graph)
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+        navGraph.setStartDestination(R.id.homePetseekerFragment)
+        navController.setGraph(navGraph, null)
 
         // MainActivity의 main_navi와 navController 연결
         binding.mainNavi.setupWithNavController(navController)

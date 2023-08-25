@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homePetseekerFragment"
+        android:icon="@drawable/bottommenu_home"
+        android:title="테스트"/>
+
+    <item
+        android:id="@+id/petMainFragment"
+        android:icon="@drawable/bottommenu_petinfo"
+        android:title="반려동물"/>
+
+    <item
+        android:id="@+id/communityFragment"
+        android:icon="@drawable/bottommenu_community"
+        android:title="커뮤니티"/>
+
+    <item
+        android:id="@+id/myinfFragment"
+        android:icon="@drawable/bottommenu_profile"
+        android:title="내정보"/>
+</menu>

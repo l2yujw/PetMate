@@ -58,7 +58,7 @@
         android:layout_marginEnd="55dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="260dp"
-        android:text="아이디"
+        android:hint="아이디"
         android:textAppearance="@style/login_0_0_edittext"
         android:lineSpacingExtra="1sp"
         android:gravity="top"
@@ -105,7 +105,7 @@
         android:layout_marginEnd="55dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="345dp"
-        android:text="비밀번호"
+        android:hint="비밀번호"
         android:textAppearance="@style/login_0_0_edittext"
         android:lineSpacingExtra="1sp"
         android:gravity="top"
@@ -131,7 +131,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="445dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:text="로그인"
         android:textAppearance="@style/login_0_0_button"
@@ -143,10 +143,21 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="520dp"
         android:background="@drawable/background_brandwhite_round_10dp"
         android:textAppearance="@style/login_0_0_button"
         android:text="회원가입" />
+
+    <Button
+        android:id="@+id/btn_anonymousLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="595dp"
+        android:background="@drawable/background_brandwhite_round_10dp"
+        android:textAppearance="@style/login_0_0_button"
+        android:text="비회원 로그인" />
 
     <RelativeLayout
         android:layout_width="match_parent"
