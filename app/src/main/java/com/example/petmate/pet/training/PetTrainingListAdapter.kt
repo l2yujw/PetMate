@@ -14,7 +14,6 @@ import com.example.petmate.pet.main.PetMainHealthData
 
 class PetTrainingListAdapter(val itemList: ArrayList<Int>) : RecyclerView.Adapter<PetTrainingListAdapter.PetTrainingListViewHolder>() {
 
-
     private lateinit var itemClickListener : OnItemClickListener
 
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -36,7 +35,6 @@ class PetTrainingListAdapter(val itemList: ArrayList<Int>) : RecyclerView.Adapte
     override fun getItemCount(): Int {
         return itemList.size
     }
-
 
     inner class PetTrainingListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val trainingImage = itemView.findViewById<ImageView>(R.id.img_pet_training)

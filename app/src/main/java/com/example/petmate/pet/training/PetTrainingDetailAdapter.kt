@@ -23,7 +23,6 @@ class PetTrainingDetailAdapter(val itemList: ArrayList<PetTrainingDetailData>) :
         return itemList.count()
     }
 
-
     inner class TrainingDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val level = itemView.findViewById<TextView>(R.id.pet_tarining_1_level)
         val detail = itemView.findViewById<TextView>(R.id.pet_tarining_1_detail)

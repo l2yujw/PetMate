@@ -31,7 +31,6 @@ class PetMainTrainingAdapter(val itemList: ArrayList<PetMainTrainingData>) : Rec
         return itemList.count()
     }
 
-
     inner class PetMainTrainingiewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val checkedTraining = itemView.findViewById<TextView>(R.id.main_checkedtraining_text)
     }

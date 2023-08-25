@@ -22,7 +22,6 @@ class PetMainNoteAdapter(val itemList: ArrayList<PetMainNoteData>) : RecyclerVie
         return itemList.count()
     }
 
-
     inner class PetMainNoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val note = itemView.findViewById<TextView>(R.id.main_note_text)
     }

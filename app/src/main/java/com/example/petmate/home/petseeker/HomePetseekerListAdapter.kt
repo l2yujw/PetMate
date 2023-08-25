@@ -27,7 +27,6 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
         return itemList.count()
     }
 
-
     inner class PetseekerlistViewHolder(binding: ItemHomePetseekerListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setItem(item: HomePetseekerListData) {
             Glide.with(binding.itemHomePetseekerListImage1)
@@ -69,8 +68,6 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
             binding.itemHomePetseekerListFeature3.text = item.list_feature3
         }
     }
-
-
 
     // 성별
     fun getSexImage(sex: String): Int {

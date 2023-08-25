@@ -23,7 +23,6 @@ class HomePetseekerFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-
     @SuppressLint("SetTextI18n", "MissingPermission")
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -88,13 +87,4 @@ class HomePetseekerFragment : Fragment() {
 
         return binding.getRoot()
     }
-
-
-    inner class HorizontalSpaceItemDecoration(private val horizontalSpaceHeight: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-            outRect.right = horizontalSpaceHeight
-        }
-    }
-
-
 }

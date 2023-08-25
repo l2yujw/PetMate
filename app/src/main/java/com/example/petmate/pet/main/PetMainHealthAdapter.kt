@@ -10,13 +10,11 @@ import com.example.petmate.R
 
 class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : RecyclerView.Adapter<PetMainHealthAdapter.PetMainHealthViewHolder>() {
 
-
     private lateinit var itemClickListener : OnItemClickListener
 
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainHealthViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_health, parent, false)
@@ -30,11 +28,9 @@ class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : Recycle
         }
     }
 
-
     override fun getItemCount(): Int {
         return itemList.count()
     }
-
 
     inner class PetMainHealthViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val health = itemView.findViewById<TextView>(R.id.main_health_text)

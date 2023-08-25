@@ -28,7 +28,6 @@ class WalkRecord(val itemList: ArrayList<WalkRecordData>) : RecyclerView.Adapter
         return itemList.count()
     }
 
-
     inner class WalkRecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val guardian = itemView.findViewById<TextView>(R.id.walk_record_guardian)
         val trainingtime = itemView.findViewById<TextView>(R.id.walk_record_trainingtime)

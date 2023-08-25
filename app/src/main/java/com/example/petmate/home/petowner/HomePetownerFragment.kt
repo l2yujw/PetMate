@@ -94,20 +94,12 @@ class HomePetownerFragment : Fragment() {
         val boardAdapterScheduleList = HomePetownerScheduleAdapter(scheduleList)
         boardAdapterScheduleList.notifyDataSetChanged()
 
-
-        /*val viewPager_petlist = rootView.findViewById<ViewPager2>(R.id.viewpager_petowner_petlist)
-        val rv_board_schedule = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_schedule)
-//        val rv_board_weather = rootView.findViewById<RecyclerView>(R.id.rcv_havepet_weather)
-        val indicator = rootView.findViewById<RecyclerView>(R.id.circleindicator_petowner_petlist)*/
         val indicator = binding.circleindicatorPetownerPetlist
 
-        /*viewPager_petlist.adapter = HomePetownerPetlistAdapter(getPetImageList(), petTextList)
-        viewPager_petlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL*/
         binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(/*getPetImageList(), */petTextList)
         binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
-//        indicator.createIndicators(4, 0)
         indicator.createIndicators(petTextList.size, 0)
 
         //현재 page 받아옴 (fragment 혹은 image 어떤걸로 할지 고려중)
@@ -128,7 +120,6 @@ class HomePetownerFragment : Fragment() {
             var intent = Intent(requireContext(), WalkActivity::class.java)
             startActivity(intent)
         }
-
 
         return binding.getRoot()
     }
@@ -302,6 +293,5 @@ class HomePetownerFragment : Fragment() {
     private fun getPetImageList(): ArrayList<Int> {
         return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
     }
-
 
 }

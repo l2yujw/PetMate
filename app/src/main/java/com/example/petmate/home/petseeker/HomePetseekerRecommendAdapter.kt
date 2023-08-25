@@ -45,8 +45,6 @@ class HomePetseekerRecommendAdapter(val itemList: ArrayList<HomePetseekerRecomme
         }
     }
 
-
-
     // 성별
     fun getSexImage(sex: String): Int {
         return when (sex) {

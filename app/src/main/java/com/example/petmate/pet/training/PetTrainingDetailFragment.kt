@@ -14,7 +14,6 @@ import com.example.petmate.R
 
 class PetTrainingDetailFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,5 +43,4 @@ class PetTrainingDetailFragment : Fragment() {
         rv_board.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         return rootView
     }
-
 }

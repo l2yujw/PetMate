@@ -26,8 +26,4 @@ class PetHealthFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pet_health, container, false)
     }
-
-    companion object {
-
-    }
 }

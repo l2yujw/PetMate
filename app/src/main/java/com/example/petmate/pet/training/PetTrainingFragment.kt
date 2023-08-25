@@ -16,7 +16,6 @@ import com.example.petmate.HorizontalItemDecorator
 
 class PetTrainingFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

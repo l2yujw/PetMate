@@ -28,12 +28,15 @@ class BottomNavAnonyActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_annoy_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
+        // 화면 전화 후에도 값 유지
         val navigator = KeepStateFragment(this, navHostFragment.childFragmentManager, R.id.nav_host_annoy_fragment)
 
         navController.navigatorProvider.addNavigator(navigator)
 
+        // 네비게이션 시작 프래그먼트 변경
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
         navGraph.setStartDestination(R.id.homePetseekerFragment)
+
         navController.setGraph(navGraph, null)
 
         // MainActivity의 main_navi와 navController 연결
