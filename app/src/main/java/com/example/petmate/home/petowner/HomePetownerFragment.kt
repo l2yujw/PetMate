@@ -2,6 +2,7 @@ package com.example.petmate.home.petowner
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Point
 import android.graphics.Rect
 import android.os.Build
@@ -29,8 +30,11 @@ import retrofit2.Response
 import java.util.*
 import android.util.Log
 import android.os.Looper
+import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
 import com.example.petmate.home.petowner.weather.ITEM
+import com.example.petmate.login.Login10Activity
+import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
@@ -63,7 +67,7 @@ class HomePetownerFragment : Fragment() {
         requestPermissions(permissionList, 1)
 
         // 날씨. 위치 정보를 기반으로 날씨 정보 요청
-        requestLocation()
+//        requestLocation()
 
         /*// <새로고침> 버튼 누를 때 위치 정보 & 날씨 정보 다시 가져오기
         binding.btnRefresh.setOnClickListener {
@@ -118,13 +122,18 @@ class HomePetownerFragment : Fragment() {
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
         binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        binding.rcvHavepetWeather.addItemDecoration(HorizontalSpaceItemDecoration(15))
+        binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
+
+        binding.btnWalk.setOnClickListener{
+            var intent = Intent(requireContext(), WalkActivity::class.java)
+            startActivity(intent)
+        }
 
 
         return binding.getRoot()
     }
 
-
+/*
     // 날씨 가져와서 설정하기
     private fun setWeather(nx: Int, ny: Int) {
         // 준비 단계 : base_date(발표 일자), base_time(발표 시각)
@@ -247,14 +256,9 @@ class HomePetownerFragment : Fragment() {
                 Log.d("api fail", t.message.toString())
             }
         })
-    }
+    }*/
 
-    inner class HorizontalSpaceItemDecoration(private val horizontalSpaceHeight: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-            outRect.right = horizontalSpaceHeight
-        }
-    }
-
+/*
     // 내 현재 위치의 위경도를 격자 좌표로 변환하여 해당 위치의 날씨정보 설정
     @SuppressLint("MissingPermission")
     private fun requestLocation() {
@@ -293,7 +297,7 @@ class HomePetownerFragment : Fragment() {
         } catch (e: SecurityException) {
             e.printStackTrace()
         }
-    }
+    }*/
 
     private fun getPetImageList(): ArrayList<Int> {
         return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)

@@ -19,16 +19,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".walk.WalkActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.Login10Activity"
-            android:exported="false" />
-        <activity
-            android:name=".navigation.TestNavActivity"
-            android:exported="false" />
-        <activity
-            android:name=".notUse.PetTrainingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".notUse.PetHealthActivity"
             android:exported="false" />
         <activity
             android:name=".navigation.BottomNavActivity"
@@ -42,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="71f68b1373e2aa3ec233cf7abc295070" />
     </application>
 
 </manifest>
