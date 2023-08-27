@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeShelterpetInfoFragment">
 <!--    app:startDestination="@id/homePetseekerFragment">-->
 
     <keep_state_fragment
@@ -19,6 +20,9 @@
         app:popUpToSaveState="true"
         android:label="fragment_home_petseeker"
         tools:layout="@layout/fragment_home_petseeker" >
+        <action
+            android:id="@+id/action_homePetseekerFragment_to_homeShelterpetInfoFragment"
+            app:destination="@id/homeShelterpetInfoFragment" />
     </keep_state_fragment>
 
     <keep_state_fragment
@@ -81,5 +85,14 @@
         <action
             android:id="@+id/action_petTrainingDetailFragment_to_petTrainingFragment"
             app:destination="@id/petTrainingFragment" />
+    </keep_state_fragment>
+    <keep_state_fragment
+        android:id="@+id/homeShelterpetInfoFragment"
+        android:name="com.example.petmate.home.petseeker.shelterpetInfo.HomeShelterpetInfoFragment"
+        android:label="fragment_home_shelterpet_info"
+        tools:layout="@layout/fragment_home_shelterpet_info" >
+        <action
+            android:id="@+id/action_homeShelterpetInfoFragment_to_homePetseekerFragment"
+            app:destination="@id/homePetseekerFragment" />
     </keep_state_fragment>
 </navigation>

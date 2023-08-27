@@ -1,10 +1,19 @@
 package com.example.petmate.home.petseeker
 
+import android.icu.lang.UCharacter.GraphemeClusterBreak.V
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemHomePetseekerListBinding
 
@@ -19,62 +28,32 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
     }
 
     override fun onBindViewHolder(holder: PetseekerlistViewHolder, position: Int) {
-        val item = itemList[position]
-        holder.setItem(item)
+        val petList = ArrayList<HomePetseekerListData>()
+        for (i: Int in 0..2) {
+            if (itemList[position + i] != null) {
+                petList.add(itemList[3 * position + i])
+            }
+        }
+        Log.d("dddd","${position} / ${petList[0].list_feature} / ${petList[1].list_feature} / ${petList[2].list_feature} ")
+        holder.test(petList)
     }
 
     override fun getItemCount(): Int {
-        return itemList.count()
+        return itemList.size/3
     }
 
     inner class PetseekerlistViewHolder(binding: ItemHomePetseekerListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun setItem(item: HomePetseekerListData) {
-            Glide.with(binding.itemHomePetseekerListImage1)
-                .load(item.list_img1)                       // 불러올 이미지 URL
-                .fallback(R.drawable.cat1_temp)             // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.cat2_temp)                // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.search)             // 이미지 로딩 시작하기 전에 표시할 이미지
-                .centerInside()                             // scaletype
-                .into(binding.itemHomePetseekerListImage1)  // 이미지를 넣을 뷰
-            Glide.with(binding.itemHomePetseekerListImage2)
-                .load(item.list_img2)
-                .fallback(R.drawable.cat1_temp)
-                .error(R.drawable.cat2_temp)
-                .placeholder(R.drawable.search)
-                .centerInside()
-                .into(binding.itemHomePetseekerListImage2)
-            Glide.with(binding.itemHomePetseekerListImage3)
-                .load(item.list_img3)
-                .fallback(R.drawable.cat1_temp)
-                .error(R.drawable.cat2_temp)
-                .placeholder(R.drawable.search)
-                .centerInside()
-                .into(binding.itemHomePetseekerListImage3)
 
-            binding.itemHomePetseekerListBreed1.text = item.list_breed1
-            binding.itemHomePetseekerListBreed2.text = item.list_breed2
-            binding.itemHomePetseekerListBreed3.text = item.list_breed3
-
-            binding.itemHomePetseekerListSex1.setImageResource(getSexImage(item.list_sex1))
-            binding.itemHomePetseekerListSex2.setImageResource(getSexImage(item.list_sex2))
-            binding.itemHomePetseekerListSex3.setImageResource(getSexImage(item.list_sex3))
-
-            binding.itemHomePetseekerListColor1.text = item.list_color1
-            binding.itemHomePetseekerListColor2.text = item.list_color2
-            binding.itemHomePetseekerListColor3.text = item.list_color3
-
-            binding.itemHomePetseekerListFeature1.text = item.list_feature1
-            binding.itemHomePetseekerListFeature2.text = item.list_feature2
-            binding.itemHomePetseekerListFeature3.text = item.list_feature3
-        }
-    }
-
-    // 성별
-    fun getSexImage(sex: String): Int {
-        return when (sex) {
-            "수컷" -> R.drawable.sex_male
-            "암컷" -> R.drawable.sex_female
-            else -> R.drawable.sex_male
+        fun test(petListDivision: ArrayList<HomePetseekerListData>){
+            val adapterHomePetseekerList2 = HomePetseekerList2Adapter(petListDivision)
+            adapterHomePetseekerList2.setItemClickListener(object : OnItemClickListener {
+                override fun onClick(v: View, position: Int) {
+                    v.findNavController().navigate(R.id.action_homePetseekerFragment_to_homeShelterpetInfoFragment)
+                }
+            })
+            binding.rcvPetseekerList.adapter = adapterHomePetseekerList2
+            binding.rcvPetseekerList.layoutManager = LinearLayoutManager(binding.rcvPetseekerList.context,LinearLayoutManager.VERTICAL, false)
+            Log.d("dddd","리사이클러뷰")
         }
     }
 

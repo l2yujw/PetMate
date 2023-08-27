@@ -35,7 +35,6 @@ class BottomNavActivity : AppCompatActivity(){
 //        initBottomNavigation()
 
         setNavigation()
-
     }
 
 
@@ -51,7 +50,7 @@ class BottomNavActivity : AppCompatActivity(){
 
         // 네비게이션 시작 프래그먼트 변경
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-        navGraph.setStartDestination(R.id.homePetseekerFragment)
+        navGraph.setStartDestination(R.id.homePetownerFragment)
 
         navController.setGraph(navGraph, null)
 

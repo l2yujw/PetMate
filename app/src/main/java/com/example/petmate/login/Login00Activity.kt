@@ -32,7 +32,10 @@ class Login00Activity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             var email = binding.etEmail.text.toString()
             var password = binding.etPwd.text.toString()
-            login(email, password)
+//            login(email, password)
+            var intent = Intent(this, BottomNavActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
         binding.btnRegister.setOnClickListener{

@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Point
-import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,31 +13,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.petmate.R
-import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
-import com.example.petmate.home.petowner.weather.HomePetownerWeatherCommon
-import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
-import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
-import com.example.petmate.home.petowner.weather.WEATHER
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
-import retrofit2.Call
-import retrofit2.Response
 import java.util.*
-import android.util.Log
-import android.os.Looper
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
-import com.example.petmate.home.petowner.weather.ITEM
-import com.example.petmate.login.Login10Activity
 import com.example.petmate.walk.WalkActivity
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationResult
-import com.google.android.gms.location.LocationServices
 
 class HomePetownerFragment : Fragment() {
 
@@ -50,7 +29,6 @@ class HomePetownerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
 
     @SuppressLint("SetTextI18n", "MissingPermission")
     @RequiresApi(Build.VERSION_CODES.S)
@@ -74,35 +52,19 @@ class HomePetownerFragment : Fragment() {
             requestLocation()
         }*/
 
-//        var rootView = inflater.inflate(R.layout.fragment_home_petowner, container, false)
         binding = FragmentHomePetownerBinding.inflate(inflater)
 
-
-        val petTextList = ArrayList<HomePetownerPetlistData>()
-        val scheduleList = ArrayList<HomePetownerScheduleData>()
-
-        petTextList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-        petTextList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
-        petTextList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
-
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-
-        val boardAdapterPetList = HomePetownerPetlistAdapter(/*getPetImageList(), */petTextList)
+        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
         boardAdapterPetList.notifyDataSetChanged()
-        val boardAdapterScheduleList = HomePetownerScheduleAdapter(scheduleList)
+        val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
         boardAdapterScheduleList.notifyDataSetChanged()
 
         val indicator = binding.circleindicatorPetownerPetlist
-
-        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(/*getPetImageList(), */petTextList)
-        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        indicator.createIndicators(petTextList.size, 0)
+        indicator.createIndicators(getPetList().size, 0)
 
-        //현재 page 받아옴 (fragment 혹은 image 어떤걸로 할지 고려중)
+        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
+        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -111,6 +73,7 @@ class HomePetownerFragment : Fragment() {
             }
         })
 
+        //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
         binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
@@ -120,6 +83,9 @@ class HomePetownerFragment : Fragment() {
             var intent = Intent(requireContext(), WalkActivity::class.java)
             startActivity(intent)
         }
+
+        //오늘 날씨 확인해서 문구 적용
+        binding.comment.text = "오늘은 산책하기 좋은 날씨네요!"
 
         return binding.getRoot()
     }
@@ -290,8 +256,24 @@ class HomePetownerFragment : Fragment() {
         }
     }*/
 
-    private fun getPetImageList(): ArrayList<Int> {
-        return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
+    private fun getPetList(): ArrayList<HomePetownerPetlistData> {
+        val petList = ArrayList<HomePetownerPetlistData>()
+
+        petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        petList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        petList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return petList
+    }
+
+    private fun getScheduleList(): ArrayList<HomePetownerScheduleData> {
+        val scheduleList = ArrayList<HomePetownerScheduleData>()
+
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+
+        return scheduleList
     }
 
 }
