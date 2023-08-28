@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.databinding.FragmentMyinfBinding
+import com.example.petmate.pet.training.PetTrainingListData
 
 class MyinfFragment : Fragment() {
 
+    lateinit var binding: FragmentMyinfBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +26,15 @@ class MyinfFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        binding = FragmentMyinfBinding.inflate(inflater)
 
-        var rootView = inflater.inflate(R.layout.fragment_myinf, container, false)
-
-        var rcv_myinf_picList = rootView.findViewById<RecyclerView>(R.id.rcv_myinf_picList)
-        var rcv_myinf_userList = rootView.findViewById<RecyclerView>(R.id.rcv_myinf_userList)
-
-        var adapterMyinfPicList = MyinfPicListAdapter(getImageList())
+        var adapterMyinfPicList = MyinfPicListAdapter(getPicList())
         adapterMyinfPicList.notifyDataSetChanged()
-        var adapterMyinfUserList = MyinfUserListAdapter(getImageList())
+        var adapterMyinfUserList = MyinfUserListAdapter(getUserList())
         adapterMyinfUserList.notifyDataSetChanged()
 
-        rcv_myinf_picList.adapter = adapterMyinfPicList
-        rcv_myinf_picList.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rcvMyinfPicList.adapter = adapterMyinfPicList
+        binding.rcvMyinfPicList.layoutManager = GridLayoutManager(requireContext(), 3)
 
         adapterMyinfPicList.setItemClickListener(object : OnItemClickListener{
             override fun onClick(v: View, position: Int) {
@@ -44,13 +42,44 @@ class MyinfFragment : Fragment() {
             }
         })
 
-        rcv_myinf_userList.adapter = adapterMyinfUserList
-        rcv_myinf_userList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rcvMyinfUserList.adapter = adapterMyinfUserList
+        binding.rcvMyinfUserList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        return rootView
+        return binding.getRoot()
     }
 
-    private fun getImageList(): ArrayList<Int>{
-        return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
+    private fun getPicList(): ArrayList<MyinfPicListData>{
+        val picList = ArrayList<MyinfPicListData>()
+
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        picList.add(MyinfPicListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        picList.add(MyinfPicListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return picList
+    }
+
+    private fun getUserList(): ArrayList<MyinfUserListData>{
+        val userList = ArrayList<MyinfUserListData>()
+
+        userList.add(MyinfUserListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        userList.add(MyinfUserListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        userList.add(MyinfUserListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return userList
     }
 }

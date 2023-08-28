@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.example.petmate.R
+import com.example.petmate.databinding.FragmentPetHealthBinding
 
 class PetHealthFragment : Fragment() {
 
+    lateinit var binding: FragmentPetHealthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,14 @@ class PetHealthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pet_health, container, false)
+        binding = FragmentPetHealthBinding.inflate(inflater)
+
+        binding.tvHealthVaccination.text = "2024.05.30"
+        binding.tvHealthHelminthic.text = "2024.05.30"
+        binding.tvHealthWeight.text = "정상"
+        binding.tvHealthQuantity.text = "500"
+        binding.tvHealthKcal.text = "250"
+
+        return binding.getRoot()
     }
 }

@@ -74,6 +74,8 @@
 
         </RelativeLayout>
 
+
+
         <ImageView
             android:layout_width="26dp"
             android:layout_height="26dp"
@@ -117,6 +119,7 @@
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
+                android:id="@+id/tv_health_vaccination"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginTop="37dp"
@@ -149,6 +152,7 @@
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
+                android:id="@+id/tv_health_helminthic"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:layout_marginTop="37dp"
@@ -181,6 +185,7 @@
                 android:textAppearance="@style/pet_health_vaccination_record" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_health_record"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="17dp"
@@ -267,6 +272,7 @@
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
+                android:id="@+id/tv_health_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -299,6 +305,7 @@
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
+                android:id="@+id/tv_health_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -323,7 +330,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/kcal_num"
+                android:id="@+id/tv_health_kcal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -336,7 +343,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/kcal_num"
+                android:layout_toRightOf="@id/tv_health_kcal"
                 android:text="kcal"
                 android:textAppearance="@style/pet_health_kcal" />
 

@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
+import com.example.petmate.databinding.FragmentPetTrainingDetailBinding
 
 
 class PetTrainingDetailFragment : Fragment() {
 
+    lateinit var binding: FragmentPetTrainingDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,20 +29,23 @@ class PetTrainingDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var rootView = inflater.inflate(R.layout.fragment_pet_training_detail, container, false)
-        val rv_board = rootView.findViewById<RecyclerView>(R.id.rcv_training_detail_ways)
+        binding = FragmentPetTrainingDetailBinding.inflate(inflater)
 
-        val itemList = ArrayList<PetTrainingDetailData>()
-
-        itemList.add(PetTrainingDetailData("1단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        itemList.add(PetTrainingDetailData("2단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-        itemList.add(PetTrainingDetailData("3단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
-
-        val boardAdapter = PetTrainingDetailAdapter(itemList)
+        val boardAdapter = PetTrainingDetailAdapter(getTrainingDetailList())
         boardAdapter.notifyDataSetChanged()
 
-        rv_board.adapter = boardAdapter
-        rv_board.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        return rootView
+        binding.rcvTrainingDetailWays.adapter = boardAdapter
+        binding.rcvTrainingDetailWays.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        return binding.getRoot()
+    }
+
+    private fun getTrainingDetailList(): ArrayList<PetTrainingDetailData>{
+        val trainingDetailList = ArrayList<PetTrainingDetailData>()
+
+        trainingDetailList.add(PetTrainingDetailData("1단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+        trainingDetailList.add(PetTrainingDetailData("2단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+        trainingDetailList.add(PetTrainingDetailData("3단계","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+
+        return trainingDetailList
     }
 }

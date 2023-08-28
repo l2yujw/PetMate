@@ -16,15 +16,8 @@ import com.example.petmate.myinf.MyinfFragment
 import com.example.petmate.pet.main.PetMainFragment
 
 class BottomNavActivity : AppCompatActivity(){
-    private val fragmentManager = supportFragmentManager
 
     private lateinit var binding: ActivityBottomNavBinding
-
-    private var homePetownerFragment: HomePetownerFragment? = null
-    private var petMainFragment: PetMainFragment? = null
-    private var communityFragment: CommunityFragment? = null
-    private var myinfFragment: MyinfFragment? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +25,8 @@ class BottomNavActivity : AppCompatActivity(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bottom_nav)
         binding.lifecycleOwner = this
 
-//        initBottomNavigation()
-
         setNavigation()
     }
-
 
     private fun setNavigation() {
 

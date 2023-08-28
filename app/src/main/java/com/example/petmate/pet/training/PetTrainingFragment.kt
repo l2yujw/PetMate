@@ -13,8 +13,13 @@ import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.HorizontalItemDecorator
+import com.example.petmate.databinding.FragmentPetTrainingBinding
+import com.example.petmate.home.petowner.HomePetownerPetlistData
+import com.example.petmate.pet.main.PetMainHealthData
 
 class PetTrainingFragment : Fragment() {
+
+    lateinit var binding: FragmentPetTrainingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,30 +34,33 @@ class PetTrainingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var rootView = inflater.inflate(R.layout.fragment_pet_training, container, false)
-
-        var rcv_training_list = rootView.findViewById<RecyclerView>(R.id.rcv_pet_training_list)
-        // Inflate the layout for this fragment
+        binding = FragmentPetTrainingBinding.inflate(inflater)
 
         val adapterTrainingList = PetTrainingListAdapter(getPetImageList())
         adapterTrainingList.notifyDataSetChanged()
 
-        rcv_training_list.adapter = adapterTrainingList
-        rcv_training_list.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rcvPetTrainingList.adapter = adapterTrainingList
+        binding.rcvPetTrainingList.layoutManager = GridLayoutManager(requireContext(), 2)
         //item 간격 결정
-        rcv_training_list.addItemDecoration(HorizontalItemDecorator(50))
-        rcv_training_list.addItemDecoration(VerticalItemDecorator(50))
+        binding.rcvPetTrainingList.addItemDecoration(HorizontalItemDecorator(50))
+        binding.rcvPetTrainingList.addItemDecoration(VerticalItemDecorator(50))
 
         adapterTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 findNavController().navigate(R.id.action_petTrainingFragment_to_petTrainingDetailFragment)
             }
         })
-        return rootView
+        return binding.getRoot()
     }
 
-    private fun getPetImageList(): ArrayList<Int>{
-        return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
+    private fun getPetImageList(): ArrayList<PetTrainingListData>{
+        val petTrainingList = ArrayList<PetTrainingListData>()
+
+        petTrainingList.add(PetTrainingListData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        petTrainingList.add(PetTrainingListData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        petTrainingList.add(PetTrainingListData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return petTrainingList
     }
 
 }

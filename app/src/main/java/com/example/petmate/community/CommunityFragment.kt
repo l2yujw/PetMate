@@ -11,8 +11,13 @@ import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.RightItemDecorator
+import com.example.petmate.databinding.FragmentCommunityBinding
+import com.example.petmate.pet.training.PetTrainingDetailData
+import com.example.petmate.pet.training.PetTrainingListData
 
 class CommunityFragment : Fragment() {
+
+    lateinit var binding: FragmentCommunityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,20 +27,17 @@ class CommunityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        var rootView = inflater.inflate(R.layout.fragment_community, container, false)
 
-        var rcv_community_popular = rootView.findViewById<RecyclerView>(R.id.rcv_community_popular)
-        var rcv_community_board = rootView.findViewById<RecyclerView>(R.id.rcv_community_board)
+        binding = FragmentCommunityBinding.inflate(inflater)
 
-        var adapterCommunityPopular = CommunityPopularAdapter(getImageList())
+        var adapterCommunityPopular = CommunityPopularAdapter(getPopularList())
         adapterCommunityPopular.notifyDataSetChanged()
-        var adapterCommunityBoard = CommunityBoardAdapter(getImageList())
+        var adapterCommunityBoard = CommunityBoardAdapter(getBoardList())
         adapterCommunityBoard.notifyDataSetChanged()
 
-        rcv_community_popular.adapter = adapterCommunityPopular
-        rcv_community_popular.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rcv_community_popular.addItemDecoration(RightItemDecorator(5))
+        binding.rcvCommunityPopular.adapter = adapterCommunityPopular
+        binding.rcvCommunityPopular.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rcvCommunityPopular.addItemDecoration(RightItemDecorator(5))
 
         adapterCommunityPopular.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
@@ -43,8 +45,8 @@ class CommunityFragment : Fragment() {
             }
         })
 
-        rcv_community_board.adapter = adapterCommunityBoard
-        rcv_community_board.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rcvCommunityBoard.adapter = adapterCommunityBoard
+        binding.rcvCommunityBoard.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         adapterCommunityBoard.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
@@ -52,11 +54,25 @@ class CommunityFragment : Fragment() {
             }
         })
 
+        return binding.getRoot()
+    }
+    private fun getPopularList(): ArrayList<CommunityPopularData>{
+        val popularList = ArrayList<CommunityPopularData>()
 
-        return rootView
+        popularList.add(CommunityPopularData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        popularList.add(CommunityPopularData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        popularList.add(CommunityPopularData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return popularList
     }
 
-    private fun getImageList(): ArrayList<Int>{
-        return arrayListOf<Int>(R.drawable.cat1_temp, R.drawable.cat2_temp, R.drawable.cat1_temp)
+    private fun getBoardList(): ArrayList<CommunityBoardData>{
+        val boardList = ArrayList<CommunityBoardData>()
+
+        boardList.add(CommunityBoardData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+        boardList.add(CommunityBoardData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+        boardList.add(CommunityBoardData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+
+        return boardList
     }
 }

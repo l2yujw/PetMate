@@ -66,23 +66,17 @@ class HomePetseekerFragment : Fragment() {
         binding.spinnerPetseeker.adapter = adapterSpinner
         binding.spinnerPetseeker.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-
                 //아이템이 클릭 되면 맨 위부터 position 0번부터 순서대로 동작하게 됩니다.
                 when (position) {
                     0 -> {
-
                     }
-
                     1 -> {
-
                     }
                     //...
                     else -> {
-
                     }
                 }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }

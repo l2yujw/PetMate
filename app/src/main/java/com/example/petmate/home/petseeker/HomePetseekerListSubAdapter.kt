@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
-import com.example.petmate.databinding.ItemHomePetseekerList2Binding
-import com.example.petmate.home.petseeker.HomePetseekerList2Adapter.Petseekerlist2ViewHolder
+import com.example.petmate.databinding.ItemHomePetseekerSublistBinding
+import com.example.petmate.home.petseeker.HomePetseekerListSubAdapter.PetseekerSubListViewHolder
 
-class HomePetseekerList2Adapter(val itemList: ArrayList<HomePetseekerListData>) : RecyclerView.Adapter<Petseekerlist2ViewHolder>(){
+class HomePetseekerListSubAdapter(val itemList: ArrayList<HomePetseekerListData>) : RecyclerView.Adapter<PetseekerSubListViewHolder>(){
 
-    lateinit var binding: ItemHomePetseekerList2Binding
+    lateinit var binding: ItemHomePetseekerSublistBinding
     private lateinit var itemClickListener : OnItemClickListener
 
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -19,23 +19,23 @@ class HomePetseekerList2Adapter(val itemList: ArrayList<HomePetseekerListData>) 
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Petseekerlist2ViewHolder {
-        binding = ItemHomePetseekerList2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return Petseekerlist2ViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetseekerSubListViewHolder {
+        binding = ItemHomePetseekerSublistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PetseekerSubListViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return itemList.size
     }
 
-    override fun onBindViewHolder(holder: Petseekerlist2ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PetseekerSubListViewHolder, position: Int) {
         holder.setItem(itemList[position])
         holder.itemView.setOnClickListener{
             itemClickListener.onClick(it, position)
         }
     }
 
-    inner class Petseekerlist2ViewHolder(binding: ItemHomePetseekerList2Binding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PetseekerSubListViewHolder(binding: ItemHomePetseekerSublistBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun setItem(item: HomePetseekerListData) {
             Glide.with(binding.itemHomePetseekerListImage)
@@ -47,11 +47,8 @@ class HomePetseekerList2Adapter(val itemList: ArrayList<HomePetseekerListData>) 
                 .into(binding.itemHomePetseekerListImage)  // 이미지를 넣을 뷰
 
             binding.itemHomePetseekerListBreed.text = item.list_breed
-
             binding.itemHomePetseekerListSex.setImageResource(getSexImage(item.list_sex))
-
             binding.itemHomePetseekerListColor.text = item.list_color
-
             binding.itemHomePetseekerListFeature.text = item.list_feature
         }
     }

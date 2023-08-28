@@ -1,3 +1,3 @@
 package com.example.petmate.pet.training
 
-data class PetTrainingListData (val trainingImg: Int)
+data class PetTrainingListData (val trainingImg: String)

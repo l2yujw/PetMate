@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.databinding.FragmentPetMainBinding
 
 class PetMainFragment : Fragment() {
 
+    lateinit var binding: FragmentPetMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -21,65 +22,71 @@ class PetMainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        binding = FragmentPetMainBinding.inflate(inflater)
 
-        var rootView = inflater.inflate(R.layout.fragment_pet_main, container, false)
+        val adapterNoteList = PetMainNoteAdapter(getNoteList())
+        adapterNoteList.notifyDataSetChanged()
+        val adapterHealthList = PetMainHealthAdapter(getHealthList())
+        adapterHealthList.notifyDataSetChanged()
+        val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
+        adapterCheckedTrainingList.notifyDataSetChanged()
 
-        val rv_board_note = rootView.findViewById<RecyclerView>(R.id.rcv_pet_main_note)
-        val rv_board_health = rootView.findViewById<RecyclerView>(R.id.rcv_pet_main_health)
-        val rv_board_training = rootView.findViewById<RecyclerView>(R.id.rcv_pet_main_training)
+        binding.rcvPetMainNote.adapter = adapterNoteList
+        binding.rcvPetMainNote.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        val NoteList = ArrayList<PetMainNoteData>()
-        val HealthList = ArrayList<PetMainHealthData>()
-        val CheckedTrainingList = ArrayList<PetMainTrainingData>()
-
-        NoteList.add(PetMainNoteData("메모테스트"))
-        NoteList.add(PetMainNoteData("메모테스트"))
-        NoteList.add(PetMainNoteData("메모테스트"))
-
-        HealthList.add(PetMainHealthData("건강정보"))
-        HealthList.add(PetMainHealthData("건강정보"))
-        HealthList.add(PetMainHealthData("건강정보"))
-
-        CheckedTrainingList.add(PetMainTrainingData("체크된 훈련"))
-        CheckedTrainingList.add(PetMainTrainingData("체크된 훈련"))
-        CheckedTrainingList.add(PetMainTrainingData("체크된 훈련"))
-
-        val boardAdapterNoteList = PetMainNoteAdapter(NoteList)
-        boardAdapterNoteList.notifyDataSetChanged()
-        val boardAdapterHealthList = PetMainHealthAdapter(HealthList)
-        boardAdapterHealthList.notifyDataSetChanged()
-        val boardAdapterCheckedTrainingList = PetMainTrainingAdapter(CheckedTrainingList)
-        boardAdapterCheckedTrainingList.notifyDataSetChanged()
-
-        rv_board_note.adapter = boardAdapterNoteList
-        rv_board_note.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        rv_board_health.adapter = boardAdapterHealthList
-        rv_board_health.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rcvPetMainHealth.adapter = adapterHealthList
+        binding.rcvPetMainHealth.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
 
-        boardAdapterHealthList.setItemClickListener(object : OnItemClickListener {
+        adapterHealthList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment)
             }
         })
 
-        rv_board_training.adapter = boardAdapterCheckedTrainingList
-        rv_board_training.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
+        binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        boardAdapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
+        adapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment)
             }
         })
 
-        return rootView
+        binding.tvMainPetName.text = "탈주닌자"
+        binding.tvMainPetAge.text = "특징" + "나이"
+
+        return binding.getRoot()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun getNoteList(): ArrayList<PetMainNoteData> {
+        val noteList = ArrayList<PetMainNoteData>()
 
+        noteList.add(PetMainNoteData("메모테스트"))
+        noteList.add(PetMainNoteData("메모테스트"))
+        noteList.add(PetMainNoteData("메모테스트"))
+
+        return noteList
+    }
+
+    private fun getHealthList(): ArrayList<PetMainHealthData> {
+        val healthList = ArrayList<PetMainHealthData>()
+
+        healthList.add(PetMainHealthData("건강정보"))
+        healthList.add(PetMainHealthData("건강정보"))
+        healthList.add(PetMainHealthData("건강정보"))
+
+        return healthList
+    }
+
+    private fun getCheckedTrainingList(): ArrayList<PetMainTrainingData> {
+        val checkedTrainingList = ArrayList<PetMainTrainingData>()
+
+        checkedTrainingList.add(PetMainTrainingData("체크된 훈련"))
+        checkedTrainingList.add(PetMainTrainingData("체크된 훈련"))
+        checkedTrainingList.add(PetMainTrainingData("체크된 훈련"))
+
+        return checkedTrainingList
     }
 
 }

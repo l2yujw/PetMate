@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
-import com.example.petmate.databinding.FragmentHomePetseekerBinding
 import com.example.petmate.databinding.FragmentHomeShelterpetInfoBinding
+import com.example.petmate.home.petseeker.HomePetseekerRecommendData
 
 class HomeShelterpetInfoFragment : Fragment() {
 
@@ -32,22 +31,35 @@ class HomeShelterpetInfoFragment : Fragment() {
     ): View? {
         binding = FragmentHomeShelterpetInfoBinding.inflate(inflater)
 
-        val itemList = ArrayList<HomeShelterpetInfoData>()
-
-        itemList.add(HomeShelterpetInfoData("발생장소", "임은동 806-4"))
-        itemList.add(HomeShelterpetInfoData("접수일시", "2023-07-07"))
-        itemList.add(HomeShelterpetInfoData("관할기관", "경상북도 구미시"))
-        itemList.add(HomeShelterpetInfoData("상태", "보호중"))
-        itemList.add(HomeShelterpetInfoData("보호장소", "경상북도 구미시 인동22길 43-4 (진평동)"))
-        itemList.add(HomeShelterpetInfoData("보호센터연락처", "054-716-0211"))
-
-        val boardAdapter = HomeShelterpetInfoAdapter(itemList)
+        val boardAdapter = HomeShelterpetInfoAdapter(getShelterpetInfoList())
         boardAdapter.notifyDataSetChanged()
 
         binding.rcvShelterpetInf.adapter = boardAdapter
         binding.rcvShelterpetInf.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+        binding.tvShelterpetPetName.text = "탈주닌자"
+        binding.tvShelterpetPetAge.text = "특징"+"1살"
+        binding.tvShelterpetPetAbout.text = "탈주닌자"+"에 대하여..."
+        binding.tvShelterpetPetWeight.text = "3.2"+"kg"
+        binding.tvShelterpetNeutered.text = "아니오"
+        binding.tvShelterpetPetColor.text = "흰갈"
+        binding.tvShelterpetPetCharac.text = "사람을 좋아하고 얌전함"
+        binding.tvShelterpetPetMoreInf.text = "탈주닌자"+"추가 정보"
+
         return binding.getRoot()
+    }
+
+    private fun getShelterpetInfoList(): ArrayList<HomeShelterpetInfoData> {
+        val shelterpetInfoList = ArrayList<HomeShelterpetInfoData>()
+
+        shelterpetInfoList.add(HomeShelterpetInfoData("발생장소", "임은동 806-4"))
+        shelterpetInfoList.add(HomeShelterpetInfoData("접수일시", "2023-07-07"))
+        shelterpetInfoList.add(HomeShelterpetInfoData("관할기관", "경상북도 구미시"))
+        shelterpetInfoList.add(HomeShelterpetInfoData("상태", "보호중"))
+        shelterpetInfoList.add(HomeShelterpetInfoData("보호장소", "경상북도 구미시 인동22길 43-4 (진평동)"))
+        shelterpetInfoList.add(HomeShelterpetInfoData("보호센터연락처", "054-716-0211"))
+
+        return shelterpetInfoList
     }
 
 }
