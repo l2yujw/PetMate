@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".pet.health.PetHealthFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,15 +19,15 @@
             android:layout_marginBottom="23dp"
             android:text="PET MATE"
             android:textAppearance="@style/pet_mate"
-            app:layout_constraintBottom_toTopOf="@+id/viewpager"
+            app:layout_constraintBottom_toTopOf="@+id/viewpager_health_petlist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:id="@+id/viewpager_health_petlist"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:layout_marginBottom="567dp"
             android:scaleType="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         <RelativeLayout
             android:id="@+id/relativeLayout4"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="125dp"
             android:layout_marginHorizontal="35dp"
             android:layout_marginTop="306dp"
             android:layout_marginBottom="497dp"
@@ -48,32 +48,44 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/pet_health_petname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="탈주닌자"
-                android:textAppearance="@style/pet_main_name"/>
+                android:textAppearance="@style/pet_main_name" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/pet_health_petdescription"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="60dp"
-                android:text="놀라버린 고양이 1살"
-                android:textAppearance="@style/pet_main_nameSub"/>
+                android:text="놀라버린 고양이"
+                android:textAppearance="@style/pet_main_nameSub" />
+
+            <TextView
+                android:id="@+id/pet_health_petage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="60dp"
+                android:layout_toEndOf="@id/pet_health_petdescription"
+                android:text="1살"
+                android:textAppearance="@style/pet_main_nameSub" />
 
             <ImageView
+                android:id="@+id/pet_health_sex_image"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
                 android:src="@drawable/woman" />
 
         </RelativeLayout>
-
 
 
         <ImageView
@@ -104,7 +116,7 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
             app:layout_constraintBottom_toTopOf="@+id/pet_health_dewormer"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record"
+            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record_layout"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +149,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record"
+            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record_layout"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +175,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_vaccination_record"
+            android:id="@+id/pet_health_vaccination_record_layout"
             android:layout_width="0dp"
             android:layout_height="162dp"
             android:layout_marginStart="10dp"
@@ -263,20 +275,37 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_health_weight"
+                android:layout_width="wrap_content"
                 android:layout_height="21dp"
-                android:layout_margin="5dp"
-                android:gravity="end"
-                android:text="5kg"
                 android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@id/tv_health_weight_kgtext"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="end"
+                android:text="5"
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
-                android:id="@+id/tv_health_weight"
+                android:id="@+id/tv_health_weight_kgtext"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="end"
+                android:text="kg"
+                android:textAppearance="@style/pet_health_vaccination_duedate1" />
+
+            <TextView
+                android:id="@+id/tv_health_weight_condition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_centerVertical="true"
+                android:gravity="center"
                 android:text="정상"
                 android:textAppearance="@style/pet_health_weight" />
 
@@ -298,18 +327,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_margin="5dp"
                 android:gravity="end"
                 android:text="사료 양"
-                android:layout_alignParentBottom="true"
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
                 android:id="@+id/tv_health_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_centerVertical="true"
+                android:gravity="center"
                 android:text="500g"
                 android:textAppearance="@style/pet_health_feed" />
 
@@ -333,24 +362,25 @@
                 android:id="@+id/tv_health_kcal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
                 android:text="250"
                 android:textAppearance="@style/pet_health_kcalNum" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="top"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_health_kcal"
+                android:layout_toEndOf="@id/tv_health_kcal"
+                android:gravity="top"
                 android:text="kcal"
                 android:textAppearance="@style/pet_health_kcal" />
-
 
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/pet_health_know"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginHorizontal="35dp"

@@ -1,4 +1,4 @@
 package com.example.petmate.pet.health
 
-class PetHealthData {
+class PetHealthData(var record: String) {
 }
