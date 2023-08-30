@@ -1,19 +1,21 @@
 package com.example.petmate.login
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
-import com.example.petmate.navigation.BottomNavActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Response
 import com.example.petmate.databinding.ActivityLogin00Binding
+import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.navigation.BottomNavAnonyActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import net.daum.mf.map.api.MapView
-import java.security.MessageDigest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.net.URL
+
 
 // Tool -> Firebase -> Authentication -> 아무거나 클릭후 add
 class Login00Activity : AppCompatActivity() {
@@ -32,10 +34,10 @@ class Login00Activity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             var email = binding.etEmail.text.toString()
             var password = binding.etPwd.text.toString()
-//            login(email, password)
-            var intent = Intent(this, BottomNavActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+
+            //테스트 용 email:admin / password:1234
+            login(email,password)
+
         }
 
         binding.btnRegister.setOnClickListener{
@@ -50,7 +52,7 @@ class Login00Activity : AppCompatActivity() {
     }
 
     fun login(email:String,password:String){
-        auth.signInWithEmailAndPassword(email,password) // 로그인
+        /*auth.signInWithEmailAndPassword(email,password) // 로그인
             .addOnCompleteListener {
                     result->
                 if(result.isSuccessful){
@@ -58,7 +60,49 @@ class Login00Activity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
+            }*/
+
+        //고정
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.124.16.204:3000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        //
+
+        val service = retrofit.create(loginService::class.java);
+
+        service.getLogin(email,password)?.enqueue(object : Callback<LoginResult> {
+
+            override fun onResponse(call: Call<LoginResult>, response: retrofit2.Response<LoginResult>) {
+                if(response.isSuccessful){
+                    // 정상적으로 통신이 성고된 경우
+                    var result: LoginResult? = response.body()
+                    Log.d("Login1", "onResponse 성공: " + result?.toString());
+
+                    if(result?.code == 200){
+                        Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
+                        var intent = Intent(applicationContext, BottomNavActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                    }else if(result?.code==201 || result?.code==202){
+                        Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(applicationContext, "여기론 아마 못올껄?? 절대?", Toast.LENGTH_SHORT).show()
+                    }
+
+                }else{
+                    // 통신이 실패한 경우(응답코드 3xx, 4xx 등)
+                    Toast.makeText(applicationContext, "Code: "+response.code(), Toast.LENGTH_SHORT).show()
+                    Log.d("Login1", "onResponse 실패")
+                }
             }
+
+            override fun onFailure(call: Call<LoginResult>, t: Throwable) {
+                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
+                Toast.makeText(applicationContext, "통신 실패", Toast.LENGTH_SHORT).show()
+                Log.d("Login1", "onFailure 에러: " + t.message.toString());
+            }
+        })
     }
 
     fun anonymousLogin(){
