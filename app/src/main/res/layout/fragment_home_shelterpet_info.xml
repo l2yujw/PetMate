@@ -50,6 +50,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="65dp"
                 android:text="놀라버린 고양이 1살"
+                android:textAppearance="@style/shelterpet_type"
                 />
 
             <ImageView

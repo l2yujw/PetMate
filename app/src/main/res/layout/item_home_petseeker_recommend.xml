@@ -39,7 +39,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="17dp"
             android:text="한국 고양이"
-            android:textAppearance="@style/petseeker_breed" />
+            android:textAppearance="@style/petseeker_name" />
 
         <ImageView
             android:id="@+id/item_home_petseeker_recommend_sex"
@@ -59,7 +59,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="40dp"
             android:text="흰색, 갈색"
-            android:textAppearance="@style/petseeker_color" />
+            android:textAppearance="@style/petseeker_etc" />
 
         <TextView
             android:id="@+id/item_home_petseeker_recommend_feature"
@@ -69,7 +69,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="65dp"
             android:text="생후 60일 추정"
-            android:textAppearance="@style/petseeker_feature" />
+            android:textAppearance="@style/petseeker_charic" />
 
     </RelativeLayout>
 
