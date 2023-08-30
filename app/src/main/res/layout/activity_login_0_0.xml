@@ -9,8 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
         android:fontFamily="@font/irishgrover"
         android:gravity="center"
@@ -22,59 +22,54 @@
         android:layout_width="30dp"
         android:layout_height="28dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="45dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="226dp"
         android:background="@drawable/login_id_png"
-        android:elevation="1dp"
-        />
+        android:elevation="1dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
-        android:layout_marginHorizontal="30dp"
         android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="215dp"
-        android:background="@drawable/background_login_input_light_skyblue"
-        />
+        android:background="@drawable/background_login_input_light_skyblue" />
 
     <View
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="215dp"
-        android:background="@drawable/background_login_input_light_skyblue"
-        />
+        android:background="@drawable/background_login_input_light_skyblue" />
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="110dp"
-        android:layout_marginEnd="50dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="220dp"
-        android:hint="아이디"
-        android:textAppearance="@style/login_0_0_edittext"
-        android:lineSpacingExtra="1sp"
+        android:layout_marginEnd="50dp"
         android:gravity="top"
-        />
+        android:hint="아이디"
+        android:lineSpacingExtra="1sp"
+        android:textAppearance="@style/login_0_0_edittext" />
 
 
     <View
         android:layout_width="25dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="47dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="47dp"
         android:layout_marginTop="292dp"
         android:background="@drawable/login_password_png"
-        android:elevation="1dp"
-        />
+        android:elevation="1dp" />
 
     <View
         android:layout_width="match_parent"
@@ -89,33 +84,31 @@
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="285dp"
-        android:background="@drawable/background_login_input_light_skyblue"
-        />
+        android:background="@drawable/background_login_input_light_skyblue" />
 
     <EditText
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="110dp"
-        android:layout_marginEnd="50dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="290dp"
-        android:hint="비밀번호"
-        android:textAppearance="@style/login_0_0_edittext"
-        android:lineSpacingExtra="1sp"
+        android:layout_marginEnd="50dp"
         android:gravity="top"
-        />
-
+        android:hint="비밀번호"
+        android:lineSpacingExtra="1sp"
+        android:textAppearance="@style/login_0_0_edittext" />
 
 
     <Button
         android:id="@+id/btn_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="14dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="350dp"
         android:layout_marginEnd="30dp"
@@ -128,39 +121,46 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="420dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:text="로그인"
-        android:textAppearance="@style/login_0_0_button"
-        />
+        android:textAppearance="@style/login_0_0_button" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="485dp"
         android:background="@drawable/background_brandwhite_round_10dp"
-        android:textAppearance="@style/login_0_0_button"
-        android:text="회원가입" />
+        android:text="회원가입"
+        android:textAppearance="@style/login_0_0_button" />
 
     <Button
         android:id="@+id/btn_anonymousLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="550dp"
         android:background="@drawable/background_brandwhite_round_10dp"
-        android:textAppearance="@style/login_0_0_button"
-        android:text="비회원 로그인" />
+        android:text="비회원 로그인"
+        android:textAppearance="@style/login_0_0_button" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="635dp">
 

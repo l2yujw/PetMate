@@ -8,6 +8,8 @@
         android:id="@+id/activity_register_btn_back"
         android:layout_width="24dp"
         android:layout_height="22dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="30dp"
         android:background="@android:color/transparent"
@@ -17,6 +19,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="22dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="62dp"
         android:layout_marginTop="30dp"
         android:gravity="bottom"
@@ -28,23 +32,29 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="85dp"
         android:gravity="center"
         android:text="PetMate"
-        android:textAppearance="@style/pet_mate_login"/>
+        android:textAppearance="@style/pet_mate_login" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="170dp"
         android:text="이름*"
-        android:textAppearance="@style/login__textview"  />
+        android:textAppearance="@style/login__textview" />
 
     <EditText
         android:id="@+id/activity_register_editText_name"
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="195dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
@@ -52,6 +62,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="240dp"
         android:text="이메일 주소*"
@@ -61,6 +73,8 @@
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="265dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
@@ -68,6 +82,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="310dp"
         android:text="비밀번호*"
@@ -77,6 +93,8 @@
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="335dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
@@ -84,6 +102,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="380dp"
         android:text="비밀번호 확인*"
@@ -93,6 +113,8 @@
         android:id="@+id/activity_register_editText_passwordMatch"
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="405dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
@@ -100,6 +122,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="465dp"
         android:text="약관 동의"
@@ -109,14 +133,18 @@
         android:id="@+id/activity_register_checkbox_allTerms"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="495dp"
         android:text="전체 약관 동의"
-        android:textAppearance="@style/login__textview"  />
+        android:textAppearance="@style/login__textview" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="530dp"
         android:background="@drawable/background_brandwhite_round_10dp">
@@ -125,6 +153,8 @@
             android:id="@+id/activity_register_checkbox_terms1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="15dp"
             android:text="약관 1"
@@ -135,6 +165,8 @@
             android:id="@+id/activity_register_checkbox_terms2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="45dp"
             android:text="약관 2"
@@ -145,6 +177,8 @@
             android:id="@+id/activity_register_checkbox_terms3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="75dp"
             android:text="약관 3"
@@ -155,6 +189,8 @@
             android:id="@+id/activity_register_checkbox_terms4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="105dp"
             android:layout_marginBottom="20dp"
@@ -168,6 +204,8 @@
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="700dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"

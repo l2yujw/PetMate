@@ -8,6 +8,8 @@
         android:id="@+id/activity_register_btn_back"
         android:layout_width="24dp"
         android:layout_height="22dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="30dp"
         android:background="@android:color/transparent"
@@ -17,6 +19,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="22dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="62dp"
         android:layout_marginTop="30dp"
         android:gravity="bottom"
@@ -28,10 +32,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="85dp"
         android:gravity="center"
         android:text="PetMate"
-        android:textAppearance="@style/pet_mate_login"/>
+        android:textAppearance="@style/pet_mate_login" />
 
     <View
         android:id="@+id/activity_login_2_0_division"
@@ -47,8 +53,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="225dp"
         android:background="@drawable/background_login_logindarkskyblue_rightround_10dp"
-        android:textAppearance="@style/login__button1"
-        android:text="아이디 찾기" />
+        android:text="아이디 찾기"
+        android:textAppearance="@style/login__button1" />
 
     <Button
         android:layout_width="0dp"
@@ -57,13 +63,15 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="225dp"
         android:background="@android:color/transparent"
-        android:textAppearance="@style/login__button1"
-        android:text="비밀번호 찾기" />
+        android:text="비밀번호 찾기"
+        android:textAppearance="@style/login__button1" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="330dp"
         android:text="인증번호"
@@ -72,6 +80,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="355dp"
         android:background="@drawable/background_brandwhite_round_10dp" />
@@ -79,6 +89,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="435dp"
         android:background="@drawable/background_login_logindarkskyblue_round_10dp"

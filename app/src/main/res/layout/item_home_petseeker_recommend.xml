@@ -16,10 +16,11 @@
             android:layout_centerHorizontal="true" />
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignEnd="@id/item_home_petseeker_recommend_division">
+            android:layout_alignEnd="@id/item_home_petseeker_recommend_division"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp">
 
             <ImageView
                 android:id="@+id/item_home_petseeker_recommend_image"
