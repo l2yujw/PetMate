@@ -36,7 +36,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/walk_record_pet_name"
+                android:id="@+id/tv_shelterpet_pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
@@ -45,7 +45,7 @@
                 android:textAppearance="@style/pet_main_name" />
 
             <TextView
-                android:id="@+id/walk_record_pet_description"
+                android:id="@+id/tv_shelterpet_pet_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
@@ -54,12 +54,12 @@
                 android:textAppearance="@style/pet_main_nameSub" />
 
             <TextView
-                android:id="@+id/walk_record_pet_age"
+                android:id="@+id/tv_shelterpet_pet_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
-                android:layout_toEndOf="@id/walk_record_pet_description"
+                android:layout_toEndOf="@id/tv_shelterpet_pet_description"
                 android:text="1살"
                 android:textAppearance="@style/pet_main_nameSub" />
 

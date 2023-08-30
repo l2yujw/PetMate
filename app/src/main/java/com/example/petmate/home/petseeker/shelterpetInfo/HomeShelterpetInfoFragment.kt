@@ -38,7 +38,8 @@ class HomeShelterpetInfoFragment : Fragment() {
         binding.rcvShelterpetInf.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         binding.tvShelterpetPetName.text = "탈주닌자"
-        binding.tvShelterpetPetAge.text = "특징"+"1살"
+        binding.tvShelterpetPetDescription.text="특징"
+        binding.tvShelterpetPetAge.text = "1살"
         binding.tvShelterpetPetAbout.text = "탈주닌자"+"에 대하여..."
         binding.tvShelterpetPetWeight.text = "3.2"+"kg"
         binding.tvShelterpetNeutered.text = "아니오"
