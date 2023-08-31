@@ -2,7 +2,6 @@ package com.example.petmate.walk
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.petmate.R
 import com.example.petmate.databinding.ActivityWalkBinding
 import net.daum.mf.map.api.MapView
 
