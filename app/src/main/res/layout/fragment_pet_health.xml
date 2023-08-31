@@ -14,12 +14,10 @@
             android:id="@+id/textView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginBottom="23dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="47dp"
             android:text="PET MATE"
             android:textAppearance="@style/pet_mate"
-            app:layout_constraintBottom_toTopOf="@+id/viewpager_health_petlist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,20 +25,19 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_health_petlist"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginBottom="567dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="100dp"
             android:scaleType="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout4"
             android:layout_width="0dp"
-            android:layout_height="125dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="306dp"
-            android:layout_marginBottom="497dp"
+            android:layout_height="110dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="267dp"
             android:background="@drawable/main_home_shelterpet_gradient"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,10 +46,10 @@
 
             <TextView
                 android:id="@+id/pet_health_petname"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="19dp"
                 android:text="탈주닌자"
                 android:textAppearance="@style/pet_main_name" />
 
@@ -60,7 +57,7 @@
                 android:id="@+id/pet_health_petdescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="19dp"
                 android:layout_marginTop="60dp"
                 android:text="놀라버린 고양이"
                 android:textAppearance="@style/pet_main_nameSub" />
@@ -77,31 +74,31 @@
 
             <ImageView
                 android:id="@+id/pet_health_sex_image"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="19dp"
                 android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
-                android:src="@drawable/woman" />
+                android:src="@drawable/sex_female" />
 
         </RelativeLayout>
 
 
         <ImageView
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="444dp"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="385dp"
             android:src="@drawable/pet"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="444dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="383dp"
             android:text="예방접종"
             android:textAppearance="@style/pet_health_vaccination"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,9 +107,9 @@
         <RelativeLayout
             android:id="@+id/pet_health_vaccination"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="64dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="489dp"
+            android:layout_marginTop="420dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
             app:layout_constraintBottom_toTopOf="@+id/pet_health_dewormer"
@@ -124,8 +121,8 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="21dp"
-                android:layout_marginTop="13.5dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="접종 예정일"
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
@@ -133,8 +130,8 @@
             <TextView
                 android:id="@+id/tv_health_vaccination"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
-                android:layout_marginTop="37dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:text="2024.05.30"
                 android:textAppearance="@style/pet_health_vaccination_duedate2" />
@@ -144,9 +141,9 @@
         <RelativeLayout
             android:id="@+id/pet_health_dewormer"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="64dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
             app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record_layout"
@@ -157,8 +154,8 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="21dp"
-                android:layout_marginTop="13.5dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="구충제 복용 예정일"
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
@@ -166,8 +163,8 @@
             <TextView
                 android:id="@+id/tv_health_helminthic"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
-                android:layout_marginTop="37dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:text="2024.05.30"
                 android:textAppearance="@style/pet_health_vaccination_duedate2" />
@@ -177,10 +174,10 @@
         <RelativeLayout
             android:id="@+id/pet_health_vaccination_record_layout"
             android:layout_width="0dp"
-            android:layout_height="162dp"
+            android:layout_height="138dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="489dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/background_pet_health_vaccination_petcolor9_round_15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -190,9 +187,9 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="21dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="13dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
                 android:text="기록"
                 android:textAppearance="@style/pet_health_vaccination_record" />
 
@@ -200,18 +197,18 @@
                 android:id="@+id/rcv_health_record"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="17dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="10dp" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/pet_health_layout_text_weight"
             android:layout_width="0dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="672dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="587dp"
             android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_text_feed"
             app:layout_constraintHorizontal_bias="0.5"
@@ -220,14 +217,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
                 android:src="@drawable/pet" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginStart="40dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="35dp"
                 android:text="체중"
                 android:textAppearance="@style/pet_health_vaccination" />
 
@@ -236,10 +233,10 @@
         <RelativeLayout
             android:id="@+id/pet_health_layout_text_feed"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="22dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="672dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginTop="587dp"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="4.5"
@@ -247,14 +244,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
                 android:src="@drawable/pet" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:layout_marginStart="40dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="35dp"
                 android:text="사료 / 필요 칼로리"
                 android:textAppearance="@style/pet_health_vaccination" />
 
@@ -263,9 +260,9 @@
         <RelativeLayout
             android:id="@+id/pet_health_layout_weight"
             android:layout_width="0dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="720dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="615dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_pet_health_vaccination_petcolor9_round_15dp"
             app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_feed"
@@ -277,7 +274,7 @@
             <TextView
                 android:id="@+id/tv_health_weight"
                 android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_height="18dp"
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@id/tv_health_weight_kgtext"
                 android:layout_marginStart="5dp"
@@ -290,7 +287,7 @@
             <TextView
                 android:id="@+id/tv_health_weight_kgtext"
                 android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_height="18dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
@@ -314,9 +311,9 @@
         <RelativeLayout
             android:id="@+id/pet_health_layout_feed"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="64dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="720dp"
+            android:layout_marginTop="615dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
             app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_kcal"
             app:layout_constraintHorizontal_bias="0.5"
@@ -347,10 +344,10 @@
         <RelativeLayout
             android:id="@+id/pet_health_layout_kcal"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="64dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="720dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginTop="615dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/background_pet_health_vaccination_petcolor9_round_15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -382,9 +379,9 @@
         <TextView
             android:id="@+id/pet_health_know"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="842dp"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="720dp"
             android:background="@drawable/background_pet_health_know_petcolor9_roundstroke_22dp"
             android:gravity="center"
             android:text="알고 계셨나요?"
