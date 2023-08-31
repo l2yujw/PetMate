@@ -1,167 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="410dp"
-    android:layout_height="210dp"
-    android:background="@drawable/background_walk_record_recordbox_walkcolor1_round_23dp"
-    >
+    android:layout_width="351dp"
+    android:layout_height="180dp"
+    android:background="@drawable/background_walk_record_recordbox_walkcolor1_round_23dp">
 
     <ImageView
         android:id="@+id/walk_record_profileimage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_home_1_circleimage_textcolor3_circlestroke"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="13dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="13dp" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_home_1_circleimage_textcolor3_circlestroke" />
 
     <TextView
         android:id="@+id/walk_record_guardian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="75dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="25dp"
         android:text="보호자 1"
-        android:textAppearance="@style/recordlayout_user"/>
+        android:textAppearance="@style/recordlayout_user" />
 
     <Button
         android:id="@+id/walk_record_button"
-        android:layout_width="135dp"
-        android:layout_height="45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="255dp"
+        android:layout_width="116dp"
+        android:layout_height="38dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/background_walk_record_button_walkcolor3_round_10dp"
         android:text="버튼" />
 
-    <TextView
-        android:id="@+id/walk_record_trainingtime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
-        android:text="00:29:02"
-        android:textAppearance="@style/recordlayout_detail"/>
+    <LinearLayout
+        android:id="@+id/item_walk_record_linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="80dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="105dp"
-        android:text="Training Time"
-        android:textAppearance="@style/recordlayout_detailName"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/walk_record_calories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="190dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
-        android:text="310"
-        android:textAppearance="@style/recordlayout_detail"/>
+            <TextView
+                android:id="@+id/walk_record_trainingtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="00:29:02"
+                android:textAppearance="@style/recordlayout_detail" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="180dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="105dp"
-        android:text="Calories"
-        android:textAppearance="@style/recordlayout_detailName"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/walk_record_trainingtime"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Training Time"
+                android:textAppearance="@style/recordlayout_detailName" />
 
-    <TextView
-        android:id="@+id/walk_record_avgfrequency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="330dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
-        android:text="32"
-        android:textAppearance="@style/recordlayout_detail" />
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="295dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="105dp"
-        android:text="Avg. frequency"
-        android:textAppearance="@style/recordlayout_detailName"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/walk_record_maxfrequency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="55dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:text="65"
-        android:textAppearance="@style/recordlayout_detail"/>
+            <TextView
+                android:id="@+id/walk_record_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="310"
+                android:textAppearance="@style/recordlayout_detail" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="165dp"
-        android:text="Max. frequency"
-        android:textAppearance="@style/recordlayout_detailName"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/walk_record_calories"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Calories"
+                android:textAppearance="@style/recordlayout_detailName" />
 
-    <TextView
-        android:id="@+id/walk_record_breaks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="205dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:text="1"
-        android:textAppearance="@style/recordlayout_detail"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="187dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="165dp"
-        android:text="Breaks"
-        android:textAppearance="@style/recordlayout_detailName"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/walk_record_breaktimes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="315dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:text="00:32"
-        android:textAppearance="@style/recordlayout_detail" />
+            <TextView
+                android:id="@+id/walk_record_avgfrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="32"
+                android:textAppearance="@style/recordlayout_detail" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="310dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="165dp"
-        android:text="Break Time"
-        android:textAppearance="@style/recordlayout_detailName"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/walk_record_avgfrequency"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Avg. frequency"
+                android:textAppearance="@style/recordlayout_detailName" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/item_walk_record_linearlayout1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/walk_record_maxfrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/walk_record_maxfrequency_String"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="65"
+                android:textAppearance="@style/recordlayout_detail" />
+
+            <TextView
+                android:id="@+id/walk_record_maxfrequency_String"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Max. frequency"
+                android:textAppearance="@style/recordlayout_detailName" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/walk_record_breaks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/walk_record_breaks_string"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="1"
+                android:textAppearance="@style/recordlayout_detail" />
+
+            <TextView
+                android:id="@+id/walk_record_breaks_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Breaks"
+                android:textAppearance="@style/recordlayout_detailName" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/walk_record_breaktimes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/walk_record_breaktimes_string"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="00:32"
+                android:textAppearance="@style/recordlayout_detail" />
+
+            <TextView
+                android:id="@+id/walk_record_breaktimes_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                android:text="Break Time"
+                android:textAppearance="@style/recordlayout_detailName" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

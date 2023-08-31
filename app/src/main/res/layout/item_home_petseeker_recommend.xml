@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="match_parent"
         android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp">
 
         <View
@@ -30,6 +30,7 @@
                 android:layout_alignParentStart="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/cat2_temp" />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/item_home_petseeker_recommend_division"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="13dp"
             android:text="한국 고양이"
             android:textAppearance="@style/petseeker_name" />
 
@@ -49,8 +50,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="17dp"
             android:layout_toEndOf="@id/item_home_petseeker_recommend_breed"
-            android:scaleType="centerCrop"
-            android:src="@drawable/woman" />
+            android:scaleType="centerInside"
+            android:src="@drawable/sex_female" />
 
         <TextView
             android:id="@+id/item_home_petseeker_recommend_color"
@@ -59,6 +60,7 @@
             android:layout_alignStart="@id/item_home_petseeker_recommend_division"
             android:layout_marginStart="12dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="10dp"
             android:text="흰색, 갈색"
             android:textAppearance="@style/petseeker_etc" />
 
@@ -69,6 +71,7 @@
             android:layout_alignStart="@id/item_home_petseeker_recommend_division"
             android:layout_marginStart="12dp"
             android:layout_marginTop="65dp"
+            android:layout_marginEnd="10dp"
             android:text="생후 60일 추정"
             android:textAppearance="@style/petseeker_charic" />
 

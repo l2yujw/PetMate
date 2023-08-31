@@ -3,6 +3,12 @@
     android:layout_width="410dp"
     android:layout_height="115dp"
     android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp">
+
+<!--    현재 사용 안함    -->
+<!--    현재 사용 안함    -->
+<!--    현재 사용 안함    -->
+<!--    현재 사용 안함    -->
+
     <ImageView
         android:id="@+id/rectangle_1"
         android:layout_width="205dp"

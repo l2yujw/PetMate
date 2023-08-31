@@ -18,6 +18,7 @@
             android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"
             android:scaleType="centerCrop"
             android:src="@drawable/cat2_temp" />
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
