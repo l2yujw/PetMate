@@ -15,6 +15,9 @@ data class LoginResult(
     var code:Int,
 
     @SerializedName("message")
-    var message:String
+    var message:String,
+
+    @SerializedName("userIdx")
+    var userIdx:Int
 
 )

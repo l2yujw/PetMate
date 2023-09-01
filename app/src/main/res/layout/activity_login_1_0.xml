@@ -1,188 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brandWhite">
 
-    <ImageButton
-        android:id="@+id/activity_register_btn_back"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="36dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/left_arrow" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="회원가입"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/irishgrover"
-        android:gravity="center"
-        android:text="PetMate"
-        android:textColor="@color/brandBlack"
-        android:textSize="70sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="203dp"
-        android:text="이름*"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/activity_register_editText_name"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="233dp"
-        android:background="@drawable/background_brandwhite_round_10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="285dp"
-        android:text="이메일 주소*"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="315dp"
-        android:background="@drawable/background_brandwhite_round_10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="360dp"
-        android:text="비밀번호*"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/et_pwd"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="390dp"
-        android:background="@drawable/background_brandwhite_round_10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="435dp"
-        android:text="비밀번호 확인*"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/activity_register_editText_passwordMatch"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="465dp"
-        android:background="@drawable/background_brandwhite_round_10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="542dp"
-        android:text="약관 동의"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
-    <CheckBox
-        android:id="@+id/activity_register_checkbox_allTerms"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="581dp"
-        android:text="전체 약관 동의"
-        android:textColor="@color/brandBlack"
-        android:textSize="20sp" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="617dp"
-        android:background="@drawable/background_brandwhite_round_10dp">
+        android:background="@color/brandWhite">
 
-        <CheckBox
-            android:id="@+id/activity_register_checkbox_terms1"
+        <ImageButton
+            android:id="@+id/activity_register_btn_back"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="36dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/left_arrow" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:text="약관 1"
+            android:layout_height="28dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:text="회원가입"
             android:textColor="@color/brandBlack"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
-        <CheckBox
-            android:id="@+id/activity_register_checkbox_terms2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="60dp"
-            android:text="약관 2"
-            android:textColor="@color/brandBlack"
-            android:textSize="18sp" />
 
-        <CheckBox
-            android:id="@+id/activity_register_checkbox_terms3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
             android:layout_marginTop="100dp"
-            android:text="약관 3"
+            android:fontFamily="@font/irishgrover"
+            android:gravity="center"
+            android:text="PetMate"
             android:textColor="@color/brandBlack"
-            android:textSize="18sp" />
+            android:textSize="70sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="203dp"
+            android:text="이름*"
+            android:textColor="@color/brandBlack"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/activity_register_editText_name"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="233dp"
+            android:background="@drawable/background_brandwhite_round_10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="285dp"
+            android:text="이메일 주소*"
+            android:textColor="@color/brandBlack"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="315dp"
+            android:background="@drawable/background_brandwhite_round_10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="360dp"
+            android:text="비밀번호*"
+            android:textColor="@color/brandBlack"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="390dp"
+            android:background="@drawable/background_brandwhite_round_10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="435dp"
+            android:text="비밀번호 확인*"
+            android:textColor="@color/brandBlack"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/activity_register_editText_passwordMatch"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="465dp"
+            android:background="@drawable/background_brandwhite_round_10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="542dp"
+            android:text="약관 동의"
+            android:textColor="@color/brandBlack"
+            android:textSize="20sp" />
 
         <CheckBox
-            android:id="@+id/activity_register_checkbox_terms4"
+            android:id="@+id/activity_register_checkbox_allTerms"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="140dp"
-            android:layout_marginBottom="20dp"
-            android:text="약관 4"
+            android:layout_height="26dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="581dp"
+            android:text="전체 약관 동의"
             android:textColor="@color/brandBlack"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="617dp"
+            android:background="@drawable/background_brandwhite_round_10dp">
+
+            <CheckBox
+                android:id="@+id/activity_register_checkbox_terms1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:text="약관 1"
+                android:textColor="@color/brandBlack"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_register_checkbox_terms2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="60dp"
+                android:text="약관 2"
+                android:textColor="@color/brandBlack"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_register_checkbox_terms3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="100dp"
+                android:text="약관 3"
+                android:textColor="@color/brandBlack"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/activity_register_checkbox_terms4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginBottom="20dp"
+                android:text="약관 4"
+                android:textColor="@color/brandBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="821dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_login_loginskyblue_round_10dp"
+            android:text="아이디 생성"
+            android:textColor="@color/brandBlack"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="821dp"
-        android:background="@drawable/background_login_loginskyblue_round_10dp"
-        android:text="아이디 생성"
-        android:textColor="@color/brandBlack"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-
-</RelativeLayout>
+</ScrollView>

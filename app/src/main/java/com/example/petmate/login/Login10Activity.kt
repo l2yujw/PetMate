@@ -29,6 +29,10 @@ class Login10Activity : AppCompatActivity() {
 
             register(email, password)
         }
+
+        binding.activityRegisterBtnBack.setOnClickListener {
+            finish()
+        }
     }
 
     fun register(email: String, password: String){

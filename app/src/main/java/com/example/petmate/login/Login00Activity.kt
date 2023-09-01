@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.Response
 import com.example.petmate.databinding.ActivityLogin00Binding
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.navigation.BottomNavAnonyActivity
