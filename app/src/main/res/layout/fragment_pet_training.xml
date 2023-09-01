@@ -6,26 +6,29 @@
     tools:context=".pet.training.PetTrainingFragment">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/pet_mate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="47dp"
         android:text="PET MATE"
         android:textAppearance="@style/pet_mate" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="105dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/background_pet_training_search_petcolor5_roundstroke_12dp">
 
         <ImageView
-            android:layout_width="33dp"
-            android:layout_height="34dp"
+            android:layout_width="28dp"
+            android:layout_height="29dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="9dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/search" />
 
         <EditText
@@ -33,11 +36,12 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="58dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
             android:hint="Search"
             android:textColor="#717171"
-            android:textSize="21sp" />
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
@@ -49,10 +53,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="31dp"
         android:layout_alignEnd="@id/activity_main_pet_training_division1"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="194dp"
+        android:layout_marginTop="165dp"
         android:layout_marginEnd="3.5dp">
 
         <View
@@ -63,37 +67,37 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division2"
-            android:layout_marginEnd="3.5dp"
+            android:layout_marginEnd="3dp"
             android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="Trending"
             android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division2"
-            android:layout_marginStart="3.5dp"
+            android:layout_marginStart="3dp"
             android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="Level 1"
             android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="31dp"
         android:layout_alignStart="@id/activity_main_pet_training_division1"
         android:layout_marginStart="3.5dp"
-        android:layout_marginTop="194dp"
-        android:layout_marginEnd="35dp">
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="30dp">
 
         <View
             android:id="@+id/activity_main_pet_training_division3"
@@ -103,42 +107,42 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division3"
-            android:layout_marginEnd="3.5dp"
+            android:layout_marginEnd="3dp"
             android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="Level 2"
             android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division3"
-            android:layout_marginStart="3.5dp"
+            android:layout_marginStart="3dp"
             android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="Level 3"
             android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:textSize="13sp" />
 
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_marginTop="243dp"
-        android:background="#DDDDDD"/>
+        android:layout_marginTop="208dp"
+        android:background="#DDDDDD" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_pet_training_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="270dp"
-        android:layout_marginHorizontal="35dp"/>
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="232dp" />
 
 </RelativeLayout>

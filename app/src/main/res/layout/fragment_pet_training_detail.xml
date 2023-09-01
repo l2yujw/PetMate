@@ -5,13 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".pet.training.PetTrainingDetailFragment">
 
-
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/pet_mate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="47dp"
         android:text="PET MATE"
         android:textAppearance="@style/pet_mate" />
 
@@ -19,5 +20,5 @@
         android:id="@+id/rcv_training_detail_ways"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="117dp"/>
+        android:layout_marginTop="100dp"/>
 </RelativeLayout>

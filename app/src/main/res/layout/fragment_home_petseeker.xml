@@ -10,114 +10,116 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/pet_mate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:text="PET MATE"
             android:textAppearance="@style/pet_mate" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="117dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="42dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="강아지"
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="42dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="강아지"
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="42dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginStart="157dp"
+            android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="강아지"
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="42dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginStart="212dp"
+            android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="강아지"
             android:textAppearance="@style/petseeker_catagory" />
 
         <View
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="255dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="190dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="160dp"
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
 
         <Spinner
             android:id="@+id/spinner_petseeker"
-            android:layout_width="290dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="245dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="195dp"
-            />
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="163dp" />
 
         <Button
             android:id="@+id/btn_survey"
-            android:layout_width="95dp"
-            android:layout_height="60dp"
-            android:layout_alignParentLeft="true"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="350dp"
-            android:layout_marginTop="190dp"
-            android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="160dp"
+            android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp"
+            android:text="설문버튼" />
 
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petseeker_recommend"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="270dp" />
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="230dp" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/circleindicator_petseeker_recommend"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="9dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="180dp"
-            android:layout_marginTop="410dp"
+            android:layout_marginHorizontal="150dp"
+            android:layout_marginTop="340dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 
@@ -125,23 +127,23 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petseeker_list"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="385dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="425dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="362dp"
             android:background="@drawable/background_petseeker_rectangle_1"
-            android:paddingHorizontal="30dp"
-            android:paddingVertical="20dp" />
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="17dp" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/circleindicator_petseeker_petlist"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="9dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="180dp"
-            android:layout_marginTop="895dp"
+            android:layout_marginHorizontal="168dp"
+            android:layout_marginTop="765dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 

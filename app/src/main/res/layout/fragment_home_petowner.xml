@@ -14,53 +14,53 @@
             android:id="@+id/pet_mate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="47dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="55dp"
-            android:gravity="top"
-            android:lineSpacingExtra="-2sp"
             android:text="PET MATE"
             android:textAppearance="@style/pet_mate" />
 
         <Button
             android:id="@+id/btn_walk"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_width="68dp"
+            android:layout_height="42dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="55dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/background_home_rectangle_1_2" />
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/background_home_rectangle_1_2"
+            android:text="산책버튼"
+            android:textAppearance="@style/petowner_walk" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petowner_petlist"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="94dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="120dp" />
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="100dp" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/circleindicator_petowner_petlist"
             android:layout_width="100dp"
-            android:layout_height="10dp"
+            android:layout_height="9dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="160dp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="215dp"
             app:ci_drawable="@drawable/indicator_purple"
-            app:ci_drawable_unselected="@drawable/indicator_gray"/>
+            app:ci_drawable_unselected="@drawable/indicator_gray" />
 
         <View
             android:id="@+id/rectangle_3"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="107dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="295dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="250dp"
             android:background="@drawable/background_home_rectangle_1"
             android:elevation="4dp" />
 
@@ -68,10 +68,10 @@
             android:id="@+id/today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="303.48dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="259dp"
             android:gravity="top"
             android:text="Today"
             android:textAppearance="@style/today" />
@@ -79,21 +79,21 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_havepet_weather"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="64dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="55dp"
-            android:layout_marginTop="332dp"
+            android:layout_marginHorizontal="42dp"
+            android:layout_marginTop="285dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="300dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="455dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="390dp"
             android:alpha="0.9"
             android:background="@drawable/background_home_rectangle_1_1"
             android:elevation="4dp" />
@@ -101,37 +101,36 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_havepet_schedule"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="270dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginTop="470dp" />
+            android:layout_marginHorizontal="47dp"
+            android:layout_marginTop="405dp" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="36dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="840dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="715dp"
             android:background="@drawable/background_home_rectangle_1_2" />
 
         <TextView
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginTop="850dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="725dp"
             android:fontFamily="@font/pretendard_semibold"
             android:gravity="top"
             android:letterSpacing="-0.03"
-            android:lineHeight="24sp"
             android:lineSpacingExtra="6sp"
             android:text="오늘 한줄 평 / 산책가기에 어떤지 등"
             android:textColor="#111111"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:translationY="-3.05sp" />
 
     </RelativeLayout>

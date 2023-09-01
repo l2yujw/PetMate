@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="40dp"
-    android:layout_height="70dp"
+    android:layout_width="34dp"
+    android:layout_height="64dp"
     android:background="@drawable/background_petowner_homeweatherblue3_round_10dp">
 
     <TextView
         android:id="@+id/petowner_weather_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8.5dp"
         android:gravity="center"
         android:text="28℃"
         android:textAppearance="@style/petowner_weather_temperature" />
 
     <ImageView
         android:id="@+id/petowner_weather_image"
-        android:layout_width="30dp"
-        android:layout_height="27dp"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scaleType="centerInside"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="9dp"
         android:gravity="center"
         android:text="17시"
         android:textAppearance="@style/petowner_weather_time" />
