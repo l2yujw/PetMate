@@ -84,6 +84,7 @@
 
         <EditText
             android:id="@+id/et_pwd"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:layout_marginHorizontal="35dp"
@@ -101,6 +102,7 @@
 
         <EditText
             android:id="@+id/activity_register_editText_passwordMatch"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:layout_marginHorizontal="35dp"
@@ -118,6 +120,7 @@
 
         <CheckBox
             android:id="@+id/activity_register_checkbox_allTerms"
+
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:layout_marginHorizontal="35dp"

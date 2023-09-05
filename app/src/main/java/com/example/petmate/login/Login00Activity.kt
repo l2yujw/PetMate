@@ -7,32 +7,28 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.databinding.ActivityLogin00Binding
 import com.example.petmate.navigation.BottomNavActivity
-import com.example.petmate.navigation.BottomNavAnonyActivity
-import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URL
 
 
 // Tool -> Firebase -> Authentication -> 아무거나 클릭후 add
 class Login00Activity : AppCompatActivity() {
-    private val TAG = "SOL_LOG"
 
     private lateinit var binding : ActivityLogin00Binding
-    lateinit var auth: FirebaseAuth
+    //lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLogin00Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
+        //auth = FirebaseAuth.getInstance()
 
         binding.btnLogin.setOnClickListener {
-            var email = binding.etEmail.text.toString()
-            var password = binding.etPwd.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPwd.text.toString()
 
             //테스트 용 email:admin / password:1234
             login(email,password)
@@ -40,17 +36,18 @@ class Login00Activity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener{
-            var intent = Intent(this, Login10Activity::class.java)
+            val intent = Intent(this, Login10Activity::class.java)
             startActivity(intent)
         }
 
         binding.btnAnonymousLogin.setOnClickListener{
-            anonymousLogin()
+            //anonymousLogin()
+            login("11@naver.com","1234")
         }
 
     }
 
-    fun login(email:String,password:String){
+    private fun login(email:String, password:String){
         /*auth.signInWithEmailAndPassword(email,password) // 로그인
             .addOnCompleteListener {
                     result->
@@ -68,35 +65,39 @@ class Login00Activity : AppCompatActivity() {
             .build();
         //
 
-        val service = retrofit.create(loginService::class.java);
+        val service = retrofit.create(LoginInterface::class.java);
 
-        service.getLogin(email,password)?.enqueue(object : Callback<LoginResult> {
+        service.getLogin(email,password).enqueue(object : Callback<LoginInterfaceResponse> {
 
-            override fun onResponse(call: Call<LoginResult>, response: retrofit2.Response<LoginResult>) {
+            override fun onResponse(call: Call<LoginInterfaceResponse>, response: retrofit2.Response<LoginInterfaceResponse>) {
                 if(response.isSuccessful){
                     // 정상적으로 통신이 성고된 경우
-                    var result: LoginResult? = response.body()
+                    val result: LoginInterfaceResponse? = response.body()
                     Log.d("Login1", "onResponse 성공: " + result?.toString());
 
-                    if(result?.code == 200){
-                        Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        var intent = Intent(applicationContext, BottomNavActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(intent)
-                    }else if(result?.code==201 || result?.code==202){
-                        Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(applicationContext, "여기론 아마 못올껄?? 절대?", Toast.LENGTH_SHORT).show()
+                    when (result?.code) {
+                        200 -> {
+                            Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
+                            val intent = Intent(applicationContext, BottomNavActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                        }
+                        201 -> {
+                            Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
+                        }
+                        else -> {
+                            Toast.makeText(applicationContext, "ㅈ버그발생 보내는 데이터가 문제임", Toast.LENGTH_SHORT).show()
+                        }
                     }
 
                 }else{
-                    // 통신이 실패한 경우(응답코드 3xx, 4xx 등)
+                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
                     Toast.makeText(applicationContext, "Code: "+response.code(), Toast.LENGTH_SHORT).show()
                     Log.d("Login1", "onResponse 실패")
                 }
             }
 
-            override fun onFailure(call: Call<LoginResult>, t: Throwable) {
+            override fun onFailure(call: Call<LoginInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                 Toast.makeText(applicationContext, "통신 실패", Toast.LENGTH_SHORT).show()
                 Log.d("Login1", "onFailure 에러: " + t.message.toString());
@@ -104,7 +105,7 @@ class Login00Activity : AppCompatActivity() {
         })
     }
 
-    fun anonymousLogin(){
+    /*fun anonymousLogin(){
         auth.signInAnonymously()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -115,5 +116,5 @@ class Login00Activity : AppCompatActivity() {
                     //회원가입에 실패했을 때의 코드 추가
                 }
             }
-    }
+    }*/
 }

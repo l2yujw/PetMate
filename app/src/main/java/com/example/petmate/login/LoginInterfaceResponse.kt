@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * loginService의 Response인 JSON 형식에 맞춰 받기 위한 data class
  */
-data class LoginResult(
+data class LoginInterfaceResponse(
 
     @SerializedName("isSuccess")
     var isSuccess:Boolean,
