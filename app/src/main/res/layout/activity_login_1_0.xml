@@ -10,181 +10,204 @@
 
         <ImageButton
             android:id="@+id/activity_register_btn_back"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="24dp"
+            android:layout_height="22dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/left_arrow" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="36dp"
-            android:gravity="center"
+            android:layout_height="22dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="30dp"
+            android:gravity="bottom"
             android:text="회원가입"
             android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
-
+            android:textSize="17sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="@font/irishgrover"
+            android:layout_height="73dp"
+            android:layout_marginTop="85dp"
             android:gravity="center"
             android:text="PetMate"
-            android:textColor="@color/brandBlack"
-            android:textSize="70sp" />
+            android:textAppearance="@style/pet_mate_login" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="203dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="170dp"
             android:text="이름*"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
+            android:textAppearance="@style/login__textview" />
 
         <EditText
             android:id="@+id/activity_register_editText_name"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="233dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="195dp"
             android:background="@drawable/background_brandwhite_round_10dp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="285dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="240dp"
             android:text="이메일 주소*"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
+            android:textAppearance="@style/login__textview" />
 
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="315dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="265dp"
             android:background="@drawable/background_brandwhite_round_10dp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="310dp"
             android:text="비밀번호*"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
+            android:textAppearance="@style/login__textview" />
 
         <EditText
             android:id="@+id/et_pwd"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="390dp"
-            android:background="@drawable/background_brandwhite_round_10dp" />
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="335dp"
+            android:background="@drawable/background_brandwhite_round_10dp"
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="435dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="380dp"
             android:text="비밀번호 확인*"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
+            android:textAppearance="@style/login__textview" />
 
         <EditText
             android:id="@+id/activity_register_editText_passwordMatch"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="465dp"
-            android:background="@drawable/background_brandwhite_round_10dp" />
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="405dp"
+            android:background="@drawable/background_brandwhite_round_10dp"
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="542dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="465dp"
             android:text="약관 동의"
             android:textColor="@color/brandBlack"
             android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/activity_register_checkbox_allTerms"
-
             android:layout_width="wrap_content"
             android:layout_height="26dp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="581dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="495dp"
             android:text="전체 약관 동의"
-            android:textColor="@color/brandBlack"
-            android:textSize="20sp" />
+            android:textAppearance="@style/login__textview" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="617dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="530dp"
             android:background="@drawable/background_brandwhite_round_10dp">
 
             <CheckBox
                 android:id="@+id/activity_register_checkbox_terms1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
                 android:text="약관 1"
                 android:textColor="@color/brandBlack"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <CheckBox
                 android:id="@+id/activity_register_checkbox_terms2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="45dp"
                 android:text="약관 2"
                 android:textColor="@color/brandBlack"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <CheckBox
                 android:id="@+id/activity_register_checkbox_terms3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="75dp"
                 android:text="약관 3"
                 android:textColor="@color/brandBlack"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <CheckBox
                 android:id="@+id/activity_register_checkbox_terms4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="105dp"
                 android:layout_marginBottom="20dp"
                 android:text="약관 4"
                 android:textColor="@color/brandBlack"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/login_1_0_division"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/btn_login_petowner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@id/login_1_0_division"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="690dp"
+            android:background="@drawable/background_login_petowner_leftroundstroke_10dp"
+            android:text="반려동물 있음"
+            android:textAppearance="@style/login__textview" />
+
+        <Button
+            android:id="@+id/btn_login_petseeker"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignStart="@id/login_1_0_division"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="690dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/background_login_perseeker_rightroundstroke_10dp"
+            android:text="반려동물 없음"
+            android:textAppearance="@style/login__textview" />
 
         <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="821dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="755dp"
             android:background="@drawable/background_login_loginskyblue_round_10dp"
             android:text="아이디 생성"
             android:textColor="@color/brandBlack"

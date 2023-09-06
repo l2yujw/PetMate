@@ -52,6 +52,14 @@ class Login10Activity : AppCompatActivity() {
         binding.activityRegisterBtnBack.setOnClickListener {
             finish()
         }
+
+        binding.btnLoginPetowner.setOnClickListener {
+
+        }
+
+        binding.btnLoginPetseeker.setOnClickListener {
+
+        }
     }
 
     private fun verifyEmail(email: String) : Boolean {
@@ -151,5 +159,7 @@ class Login10Activity : AppCompatActivity() {
         })
 
     }
+
+    //
 
 }
