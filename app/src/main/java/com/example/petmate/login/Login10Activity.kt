@@ -1,16 +1,18 @@
 package com.example.petmate.login
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
+import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.databinding.ActivityLogin10Binding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class Login10Activity : AppCompatActivity() {
 
@@ -56,11 +58,17 @@ class Login10Activity : AppCompatActivity() {
         }
 
         binding.btnLoginPetowner.setOnClickListener {
-            val dlg = Login10PetownerActivity(this)
+            /*val dlg = Login10PetownerActivity(this)
             dlg.setOnCompleteClickedListener { content->
                 // TODO 데이터값 전달
             }
-            dlg.show()
+            dlg.show()*/
+
+            /*val intent = Intent(this, Login10Petowner2Activity::class.java)
+            intent.putExtra("data", "Test Popup")
+            startActivityForResult(intent, 1)*/
+
+            startActivity(Intent(this, Login10Petowner2Activity::class.java))
         }
 
         binding.btnLoginPetseeker.setOnClickListener {
@@ -166,6 +174,14 @@ class Login10Activity : AppCompatActivity() {
 
     }
 
-    //
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                //데이터 받기
+                val result = data.getStringExtra("result")
+            }
+        }
+    }*/
 
 }

@@ -39,6 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".login.Login10Petowner2Activity"
+            android:theme="@android:style/Theme.Dialog" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
