@@ -2,7 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="351dp"
     android:layout_height="500dp"
+    android:layout_gravity="center"
     android:background="@drawable/background_brandwhite_round_10dp">
+
+    <View
+        android:id="@+id/login_petowner_division"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,22 +25,35 @@
         android:text="반려동물 등록을 위한 정보를 입력해 주세요"
         android:textAppearance="@style/login_perinfo_notice" />
 
-    <ListView
-        android:id="@+id/lv_login_perowner_addpet"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_login_perowner_addpet"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="330dp"
         android:layout_marginHorizontal="30dp"
-        android:layout_above="@id/btn_login_perowner_morepet"
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="70dp" />
 
     <Button
-        android:id="@+id/btn_login_perowner_morepet"
-        android:layout_width="131dp"
+        android:id="@+id/btn_login_perowner_deletepet"
+        android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_above="@id/btn_login_perowner_complete"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
+        android:layout_toStartOf="@id/login_petowner_division"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="415dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="65.5dp"
+        android:background="@drawable/background_login_loginskyblue_round_10dp"
+        android:text="삭제"
+        android:textAppearance="@style/login_perinfo_button" />
+
+    <Button
+        android:id="@+id/btn_login_perowner_morepet"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_toEndOf="@id/login_petowner_division"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="415dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="65.5dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:text="추가등록"
         android:textAppearance="@style/login_perinfo_button" />
@@ -41,9 +62,9 @@
         android:id="@+id/btn_login_perowner_complete"
         android:layout_width="131dp"
         android:layout_height="25dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="455dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"
         android:text="완료"
         android:textAppearance="@style/login_perinfo_button" />

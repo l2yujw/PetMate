@@ -1,5 +1,7 @@
 package com.example.petmate.login
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -54,7 +56,11 @@ class Login10Activity : AppCompatActivity() {
         }
 
         binding.btnLoginPetowner.setOnClickListener {
-
+            val dlg = Login10PetownerActivity(this)
+            dlg.setOnCompleteClickedListener { content->
+                // TODO 데이터값 전달
+            }
+            dlg.show()
         }
 
         binding.btnLoginPetseeker.setOnClickListener {
