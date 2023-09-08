@@ -4,8 +4,11 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Point
+import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +20,19 @@ import androidx.viewpager2.widget.ViewPager2
 import java.util.*
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
+import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
+import com.example.petmate.home.petowner.weather.HomePetownerWeatherCommon
+import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
+import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
+import com.example.petmate.home.petowner.weather.ITEM
+import com.example.petmate.home.petowner.weather.WEATHER
 import com.example.petmate.walk.WalkActivity
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import retrofit2.Call
+import retrofit2.Response
 
 class HomePetownerFragment : Fragment() {
 
@@ -45,7 +60,7 @@ class HomePetownerFragment : Fragment() {
         requestPermissions(permissionList, 1)
 
         // 날씨. 위치 정보를 기반으로 날씨 정보 요청
-//        requestLocation()
+        requestLocation()
 
         /*// <새로고침> 버튼 누를 때 위치 정보 & 날씨 정보 다시 가져오기
         binding.btnRefresh.setOnClickListener {
@@ -90,7 +105,7 @@ class HomePetownerFragment : Fragment() {
         return binding.getRoot()
     }
 
-/*
+
     // 날씨 가져와서 설정하기
     private fun setWeather(nx: Int, ny: Int) {
         // 준비 단계 : base_date(발표 일자), base_time(발표 시각)
@@ -127,7 +142,6 @@ class HomePetownerFragment : Fragment() {
 //                    val weatherArr = arrayOf(HomePetownerWeatherData())
                     val weatherArr =
                         arrayOf(
-                            HomePetownerWeatherData(),
                             HomePetownerWeatherData(),
                             HomePetownerWeatherData(),
                             HomePetownerWeatherData(),
@@ -213,9 +227,9 @@ class HomePetownerFragment : Fragment() {
                 Log.d("api fail", t.message.toString())
             }
         })
-    }*/
+    }
 
-/*
+
     // 내 현재 위치의 위경도를 격자 좌표로 변환하여 해당 위치의 날씨정보 설정
     @SuppressLint("MissingPermission")
     private fun requestLocation() {
@@ -254,7 +268,7 @@ class HomePetownerFragment : Fragment() {
         } catch (e: SecurityException) {
             e.printStackTrace()
         }
-    }*/
+    }
 
     private fun getPetList(): ArrayList<HomePetownerPetlistData> {
         val petList = ArrayList<HomePetownerPetlistData>()

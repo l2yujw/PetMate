@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface HomePetownerWeatherInterface {
 
     //TODO 기상 예보 초단기에서 단기예보로 바꾸기
-    //@GET("getVilageFcst?serviceKey=" + BuildConfig.WEATHER_API_KEY)         // 단기 예보
+    @GET("getVilageFcst?serviceKey=" + BuildConfig.WEATHER_API_KEY)         // 단기 예보
 //    @GET("getUltraSrtFcst?serviceKey=" + BuildConfig.WEATHER_API_KEY)     // 초단기 예보
     fun getWeather(
         @Query("pageNo") page_no: Int,          // 페이지 번호
