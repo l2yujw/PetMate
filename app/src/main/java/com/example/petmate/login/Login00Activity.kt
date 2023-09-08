@@ -79,8 +79,10 @@ class Login00Activity : AppCompatActivity() {
                         200 -> {
                             Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
                             val intent = Intent(applicationContext, BottomNavActivity::class.java)
+                            intent.putExtra("userIdx",result.userIdx)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
+
                         }
                         201 -> {
                             Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
