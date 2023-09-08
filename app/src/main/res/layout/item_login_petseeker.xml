@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="351dp"
     android:layout_height="500dp"
+    android:layout_gravity="center"
     android:background="@drawable/background_brandwhite_round_10dp">
 
     <TextView
@@ -40,6 +41,7 @@
 
 
     <Button
+        android:id="@+id/btn_login_perseeker_complete"
         android:layout_width="131dp"
         android:layout_height="25dp"
         android:background="@drawable/background_login_loginskyblue_round_10dp"

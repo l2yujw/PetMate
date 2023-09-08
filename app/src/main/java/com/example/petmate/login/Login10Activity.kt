@@ -58,21 +58,12 @@ class Login10Activity : AppCompatActivity() {
         }
 
         binding.btnLoginPetowner.setOnClickListener {
-            /*val dlg = Login10PetownerActivity(this)
-            dlg.setOnCompleteClickedListener { content->
-                // TODO 데이터값 전달
-            }
-            dlg.show()*/
 
-            /*val intent = Intent(this, Login10Petowner2Activity::class.java)
-            intent.putExtra("data", "Test Popup")
-            startActivityForResult(intent, 1)*/
-
-            startActivity(Intent(this, Login10Petowner2Activity::class.java))
         }
 
         binding.btnLoginPetseeker.setOnClickListener {
 
+            startActivity(Intent(this, Login10PetseekerActivity::class.java))
         }
     }
 
