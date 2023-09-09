@@ -53,7 +53,7 @@ class Login10Activity : AppCompatActivity() {
             } else if (!binding.btnLoginPetowner.isSelected && !binding.btnLoginPetseeker.isSelected) {
                 Toast.makeText(this, "반려동물 유무를 선택해 주세요.", Toast.LENGTH_SHORT).show()
             } else {
-                register(name, email, password/*,petowner*/)
+                register(name, email, password/*,petowner*/)    // TODO petowner 변수는 반려동물이 있으면 true, 없으면 false. 관심동물 이미지는 전역변수인 petImage: Uri?로 할당.
             }
 
         }
