@@ -102,7 +102,7 @@
             android:background="@drawable/background_brandwhite_round_10dp"
             android:inputType="textPassword" />
 
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -168,7 +168,7 @@
                 android:textColor="@color/brandBlack"
                 android:textSize="13sp" />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
         <View
             android:id="@+id/login_1_0_division"
@@ -184,7 +184,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="690dp"
+            android:layout_marginTop="465dp"
             android:background="@drawable/background_login_petowner_leftroundstroke_10dp"
             android:text="반려동물 있음"
             android:textAppearance="@style/login__textview" />
@@ -196,7 +196,7 @@
             android:layout_alignStart="@id/login_1_0_division"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="690dp"
+            android:layout_marginTop="465dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/background_login_perseeker_rightroundstroke_10dp"
             android:text="반려동물 없음"
@@ -207,7 +207,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="755dp"
+            android:layout_marginTop="530dp"
             android:background="@drawable/background_login_loginskyblue_round_10dp"
             android:text="아이디 생성"
             android:textColor="@color/brandBlack"

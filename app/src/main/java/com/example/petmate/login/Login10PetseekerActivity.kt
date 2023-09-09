@@ -2,14 +2,14 @@ package com.example.petmate.login
 
 import android.Manifest
 import android.app.Activity
-import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
+import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
@@ -22,6 +22,10 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
 
     val PERM_STORAGE = 9
     val REQ_GALLERY = 12
+    lateinit var context: Context
+    var petImage: Uri? = null
+
+//    private val intent = Intent(this, Login10Activity::class.java)
 
     lateinit var addImage: ImageButton
 
@@ -32,6 +36,7 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         setContentView(R.layout.item_login_petseeker)
+//        setResult(RESULT_CANCELED, intent)
 
         requirePermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERM_STORAGE)
 
@@ -43,6 +48,15 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
         addImage = findViewById(R.id.login_petseeker_addimage)
 
         mConfirm.setOnClickListener {
+            val intent = Intent(this, Login10Activity::class.java)
+            if (petImage != null) {
+                Log.d("petImage", "Image selected")
+                intent.putExtra("petImage", petImage)
+                setResult(RESULT_OK, intent)
+            } else {
+                Log.d("petImage", "Image not selected")
+                setResult(RESULT_CANCELED, intent)
+            }
             finish()
         }
     }
@@ -104,7 +118,7 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
                 REQ_GALLERY -> {
                     data?.data?.let { uri ->
                         addImage.setImageURI(uri)
-                        // TODO intent로 값 전달
+                        petImage = uri
                     }
                 }
             }
