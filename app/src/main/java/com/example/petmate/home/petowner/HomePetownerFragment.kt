@@ -88,24 +88,24 @@ class HomePetownerFragment : Fragment() {
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
         val userIdx:Int = userIdx.getUserIdx()
         requestPetList(userIdx)
-        //val boardAdapterPetList = HomePetownerPetlistAdapter(requestPetList(userIdx))
-        //boardAdapterPetList.notifyDataSetChanged()
+        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
+        boardAdapterPetList.notifyDataSetChanged()
         val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
         boardAdapterScheduleList.notifyDataSetChanged()
 
 
-        //indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        //indicator.createIndicators(getPetList().size, 0)
+        indicator.setViewPager(binding.viewpagerPetownerPetlist)
+        indicator.createIndicators(getPetList().size, 0)
 
-        //binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
-//        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-//        binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                indicator.animatePageSelected(position)
-//                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-//            }
-//        })
+        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
+        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                indicator.animatePageSelected(position)
+                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
@@ -289,13 +289,12 @@ class HomePetownerFragment : Fragment() {
         }
     }
 
-    private fun getPetList(): ArrayList<HomePetownerPetlistData> {
+    private fun getPetList(): ArrayList<HomePetownerPetlistData> {//혹시 모를 일을위해 여기를 먼저 깔아놓고 불러온걸 덮어쓰면 시간이 맞을듯?
 
         val petList = ArrayList<HomePetownerPetlistData>()
-
-            //petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-            //petList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
-            //petList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+        val am = resources.assets
+        petList.add(HomePetownerPetlistData("aaaaaa", BitmapFactory.decodeStream(am.open("pet1.jpg"))))
+        petList.add(HomePetownerPetlistData("bbbb", BitmapFactory.decodeStream(am.open("pet1.jpg"))))
 
         return petList
     }
@@ -319,22 +318,22 @@ class HomePetownerFragment : Fragment() {
 
                     when (result?.code) {
                         200 -> {
-                            var templist = ArrayList<HomePetownerPetlistData>()
+                            var petList = ArrayList<HomePetownerPetlistData>()
                             for(item in result.result){
                                 Log.d(TAG, "onResponse: $item")
 
                                 var encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
                                 var bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
-                                templist.add(HomePetownerPetlistData("랜덤 문구",bitmap))
+                                petList.add(HomePetownerPetlistData("랜덤 문구",bitmap))
 
 
                             }
-                            val boardAdapterPetList = HomePetownerPetlistAdapter(templist)
+                            val boardAdapterPetList = HomePetownerPetlistAdapter(petList)
                             boardAdapterPetList.notifyDataSetChanged()
 
-                            indicator.createIndicators(templist.size, 0)
+                            indicator.createIndicators(petList.size, 0)
 
-                            binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(templist)
+                            binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(petList)
                             binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
                             binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                                 override fun onPageSelected(position: Int) {
