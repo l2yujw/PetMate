@@ -30,6 +30,7 @@ class PetTrainingDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentPetTrainingDetailBinding.inflate(inflater)
 
         val boardAdapter = PetTrainingDetailAdapter(getTrainingDetailList())
