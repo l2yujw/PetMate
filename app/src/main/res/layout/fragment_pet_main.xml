@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:layout_marginTop="110dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
