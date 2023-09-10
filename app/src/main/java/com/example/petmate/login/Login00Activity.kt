@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.databinding.ActivityLogin00Binding
 import com.example.petmate.navigation.BottomNavActivity
+import com.example.petmate.userIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -79,7 +80,9 @@ class Login00Activity : AppCompatActivity() {
                         200 -> {
                             Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
                             val intent = Intent(applicationContext, BottomNavActivity::class.java)
-                            intent.putExtra("userIdx",result.userIdx)
+
+                            userIdx.setUserIdx(result.userIdx)
+                            
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
 

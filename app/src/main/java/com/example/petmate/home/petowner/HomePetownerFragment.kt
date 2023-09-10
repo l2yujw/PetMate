@@ -3,6 +3,7 @@ package com.example.petmate.home.petowner
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.icu.text.SimpleDateFormat
 import android.os.Build
@@ -17,7 +18,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import java.util.*
+import android.util.Base64
+
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
@@ -26,21 +28,35 @@ import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
+import com.example.petmate.login.LoginInterface
+import com.example.petmate.login.LoginInterfaceResponse
+import com.example.petmate.navigation.BottomNavActivity
+import com.example.petmate.userIdx
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import com.google.gson.Gson
+import me.relex.circleindicator.CircleIndicator3
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.Calendar
+import java.util.Locale
 
 class HomePetownerFragment : Fragment() {
 
+    private val TAG = "HomePetownerFragment123"
     private var weatherBaseDate = "20230816"  // 발표 일자
     private var weatherBaseTime = "0500"      // 발표 시각
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
-
+    var resultList = ArrayList<HomePetownerPetlistData>()
+    lateinit var indicator:CircleIndicator3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -68,25 +84,28 @@ class HomePetownerFragment : Fragment() {
         }*/
 
         binding = FragmentHomePetownerBinding.inflate(inflater)
-
-        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
-        boardAdapterPetList.notifyDataSetChanged()
+        indicator = binding.circleindicatorPetownerPetlist
+        indicator.setViewPager(binding.viewpagerPetownerPetlist)
+        val userIdx:Int = userIdx.getUserIdx()
+        requestPetList(userIdx)
+        //val boardAdapterPetList = HomePetownerPetlistAdapter(requestPetList(userIdx))
+        //boardAdapterPetList.notifyDataSetChanged()
         val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
         boardAdapterScheduleList.notifyDataSetChanged()
 
-        val indicator = binding.circleindicatorPetownerPetlist
-        indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        indicator.createIndicators(getPetList().size, 0)
 
-        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
-        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                indicator.animatePageSelected(position)
-                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-            }
-        })
+        //indicator.setViewPager(binding.viewpagerPetownerPetlist)
+        //indicator.createIndicators(getPetList().size, 0)
+
+        //binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
+//        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+//        binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+//            override fun onPageSelected(position: Int) {
+//                super.onPageSelected(position)
+//                indicator.animatePageSelected(position)
+//                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+//            }
+//        })
 
         //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
@@ -271,13 +290,77 @@ class HomePetownerFragment : Fragment() {
     }
 
     private fun getPetList(): ArrayList<HomePetownerPetlistData> {
+
         val petList = ArrayList<HomePetownerPetlistData>()
 
-        petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-        petList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
-        petList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
+            //petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
+            //petList.add(HomePetownerPetlistData("bbbbbb", "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
+            //petList.add(HomePetownerPetlistData("ccccc", "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
 
         return petList
+    }
+
+    private fun requestPetList(userIdx:Int){
+        //고정
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.124.16.204:3000/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        //
+        val service = retrofit.create(HomePetownerInterface::class.java);
+        service.getPetList(userIdx).enqueue(object : Callback<HomePetownerInterfaceResponse> {
+
+            override fun onResponse(call: Call<HomePetownerInterfaceResponse>, response: retrofit2.Response<HomePetownerInterfaceResponse>) {
+                if(response.isSuccessful){
+                    // 정상적으로 통신이 성고된 경우
+                    val result: HomePetownerInterfaceResponse? = response.body()
+                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+
+                    when (result?.code) {
+                        200 -> {
+                            var templist = ArrayList<HomePetownerPetlistData>()
+                            for(item in result.result){
+                                Log.d(TAG, "onResponse: $item")
+
+                                var encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
+                                var bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
+                                templist.add(HomePetownerPetlistData("랜덤 문구",bitmap))
+
+
+                            }
+                            val boardAdapterPetList = HomePetownerPetlistAdapter(templist)
+                            boardAdapterPetList.notifyDataSetChanged()
+
+                            indicator.createIndicators(templist.size, 0)
+
+                            binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(templist)
+                            binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                            binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                                override fun onPageSelected(position: Int) {
+                                    super.onPageSelected(position)
+                                    indicator.animatePageSelected(position)
+                                    //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                        }
+                        else -> {
+                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                        }
+                    }
+
+                }else{
+                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
+                    Log.d(TAG, "onResponse 실패"+response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<HomePetownerInterfaceResponse>, t: Throwable) {
+                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
+                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+            }
+        })
+
     }
 
     private fun getScheduleList(): ArrayList<HomePetownerScheduleData> {
