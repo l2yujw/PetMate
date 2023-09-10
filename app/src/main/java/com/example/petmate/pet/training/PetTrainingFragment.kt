@@ -42,8 +42,8 @@ class PetTrainingFragment : Fragment() {
         binding.rcvPetTrainingList.adapter = adapterTrainingList
         binding.rcvPetTrainingList.layoutManager = GridLayoutManager(requireContext(), 2)
         //item 간격 결정
-        binding.rcvPetTrainingList.addItemDecoration(HorizontalItemDecorator(50))
-        binding.rcvPetTrainingList.addItemDecoration(VerticalItemDecorator(50))
+        binding.rcvPetTrainingList.addItemDecoration(HorizontalItemDecorator(20))
+        binding.rcvPetTrainingList.addItemDecoration(VerticalItemDecorator(20))
 
         adapterTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {

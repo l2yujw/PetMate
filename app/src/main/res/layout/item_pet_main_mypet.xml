@@ -1,16 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="match_parent"
     android:background="@drawable/background_home_rectangle_1_2">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@android:color/transparent">
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="20dp">
 
         <ImageView
-            android:id="@+id/img_myinf_pic"
+            android:id="@+id/img_petMain_mypet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"

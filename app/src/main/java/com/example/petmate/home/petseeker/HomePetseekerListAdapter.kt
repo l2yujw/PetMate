@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.ItemHomePetseekerListBinding
 
 
@@ -48,6 +49,7 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
 
             binding.rcvPetseekerList.adapter = adapterHomePetseekerList2
             binding.rcvPetseekerList.layoutManager = LinearLayoutManager(binding.rcvPetseekerList.context,LinearLayoutManager.VERTICAL, false)
+            binding.rcvPetseekerList.addItemDecoration(VerticalItemDecorator(25))
             Log.d("dddd","리사이클러뷰")
         }
     }

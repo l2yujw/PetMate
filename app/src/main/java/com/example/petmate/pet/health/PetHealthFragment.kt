@@ -171,11 +171,22 @@ class PetHealthFragment : Fragment() {
         val boardAdapterPetHealthPetlist = PetHealthListAdapter(getPetList())
         boardAdapterPetHealthPetlist.notifyDataSetChanged()
 
+        val indicatorList = binding.circleindicatorPethealth
+        indicatorList.setViewPager(binding.viewpagerHealthPetlist)
+        indicatorList.createIndicators(getPetList().size, 0)
+
         binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
         binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         binding.viewpagerHealthPetlist.adapter = PetHealthListAdapter(getPetList())
         binding.viewpagerHealthPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewpagerHealthPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                indicatorList.animatePageSelected(position)
+                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         //item 간격 결정
         binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
