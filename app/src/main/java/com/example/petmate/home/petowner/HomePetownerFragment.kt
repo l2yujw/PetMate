@@ -340,8 +340,8 @@ class HomePetownerFragment : Fragment() {
                             for(item in result.result){
                                 Log.d(TAG, "onResponse: $item")
 
-                                var encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
-                                var bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
+                                val encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
+                                val bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
                                 petList.add(HomePetownerPetlistData("랜덤 문구",bitmap))
 
 

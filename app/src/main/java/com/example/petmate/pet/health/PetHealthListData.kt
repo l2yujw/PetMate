@@ -1,4 +1,6 @@
 package com.example.petmate.pet.health
 
-class PetHealthListData(var petlist_img: String) {
+import android.graphics.Bitmap
+
+class PetHealthListData(var petlist_img: Bitmap) {
 }
