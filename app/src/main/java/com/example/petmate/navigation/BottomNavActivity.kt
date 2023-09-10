@@ -19,6 +19,7 @@ import com.example.petmate.login.LoginInterface
 import com.example.petmate.login.LoginInterfaceResponse
 import com.example.petmate.myinf.MyinfFragment
 import com.example.petmate.pet.main.PetMainFragment
+import com.example.petmate.userIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -31,7 +32,7 @@ class BottomNavActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.d(TAG, "onCreate: CREATE")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bottom_nav)
         binding.lifecycleOwner = this
 
@@ -39,21 +40,18 @@ class BottomNavActivity : AppCompatActivity(){
     }
 
     private fun setNavigation() {
+        val userIdx = userIdx.getUserIdx()
 
-        if(intent.hasExtra("userIdx")){
-            val userIdx = intent.getIntExtra("userIdx",0)
+        if(userIdx != 0){
 
-            if(userIdx==0){
-                Log.d(TAG, "ERROR userIdx was 0")
-            }
             //고정
             val retrofit = Retrofit.Builder()
                 .baseUrl("http://13.124.16.204:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                .build()
             //
 
-            val service = retrofit.create(CheckUserPetInterface::class.java);
+            val service = retrofit.create(CheckUserPetInterface::class.java)
 
             service.getReadByUserIdx(userIdx).enqueue(object : Callback<PetRelationshipResponse> {
 
@@ -61,12 +59,12 @@ class BottomNavActivity : AppCompatActivity(){
                     if(response.isSuccessful){
                         // 정상적으로 통신이 성고된 경우
                         val result: PetRelationshipResponse? = response.body()
-                        Log.d(TAG, "onResponse 성공: " + result?.toString());
+                        Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                         when (result?.code) {
                             200 -> {
                                 Log.d(TAG, "onResponse: Success And have pet")
-                                setOwner()
+                                setOwner(userIdx)
                             }
                             201 -> {
                                 Log.d(TAG, "onResponse: Success But don't have pet")
@@ -92,7 +90,7 @@ class BottomNavActivity : AppCompatActivity(){
                 override fun onFailure(call: Call<PetRelationshipResponse>, t: Throwable) {
                     // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                     Toast.makeText(applicationContext, "통신 실패", Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                    Log.d(TAG, "onFailure 에러: " + t.message.toString())
                     setSeeker()
                 }
             })
@@ -101,10 +99,15 @@ class BottomNavActivity : AppCompatActivity(){
         }
     }
 
-    private fun setOwner() {
+    private fun setOwner(userIdx:Int) {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+
+        val bundle = Bundle()
+        bundle.putInt("userIdx",userIdx)
+        Log.d(TAG, "setOwner: $userIdx")
+        navHostFragment.arguments = bundle
 
         // 화면 전화 후에도 값 유지
         val navigator = KeepStateFragment(this, navHostFragment.childFragmentManager, R.id.nav_host_fragment)
