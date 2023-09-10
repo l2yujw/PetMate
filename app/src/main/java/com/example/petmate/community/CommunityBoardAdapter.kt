@@ -43,25 +43,25 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityBoardData>) : Recyc
         fun setItem(item: CommunityBoardData) {
             Glide.with(binding.imgCommunityBoard1)
                 .load(item.boardImg)                         // 불러올 이미지 URL
-                .fallback(R.drawable.cat1_temp)                 // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.cat2_temp)                    // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.cat1_temp)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                 .centerInside()                                 // scaletype
                 .into(binding.imgCommunityBoard1)             // 이미지를 넣을 뷰
 
             Glide.with(binding.imgCommunityBoard2)
                 .load(item.boardImg)                         // 불러올 이미지 URL
-                .fallback(R.drawable.cat1_temp)                 // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.cat2_temp)                    // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.cat1_temp)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                 .centerInside()                                 // scaletype
                 .into(binding.imgCommunityBoard2)             // 이미지를 넣을 뷰
 
             Glide.with(binding.imgCommunityBoard3)
                 .load(item.boardImg)                         // 불러올 이미지 URL
-                .fallback(R.drawable.cat1_temp)                 // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.cat2_temp)                    // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.cat1_temp)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                 .centerInside()                                 // scaletype
                 .into(binding.imgCommunityBoard3)             // 이미지를 넣을 뷰
         }

@@ -37,7 +37,7 @@ class CommunityFragment : Fragment() {
 
         binding.rcvCommunityPopular.adapter = adapterCommunityPopular
         binding.rcvCommunityPopular.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rcvCommunityPopular.addItemDecoration(RightItemDecorator(5))
+        binding.rcvCommunityPopular.addItemDecoration(RightItemDecorator(20))
 
         adapterCommunityPopular.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {

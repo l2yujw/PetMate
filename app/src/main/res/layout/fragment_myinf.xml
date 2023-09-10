@@ -27,7 +27,7 @@
             android:layout_marginTop="54dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="46.8℃"
+            android:text=""
             android:textAppearance="@style/myinf_degree" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_marginTop="54dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="162P"
+            android:text=""
             android:textAppearance="@style/myinf_point" />
 
         <View
@@ -49,21 +49,18 @@
             android:layout_marginTop="91dp"
             android:background="@drawable/background_myinf_circle_1" />
 
-        <androidx.cardview.widget.CardView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_myinf_user"
             android:layout_width="95dp"
             android:layout_height="95dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="96dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardCornerRadius="100dp">
-
-            <ImageView
-                android:layout_width="105dp"
-                android:layout_height="105dp"
-                android:src="@drawable/cat2_temp" />
-        </androidx.cardview.widget.CardView>
+            android:src="@drawable/cat1_temp"
+            app:civ_border_color="#C7C7CC"
+            app:civ_border_overlay="true"
+            app:civ_border_width="3dp" />
 
         <TextView
             android:id="@+id/jacob_west"

@@ -46,9 +46,9 @@ class PetTrainingListAdapter(val itemList: ArrayList<PetTrainingListData>) : Rec
         fun setItem(item: PetTrainingListData) {
             Glide.with(binding.imgPetTraining)
                 .load(item.trainingImg)                         // 불러올 이미지 URL
-                .fallback(R.drawable.cat1_temp)                 // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.cat2_temp)                    // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.cat1_temp)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                 .centerInside()                                 // scaletype
                 .into(binding.imgPetTraining)             // 이미지를 넣을 뷰
         }

@@ -34,45 +34,6 @@
         android:text="경기도"
         android:textAppearance="@style/community_area" />
 
-    <View
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="261dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/match" />
-
-    <View
-        android:layout_width="13dp"
-        android:layout_height="14dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="368dp"
-        android:layout_marginTop="22dp"
-        android:background="@drawable/siren" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="307dp"
-        android:layout_marginTop="18dp"
-        android:gravity="top"
-        android:lineSpacingExtra="-9sp"
-        android:text="48.6*c"
-        android:textAppearance="@style/community_degree" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="75dp"
-        android:layout_height="10dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="306dp"
-        android:layout_marginTop="43dp" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="205dp"

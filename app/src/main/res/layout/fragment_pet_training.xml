@@ -145,4 +145,10 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="232dp" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="750dp">
+    </RelativeLayout>
 </RelativeLayout>

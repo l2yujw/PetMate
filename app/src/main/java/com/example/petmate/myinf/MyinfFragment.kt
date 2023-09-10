@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentMyinfBinding
 import com.example.petmate.pet.training.PetTrainingListData
 
@@ -35,6 +37,8 @@ class MyinfFragment : Fragment() {
 
         binding.rcvMyinfPicList.adapter = adapterMyinfPicList
         binding.rcvMyinfPicList.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rcvMyinfPicList.addItemDecoration(VerticalItemDecorator(2))
+        binding.rcvMyinfPicList.addItemDecoration(HorizontalItemDecorator(2))
 
         adapterMyinfPicList.setItemClickListener(object : OnItemClickListener{
             override fun onClick(v: View, position: Int) {
@@ -44,6 +48,7 @@ class MyinfFragment : Fragment() {
 
         binding.rcvMyinfUserList.adapter = adapterMyinfUserList
         binding.rcvMyinfUserList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
 
         return binding.getRoot()
     }

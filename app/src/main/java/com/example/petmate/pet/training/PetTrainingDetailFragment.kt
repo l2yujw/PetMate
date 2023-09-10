@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetTrainingDetailBinding
 
 
@@ -36,6 +37,7 @@ class PetTrainingDetailFragment : Fragment() {
 
         binding.rcvTrainingDetailWays.adapter = boardAdapter
         binding.rcvTrainingDetailWays.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rcvTrainingDetailWays.addItemDecoration(VerticalItemDecorator(5))
         return binding.getRoot()
     }
 

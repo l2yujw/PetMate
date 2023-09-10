@@ -56,7 +56,13 @@ class HomePetseekerFragment : Fragment() {
 
         binding.viewpagerPetseekerRecommend.adapter = boardAdapterRecommend
         binding.viewpagerPetseekerRecommend.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
+        binding.viewpagerPetseekerRecommend.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                indicatorReccomend.animatePageSelected(position)
+                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+            }
+        })
         binding.btnSurvey.setOnClickListener {
             Toast.makeText(requireContext(), "산책 버튼 눌림", Toast.LENGTH_SHORT).show()
         }
