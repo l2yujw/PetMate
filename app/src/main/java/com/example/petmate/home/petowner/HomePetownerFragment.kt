@@ -45,6 +45,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.sql.Date
 import java.util.Calendar
 import java.util.Locale
 
@@ -55,7 +56,6 @@ class HomePetownerFragment : Fragment() {
     private var weatherBaseTime = "0500"      // 발표 시각
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
-    var resultList = ArrayList<HomePetownerPetlistData>()
     lateinit var indicator:CircleIndicator3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,12 +87,11 @@ class HomePetownerFragment : Fragment() {
         indicator = binding.circleindicatorPetownerPetlist
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
         val userIdx:Int = userIdx.getUserIdx()
-        requestPetList(userIdx)
+
+
+        //예비용으로 미리 깔아두기
         val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
         boardAdapterPetList.notifyDataSetChanged()
-        val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
-        boardAdapterScheduleList.notifyDataSetChanged()
-
 
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
         indicator.createIndicators(getPetList().size, 0)
@@ -106,12 +105,21 @@ class HomePetownerFragment : Fragment() {
                 //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
             }
         })
+        //예비용으로 미리 깔아두기
 
+        requestPetList(userIdx)
+
+        //예비용으로 미리 깔아두기
+        val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
+        boardAdapterScheduleList.notifyDataSetChanged()
         //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
         binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
+        //예비용으로 미리 깔아두기
+
+        requestScheduleList(userIdx)
 
         binding.btnWalk.setOnClickListener{
             var intent = Intent(requireContext(), WalkActivity::class.java)
@@ -299,6 +307,16 @@ class HomePetownerFragment : Fragment() {
         return petList
     }
 
+    private fun getScheduleList(): ArrayList<HomePetownerScheduleData> {//혹시 모를 일을위해 여기를 먼저 깔아놓고 불러온걸 덮어쓰면 시간이 맞을듯?
+        val scheduleList = ArrayList<HomePetownerScheduleData>()
+
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+
+        return scheduleList
+    }
+
     private fun requestPetList(userIdx:Int){
         //고정
         val retrofit = Retrofit.Builder()
@@ -362,14 +380,61 @@ class HomePetownerFragment : Fragment() {
 
     }
 
-    private fun getScheduleList(): ArrayList<HomePetownerScheduleData> {
-        val scheduleList = ArrayList<HomePetownerScheduleData>()
+    private fun requestScheduleList(userIdx: Int) {
+        //고정
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.124.16.204:3000/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        //
+        Log.d(TAG, "requestScheduleList: ENTER")
+        val now = System.currentTimeMillis()
+        val date = Date(now)
+        val sdf = SimpleDateFormat("yyyyMMdd")
+        val getDate = sdf.format(date)
+        //val sendDate = Date(getDate)
+        val service = retrofit.create(HomePetownerInterface::class.java);
+        service.getPetScheduleList(userIdx, getDate).enqueue(object : Callback<PetScheduleInterfaceResponse> {
 
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
+            override fun onResponse(call: Call<PetScheduleInterfaceResponse>, response: retrofit2.Response<PetScheduleInterfaceResponse>) {
+                if(response.isSuccessful){
+                    // 정상적으로 통신이 성고된 경우
+                    val result: PetScheduleInterfaceResponse? = response.body()
+                    Log.d(TAG, "onResponse 성공: " + result?.toString());
 
-        return scheduleList
+                    when (result?.code) {
+                        200 -> {
+                            val Schedulelist = ArrayList<HomePetownerScheduleData>()
+                            for(item in result.result){
+                                var time = item.time.split(":")[0]+":"+item.time.split(":")[1]
+                                Schedulelist.add(HomePetownerScheduleData(time,("${item.name}:${item.schedulename}"),item.detail))
+                            }
+
+                            val boardAdapterScheduleList = HomePetownerScheduleAdapter(Schedulelist)
+                            boardAdapterScheduleList.notifyDataSetChanged()
+                            //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
+                            binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
+                            binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+                            binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
+                        }
+                        else -> {
+                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                        }
+                    }
+
+                }else{
+                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
+                    Log.d(TAG, "onResponse 실패"+response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<PetScheduleInterfaceResponse>, t: Throwable) {
+                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
+                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+            }
+        })
     }
 
 }

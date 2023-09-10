@@ -13,11 +13,11 @@ data class HomePetownerInterfaceResponse (
     var message:String,
 
     @SerializedName("result")
-    var result:ArrayList<Result>
+    var result:ArrayList<HomePetownerInterfaceResponseResult>
 
 )
 
-data class Result (
+data class HomePetownerInterfaceResponseResult (
     @SerializedName("petIdx")
     var petIdx:Int,
 
