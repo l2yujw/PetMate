@@ -1,6 +1,6 @@
 package com.example.petmate
 
-object userIdx {
+object UserIdx {
     private var userIdx:Int? = 0
 
     fun setUserIdx(num:Int){

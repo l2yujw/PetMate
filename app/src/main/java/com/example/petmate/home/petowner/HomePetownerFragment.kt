@@ -28,16 +28,13 @@ import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
-import com.example.petmate.login.LoginInterface
-import com.example.petmate.login.LoginInterfaceResponse
-import com.example.petmate.navigation.BottomNavActivity
-import com.example.petmate.userIdx
+import com.example.petmate.UserIdx
+import com.example.petmate.PetIdxList
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import com.google.gson.Gson
 import me.relex.circleindicator.CircleIndicator3
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,7 +43,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.sql.Date
-import java.time.LocalDate
 import java.util.Calendar
 import java.util.Locale
 
@@ -87,7 +83,7 @@ class HomePetownerFragment : Fragment() {
         binding = FragmentHomePetownerBinding.inflate(inflater)
         indicator = binding.circleindicatorPetownerPetlist
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        val userIdx:Int = userIdx.getUserIdx()
+        val userIdx:Int = UserIdx.getUserIdx()
 
 
         //예비용으로 미리 깔아두기
@@ -338,8 +334,10 @@ class HomePetownerFragment : Fragment() {
 
                     when (result?.code) {
                         200 -> {
+                            val petIdxList = PetIdxList
                             var petList = ArrayList<HomePetownerPetlistData>()
                             for(item in result.result){
+                                petIdxList.addlist(item.petIdx)
                                 Log.d(TAG, "onResponse: $item")
 
                                 val encodeByte = Base64.decode(item.image,Base64.NO_WRAP)

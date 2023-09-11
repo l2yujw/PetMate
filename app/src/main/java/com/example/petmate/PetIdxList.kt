@@ -1,7 +1,7 @@
 package com.example.petmate
 
-object petIdxList {
-    private var list = ArrayList<Int>()
+object PetIdxList {
+    private var list = ArrayList<Int>(1)
 
     fun addlist(petIdx:Int){
         list.add(petIdx)
