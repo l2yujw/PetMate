@@ -61,6 +61,12 @@ class PetMainFragment : Fragment() {
         binding.rcvPetMainHealth.adapter = adapterHealthList
         binding.rcvPetMainHealth.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+        //훈련쪽 리스트 받아와서 하면될듯?
+        val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
+        adapterCheckedTrainingList.notifyDataSetChanged()
+        binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
+        binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
 
         binding.viewpagerPetMainMyPet.adapter = adapterMyPetList
         binding.viewpagerPetMainMyPet.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -70,6 +76,7 @@ class PetMainFragment : Fragment() {
                 indicatorMypet.animatePageSelected(position)
                 Log.d(TAG, "position : ${position}")
                 requestPetInfo(petIdxList[position])
+                requestPetTrainingInfo(petIdxList[position])
             }
         })
 
@@ -81,19 +88,71 @@ class PetMainFragment : Fragment() {
             }
         })
 
-
-        //훈련쪽 리스트 받아와서 하면될듯?
-        val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
-        adapterCheckedTrainingList.notifyDataSetChanged()
-        binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
-        binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
         adapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment)
             }
         })
         return binding.getRoot()
+    }
+
+    private fun requestPetTrainingInfo(petIdx: Int) {
+//고정
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.124.16.204:3000/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        //
+
+        val service = retrofit.create(PetMainInterface::class.java);
+        service.getStar(petIdx).enqueue(object : Callback<PetMainInterfaceStarResponse> {
+
+            override fun onResponse(call: Call<PetMainInterfaceStarResponse>, response: retrofit2.Response<PetMainInterfaceStarResponse>) {
+                if (response.isSuccessful) {
+                    // 정상적으로 통신이 성고된 경우
+                    val result: PetMainInterfaceStarResponse? = response.body()
+                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+
+                    when (result?.code) {
+                        200 -> {
+                            val list = ArrayList<PetMainTrainingData>()
+                            for(item in result.result){
+                                list.add(PetMainTrainingData(item.name))
+                            }
+
+                            //훈련
+                            val adapterCheckedTrainingList = PetMainTrainingAdapter(list)
+                            adapterCheckedTrainingList.notifyDataSetChanged()
+                            binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
+                            binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+                            adapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
+                                override fun onClick(v: View, position: Int) {
+                                    val bundle = Bundle()
+                                    bundle.putInt("petIdx", petIdx)
+                                    findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment, bundle)
+                                }
+                            })
+                            //훈련
+                        }
+
+                        else -> {
+                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                        }
+                    }
+
+                } else {
+                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
+                    Log.d(TAG, "onResponse 실패" + response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<PetMainInterfaceStarResponse>, t: Throwable) {
+                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
+                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+            }
+        })
     }
 
     private fun requestPetInfo(petIdx:Int) {
@@ -155,7 +214,7 @@ class PetMainFragment : Fragment() {
                             //건강정보
 
                             //훈련
-                            val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
+                            /*val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
                             adapterCheckedTrainingList.notifyDataSetChanged()
                             binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
                             binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -166,7 +225,7 @@ class PetMainFragment : Fragment() {
                                     bundle.putInt("petIdx", petIdx)
                                     findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment, bundle)
                                 }
-                            })
+                            })*/
                             //훈련
                         }
 
