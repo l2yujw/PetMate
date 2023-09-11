@@ -46,6 +46,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.sql.Date
+import java.time.LocalDate
 import java.util.Calendar
 import java.util.Locale
 
@@ -326,6 +327,7 @@ class HomePetownerFragment : Fragment() {
             .build();
         //
         val service = retrofit.create(HomePetownerInterface::class.java);
+        Log.d(TAG, "requestPetList: ${userIdx}")
         service.getPetList(userIdx).enqueue(object : Callback<HomePetownerInterfaceResponse> {
 
             override fun onResponse(call: Call<HomePetownerInterfaceResponse>, response: retrofit2.Response<HomePetownerInterfaceResponse>) {
@@ -392,7 +394,8 @@ class HomePetownerFragment : Fragment() {
         val now = System.currentTimeMillis()
         val date = Date(now)
         val sdf = SimpleDateFormat("yyyyMMdd")
-        val getDate = sdf.format(date)
+        //val getDate = sdf.format(date)
+        val getDate = "20230910"
         //val sendDate = Date(getDate)
         val service = retrofit.create(HomePetownerInterface::class.java);
         service.getPetScheduleList(userIdx, getDate).enqueue(object : Callback<PetScheduleInterfaceResponse> {

@@ -49,10 +49,8 @@ class PetMainFragment : Fragment() {
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
         adapterNoteList.notifyDataSetChanged()
 
-        val adapterHealthList = PetMainHealthAdapter(getHealthList())
-        adapterHealthList.notifyDataSetChanged()
-        val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
-        adapterCheckedTrainingList.notifyDataSetChanged()
+
+
         val adapterMyPetList = PetMainMypetAdapter(getMypetList())
         adapterMyPetList.notifyDataSetChanged()
 
