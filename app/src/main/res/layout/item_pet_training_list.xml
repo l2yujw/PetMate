@@ -24,7 +24,7 @@ android:background="@drawable/background_home_rectangle_1_2">
         android:layout_height="30dp"
         android:layout_gravity="top|end"
         android:layout_margin="3dp"
-        android:src="@drawable/sex_male"/>
+        android:src="@drawable/cat2_temp" />
 
 </androidx.cardview.widget.CardView>
 

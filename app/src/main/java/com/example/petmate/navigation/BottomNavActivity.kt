@@ -10,7 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.petmate.KeepStateFragment
 import com.example.petmate.R
 import com.example.petmate.databinding.ActivityBottomNavBinding
-import com.example.petmate.UserIdx
+import com.example.petmate.GlobalUserIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -31,7 +31,7 @@ class BottomNavActivity : AppCompatActivity(){
     }
 
     private fun setNavigation() {
-        val userIdx = UserIdx.getUserIdx()
+        val userIdx = GlobalUserIdx.getUserIdx()
 
         if(userIdx != 0){
 
