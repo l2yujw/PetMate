@@ -33,7 +33,7 @@ import java.util.ArrayList
 class PetHealthFragment : Fragment() {
 
     lateinit var binding: FragmentPetHealthBinding
-    var petIdx=0
+    var petIdx = 0
     private val TAG = "PetHealthFragment123"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class PetHealthFragment : Fragment() {
         return binding.getRoot()
     }
 
-    private fun requestInfo(petIdx: Int) {
+    private fun requestInfo(userIdx: Int) {
 //고정
         val retrofit = Retrofit.Builder()
             .baseUrl("http://13.124.16.204:3000/")
@@ -64,10 +64,10 @@ class PetHealthFragment : Fragment() {
         //
 
         val service = retrofit.create(PetHealthInterface::class.java);
-        service.getInfo(petIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
+        service.getInfo(userIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
 
             override fun onResponse(call: Call<PetHealthInterfaceResponse>, response: retrofit2.Response<PetHealthInterfaceResponse>) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetHealthInterfaceResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString());
@@ -88,34 +88,31 @@ class PetHealthFragment : Fragment() {
                             binding.tvHealthKcal.text = "250"
                             binding.petHealthKnow.text = "알고 계셨나요?"
 
-                            val boardAdapterPetHealthRecord = PetHealthAdapter(getRecordList())
-                            boardAdapterPetHealthRecord.notifyDataSetChanged()
 
-                            val petList = ArrayList<PetHealthListData>()
-                            val encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
-                            val bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
-                            petList.add(PetHealthListData(bitmap))
-                            val boardAdapterPetHealthPetlist = PetHealthListAdapter(petList)
-                            boardAdapterPetHealthPetlist.notifyDataSetChanged()
+                            val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                            val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                            binding.petHealthImage.setImageBitmap(bitmap)
+
+
+
 
                             binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
                             binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-                            binding.viewpagerHealthPetlist.adapter = PetHealthListAdapter(petList)
-                            binding.viewpagerHealthPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
                             //item 간격 결정
                             binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
 
                         }
+
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
                     }
 
-                }else{
+                } else {
                     // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
-                    Log.d(TAG, "onResponse 실패"+response.code())
+                    Log.d(TAG, "onResponse 실패" + response.code())
                 }
             }
 
@@ -136,19 +133,12 @@ class PetHealthFragment : Fragment() {
         return recordList
     }
 
-    private fun getPetList(): ArrayList<PetHealthListData> {
-        val petList = ArrayList<PetHealthListData>()
-        val am = resources.assets
-        petList.add(PetHealthListData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
-
-        return petList
-    }
 
     // 성별
     private fun getSexImage(sex: String): Int {
         return when (sex) {
-            "수컷","M" -> R.drawable.sex_male
-            "암컷","F" -> R.drawable.sex_female
+            "수컷", "M" -> R.drawable.sex_male
+            "암컷", "F" -> R.drawable.sex_female
             else -> R.drawable.sex_male
         }
     }
@@ -166,27 +156,10 @@ class PetHealthFragment : Fragment() {
         binding.tvHealthKcal.text = "250"
         binding.petHealthKnow.text = "알고 계셨나요?"
 
-        val boardAdapterPetHealthRecord = PetHealthAdapter(getRecordList())
-        boardAdapterPetHealthRecord.notifyDataSetChanged()
-        val boardAdapterPetHealthPetlist = PetHealthListAdapter(getPetList())
-        boardAdapterPetHealthPetlist.notifyDataSetChanged()
-
-        val indicatorList = binding.circleindicatorPethealth
-        indicatorList.setViewPager(binding.viewpagerHealthPetlist)
-        indicatorList.createIndicators(getPetList().size, 0)
 
         binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
         binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        binding.viewpagerHealthPetlist.adapter = PetHealthListAdapter(getPetList())
-        binding.viewpagerHealthPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpagerHealthPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                indicatorList.animatePageSelected(position)
-                Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-            }
-        })
 
         //item 간격 결정
         binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
