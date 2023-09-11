@@ -1,3 +1,5 @@
 package com.example.petmate.pet.training
 
-data class PetTrainingListData (val trainingImg: String)
+import android.graphics.Bitmap
+
+data class PetTrainingListData (val trainingImg: Bitmap, val isStar:Boolean)

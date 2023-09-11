@@ -3,7 +3,6 @@ package com.example.petmate.home.petowner
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.icu.text.SimpleDateFormat
@@ -20,8 +19,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import android.util.Base64
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
@@ -31,8 +28,8 @@ import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
-import com.example.petmate.UserIdx
 import com.example.petmate.PetIdxList
+import com.example.petmate.GlobalUserIdx
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -80,7 +77,8 @@ class HomePetownerFragment : Fragment() {
         binding = FragmentHomePetownerBinding.inflate(inflater)
         indicator = binding.circleindicatorPetownerPetlist
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        val userIdx:Int = UserIdx.getUserIdx()
+
+        val userIdx:Int = GlobalUserIdx.getUserIdx()
 
 
         //예비용으로 미리 깔아두기
