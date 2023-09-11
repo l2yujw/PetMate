@@ -1,25 +1,16 @@
 package com.example.petmate.navigation
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.petmate.KeepStateFragment
-import com.example.petmate.home.petowner.HomePetownerFragment
 import com.example.petmate.R
-import com.example.petmate.community.CommunityFragment
 import com.example.petmate.databinding.ActivityBottomNavBinding
-import com.example.petmate.login.LoginInterface
-import com.example.petmate.login.LoginInterfaceResponse
-import com.example.petmate.myinf.MyinfFragment
-import com.example.petmate.pet.main.PetMainFragment
-import com.example.petmate.userIdx
+import com.example.petmate.UserIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -40,7 +31,7 @@ class BottomNavActivity : AppCompatActivity(){
     }
 
     private fun setNavigation() {
-        val userIdx = userIdx.getUserIdx()
+        val userIdx = UserIdx.getUserIdx()
 
         if(userIdx != 0){
 

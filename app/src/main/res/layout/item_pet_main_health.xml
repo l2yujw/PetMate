@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="오늘의 건강 상식"
+        android:gravity="center"
         android:textAppearance="@style/pet_main_health" />
 
 </RelativeLayout>

@@ -6,6 +6,6 @@ import retrofit2.http.Query
 
 interface PetMainInterface {
 
-    @GET("/Pet/detail")
-    fun getInfo(@Query("userIdx")userIdx:Int): Call<PetMainInterfaceResponse>
+    @GET("/Pet/Detail")
+    fun getInfo(@Query("petIdx") petIdx:Int): Call<PetMainInterfaceResponse>
 }

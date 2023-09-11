@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="invisible"
     android:background="@drawable/background_home_rectangle_1_2">
 
     <androidx.cardview.widget.CardView
@@ -15,8 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cat2_temp" />
+            android:scaleType="fitXY"
+            android:src="@drawable/cat2_temp"
+            />
 
     </androidx.cardview.widget.CardView>
 
