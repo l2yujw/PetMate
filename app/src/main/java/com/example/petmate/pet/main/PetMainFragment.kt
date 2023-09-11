@@ -49,10 +49,8 @@ class PetMainFragment : Fragment() {
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
         adapterNoteList.notifyDataSetChanged()
 
-        val adapterHealthList = PetMainHealthAdapter(getHealthList())
-        adapterHealthList.notifyDataSetChanged()
-        val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
-        adapterCheckedTrainingList.notifyDataSetChanged()
+
+
         val adapterMyPetList = PetMainMypetAdapter(getMypetList())
         adapterMyPetList.notifyDataSetChanged()
 
@@ -133,7 +131,9 @@ class PetMainFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val petMainHealthData = ArrayList<PetMainHealthData>()
+                            val petListData = ArrayList<PetMainInterfaceResponseResult>()
                             for(item in result.result) {
+
                                 if(item.petIdx == petIdx) {
                                     binding.tvMainPetName.text = item.name
                                     binding.tvMainPetAge.text = "${item.age}살"
@@ -150,6 +150,17 @@ class PetMainFragment : Fragment() {
                                     petMainHealthData.add(PetMainHealthData("체중\n${item.weight}\n"))
                                 }
                             }
+
+                            //viewpager
+                            val adapterMyPetList = PetMainMypetAdapter(getMypetList())
+                            adapterMyPetList.notifyDataSetChanged()
+
+                            val indicatorMypet = binding.circleindicatorPetmainMypet
+                            indicatorMypet.setViewPager(binding.viewpagerPetMainMyPet)
+                            indicatorMypet.createIndicators(getMypetList().size, 0)
+                            //viewpager
+
+                            //건강정보
                             val adapterHealthList = PetMainHealthAdapter(petMainHealthData)
                             adapterHealthList.notifyDataSetChanged()
                             binding.rcvPetMainHealth.adapter = adapterHealthList
@@ -160,10 +171,11 @@ class PetMainFragment : Fragment() {
                                     val bundle = Bundle()
                                     bundle.putInt("petIdx",petIdx)
                                     findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment,bundle)
-
                                 }
                             })
+                            //건강정보
 
+                            //훈련
                             val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
                             adapterCheckedTrainingList.notifyDataSetChanged()
                             binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
@@ -176,6 +188,7 @@ class PetMainFragment : Fragment() {
                                     findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment,bundle)
                                 }
                             })
+                            //훈련
                         }
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")

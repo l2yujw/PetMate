@@ -22,24 +22,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <me.relex.circleindicator.CircleIndicator3
-            android:id="@+id/circleindicator_pethealth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:scaleType="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:ci_drawable="@drawable/indicator_purple"
-            app:ci_drawable_unselected="@drawable/indicator_gray" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager_health_petlist"
+        <ImageView
+            android:id="@+id/pet_health_image"
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:layout_marginTop="100dp"
-            android:scaleType="center"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
