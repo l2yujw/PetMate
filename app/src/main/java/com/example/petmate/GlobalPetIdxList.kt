@@ -1,6 +1,6 @@
 package com.example.petmate
 
-object PetIdxList {
+object GlobalPetIdxList {
     private var list = ArrayList<Int>(1)
 
     fun addlist(petIdx:Int){

@@ -14,17 +14,18 @@ android:background="@drawable/background_home_rectangle_1_2">
         android:id="@+id/img_pet_training"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignEnd="@id/activity_main_home_havepet_petlist_division"
         android:scaleType="centerCrop"
         android:src="@drawable/cat2_temp" />
 
     <ImageView
         android:id="@+id/img_pet_training_star"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_margin="5dp"
         android:layout_gravity="top|end"
-        android:layout_margin="3dp"
-        android:src="@drawable/cat2_temp" />
+        android:src="@drawable/star"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside" />
 
 </androidx.cardview.widget.CardView>
 

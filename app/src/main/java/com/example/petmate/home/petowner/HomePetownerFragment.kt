@@ -28,7 +28,7 @@ import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
-import com.example.petmate.PetIdxList
+import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.GlobalUserIdx
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
@@ -346,7 +346,7 @@ class HomePetownerFragment : Fragment() {
 
                     when (result?.code) {
                         200 -> {
-                            val petIdxList = PetIdxList
+                            val petIdxList = GlobalPetIdxList
                             var petList = ArrayList<HomePetownerPetlistData>()
                             for(item in result.result){
                                 petIdxList.addlist(item.petIdx)

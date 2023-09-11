@@ -8,12 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.OnItemClickListener
-import com.example.petmate.PetIdxList
+import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.R
 import com.example.petmate.databinding.FragmentPetMainBinding
 import retrofit2.Call
@@ -37,7 +36,7 @@ class PetMainFragment : Fragment() {
         binding = FragmentPetMainBinding.inflate(inflater)
         binding.tvMainPetName.text = "탈주닌자"
         binding.tvMainPetAge.text = "특징" + "나이"
-        val petIdxList = PetIdxList.getlist()
+        val petIdxList = GlobalPetIdxList.getlist()
 
 
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
@@ -49,7 +48,7 @@ class PetMainFragment : Fragment() {
 
         val indicatorMypet = binding.circleindicatorPetmainMypet
         indicatorMypet.setViewPager(binding.viewpagerPetMainMyPet)
-        indicatorMypet.createIndicators(PetIdxList.getlist().size, 0)
+        indicatorMypet.createIndicators(GlobalPetIdxList.getlist().size, 0)
 
 
         binding.rcvPetMainNote.adapter = adapterNoteList
