@@ -1,4 +1,6 @@
 package com.example.petmate.pet.main
 
-class PetMainMypetData (var mypet_img: String){
+import android.graphics.Bitmap
+
+class PetMainMypetData (var mypet_img: Bitmap){
 }

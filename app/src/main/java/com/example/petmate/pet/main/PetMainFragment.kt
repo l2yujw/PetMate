@@ -8,18 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.OnItemClickListener
+import com.example.petmate.PetIdxList
 import com.example.petmate.R
 import com.example.petmate.databinding.FragmentPetMainBinding
-import com.example.petmate.home.petowner.HomePetownerInterface
-import com.example.petmate.home.petowner.HomePetownerInterfaceResponse
-import com.example.petmate.home.petowner.HomePetownerPetlistAdapter
-import com.example.petmate.home.petowner.HomePetownerPetlistData
-import com.example.petmate.petIdxList
-import com.example.petmate.userIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -30,7 +26,6 @@ class PetMainFragment : Fragment() {
 
     lateinit var binding: FragmentPetMainBinding
     private val TAG = "PetMainFragment123"
-    private val petIdx=3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -42,13 +37,11 @@ class PetMainFragment : Fragment() {
         binding = FragmentPetMainBinding.inflate(inflater)
         binding.tvMainPetName.text = "탈주닌자"
         binding.tvMainPetAge.text = "특징" + "나이"
-        val userIdx1=userIdx
-
+        val petIdxList = PetIdxList.getlist()
 
 
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
         adapterNoteList.notifyDataSetChanged()
-
 
 
         val adapterMyPetList = PetMainMypetAdapter(getMypetList())
@@ -56,13 +49,11 @@ class PetMainFragment : Fragment() {
 
         val indicatorMypet = binding.circleindicatorPetmainMypet
         indicatorMypet.setViewPager(binding.viewpagerPetMainMyPet)
-        indicatorMypet.createIndicators(getMypetList().size, 0)
+        indicatorMypet.createIndicators(PetIdxList.getlist().size, 0)
 
 
         binding.rcvPetMainNote.adapter = adapterNoteList
         binding.rcvPetMainNote.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-
 
 
         val adapterHealthList = PetMainHealthAdapter(getHealthList())
@@ -77,7 +68,8 @@ class PetMainFragment : Fragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 indicatorMypet.animatePageSelected(position)
-                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "position : ${position}")
+                requestPetInfo(petIdxList[position])
             }
         })
 
@@ -88,11 +80,6 @@ class PetMainFragment : Fragment() {
 
             }
         })
-
-        requestPetInfo(userIdx1.getUserIdx())
-
-
-
 
 
         //훈련쪽 리스트 받아와서 하면될듯?
@@ -106,11 +93,10 @@ class PetMainFragment : Fragment() {
                 findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment)
             }
         })
-
         return binding.getRoot()
     }
 
-    private fun requestPetInfo(userIdx:Int) {
+    private fun requestPetInfo(petIdx:Int) {
         //고정
         val retrofit = Retrofit.Builder()
             .baseUrl("http://13.124.16.204:3000/")
@@ -120,10 +106,10 @@ class PetMainFragment : Fragment() {
         //
 
         val service = retrofit.create(PetMainInterface::class.java);
-        service.getInfo(userIdx).enqueue(object : Callback<PetMainInterfaceResponse> {
+        service.getInfo(petIdx).enqueue(object : Callback<PetMainInterfaceResponse> {
 
             override fun onResponse(call: Call<PetMainInterfaceResponse>, response: retrofit2.Response<PetMainInterfaceResponse>) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetMainInterfaceResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString());
@@ -131,34 +117,27 @@ class PetMainFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val petMainHealthData = ArrayList<PetMainHealthData>()
-                            val petListData = ArrayList<PetMainInterfaceResponseResult>()
-                            for(item in result.result) {
+                            for (item in result.result) {
 
-                                if(item.petIdx == petIdx) {
+                                if (item.petIdx == petIdx) {
                                     binding.tvMainPetName.text = item.name
                                     binding.tvMainPetAge.text = "${item.age}살"
                                     binding.tvMainPetDescription.text = "${item.category} ${item.species}"
                                     if (item.gender == "M") {
                                         binding.walkRecordPetSex.setImageResource(R.drawable.sex_male)
+                                    }else{
+                                        binding.walkRecordPetSex.setImageResource(R.drawable.sex_female)
                                     }
 
-                                    var encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
-                                    var bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                                    //예를 viewpager에 넣어야함 어떻게? 그건 몰루
-                                    petMainHealthData.add(PetMainHealthData("접종예정일\n${item.vaccination}\n"))
-                                    petMainHealthData.add(PetMainHealthData("구충제예정일\n${item.helminthic}\n"))
-                                    petMainHealthData.add(PetMainHealthData("체중\n${item.weight}\n"))
+                                    val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                                    val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                                    binding.tvMainPetImage.setImageBitmap(bitmap)
+
+                                    petMainHealthData.add(PetMainHealthData("접종 예정일\n${item.vaccination}\n"))
+                                    petMainHealthData.add(PetMainHealthData("구충제 예정일\n${item.helminthic}\n"))
+                                    petMainHealthData.add(PetMainHealthData("체중\n${item.weight}(kg)\n"))
                                 }
                             }
-
-                            //viewpager
-                            val adapterMyPetList = PetMainMypetAdapter(getMypetList())
-                            adapterMyPetList.notifyDataSetChanged()
-
-                            val indicatorMypet = binding.circleindicatorPetmainMypet
-                            indicatorMypet.setViewPager(binding.viewpagerPetMainMyPet)
-                            indicatorMypet.createIndicators(getMypetList().size, 0)
-                            //viewpager
 
                             //건강정보
                             val adapterHealthList = PetMainHealthAdapter(petMainHealthData)
@@ -169,8 +148,8 @@ class PetMainFragment : Fragment() {
                             adapterHealthList.setItemClickListener(object : OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
                                     val bundle = Bundle()
-                                    bundle.putInt("petIdx",petIdx)
-                                    findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment,bundle)
+                                    bundle.putInt("petIdx", petIdx)
+                                    findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment, bundle)
                                 }
                             })
                             //건강정보
@@ -184,20 +163,21 @@ class PetMainFragment : Fragment() {
                             adapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
                                     val bundle = Bundle()
-                                    bundle.putInt("petIdx",petIdx)
-                                    findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment,bundle)
+                                    bundle.putInt("petIdx", petIdx)
+                                    findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment, bundle)
                                 }
                             })
                             //훈련
                         }
+
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
                     }
 
-                }else{
+                } else {
                     // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
-                    Log.d(TAG, "onResponse 실패"+response.code())
+                    Log.d(TAG, "onResponse 실패" + response.code())
                 }
             }
 
@@ -240,9 +220,10 @@ class PetMainFragment : Fragment() {
 
     private fun getMypetList(): ArrayList<PetMainMypetData> {
         val recommendList = java.util.ArrayList<PetMainMypetData>()
+        val am = resources.assets
+        recommendList.add(PetMainMypetData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
+        recommendList.add(PetMainMypetData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
 
-        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
 
         return recommendList
     }

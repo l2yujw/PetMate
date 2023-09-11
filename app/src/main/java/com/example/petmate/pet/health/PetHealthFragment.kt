@@ -47,6 +47,7 @@ class PetHealthFragment : Fragment() {
         binding = FragmentPetHealthBinding.inflate(inflater)
 
         petIdx = arguments?.getInt("petIdx") ?: 0
+        Log.d(TAG, "petIdx : ${petIdx}")
 
         getInfoList()
         requestInfo(petIdx)
@@ -54,7 +55,7 @@ class PetHealthFragment : Fragment() {
         return binding.getRoot()
     }
 
-    private fun requestInfo(userIdx: Int) {
+    private fun requestInfo(petIdx: Int) {
 //고정
         val retrofit = Retrofit.Builder()
             .baseUrl("http://13.124.16.204:3000/")
@@ -64,7 +65,7 @@ class PetHealthFragment : Fragment() {
         //
 
         val service = retrofit.create(PetHealthInterface::class.java);
-        service.getInfo(userIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
+        service.getInfo(petIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
 
             override fun onResponse(call: Call<PetHealthInterfaceResponse>, response: retrofit2.Response<PetHealthInterfaceResponse>) {
                 if (response.isSuccessful) {
