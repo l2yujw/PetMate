@@ -117,7 +117,7 @@
             android:background="@drawable/background_home_rectangle_1_2" />
 
         <TextView
-            android:id="@+id/comment"
+            android:id="@+id/tv_havepet_comment"
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
@@ -132,6 +132,7 @@
             android:textColor="#111111"
             android:textSize="13sp"
             android:translationY="-3.05sp" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"

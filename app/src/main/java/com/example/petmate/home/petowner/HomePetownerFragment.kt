@@ -3,6 +3,7 @@ package com.example.petmate.home.petowner
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.icu.text.SimpleDateFormat
@@ -19,6 +20,8 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import android.util.Base64
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
@@ -57,7 +60,7 @@ class HomePetownerFragment : Fragment() {
     private var weatherBaseTime = "0500"      // 발표 시각
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
-    lateinit var indicator:CircleIndicator3
+    lateinit var indicator: CircleIndicator3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -76,18 +79,12 @@ class HomePetownerFragment : Fragment() {
         // 권한 요청
         requestPermissions(permissionList, 1)
 
-        // 날씨. 위치 정보를 기반으로 날씨 정보 요청
-//        requestLocation()
 
-        /*// <새로고침> 버튼 누를 때 위치 정보 & 날씨 정보 다시 가져오기
-        binding.btnRefresh.setOnClickListener {
-            requestLocation()
-        }*/
 
         binding = FragmentHomePetownerBinding.inflate(inflater)
         indicator = binding.circleindicatorPetownerPetlist
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
-        val userIdx:Int = userIdx.getUserIdx()
+        val userIdx: Int = userIdx.getUserIdx()
 
 
         //예비용으로 미리 깔아두기
@@ -122,13 +119,15 @@ class HomePetownerFragment : Fragment() {
 
         requestScheduleList(userIdx)
 
-        binding.btnWalk.setOnClickListener{
+        binding.tvHavepetComment.text = "날씨 정보를 불러올 수 없어요"
+
+        //TODO 날씨. 위치 정보를 기반으로 날씨 정보 요청
+//        requestLocation()
+
+        binding.btnWalk.setOnClickListener {
             var intent = Intent(requireContext(), WalkActivity::class.java)
             startActivity(intent)
         }
-
-        //오늘 날씨 확인해서 문구 적용
-        binding.comment.text = "오늘은 산책하기 좋은 날씨네요!"
 
         return binding.getRoot()
     }
@@ -194,6 +193,7 @@ class HomePetownerFragment : Fragment() {
                             HomePetownerWeatherData(),
                             HomePetownerWeatherData()
                         )
+                    var weather8h = Array<String>(8, { "" })
                     /*for (k in 1..23) {
                         weatherArr.plus(HomePetownerWeatherData())
                     }*/
@@ -211,6 +211,8 @@ class HomePetownerFragment : Fragment() {
                         when (it[i].category) {
                             "PTY" -> {
                                 weatherArr[index].rainType = it[i].fcstValue     // 강수 형태
+                                if (index < 8)
+                                    weather8h[index] = it[i].fcstValue
                                 continue
                             }
 
@@ -230,6 +232,19 @@ class HomePetownerFragment : Fragment() {
                         weatherArr[index].fcstTime = it[i].fcstTime
                     }
 
+                    var rainStack = 0
+                    for (i in 0..7) {
+                        Log.d("weather raintype", i.toString() + "번째 날씨: " + weather8h[i])
+                        when (weather8h[i]) {
+                            "1", "2", "3", "4" -> rainStack++
+                        }
+                    }
+                    when (rainStack) {
+                        0 -> binding.tvHavepetComment.text = "오늘은 하늘이 맑네요! 가볍게 산책 어떠신가요?"
+                        1, 2 -> binding.tvHavepetComment.text = "비 또는 눈이 조금 올 예정이에요. 산책에 참고하세요!"
+                        else -> binding.tvHavepetComment.text = "비 또는 눈이 많이 오네요. 오늘 산책은 조금 힘들 수도 있겠어요"
+                    }
+
 //                    weatherArr[0].fcstTime = "지금"
                     // 각 날짜 배열 시간 설정
 //                    for (i in 0..23) weatherArr[i].fcstTime = it[i].fcstTime
@@ -242,7 +257,6 @@ class HomePetownerFragment : Fragment() {
                     // 리사이클러 뷰에 데이터 연결
                     binding.rcvHavepetWeather.adapter = HomePetownerWeatherAdapter(weatherArr)
                     Log.d("WEATHER TEST", "날씨 정보 리사이클러뷰 성공")
-                    //TODO 기준시간 - 3시간까지 넘어가면 크래시
 
                 } else {
                     Log.d("WEATHER TEST", "날씨 정보 실패")
@@ -318,7 +332,7 @@ class HomePetownerFragment : Fragment() {
         return scheduleList
     }
 
-    private fun requestPetList(userIdx:Int){
+    private fun requestPetList(userIdx: Int) {
         //고정
         val retrofit = Retrofit.Builder()
             .baseUrl("http://13.124.16.204:3000/")
@@ -331,7 +345,7 @@ class HomePetownerFragment : Fragment() {
         service.getPetList(userIdx).enqueue(object : Callback<HomePetownerInterfaceResponse> {
 
             override fun onResponse(call: Call<HomePetownerInterfaceResponse>, response: retrofit2.Response<HomePetownerInterfaceResponse>) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: HomePetownerInterfaceResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString());
@@ -339,12 +353,12 @@ class HomePetownerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             var petList = ArrayList<HomePetownerPetlistData>()
-                            for(item in result.result){
+                            for (item in result.result) {
                                 Log.d(TAG, "onResponse: $item")
 
-                                val encodeByte = Base64.decode(item.image,Base64.NO_WRAP)
-                                val bitmap = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.size)
-                                petList.add(HomePetownerPetlistData("랜덤 문구",bitmap))
+                                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                                petList.add(HomePetownerPetlistData("랜덤 문구", bitmap))
 
 
                             }
@@ -363,14 +377,15 @@ class HomePetownerFragment : Fragment() {
                                 }
                             })
                         }
+
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
                     }
 
-                }else{
+                } else {
                     // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
-                    Log.d(TAG, "onResponse 실패"+response.code())
+                    Log.d(TAG, "onResponse 실패" + response.code())
                 }
             }
 
@@ -401,7 +416,7 @@ class HomePetownerFragment : Fragment() {
         service.getPetScheduleList(userIdx, getDate).enqueue(object : Callback<PetScheduleInterfaceResponse> {
 
             override fun onResponse(call: Call<PetScheduleInterfaceResponse>, response: retrofit2.Response<PetScheduleInterfaceResponse>) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetScheduleInterfaceResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString());
@@ -409,9 +424,9 @@ class HomePetownerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val Schedulelist = ArrayList<HomePetownerScheduleData>()
-                            for(item in result.result){
-                                var time = item.time.split(":")[0]+":"+item.time.split(":")[1]
-                                Schedulelist.add(HomePetownerScheduleData(time,("${item.name}:${item.schedulename}"),item.detail))
+                            for (item in result.result) {
+                                var time = item.time.split(":")[0] + ":" + item.time.split(":")[1]
+                                Schedulelist.add(HomePetownerScheduleData(time, ("${item.name}:${item.schedulename}"), item.detail))
                             }
 
                             val boardAdapterScheduleList = HomePetownerScheduleAdapter(Schedulelist)
@@ -422,14 +437,15 @@ class HomePetownerFragment : Fragment() {
 
                             binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
                         }
+
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
                     }
 
-                }else{
+                } else {
                     // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
-                    Log.d(TAG, "onResponse 실패"+response.code())
+                    Log.d(TAG, "onResponse 실패" + response.code())
                 }
             }
 
