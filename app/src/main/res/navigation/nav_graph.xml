@@ -59,7 +59,11 @@
         android:id="@+id/communityFragment"
         android:name="com.example.petmate.community.CommunityFragment"
         android:label="fragment_community"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_communityFragment_to_communityPostFragment"
+            app:destination="@id/communityPostFragment" />
+    </keep_state_fragment>
 
     <keep_state_fragment
         android:id="@+id/myinfFragment"
@@ -94,5 +98,14 @@
         <action
             android:id="@+id/action_homeShelterpetInfoFragment_to_homePetseekerFragment"
             app:destination="@id/homePetseekerFragment" />
+    </keep_state_fragment>
+    <keep_state_fragment
+        android:id="@+id/communityPostFragment"
+        android:name="com.example.petmate.community.CommunityPostFragment"
+        android:label="fragment_community_post"
+        tools:layout="@layout/fragment_community_post" >
+        <action
+            android:id="@+id/action_communityPostFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </keep_state_fragment>
 </navigation>

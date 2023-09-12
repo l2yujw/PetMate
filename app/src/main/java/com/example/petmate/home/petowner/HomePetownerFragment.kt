@@ -89,7 +89,6 @@ class HomePetownerFragment : Fragment() {
         val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
         boardAdapterPetList.notifyDataSetChanged()
 
-        indicator.setViewPager(binding.viewpagerPetownerPetlist)
         indicator.createIndicators(getPetList().size, 0)
 
         binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())

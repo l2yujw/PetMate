@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.OnItemClickListener
+import com.example.petmate.R
 import com.example.petmate.RightItemDecorator
 import com.example.petmate.databinding.FragmentCommunityBinding
 
@@ -36,7 +38,7 @@ class CommunityFragment : Fragment() {
 
         adapterCommunityPopular.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                TODO("Not yet implemented")
+                findNavController().navigate(R.id.action_communityFragment_to_communityPostFragment)
             }
         })
 
@@ -45,7 +47,7 @@ class CommunityFragment : Fragment() {
 
         adapterCommunityBoard.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                TODO("Not yet implemented")
+                findNavController().navigate(R.id.action_communityFragment_to_communityPostFragment)
             }
         })
 

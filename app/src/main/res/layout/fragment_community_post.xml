@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".community.CommunityPostFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="94dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/background_community_rectangle_1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="90dp">
+
+            <View
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="#D9D9D9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="-9sp"
+                android:text="l2yu_"
+                android:textAppearance="@style/community_id" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="35dp"
+                android:gravity="top"
+                android:text="경기도"
+                android:textAppearance="@style/community_area" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/pet_mate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            android:text="PET MATE"
+            android:textAppearance="@style/pet_mate" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_community_post"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="160dp" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/circleindicator_community_post"
+            android:layout_width="100dp"
+            android:layout_height="9dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="160dp"
+            android:layout_marginTop="420dp"
+            app:ci_drawable="@drawable/indicator_purple"
+            app:ci_drawable_unselected="@drawable/indicator_gray" />
+
+        <TextView
+            android:id="@+id/blah_blah_b"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="444dp"
+            android:text="blahbalhbahblalhb"
+            android:textAppearance="@style/pet_community_post"
+            android:lineSpacingExtra="1sp"
+            android:translationY="-0.65sp"
+            android:gravity="top"
+            />
+
+    </RelativeLayout>
+</ScrollView>
