@@ -10,20 +10,23 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
-import android.telephony.PhoneNumberFormattingTextWatcher
+import android.util.Base64
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import android.util.Base64
-import android.widget.EditText
-
+import com.example.petmate.GlobalPetIdxList
+import com.example.petmate.GlobalUserIdx
 import com.example.petmate.HorizontalItemDecorator
+import com.example.petmate.R
 import com.example.petmate.databinding.FragmentHomePetownerBinding
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherCommon
@@ -31,9 +34,6 @@ import com.example.petmate.home.petowner.weather.HomePetownerWeatherData
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherObject
 import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
-import com.example.petmate.GlobalPetIdxList
-import com.example.petmate.GlobalUserIdx
-import com.example.petmate.R
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -50,6 +50,7 @@ import java.sql.Date
 import java.util.Calendar
 import java.util.Locale
 
+
 class HomePetownerFragment : Fragment() {
 
     private val TAG = "HomePetownerFragment123"
@@ -58,6 +59,8 @@ class HomePetownerFragment : Fragment() {
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
     lateinit var indicator: CircleIndicator3
+    var telArray = arrayOf<String>("010-1111-1111", "010-2222-2222", "010-3333-3333", "010-4444-4444", "010-5555-5555")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -82,7 +85,7 @@ class HomePetownerFragment : Fragment() {
         indicator = binding.circleindicatorPetownerPetlist
         indicator.setViewPager(binding.viewpagerPetownerPetlist)
 
-        val userIdx:Int = GlobalUserIdx.getUserIdx()
+        val userIdx: Int = GlobalUserIdx.getUserIdx()
 
 
         //예비용으로 미리 깔아두기
@@ -122,13 +125,13 @@ class HomePetownerFragment : Fragment() {
 //        requestLocation()
 
         binding.btnWalk.setOnClickListener {
-            var intent = Intent(requireContext(), WalkActivity::class.java)
+            val intent = Intent(requireContext(), WalkActivity::class.java)
             startActivity(intent)
         }
 
-        binding.btnEmergency.setOnClickListener{
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1111-1111"))
-            startActivity(intent)
+        binding.btnEmergency.setOnClickListener { view ->
+            showPoppup(binding.btnEmergency)
+            //TODO telArray 값에 따라 팝업 메뉴 생성. DB에 긴급연락처 저장한다면 telArray 값 수정 필요.
         }
 
         return binding.getRoot()
@@ -356,7 +359,7 @@ class HomePetownerFragment : Fragment() {
                         200 -> {
                             val petIdxList = GlobalPetIdxList
                             var petList = ArrayList<HomePetownerPetlistData>()
-                            for(item in result.result){
+                            for (item in result.result) {
                                 petIdxList.addlist(item.petIdx)
                                 Log.d(TAG, "onResponse: $item")
 
@@ -441,6 +444,7 @@ class HomePetownerFragment : Fragment() {
 
                             binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
                         }
+
                         else -> {
                             Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
@@ -457,6 +461,26 @@ class HomePetownerFragment : Fragment() {
                 Log.d(TAG, "onFailure 에러: " + t.message.toString());
             }
         })
+    }
+
+    private fun showPoppup(v: View) {
+        val popup = PopupMenu(activity?.applicationContext, v)
+        for (i in telArray.indices) {
+            popup.menu.add(Menu.NONE, i, Menu.NONE, telArray[i])
+        }
+
+        popup.setOnMenuItemClickListener { item ->
+            val intent: Intent
+            when (item?.itemId) {
+                item.itemId -> {
+                    item.setTitle(telArray[item.itemId])
+                    intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telArray[item.itemId]))
+                    startActivity(intent)
+                }
+            }
+            false
+        }
+        popup.show()
     }
 
 }
