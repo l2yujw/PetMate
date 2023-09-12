@@ -37,7 +37,6 @@ class PetTrainingListAdapter(val itemList: ArrayList<PetTrainingListData>) : Rec
     inner class PetTrainingListViewHolder(binding: ItemPetTrainingListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setItem(item: PetTrainingListData) {
             binding.imgPetTraining.setImageBitmap(item.trainingImg)
-            Log.d("PetTrainingFragment123", "Make Image ")
             if(item.isStar) {
                 binding.imgPetTrainingStar.visibility = View.VISIBLE
             }
