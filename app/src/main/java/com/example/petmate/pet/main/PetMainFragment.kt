@@ -1,6 +1,8 @@
 package com.example.petmate.pet.main
 
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -8,6 +10,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -24,6 +29,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 class PetMainFragment : Fragment() {
 
     lateinit var binding: FragmentPetMainBinding
+    var imageList: ArrayList<Uri> = ArrayList()
+
     private val TAG = "PetMainFragment123"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +99,16 @@ class PetMainFragment : Fragment() {
                 findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment)
             }
         })
+
+        binding.btnAddPet.setOnClickListener{
+            //갤러리 호출
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            //멀티 선택 기능
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            activityResult.launch(intent)
+        }
+
         return binding.getRoot()
     }
 
@@ -244,6 +261,32 @@ class PetMainFragment : Fragment() {
                 Log.d(TAG, "onFailure 에러: " + t.message.toString());
             }
         })
+    }
+
+    //결과 가져오기
+    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()){
+
+        //결과 코드 OK , 결가값 null 아니면
+        if(it.resultCode == AppCompatActivity.RESULT_OK){
+
+            //멀티 선택은 clipData
+            if(it.data!!.clipData != null){ //멀티 이미지
+
+                //선택한 이미지 갯수
+                val count = it.data!!.clipData!!.itemCount
+
+                for(index in 0 until count){
+                    //이미지 담기
+                    val imageUri = it.data!!.clipData!!.getItemAt(index).uri
+                    //이미지 추가
+                    imageList.add(imageUri)
+                }
+            }else{ //싱글 이미지
+                val imageUri = it.data!!.data
+                imageList.add(imageUri!!)
+            }
+        }
     }
 
     private fun getNoteList(): ArrayList<PetMainNoteData> {
