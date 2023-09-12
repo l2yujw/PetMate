@@ -1,5 +1,6 @@
 package com.example.petmate.myinf
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentMyinfBinding
+import com.example.petmate.login.Login10Activity
 import com.example.petmate.pet.training.PetTrainingListData
 
 class MyinfFragment : Fragment() {
@@ -48,6 +50,11 @@ class MyinfFragment : Fragment() {
 
         binding.rcvMyinfUserList.adapter = adapterMyinfUserList
         binding.rcvMyinfUserList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        binding.btnPost.setOnClickListener{
+            val intent = Intent(requireContext(), MyinfPhotoActivity::class.java)
+            startActivity(intent)
+        }
 
 
         return binding.getRoot()
