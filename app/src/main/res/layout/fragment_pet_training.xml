@@ -24,6 +24,7 @@
         android:background="@drawable/background_pet_training_search_petcolor5_roundstroke_12dp">
 
         <ImageView
+            android:id="@+id/training_search_btn"
             android:layout_width="28dp"
             android:layout_height="29dp"
             android:layout_centerVertical="true"
@@ -32,7 +33,7 @@
             android:src="@drawable/search" />
 
         <EditText
-            android:id="@+id/tvChild"
+            android:id="@+id/training_search"
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:layout_centerVertical="true"
@@ -66,6 +67,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
+            android:id="@+id/training_read_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division2"
@@ -73,11 +75,12 @@
             android:background="@drawable/background_pet_training_0_textcolor3_roundstroke_50dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:text="Trending"
+            android:text="전체"
             android:textAllCaps="false"
             android:textSize="13sp" />
 
         <Button
+            android:id="@+id/training_read_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division2"
@@ -106,6 +109,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
+            android:id="@+id/training_read_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division3"
@@ -118,6 +122,7 @@
             android:textSize="13sp" />
 
         <Button
+            android:id="@+id/training_read_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division3"
