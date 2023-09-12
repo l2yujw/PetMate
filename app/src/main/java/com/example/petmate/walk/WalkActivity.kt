@@ -48,7 +48,7 @@ class WalkActivity : AppCompatActivity() {
     private lateinit var binding : ActivityWalkBinding
     private lateinit var mapView: MapView
     private lateinit var mapPolyline: MapPolyline
-    private lateinit var polylineService: PolylineService
+//    private lateinit var polylineService: PolylineService
 
     //장소 정보를 다루기 위한 LocationManager
     private lateinit var lm: LocationManager
@@ -87,7 +87,7 @@ class WalkActivity : AppCompatActivity() {
         //경로를 추가하기 위한 MapPolyline 객체 초기화
         mapPolyline = MapPolyline()
         //경로를 그리기 위한 PolylineService 생성
-        polylineService = PolylineService(mapView, mapPolyline, lm, applicationContext)
+//        polylineService = PolylineService(mapView, mapPolyline, lm, applicationContext)
 
         binding.walkStart.setOnClickListener{
             if (!isStarted){
