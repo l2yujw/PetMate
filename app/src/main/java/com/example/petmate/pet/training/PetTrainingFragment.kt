@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
@@ -28,6 +29,7 @@ class PetTrainingFragment : Fragment() {
     lateinit var binding: FragmentPetTrainingBinding
     private val TAG = "PetTrainingFragment123"
     lateinit var adapterTrainingList : PetTrainingListAdapter
+    lateinit var trainingList : ArrayList<PetTrainingInterfaeResponseResult>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,7 +44,7 @@ class PetTrainingFragment : Fragment() {
     ): View? {
 
         binding = FragmentPetTrainingBinding.inflate(inflater)
-        val petIdx = arguments!!.getInt("petIdx")
+        val petIdx = GlobalPetIdxList.getlist()[0]
 
         adapterTrainingList = PetTrainingListAdapter(getPetImageList())
         adapterTrainingList.notifyDataSetChanged()
@@ -64,7 +66,11 @@ class PetTrainingFragment : Fragment() {
 
         adapterTrainingList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                findNavController().navigate(R.id.action_petTrainingFragment_to_petTrainingDetailFragment)
+                val bundle = Bundle()
+                bundle.putParcelable("trainingInfo",trainingList[position])
+                Log.d(TAG, "PetTrainingFragment : ${trainingList[position]}")
+                findNavController().navigate(R.id.action_petTrainingFragment_to_petTrainingDetailFragment,bundle)
+
             }
         })
         return binding.getRoot()
@@ -103,18 +109,19 @@ class PetTrainingFragment : Fragment() {
 
                     when (result?.code) {
                         200 -> {
-
+                            trainingList = result.result
                             thread {
                                 for (item in result.result) {
                                     var imageUrl = item.url
                                     imageUrl = imageUrl.split("/watch?v=")[1]
                                     val url = URL("http://img.youtube.com/vi/${imageUrl}/0.jpg")
                                     val image = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-                                    val isStar = item.petIdx != null
+                                    val isStar = item.petIdx != 0
                                     list.add(PetTrainingListData(image, isStar))
                                 }
 
                             }.join()
+
                             adapterTrainingList.notifyDataSetChanged()
 
                         }

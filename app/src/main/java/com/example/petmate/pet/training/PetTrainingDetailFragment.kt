@@ -1,6 +1,7 @@
 package com.example.petmate.pet.training
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.example.petmate.databinding.FragmentPetTrainingDetailBinding
 class PetTrainingDetailFragment : Fragment() {
 
     lateinit var binding: FragmentPetTrainingDetailBinding
+    private val TAG = "PetTrainingDetailFragment123"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,6 +30,19 @@ class PetTrainingDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val bundle = arguments
+        val obj = bundle?.getParcelable<PetTrainingInterfaeResponseResult>("trainingInfo")
+
+        Log.d(TAG, "${obj}")
+        if (obj != null) {
+            Log.d(TAG, "${obj.trainingIdx}")
+            Log.d(TAG, "${obj.name}")
+            Log.d(TAG, "${obj.level}")
+            Log.d(TAG, "${obj.detail}")
+            Log.d(TAG, "${obj.url}")
+        }
+
 
         binding = FragmentPetTrainingDetailBinding.inflate(inflater)
 

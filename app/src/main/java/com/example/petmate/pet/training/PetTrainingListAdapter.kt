@@ -38,8 +38,8 @@ class PetTrainingListAdapter(val itemList: ArrayList<PetTrainingListData>) : Rec
         fun setItem(item: PetTrainingListData) {
             binding.imgPetTraining.setImageBitmap(item.trainingImg)
             Log.d("PetTrainingFragment123", "Make Image ")
-            if(!item.isStar) {
-                binding.imgPetTrainingStar.visibility = View.INVISIBLE
+            if(item.isStar) {
+                binding.imgPetTrainingStar.visibility = View.VISIBLE
             }
             /*Glide.with(binding.imgPetTraining)
                 .load(item.trainingImg)                         // 불러올 이미지 URL
