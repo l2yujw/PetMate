@@ -13,7 +13,7 @@ import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.ItemHomePetseekerListBinding
 
 
-class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) : RecyclerView.Adapter<HomePetseekerListAdapter.PetseekerListViewHolder>() {
+class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>) : RecyclerView.Adapter<HomePetseekerListAdapter.PetseekerListViewHolder>() {
 
     lateinit var binding: ItemHomePetseekerListBinding
 
@@ -23,13 +23,13 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
     }
 
     override fun onBindViewHolder(holder: PetseekerListViewHolder, position: Int) {
-        val petList = ArrayList<HomePetseekerListData>()
+        val petList = ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>()
         for (i: Int in 0..2) {
             if (itemList[position + i] != null) {
                 petList.add(itemList[3 * position + i])
             }
         }
-        Log.d("dddd","${position} / ${petList[0].list_feature} / ${petList[1].list_feature} / ${petList[2].list_feature} ")
+        //Log.d("dddd","${position} / ${petList[0].list_feature} / ${petList[1].list_feature} / ${petList[2].list_feature} ")
         holder.test(petList)
     }
 
@@ -39,18 +39,13 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerListData>) :
 
     inner class PetseekerListViewHolder(binding: ItemHomePetseekerListBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun test(petListDivision: ArrayList<HomePetseekerListData>){
+        fun test(petListDivision: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>){
             val adapterHomePetseekerList2 = HomePetseekerListSubAdapter(petListDivision)
-            adapterHomePetseekerList2.setItemClickListener(object : OnItemClickListener {
-                override fun onClick(v: View, position: Int) {
-                    v.findNavController().navigate(R.id.action_homePetseekerFragment_to_homeShelterpetInfoFragment)
-                }
-            })
 
             binding.rcvPetseekerList.adapter = adapterHomePetseekerList2
             binding.rcvPetseekerList.layoutManager = LinearLayoutManager(binding.rcvPetseekerList.context,LinearLayoutManager.VERTICAL, false)
             binding.rcvPetseekerList.addItemDecoration(VerticalItemDecorator(25))
-            Log.d("dddd","리사이클러뷰")
+            Log.d("HomePetseekerFragment","리사이클러뷰")
         }
     }
 

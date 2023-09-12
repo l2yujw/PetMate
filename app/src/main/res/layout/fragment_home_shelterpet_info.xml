@@ -21,10 +21,11 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/tv_shelterpet_pet_image"
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:layout_marginTop="85dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/main_home_petseeker_titleimage_crop_480" />
 
         <RelativeLayout
@@ -73,7 +74,7 @@
                 app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:id="@+id/walk_record_pet_sex"
+                    android:id="@+id/tv_shelterpet_pet_sex"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"

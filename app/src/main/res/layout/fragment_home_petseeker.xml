@@ -30,6 +30,7 @@
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
 
         <Button
+            android:id="@+id/btn_home_petseeker_all"
             android:layout_width="42dp"
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
@@ -37,10 +38,11 @@
             android:layout_marginStart="47dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
-            android:text="강아지"
+            android:text="전체"
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
+            android:id="@+id/btn_home_petseeker_dog"
             android:layout_width="42dp"
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
@@ -52,6 +54,7 @@
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
+            android:id="@+id/btn_home_petseeker_cat"
             android:layout_width="42dp"
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
@@ -59,10 +62,11 @@
             android:layout_marginStart="157dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
-            android:text="강아지"
+            android:text="고양이"
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
+            android:id="@+id/btn_home_petseeker_etc"
             android:layout_width="42dp"
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
@@ -70,8 +74,9 @@
             android:layout_marginStart="212dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
-            android:text="강아지"
+            android:text="기타"
             android:textAppearance="@style/petseeker_catagory" />
+
 
         <View
             android:layout_width="255dp"
