@@ -6,9 +6,11 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.icu.text.SimpleDateFormat
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +21,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import android.util.Base64
+import android.widget.EditText
 
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.databinding.FragmentHomePetownerBinding
@@ -30,6 +33,7 @@ import com.example.petmate.home.petowner.weather.ITEM
 import com.example.petmate.home.petowner.weather.WEATHER
 import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.R
 import com.example.petmate.walk.WalkActivity
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -120,6 +124,11 @@ class HomePetownerFragment : Fragment() {
 
         binding.btnWalk.setOnClickListener {
             var intent = Intent(requireContext(), WalkActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnEmergency.setOnClickListener{
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1111-1111"))
             startActivity(intent)
         }
 
