@@ -4,12 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.petmate.R
-import com.example.petmate.databinding.ItemHomePetseekerRecommendBinding
 import com.example.petmate.databinding.ItemPetMainMypetBinding
-import com.example.petmate.home.petseeker.HomePetseekerRecommendAdapter
-import com.example.petmate.home.petseeker.HomePetseekerRecommendData
 
 class PetMainMypetAdapter(val itemList: ArrayList<PetMainMypetData>) : RecyclerView.Adapter<PetMainMypetAdapter.MypetViewHolder>() {
 

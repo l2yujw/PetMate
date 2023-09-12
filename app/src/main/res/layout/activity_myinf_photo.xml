@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/brandWhite"
     tools:context=".myinf.MyinfPhotoActivity">
 
     <RelativeLayout
@@ -12,13 +13,15 @@
 
         <Button
             android:id="@+id/btn_addPost"
-            android:layout_width="65dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="320dp"
+            android:layout_marginLeft="300dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="26dp"
-            android:text="등록"
+            android:text="올리기"
+            android:background="@drawable/background_home_rectangle_1_2"
+            android:textAppearance="@style/pet_inf_post"
             />
 
         <Button
@@ -28,7 +31,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="73dp"
-            android:background="@drawable/add_new_65dp"
+            android:text="+"
+            android:textSize="200dp"
             android:elevation="24dp"
             android:visibility="visible"
             />

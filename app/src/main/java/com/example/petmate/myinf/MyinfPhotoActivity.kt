@@ -1,25 +1,14 @@
 package com.example.petmate.myinf
 
-import android.Manifest
-import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.example.petmate.R
-import com.example.petmate.databinding.ActivityBottomNavBinding
 import com.example.petmate.databinding.ActivityMyinfPhotoBinding
-import java.io.File
 
 class MyinfPhotoActivity : AppCompatActivity() {
 
@@ -39,7 +28,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
         myInfPhotoAdapter = MyinfPhotoAdapter(imageList, this)
 
         //recyclerView 설정
-        binding.rcvMyinfPost.layoutManager = LinearLayoutManager(this)
+        binding.rcvMyinfPost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rcvMyinfPost.adapter = myInfPhotoAdapter
 
         //버튼 이벤트
@@ -52,6 +41,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             activityResult.launch(intent)
             binding.btnPost.visibility = View.INVISIBLE
+            binding.rcvMyinfPost.visibility = View.VISIBLE
         }
 
         binding.btnAddPost.setOnClickListener{

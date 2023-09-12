@@ -1,7 +1,6 @@
 package com.example.petmate.pet.main
 
 import com.google.gson.annotations.SerializedName
-import java.sql.Date
 
 data class PetMainInterfaceResponse (
     @SerializedName("isSuccess")

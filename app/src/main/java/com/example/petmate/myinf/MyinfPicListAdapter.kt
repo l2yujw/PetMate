@@ -1,17 +1,12 @@
 package com.example.petmate.myinf
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemMyinfPiclistBinding
-import com.example.petmate.databinding.ItemPetTrainingListBinding
-import com.example.petmate.pet.training.PetTrainingListData
 
 class MyinfPicListAdapter(val itemList: ArrayList<MyinfPicListData>) : RecyclerView.Adapter<MyinfPicListAdapter.MyinfPicListViewHolder>(){
     private lateinit var itemClickListener : OnItemClickListener

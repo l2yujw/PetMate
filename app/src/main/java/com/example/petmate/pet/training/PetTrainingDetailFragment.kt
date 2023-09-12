@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetTrainingDetailBinding
-
 
 class PetTrainingDetailFragment : Fragment() {
 

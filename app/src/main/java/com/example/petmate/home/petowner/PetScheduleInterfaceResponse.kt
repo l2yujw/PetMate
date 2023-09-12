@@ -1,7 +1,6 @@
 package com.example.petmate.home.petowner
 
 import com.google.gson.annotations.SerializedName
-import java.sql.Time
 import java.util.Date
 
 data class PetScheduleInterfaceResponse (

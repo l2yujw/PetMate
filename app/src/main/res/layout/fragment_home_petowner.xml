@@ -30,7 +30,19 @@
             android:layout_marginTop="55dp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/background_home_rectangle_1_2"
-            android:text="산책버튼"
+            android:text="산책"
+            android:textAppearance="@style/petowner_walk" />
+
+        <Button
+            android:id="@+id/btn_emergency"
+            android:layout_width="68dp"
+            android:layout_height="42dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="110dp"
+            android:background="@drawable/background_home_rectangle_1_2"
+            android:text="긴급"
             android:textAppearance="@style/petowner_walk" />
 
         <androidx.viewpager2.widget.ViewPager2

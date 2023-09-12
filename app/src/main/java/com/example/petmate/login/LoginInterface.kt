@@ -5,7 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Query
-import java.sql.Blob
 
 
 interface LoginInterface {

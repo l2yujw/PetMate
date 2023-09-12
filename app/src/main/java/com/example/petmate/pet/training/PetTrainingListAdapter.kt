@@ -1,21 +1,12 @@
 package com.example.petmate.pet.training
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
-import com.example.petmate.R
-import com.example.petmate.databinding.ItemHomePetownerPetlistBinding
 import com.example.petmate.databinding.ItemPetTrainingListBinding
-import com.example.petmate.home.petowner.HomePetownerPetlistData
-import com.example.petmate.pet.main.PetMainHealthAdapter
-import com.example.petmate.pet.main.PetMainHealthData
 
 class PetTrainingListAdapter(val itemList: ArrayList<PetTrainingListData>) : RecyclerView.Adapter<PetTrainingListAdapter.PetTrainingListViewHolder>() {
 

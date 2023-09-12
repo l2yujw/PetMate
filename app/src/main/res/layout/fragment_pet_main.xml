@@ -10,6 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/btn_addPet"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="300dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:text="반려동물 등록"
+            android:background="@drawable/background_home_rectangle_1_2"
+            android:textAppearance="@style/pet_inf_post"
+            />
         <TextView
             android:id="@+id/pet_mate"
             android:layout_width="wrap_content"

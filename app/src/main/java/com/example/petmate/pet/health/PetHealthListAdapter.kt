@@ -3,12 +3,7 @@ package com.example.petmate.pet.health
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.petmate.R
-import com.example.petmate.databinding.ItemHomePetownerPetlistBinding
 import com.example.petmate.databinding.ItemPetHealthPetlistBinding
-import com.example.petmate.home.petowner.HomePetownerPetlistAdapter
-import com.example.petmate.home.petowner.HomePetownerPetlistData
 
 class PetHealthListAdapter(var petList: ArrayList<PetHealthListData>) : RecyclerView.Adapter<PetHealthListAdapter.PetHealthlistViewHolder>() {
 

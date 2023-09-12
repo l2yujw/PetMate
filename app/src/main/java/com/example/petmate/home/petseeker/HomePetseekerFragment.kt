@@ -11,10 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.petmate.OnItemClickListener
-import com.example.petmate.R
 import java.util.*
 import com.example.petmate.databinding.FragmentHomePetseekerBinding
 

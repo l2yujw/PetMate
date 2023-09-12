@@ -8,14 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.OnItemClickListener
-import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentMyinfBinding
-import com.example.petmate.login.Login10Activity
-import com.example.petmate.pet.training.PetTrainingListData
 
 class MyinfFragment : Fragment() {
 

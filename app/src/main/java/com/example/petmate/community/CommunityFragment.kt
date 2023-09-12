@@ -6,14 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.OnItemClickListener
-import com.example.petmate.R
-import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.RightItemDecorator
 import com.example.petmate.databinding.FragmentCommunityBinding
-import com.example.petmate.pet.training.PetTrainingDetailData
-import com.example.petmate.pet.training.PetTrainingListData
 
 class CommunityFragment : Fragment() {
 

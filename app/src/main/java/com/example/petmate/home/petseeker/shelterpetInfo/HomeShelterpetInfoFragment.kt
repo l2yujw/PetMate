@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
 import com.example.petmate.databinding.FragmentHomeShelterpetInfoBinding
-import com.example.petmate.home.petseeker.HomePetseekerRecommendData
 
 class HomeShelterpetInfoFragment : Fragment() {
 

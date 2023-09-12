@@ -108,7 +108,7 @@
 
         <Button
             android:id="@+id/btn_post"
-            android:layout_width="65dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="100dp"
@@ -116,6 +116,8 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/background_home_rectangle_1_2"
             android:elevation="4dp"
+            android:textAppearance="@style/myinf_introduce"
+            android:text="게시물 등록"
             />
     </RelativeLayout>
 

@@ -1,16 +1,12 @@
 package com.example.petmate.community
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemCommunityPopularBinding
-import com.example.petmate.databinding.ItemPetTrainingListBinding
-import com.example.petmate.pet.training.PetTrainingListData
 
 class CommunityPopularAdapter(val itemList: ArrayList<CommunityPopularData>) : RecyclerView.Adapter<CommunityPopularAdapter.CommunityPopularViewHolder>() {
     private lateinit var itemClickListener: OnItemClickListener
