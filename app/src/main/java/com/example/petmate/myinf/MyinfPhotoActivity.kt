@@ -40,8 +40,10 @@ class MyinfPhotoActivity : AppCompatActivity() {
             //멀티 선택 기능
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             activityResult.launch(intent)
-            binding.btnPost.visibility = View.INVISIBLE
-            binding.rcvMyinfPhotoPost.visibility = View.VISIBLE
+            if(imageList == null){
+                binding.btnPost.visibility = View.INVISIBLE
+                binding.rcvMyinfPhotoPost.visibility = View.VISIBLE
+            }
         }
 
         binding.btnAddPost.setOnClickListener{

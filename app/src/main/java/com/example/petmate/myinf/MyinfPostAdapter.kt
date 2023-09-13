@@ -25,6 +25,7 @@ class MyinfPostAdapter(val itemList: ArrayList<MyinfPostData>) : RecyclerView.Ad
         var itemSubList = ArrayList<MyinfPostSubData>()
         var subImg = itemList[position].toString()
         itemSubList.add(MyinfPostSubData(subImg))
+        itemSubList.add(MyinfPostSubData(subImg))
 
         holder.setItem(itemSubList)
     }
