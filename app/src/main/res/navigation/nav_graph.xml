@@ -69,7 +69,11 @@
         android:id="@+id/myinfFragment"
         android:name="com.example.petmate.myinf.MyinfFragment"
         android:label="fragment_myinf"
-        tools:layout="@layout/fragment_myinf" />
+        tools:layout="@layout/fragment_myinf" >
+        <action
+            android:id="@+id/action_myinfFragment_to_myinfPostFragment"
+            app:destination="@id/myinfPostFragment" />
+    </keep_state_fragment>
 
     <keep_state_fragment
         android:id="@+id/petHealthFragment"
@@ -107,5 +111,14 @@
         <action
             android:id="@+id/action_communityPostFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
+    </keep_state_fragment>
+    <keep_state_fragment
+        android:id="@+id/myinfPostFragment"
+        android:name="com.example.petmate.myinf.MyinfPostFragment"
+        android:label="fragment_myinf_post"
+        tools:layout="@layout/fragment_myinf_post" >
+        <action
+            android:id="@+id/action_myinfPostFragment_to_myinfFragment"
+            app:destination="@id/myinfFragment" />
     </keep_state_fragment>
 </navigation>

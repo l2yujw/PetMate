@@ -6,7 +6,7 @@
     android:layout_marginVertical="30dp">
 
     <ImageView
-        android:id="@+id/img_myinf_post"
+        android:id="@+id/img_myinf_photo_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

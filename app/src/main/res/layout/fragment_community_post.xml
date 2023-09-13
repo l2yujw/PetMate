@@ -18,6 +18,16 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/background_community_rectangle_1" />
 
+        <TextView
+            android:id="@+id/pet_mate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            android:text="PET MATE"
+            android:textAppearance="@style/pet_mate" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -57,16 +67,6 @@
                 android:textAppearance="@style/community_area" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/pet_mate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp"
-            android:text="PET MATE"
-            android:textAppearance="@style/pet_mate" />
-
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_community_post"
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 
         <TextView
-            android:id="@+id/blah_blah_b"
+            android:id="@+id/tv_community_post_context"
             android:layout_width="350dp"
             android:layout_height="250dp"
             android:layout_alignParentLeft="true"

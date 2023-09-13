@@ -38,7 +38,7 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcv_myinf_post"
+            android:id="@+id/rcv_myinf_photo_post"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_alignParentLeft="true"

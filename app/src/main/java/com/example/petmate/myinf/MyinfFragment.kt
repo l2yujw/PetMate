@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.OnItemClickListener
+import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentMyinfBinding
 
@@ -40,8 +42,7 @@ class MyinfFragment : Fragment() {
 
         adapterMyinfPicList.setItemClickListener(object : OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                TODO("Not yet implemented")
-            }
+                v.findNavController().navigate(R.id.action_myinfFragment_to_myinfPostFragment)            }
         })
 
         binding.rcvMyinfUserList.adapter = adapterMyinfUserList

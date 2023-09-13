@@ -28,8 +28,8 @@ class MyinfPhotoActivity : AppCompatActivity() {
         myInfPhotoAdapter = MyinfPhotoAdapter(imageList, this)
 
         //recyclerView 설정
-        binding.rcvMyinfPost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rcvMyinfPost.adapter = myInfPhotoAdapter
+        binding.rcvMyinfPhotoPost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rcvMyinfPhotoPost.adapter = myInfPhotoAdapter
 
         //버튼 이벤트
         binding.btnPost.setOnClickListener {
@@ -41,7 +41,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             activityResult.launch(intent)
             binding.btnPost.visibility = View.INVISIBLE
-            binding.rcvMyinfPost.visibility = View.VISIBLE
+            binding.rcvMyinfPhotoPost.visibility = View.VISIBLE
         }
 
         binding.btnAddPost.setOnClickListener{

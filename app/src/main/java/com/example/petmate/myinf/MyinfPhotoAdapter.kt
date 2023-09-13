@@ -44,6 +44,6 @@ class MyinfPhotoAdapter(): RecyclerView.Adapter<MyinfPhotoAdapter.ViewHolder>() 
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
-        val galleryView: ImageView = view.findViewById(R.id.img_myinf_post)
+        val galleryView: ImageView = view.findViewById(R.id.img_myinf_photo_post)
     }
 }
