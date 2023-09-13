@@ -3,36 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="270dp">
 
-    <View
+    <ImageView
+        android:id="@+id/userImage_community_board"
         android:layout_width="37dp"
         android:layout_height="37dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
         android:background="#D9D9D9" />
 
     <TextView
+        android:id="@+id/nickName_community_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="18dp"
         android:lineSpacingExtra="-9sp"
         android:text="l2yu_"
         android:textAppearance="@style/community_id" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="35dp"
-        android:gravity="top"
-        android:text="경기도"
-        android:textAppearance="@style/community_area" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,11 +34,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="65dp">
 
-        <View
-            android:id="@+id/community_board_division_horizontal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true" />
+
 
         <View
             android:id="@+id/community_board_division_vertical"
@@ -54,41 +43,19 @@
             android:layout_centerVertical="true" />
 
         <ImageView
-            android:id="@+id/img_community_board1"
+            android:id="@+id/img_community_board"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignEnd="@id/community_board_division_horizontal"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cat2_temp" />
 
-        <ImageView
-            android:id="@+id/img_community_board2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignStart="@id/community_board_division_horizontal"
-            android:layout_alignBottom="@id/community_board_division_vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginBottom="2dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cat2_temp" />
 
-        <ImageView
-            android:id="@+id/img_community_board3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignStart="@id/community_board_division_horizontal"
-            android:layout_alignTop="@id/community_board_division_vertical"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cat2_temp" />
 
     </RelativeLayout>
 </RelativeLayout>

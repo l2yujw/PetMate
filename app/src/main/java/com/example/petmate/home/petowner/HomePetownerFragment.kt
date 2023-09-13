@@ -358,6 +358,7 @@ class HomePetownerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val petIdxList = GlobalPetIdxList
+                            petIdxList.clearlist()
                             var petList = ArrayList<HomePetownerPetlistData>()
                             for (item in result.result) {
                                 petIdxList.addlist(item.petIdx)

@@ -1,8 +1,11 @@
 package com.example.petmate
 
 object GlobalPetIdxList {
-    private var list = ArrayList<Int>(1)
+    private var list = ArrayList<Int>()
 
+    fun clearlist(){
+        list = ArrayList<Int>()
+    }
     fun addlist(petIdx:Int){
         list.add(petIdx)
     }
