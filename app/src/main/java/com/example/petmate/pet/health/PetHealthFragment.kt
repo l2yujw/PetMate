@@ -1,5 +1,9 @@
 package com.example.petmate.pet.health
 
+import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
@@ -8,18 +12,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetHealthBinding
+import com.example.petmate.login.Login00Activity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.ArrayList
+import java.util.Calendar
 
 class PetHealthFragment : Fragment() {
 
@@ -38,12 +47,58 @@ class PetHealthFragment : Fragment() {
         binding = FragmentPetHealthBinding.inflate(inflater)
 
         petIdx = arguments?.getInt("petIdx") ?: 0
-        Log.d(TAG, "petIdx : ${petIdx}")
+        Log.d(TAG, "petIdx : $petIdx")
 
         getInfoList()
         requestInfo(petIdx)
 
-        return binding.getRoot()
+        binding.tvHealthVaccination.setOnClickListener{
+            val dlg = AlertDialog.Builder(findNavController().context)
+            dlg.setTitle("접종").setMessage("예방접종 하셨나요?")
+                .setPositiveButton("예"
+                ) { dialog, id ->
+                    val cal = Calendar.getInstance()
+                    val data = DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                        binding.tvHealthVaccination.text = "${cal.get(Calendar.YEAR)}-${cal.get(Calendar.MONTH)}-${cal.get(Calendar.DAY_OF_MONTH)}"
+                    }
+                    DatePickerDialog(findNavController().context, data, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
+                        .apply {
+                            //1개월 간격으로 접종
+                            cal.add(Calendar.MONTH, 1)
+                        }
+                        .show()
+                }
+                .setNegativeButton("아니요"
+                ) { dialog, id ->
+                    Toast.makeText(findNavController().context, "접종 후에 날짜를 변경할 수 있습니다.", Toast.LENGTH_SHORT).show()
+                }
+            dlg.show()
+        }
+
+        binding.tvHealthVaccination.setOnClickListener{
+            val dlg = AlertDialog.Builder(findNavController().context)
+            dlg.setTitle("복용").setMessage("구충제 복용 하셨나요?")
+                .setPositiveButton("예"
+                ) { dialog, id ->
+                    val cal = Calendar.getInstance()
+                    val data = DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                        binding.tvHealthVaccination.text = "${cal.get(Calendar.YEAR)}-${cal.get(Calendar.MONTH)}-${cal.get(Calendar.DAY_OF_MONTH)}"
+                    }
+                    DatePickerDialog(findNavController().context, data, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
+                        .apply {
+                            //2개월 간격으로 복용
+                            cal.add(Calendar.MONTH, 2)
+                        }
+                        .show()
+                }
+                .setNegativeButton("아니요"
+                ) { dialog, id ->
+                    Toast.makeText(findNavController().context, "접종 후에 날짜를 변경할 수 있습니다.", Toast.LENGTH_SHORT).show()
+                }
+            dlg.show()
+        }
+
+        return binding.root
     }
 
     private fun requestInfo(petIdx: Int) {
