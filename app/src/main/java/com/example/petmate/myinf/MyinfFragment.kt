@@ -224,10 +224,11 @@ class MyinfFragment : Fragment() {
 
                             adapterMyinfPicList.setItemClickListener(object : OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
-                                    val bundle = Bundle()
-                                    bundle.putParcelable("Postdata", resultlist[position])
-                                    Log.d(TAG, "onClick bundle item : ${resultlist[position]}")
-                                    findNavController().navigate(R.id.action_communityFragment_to_communityPostFragment, bundle)
+                                    TODO("bundle 수정해야함 커뮤니티에 있는 post로 넘어가는게 아니라 myinfpost로 이동하는거임")
+//                                    val bundle = Bundle()
+//                                    bundle.putParcelable("Postdata", resultlist[position])
+//                                    Log.d(TAG, "onClick bundle item : ${resultlist[position]}")
+                                    findNavController().navigate(R.id.action_myinfFragment_to_myinfPostFragment)
                                 }
                             })
                             adapterMyinfPicList.notifyDataSetChanged()
