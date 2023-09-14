@@ -1,5 +1,7 @@
 package com.example.petmate.myinf
 
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -36,12 +38,17 @@ class MyinfUserListAdapter (val itemList: ArrayList<MyinfUserListData>) : Recycl
 
     inner class MyinfUserListViewHolder(binding: ItemMyinfUserlistBinding) : RecyclerView.ViewHolder(binding.root){
         fun setItem(item: MyinfUserListData) {
-            Glide.with(binding.imgMyinfUser)
+            /*Glide.with(binding.imgMyinfUser)
                 .load(item.userImg)                         // 불러올 이미지 URL
                 .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
                 .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
                 .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                 .centerInside()                                 // scaletype
-                .into(binding.imgMyinfUser)             // 이미지를 넣을 뷰
-        }    }
+                .into(binding.imgMyinfUser)             // 이미지를 넣을 뷰*/
+
+            val encodeByte = Base64.decode(item.userImg, Base64.NO_WRAP)
+            val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+            binding.imgMyinfUser.setImageBitmap(bitmap)
+        }
+    }
 }
