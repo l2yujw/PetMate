@@ -2,8 +2,6 @@ package com.example.petmate.pet.health
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.content.Context
-import android.content.DialogInterface
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
@@ -12,8 +10,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
@@ -21,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetHealthBinding
-import com.example.petmate.login.Login00Activity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -115,13 +110,15 @@ class PetHealthFragment : Fragment() {
 
             override fun onResponse(call: Call<PetHealthInterfaceResponse>, response: retrofit2.Response<PetHealthInterfaceResponse>) {
                 if (response.isSuccessful) {
-                    // 정상적으로 통신이 성고된 경우
+                    // 정상적으로 통신이 성공된 경우
                     val result: PetHealthInterfaceResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString());
 
                     when (result?.code) {
                         200 -> {
                             val item = result.result[0]
+                            val reqKcal = calculReqKcal(item)
+                            val reqQuantity = (reqKcal / 3.7).toInt() // 성견 사료g당 칼로리인 3.7kcal로 임의 설정// 출처 : 헬스경향(http://www.k-health.com)
 
                             binding.petHealthPetname.text = item.name
                             binding.petHealthPetdescription.text = "${item.category} ${item.species}"
@@ -131,8 +128,8 @@ class PetHealthFragment : Fragment() {
                             binding.tvHealthHelminthic.text = item.helminthic
                             binding.tvHealthWeight.text = item.weight.toString()
                             binding.tvHealthWeightCondition.text = "정상"
-                            binding.tvHealthQuantity.text = "500"
-                            binding.tvHealthKcal.text = "250"
+                            binding.tvHealthQuantity.text = "${reqQuantity}g"
+                            binding.tvHealthKcal.text = "$reqKcal"
                             binding.petHealthKnow.text = "알고 계셨나요?"
 
 
@@ -210,5 +207,19 @@ class PetHealthFragment : Fragment() {
 
         //item 간격 결정
         binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
+    }
+
+    private fun calculReqKcal(item: PetHealthInterfaceResponseResult): Int {
+        val RER = (item.weight * 30) + 70
+        var k = 1.6
+        if (item.age < 1) {
+            k = 3.0
+        } else if (item.age <= 2) {
+            //성견 평균 상수값
+            //체중감량 1, 과체중,노령견 1.2~1.4, 중성화 1.6, 비 중성화 1.8 인데
+            //따로 체크받는게 없어서 임의로 중간값을 사용함
+            k = 1.5
+        }
+        return (k * RER).toInt()
     }
 }
