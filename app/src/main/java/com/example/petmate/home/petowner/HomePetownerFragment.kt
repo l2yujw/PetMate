@@ -114,7 +114,6 @@ class HomePetownerFragment : Fragment() {
         binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
         binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
         //예비용으로 미리 깔아두기
 
         requestScheduleList(userIdx)
@@ -122,7 +121,7 @@ class HomePetownerFragment : Fragment() {
         binding.tvHavepetComment.text = "날씨 정보를 불러올 수 없어요"
 
         //TODO 날씨. 위치 정보를 기반으로 날씨 정보 요청
-//        requestLocation()
+        requestLocation()
 
         binding.btnWalk.setOnClickListener {
             val intent = Intent(requireContext(), WalkActivity::class.java)
@@ -443,7 +442,7 @@ class HomePetownerFragment : Fragment() {
                             binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
                             binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-                            binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(15))
+                            binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(8))
                         }
 
                         else -> {
