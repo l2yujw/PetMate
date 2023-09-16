@@ -54,21 +54,21 @@ class MyinfFragment : Fragment() {
 
         requestUserInfo(userIdx)
 
-        var adapterMyinfPicList = MyinfPicListAdapter(getPicList())
-        adapterMyinfPicList.notifyDataSetChanged()
+        //var adapterMyinfPicList = MyinfPicListAdapter(getPicList())
+        //adapterMyinfPicList.notifyDataSetChanged()
         var adapterMyinfUserList = MyinfUserListAdapter(getUserList())
         adapterMyinfUserList.notifyDataSetChanged()
 
-        binding.rcvMyinfPicList.adapter = adapterMyinfPicList
+        //binding.rcvMyinfPicList.adapter = adapterMyinfPicList
         binding.rcvMyinfPicList.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rcvMyinfPicList.addItemDecoration(VerticalItemDecorator(2))
         binding.rcvMyinfPicList.addItemDecoration(HorizontalItemDecorator(2))
 
-        adapterMyinfPicList.setItemClickListener(object : OnItemClickListener {
+        /*adapterMyinfPicList.setItemClickListener(object : OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 v.findNavController().navigate(R.id.action_myinfFragment_to_myinfPostFragment)
             }
-        })
+        })*/
 
         binding.rcvMyinfUserList.adapter = adapterMyinfUserList
         binding.rcvMyinfUserList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -207,15 +207,9 @@ class MyinfFragment : Fragment() {
 
                     when (result?.code) {
                         200 -> {
-                            val list = ArrayList<MyinfPicListData>()
                             val resultlist = result.result
-                            thread {
-                                for (item in result.result) {
-                                    list.add(MyinfPicListData(item.image))
-                                }
-                            }.join()
 
-                            val adapterMyinfPicList = MyinfPicListAdapter(list)
+                            val adapterMyinfPicList = MyinfPicListAdapter(resultlist)
 
                             binding.rcvMyinfPicList.adapter = adapterMyinfPicList
                             binding.rcvMyinfPicList.layoutManager = GridLayoutManager(requireContext(), 3)
@@ -224,11 +218,11 @@ class MyinfFragment : Fragment() {
 
                             adapterMyinfPicList.setItemClickListener(object : OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
-                                    TODO("bundle 수정해야함 커뮤니티에 있는 post로 넘어가는게 아니라 myinfpost로 이동하는거임")
-//                                    val bundle = Bundle()
-//                                    bundle.putParcelable("Postdata", resultlist[position])
-//                                    Log.d(TAG, "onClick bundle item : ${resultlist[position]}")
-                                    findNavController().navigate(R.id.action_myinfFragment_to_myinfPostFragment)
+                                    //TODO("bundle 수정해야함 커뮤니티에 있는 post로 넘어가는게 아니라 myinfpost로 이동하는거임")
+                                    val bundle = Bundle()
+                                    bundle.putParcelableArrayList("Postdata", resultlist)
+                                    Log.d(TAG, "onClick bundle item : ${resultlist}")
+                                    findNavController().navigate(R.id.action_myinfFragment_to_myinfPostFragment,bundle)
                                 }
                             })
                             adapterMyinfPicList.notifyDataSetChanged()

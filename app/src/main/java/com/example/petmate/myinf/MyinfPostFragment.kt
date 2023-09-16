@@ -1,6 +1,9 @@
 package com.example.petmate.myinf
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +12,13 @@ import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
+import com.example.petmate.community.CommunityInterfaceResponseResult
 import com.example.petmate.databinding.FragmentMyinfPostBinding
 
 class MyinfPostFragment : Fragment() {
 
     lateinit var binding: FragmentMyinfPostBinding
+    private val TAG="MyinfFragment123"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +33,17 @@ class MyinfPostFragment : Fragment() {
     ): View? {
         binding = FragmentMyinfPostBinding.inflate(inflater)
 
-        var adapterMyinfPostAdapter = MyinfPostAdapter(getPostList())
-        adapterMyinfPostAdapter.notifyDataSetChanged()
+
+        val bundle = arguments
+        val obj = bundle?.getParcelableArrayList<MyInfPicInterfaceResponseResult>("Postdata")
+
+        Log.d(TAG, "bundle123 : ${obj}")
+        var adapterMyinfPostAdapter = obj?.let {
+            MyinfPostAdapter(it)
+        }
+        if (adapterMyinfPostAdapter != null) {
+            adapterMyinfPostAdapter.notifyDataSetChanged()
+        }
 
         binding.rcvMyinfPost.adapter = adapterMyinfPostAdapter
         binding.rcvMyinfPost.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
