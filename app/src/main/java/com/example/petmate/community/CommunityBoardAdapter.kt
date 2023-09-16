@@ -44,12 +44,12 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
 
     inner class CommunityBoardViewHolder(binding: ItemCommunityBoardBinding) : RecyclerView.ViewHolder(binding.root){
         fun setItem(item: CommunityInterfaceResponseResult) {
-            val tempimagelist = ArrayList<String>()
-            tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
-            tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
-            tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
-            if(item.image.isBlank() || item.image == ""){
 
+            if(item.image.isBlank() || item.image == ""){
+                val tempimagelist = ArrayList<String>()
+                tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
+                tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
+                tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
                 Glide.with(binding.imgCommunityBoard)
                     .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
@@ -60,8 +60,6 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                 val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
                 val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
                 binding.imgCommunityBoard.setImageBitmap(bitmap)
-                binding.nickNameCommunityBoard.text = item.nickName
-                binding.titleCommunityBoard.text = item.title
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
 
             }else{
@@ -76,10 +74,10 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                     .centerInside()                                 // scaletype
                     .into(binding.imgCommunityBoard)             // 이미지를 넣을 뷰
 
-                binding.nickNameCommunityBoard.text = item.nickName
-                binding.titleCommunityBoard.text = item.title
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
             }
+            binding.nickNameCommunityBoard.text = item.nickName
+            binding.titleCommunityBoard.text = item.title
         }
 
     }

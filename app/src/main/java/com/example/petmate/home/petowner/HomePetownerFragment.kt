@@ -49,6 +49,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.sql.Date
 import java.util.Calendar
 import java.util.Locale
+import kotlin.random.Random
 
 
 class HomePetownerFragment : Fragment() {
@@ -362,9 +363,26 @@ class HomePetownerFragment : Fragment() {
 
                                 val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
                                 val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                                petList.add(HomePetownerPetlistData("랜덤 문구", bitmap))
 
+                                val randomtext = ArrayList<String>()
 
+                                /*randomtext.add("반려동물은 우리 삶에 \n무한한 사랑을 채워줍니다.")
+                                randomtext.add("반려동물과 함께하는 시간은\n 항상 특별한 순간입니다.")
+                                randomtext.add("반려동물은\n 우리의 가장 충실한 친구입니다.")
+                                randomtext.add("반려동물은 우리에게\n 무조건적인 사랑을 가르쳐줍니다.")
+                                randomtext.add("반려동물은 우리의 일상을\n 더 밝고 행복하게 만들어줍니다.")
+                                randomtext.add("반려동물은 항상 우리 곁에 있어주는\n 특별한 존재입니다.")
+                                randomtext.add("반려동물은 언제나 우리를 웃게 해주는\n 비밀 무기입니다.")
+                                randomtext.add("반려동물은 우리에게\n 무한한 행복을 선물합니다.")
+                                randomtext.add("반려동물은 우리 삶에\n 더 많은 의미를 부여해줍니다.")
+                                randomtext.add("반려동물과 함께하는 순간은\n 금이 간다고 할 만큼 소중합니다.")*/
+
+                                randomtext.add("오늘은 산책하기 좋은 날씨에요!")
+                                randomtext.add("오늘은 집에서 쉬고 싶어요~")
+                                randomtext.add("오늘은 다른 친구들과 함께 놀고 싶어요!")
+                                randomtext.add("간식이 먹고 싶어요~")
+
+                                petList.add(HomePetownerPetlistData(randomtext.get(Random.nextInt(0,randomtext.size)), bitmap))
                             }
                             val boardAdapterPetList = HomePetownerPetlistAdapter(petList)
                             boardAdapterPetList.notifyDataSetChanged()

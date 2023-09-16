@@ -1,5 +1,8 @@
 package com.example.petmate.myinf
 
+import android.graphics.BitmapFactory
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,24 +13,23 @@ import com.example.petmate.community.CommunityBoardData
 import com.example.petmate.databinding.ItemCommunityBoardBinding
 import com.example.petmate.databinding.ItemMyinfPostBinding
 import com.example.petmate.home.petseeker.HomePetseekerRecommendPetListInterfaceResponseResponseResult
+import kotlin.random.Random
 
-class MyinfPostAdapter(val itemList: ArrayList<MyinfPostData>) : RecyclerView.Adapter<MyinfPostAdapter.MyinfPostViewHolder>()  {
+class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>) : RecyclerView.Adapter<MyinfPostAdapter.MyinfPostViewHolder>()  {
 
     lateinit var binding: ItemMyinfPostBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyinfPostAdapter.MyinfPostViewHolder {
         binding = ItemMyinfPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        Log.d("MyinfPostAdapter", "onCreateViewHolder: parent context : ${parent.context}")
         return MyinfPostViewHolder(binding)
 
     }
 
     override fun onBindViewHolder(holder: MyinfPostAdapter.MyinfPostViewHolder, position: Int) {
-        var itemSubList = ArrayList<MyinfPostSubData>()
-        var subImg = itemList[position].toString()
-        itemSubList.add(MyinfPostSubData(subImg))
-        itemSubList.add(MyinfPostSubData(subImg))
-
-        holder.setItem(itemSubList)
+        var itemSubList = ArrayList<MyInfPicInterfaceResponseResult>()
+        Log.d("MyinfPostAdapter", "onBindViewHolder: ${itemSubList}")
+        holder.setItem(itemList[position])
     }
 
     override fun getItemCount(): Int {
@@ -35,9 +37,9 @@ class MyinfPostAdapter(val itemList: ArrayList<MyinfPostData>) : RecyclerView.Ad
     }
 
     inner class MyinfPostViewHolder(binding: ItemMyinfPostBinding) : RecyclerView.ViewHolder(binding.root){
-        fun setItem(itemSubList: ArrayList<MyinfPostSubData>) {
+        fun setItem(item: MyInfPicInterfaceResponseResult) {
 
-            val adapterMyinfPostSub = MyinfPostSubAdapter(itemSubList)
+            /*val adapterMyinfPostSub = MyinfPostSubAdapter(itemSubList)
             adapterMyinfPostSub.notifyDataSetChanged()
 
             val indicatorList = binding.circleindicatorMyinfPost
@@ -53,9 +55,47 @@ class MyinfPostAdapter(val itemList: ArrayList<MyinfPostData>) : RecyclerView.Ad
                     indicatorList.animatePageSelected(position)
                     //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
                 }
-            })
+            })*/
 
-            binding.viewpagerMyinfPost
+            if(item.image.isBlank() || item.image == ""){
+                val tempimagelist = ArrayList<String>()
+                tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
+                tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
+                tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
+                Glide.with(binding.imageMyinfPost)
+                    .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
+                    .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                    .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                    .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                    .centerInside()                                 // scaletype
+                    .into(binding.imageMyinfPost)             // 이미지를 넣을 뷰
+                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                binding.imageMyinfPost.setImageBitmap(bitmap)
+                binding.userImageMyinfPost.setImageBitmap(bitmap)
+
+            }else{
+                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                binding.imageMyinfPost.setImageBitmap(bitmap)
+                Glide.with(binding.imageMyinfPost)
+                    .load(item.image)                         // 불러올 이미지 URL
+                    .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                    .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                    .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                    .centerInside()                                 // scaletype
+                    .into(binding.imageMyinfPost)             // 이미지를 넣을 뷰
+
+                binding.userImageMyinfPost.setImageBitmap(bitmap)
+            }
+
+            binding.nickNameMyinfPost.text = item.nickName
+            binding.detailMyinfPost.text = item.detail
+            binding.titleMyinfPost.text = item.title
+
+
+
+
         }
 
     }

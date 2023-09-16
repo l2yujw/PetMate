@@ -9,12 +9,12 @@
         android:layout_height="match_parent"
         app:cardBackgroundColor="@android:color/transparent">
 
-        <ImageView
-            android:id="@+id/img_myinf_post"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/cat2_temp" />
+<!--        <ImageView-->
+<!--            android:id="@+id/img_myinf_post"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/cat2_temp" />-->
 
     </androidx.cardview.widget.CardView>
 
