@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/brandWhite"
     tools:context=".community.CommunityPostFragment">
 
     <RelativeLayout
@@ -74,10 +75,10 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_community_post"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="160dp" />
+            android:layout_marginTop="155dp" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/circleindicator_community_post"
@@ -86,18 +87,18 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="160dp"
-            android:layout_marginTop="420dp"
+            android:layout_marginTop="470dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 
         <TextView
             android:id="@+id/tv_community_post_context"
             android:layout_width="350dp"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="30dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="444dp"
+            android:layout_marginTop="500dp"
             android:text="blahbalhbahblalhb"
             android:textAppearance="@style/pet_community_post"
             android:lineSpacingExtra="1sp"

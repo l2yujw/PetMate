@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/brandWhite"
     tools:context=".community.CommunityFragment">
 
     <RelativeLayout
@@ -41,14 +42,14 @@
             android:lineSpacingExtra="0sp"
             android:text="투데이 PET"
             android:textColor="@color/brandBlack"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:translationY="-0.07sp" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_community_popular"
             android:layout_width="match_parent"
-            android:layout_height="108dp"
+            android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
@@ -62,7 +63,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="285dp" />
+            android:layout_marginTop="320dp" />
 
     </RelativeLayout>
 

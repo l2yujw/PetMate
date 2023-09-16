@@ -18,6 +18,7 @@ import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.RightItemDecorator
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentCommunityBinding
 import com.example.petmate.home.petowner.HomePetownerInterface
 import com.example.petmate.home.petowner.HomePetownerInterfaceResponse
@@ -46,31 +47,6 @@ class CommunityFragment : Fragment() {
     ): View? {
 
         binding = FragmentCommunityBinding.inflate(inflater)
-
-        var adapterCommunityPopular = CommunityPopularAdapter(getPopularList())
-        adapterCommunityPopular.notifyDataSetChanged()
-        //var adapterCommunityBoard = CommunityBoardAdapter(getBoardList())
-        //adapterCommunityBoard.notifyDataSetChanged()
-
-        binding.rcvCommunityPopular.adapter = adapterCommunityPopular
-        binding.rcvCommunityPopular.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rcvCommunityPopular.addItemDecoration(RightItemDecorator(20))
-
-        adapterCommunityPopular.setItemClickListener(object : OnItemClickListener {
-            override fun onClick(v: View, position: Int) {
-                Toast.makeText(v.context, "onClick item123", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_communityFragment_to_communityPostFragment)
-            }
-        })
-
-        //binding.rcvCommunityBoard.adapter = adapterCommunityBoard
-        //binding.rcvCommunityBoard.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        /*adapterCommunityBoard.setItemClickListener(object : OnItemClickListener {
-            override fun onClick(v: View, position: Int) {
-                findNavController().navigate(R.id.action_communityFragment_to_communityPostFragment)
-            }
-        })*/
 
         requestPopularList()
         requestBoardList()
@@ -183,6 +159,7 @@ class CommunityFragment : Fragment() {
 
                             binding.rcvCommunityBoard.adapter = adapterCommunityBoard
                             binding.rcvCommunityBoard.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                            binding.rcvCommunityBoard.addItemDecoration(VerticalItemDecorator(40))
 
                             adapterCommunityBoard.setItemClickListener(object : OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
