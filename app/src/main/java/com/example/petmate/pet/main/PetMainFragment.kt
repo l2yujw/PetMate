@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,7 +63,7 @@ class PetMainFragment : Fragment() {
 
         binding.rcvPetMainNote.adapter = adapterNoteList
         binding.rcvPetMainNote.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
+        binding.rcvPetMainNote.addItemDecoration(VerticalItemDecorator(5))
 
         val adapterHealthList = PetMainHealthAdapter(getHealthList())
         adapterHealthList.notifyDataSetChanged()
@@ -318,9 +319,8 @@ class PetMainFragment : Fragment() {
     private fun getNoteList(): ArrayList<PetMainNoteData> {
         val noteList = ArrayList<PetMainNoteData>()
 
-        noteList.add(PetMainNoteData("메모테스트"))
-        noteList.add(PetMainNoteData("메모테스트"))
-        noteList.add(PetMainNoteData("메모테스트"))
+        noteList.add(PetMainNoteData("간식사러 가야함"))
+        noteList.add(PetMainNoteData("산책 부탁해야 함"))
 
         return noteList
     }

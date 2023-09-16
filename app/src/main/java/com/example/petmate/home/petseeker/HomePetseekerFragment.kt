@@ -15,9 +15,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.R
+import com.example.petmate.community.CommunityInterfaceResponseResult
 import com.example.petmate.databinding.FragmentHomePetseekerBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,6 +38,15 @@ class HomePetseekerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val bundle = arguments
+        val obj = bundle?.getString("isUser")
+
+        if(obj == "isUser"){
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+                findNavController().navigate(R.id.action_homePetseekerFragment_to_homePetownerFragment)
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n", "MissingPermission")

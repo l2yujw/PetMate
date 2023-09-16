@@ -21,6 +21,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.GlobalPetIdxList
@@ -132,6 +133,12 @@ class HomePetownerFragment : Fragment() {
         binding.btnEmergency.setOnClickListener { view ->
             showPoppup(binding.btnEmergency)
             //TODO telArray 값에 따라 팝업 메뉴 생성. DB에 긴급연락처 저장한다면 telArray 값 수정 필요.
+        }
+
+        binding.btnPetseeker.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putString("isUser","isUser")
+            findNavController().navigate(R.id.action_homePetownerFragment_to_homePetseekerFragment, bundle)
         }
 
         return binding.getRoot()
@@ -454,7 +461,7 @@ class HomePetownerFragment : Fragment() {
                             binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
                             binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-                            binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(8))
+                            binding.rcvHavepetWeather.addItemDecoration(HorizontalItemDecorator(10))
                         }
 
                         else -> {

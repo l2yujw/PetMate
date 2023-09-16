@@ -12,6 +12,9 @@
         app:popUpToSaveState="true"
         android:label="fragment_home_petowner"
         tools:layout="@layout/fragment_home_petowner" >
+        <action
+            android:id="@+id/action_homePetownerFragment_to_homePetseekerFragment"
+            app:destination="@id/homePetseekerFragment" />
     </keep_state_fragment>
 
     <keep_state_fragment
@@ -23,6 +26,9 @@
         <action
             android:id="@+id/action_homePetseekerFragment_to_homeShelterpetInfoFragment"
             app:destination="@id/homeShelterpetInfoFragment" />
+        <action
+            android:id="@+id/action_homePetseekerFragment_to_homePetownerFragment"
+            app:destination="@id/homePetownerFragment" />
     </keep_state_fragment>
 
     <keep_state_fragment

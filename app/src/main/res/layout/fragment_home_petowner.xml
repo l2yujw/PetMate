@@ -45,10 +45,22 @@
             android:text="긴급"
             android:textAppearance="@style/petowner_walk" />
 
+        <Button
+            android:id="@+id/btn_petseeker"
+            android:layout_width="68dp"
+            android:layout_height="42dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="180dp"
+            android:background="@drawable/background_home_rectangle_1_2"
+            android:text="보호동물"
+            android:textAppearance="@style/petowner_walk" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petowner_petlist"
             android:layout_width="match_parent"
-            android:layout_height="94dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
@@ -61,18 +73,18 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="160dp"
-            android:layout_marginTop="215dp"
+            android:layout_marginTop="250dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 
         <View
             android:id="@+id/rectangle_3"
             android:layout_width="match_parent"
-            android:layout_height="107dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="280dp"
             android:background="@drawable/background_home_rectangle_1"
             android:elevation="4dp" />
 
@@ -83,7 +95,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="47dp"
-            android:layout_marginTop="259dp"
+            android:layout_marginTop="295dp"
             android:gravity="top"
             android:text="Today"
             android:textAppearance="@style/today" />
@@ -91,11 +103,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_havepet_weather"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="80dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="42dp"
-            android:layout_marginTop="285dp"
+            android:layout_marginTop="320dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -105,7 +117,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="390dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="435dp"
             android:alpha="0.9"
             android:background="@drawable/background_home_rectangle_1_1"
             android:elevation="4dp" />
@@ -117,7 +130,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="47dp"
-            android:layout_marginTop="405dp" />
+            android:layout_marginTop="450dp" />
 
         <View
             android:layout_width="match_parent"
@@ -125,7 +138,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="715dp"
+            android:layout_marginTop="760dp"
             android:background="@drawable/background_home_rectangle_1_2" />
 
         <TextView
@@ -135,7 +148,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="725dp"
+            android:layout_marginTop="770dp"
             android:fontFamily="@font/pretendard_semibold"
             android:gravity="top"
             android:letterSpacing="-0.03"
@@ -149,7 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="750dp">
+            android:layout_marginTop="795dp">
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

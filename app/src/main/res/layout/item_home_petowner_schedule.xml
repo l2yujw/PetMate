@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dp">
+    android:layout_height="70dp">
 
     <TextView
         android:id="@+id/petowner_schedule_time"
@@ -9,8 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:text="08:00 am"
+        android:gravity="center"
+        android:text="08:00"
         android:textAppearance="@style/item_petowner_time" />
 
     <View
@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/background_item_petowner_rectangle_0" />
 
 
@@ -34,7 +34,7 @@
 
         <View
             android:id="@+id/petowner_schedule_bar"
-            android:layout_width="4dp"
+            android:layout_width="8dp"
             android:layout_height="match_parent"
             android:background="@drawable/background_petowner_homecalcolor2_leftround_4dp" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/petowner_schedule_maintext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="7dp"
             android:text="Temp1"
             android:textAppearance="@style/petowner_shcedule_timeTitle" />
@@ -51,8 +51,8 @@
             android:id="@+id/petowner_schedule_subtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
             android:text="Temp2"
             android:textAppearance="@style/petowner_shcedule_timeSub" />
 
