@@ -43,8 +43,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
     }
 
     inner class CommunityBoardViewHolder(binding: ItemCommunityBoardBinding) : RecyclerView.ViewHolder(binding.root){
-        fun setItem(item: CommunityInterfaceResponseResult) {
-
+        fun setItem(item: CommunityInterfaceResponseResult) {//게시글 사진
             if(item.image.isBlank() || item.image == ""){
                 val tempimagelist = ArrayList<String>()
                 tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
@@ -57,15 +56,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imgCommunityBoard)             // 이미지를 넣을 뷰
-                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
-                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                binding.imgCommunityBoard.setImageBitmap(bitmap)
-                binding.userImageCommunityBoard.setImageBitmap(bitmap)
-
-            }else{
-                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
-                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                binding.imgCommunityBoard.setImageBitmap(bitmap)
+            }else if(item.image.endsWith(".png") ||item.image.endsWith(".jpg")||item.image.endsWith(".jpeg") ) {
                 Glide.with(binding.imgCommunityBoard)
                     .load(item.image)                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
@@ -73,26 +64,42 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imgCommunityBoard)             // 이미지를 넣을 뷰
+            }else{
+                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                binding.imgCommunityBoard.setImageBitmap(bitmap)
+            }
 
+            if(item.userImage.isNullOrBlank()|| item.userImage=="" || item.userImage=="NULL") {//유저 이미지
+                Glide.with(binding.userImageCommunityBoard)
+                    .load("https://cdn-icons-png.flaticon.com/128/4863/4863153.png")                         // 불러올 이미지 URL
+                    .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                    .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                    .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                    .centerInside()                                 // scaletype
+                    .into(binding.userImageCommunityBoard)             // 이미지를 넣을 뷰
+            }else if(item.userImage.endsWith(".png") || item.userImage.endsWith(".jpg")){
+                Glide.with(binding.userImageCommunityBoard)
+                    .load(item.userImage)                         // 불러올 이미지 URL
+                    .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                    .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                    .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                    .centerInside()                                 // scaletype
+                    .into(binding.userImageCommunityBoard)             // 이미지를 넣을 뷰
+            }else{
+                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
             }
-            binding.nickNameCommunityBoard.text = item.nickName
+
+            if(item.nickName.isNullOrBlank()) {
+                binding.nickNameCommunityBoard.text = "익명"
+            }else{
+                binding.nickNameCommunityBoard.text = item.nickName
+            }
+
             binding.titleCommunityBoard.text = item.title
         }
 
-    }
-    fun bitmapToUrl(bitmap: Bitmap): String {
-        // Bitmap을 ByteArray로 변환
-        val outputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-        val byteArray = outputStream.toByteArray()
-
-        // ByteArray를 Base64로 인코딩
-        val base64Encoded = Base64.encodeToString(byteArray, Base64.DEFAULT)
-
-        // Base64 문자열을 URL 데이터로 사용할 수 있도록 인코딩 (예: data:image/png;base64,xxxxxx)
-        val imageUrl = "data:image/png;base64,$base64Encoded"
-
-        return imageUrl
     }
 }
