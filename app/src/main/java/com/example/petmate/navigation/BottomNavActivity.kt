@@ -1,5 +1,6 @@
 package com.example.petmate.navigation
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -56,6 +57,7 @@ class BottomNavActivity : AppCompatActivity(){
                             200 -> {
                                 Log.d(TAG, "onResponse: Success And have pet")
                                 setOwner(userIdx)
+//                                setSeeker()
                             }
                             201 -> {
                                 Log.d(TAG, "onResponse: Success But don't have pet")
@@ -116,8 +118,10 @@ class BottomNavActivity : AppCompatActivity(){
 
     }
 
+    @SuppressLint("ResourceType")
     private fun setSeeker() {
 
+        binding.mainNavi.getMenu().clear()
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
@@ -130,6 +134,8 @@ class BottomNavActivity : AppCompatActivity(){
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
 
         navController.setGraph(navGraph, null)
+
+        binding.mainNavi.inflateMenu(R.menu.btm_navi_annoy_menu)
 
         // MainActivity의 main_navi와 navController 연결
         binding.mainNavi.setupWithNavController(navController)
