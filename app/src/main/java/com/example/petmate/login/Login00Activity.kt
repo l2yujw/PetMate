@@ -42,7 +42,9 @@ class Login00Activity : AppCompatActivity() {
 
         binding.btnAnonymousLogin.setOnClickListener{
             //anonymousLogin()
-            login("11@naver.com","1234")
+            //login("11@naver.com","1234")
+            val intent = Intent(this, BottomNavAnonyActivity::class.java)
+            startActivity(intent)
         }
 
     }

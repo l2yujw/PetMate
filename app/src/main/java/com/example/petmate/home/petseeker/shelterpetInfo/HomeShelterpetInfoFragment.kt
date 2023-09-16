@@ -57,7 +57,7 @@ class HomeShelterpetInfoFragment : Fragment() {
             }
             binding.tvShelterpetPetName.text = obj.species
             binding.tvShelterpetPetSex.setImageResource(getSexImage(obj.gender))
-            binding.tvShelterpetPetAge.text = "${2023 - obj.age}살"
+            binding.tvShelterpetPetAge.text = "${2023 - obj.age+1}살"
             binding.tvShelterpetPetWeight.text = "${obj.weight.split("(")[0]}Kg"
             binding.tvShelterpetNeutered.text = "아니오"
             binding.tvShelterpetPetColor.text = obj.colorCd
@@ -68,7 +68,7 @@ class HomeShelterpetInfoFragment : Fragment() {
             shelterpetInfoList.add(HomeShelterpetInfoData("관할기관", obj.orgNm))
             shelterpetInfoList.add(HomeShelterpetInfoData("상태", "보호중"))
             shelterpetInfoList.add(HomeShelterpetInfoData("보호장소", obj.careAddr))
-            shelterpetInfoList.add(HomeShelterpetInfoData("보호센터연락처", obj.officetel))
+            shelterpetInfoList.add(HomeShelterpetInfoData("보호센터연락처", obj.officetel.replace("$","")))
 
         }
 
