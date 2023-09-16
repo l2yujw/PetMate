@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/background_map_rectangle_0"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -49,11 +50,11 @@
     <ImageView
         android:id="@+id/image_myinf_post"
         android:layout_width="match_parent"
-        android:layout_height="269dp"
-        android:layout_marginTop="70dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitCenter"/>
 
 <!--    <androidx.viewpager2.widget.ViewPager2-->
 <!--        android:id="@+id/viewpager_myinf_post"-->
@@ -76,12 +77,13 @@
 
     <TextView
         android:id="@+id/detail_myinf_post"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginBottom="20dp"
         android:text="blahbalhbahblalhb"
         android:textAppearance="@style/pet_community_post"
         android:lineSpacingExtra="1sp"

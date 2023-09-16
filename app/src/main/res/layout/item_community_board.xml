@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="400dp">
+    android:layout_height="400dp"
+    android:background="@drawable/background_map_rectangle_0">
 
     <ImageView
         android:id="@+id/userImage_community_board"
@@ -10,7 +11,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="12dp"
         android:scaleType="fitXY"
 />
 
@@ -21,7 +22,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="12dp"
         android:lineSpacingExtra="-9sp"
         android:text="l2yu_"
         android:textAppearance="@style/community_id" />
@@ -33,7 +34,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="33dp"
         android:gravity="top"
         android:text="경기도"
         android:textAppearance="@style/community_area" />
@@ -44,7 +45,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="53dp">
+        android:layout_marginTop="63dp"
+        android:layout_marginBottom="15dp">
 
         <View
             android:id="@+id/community_board_division_vertical"

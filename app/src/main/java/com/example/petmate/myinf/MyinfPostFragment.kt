@@ -12,6 +12,7 @@ import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.community.CommunityInterfaceResponseResult
 import com.example.petmate.databinding.FragmentMyinfPostBinding
 
@@ -47,6 +48,7 @@ class MyinfPostFragment : Fragment() {
 
         binding.rcvMyinfPost.adapter = adapterMyinfPostAdapter
         binding.rcvMyinfPost.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rcvMyinfPost.addItemDecoration(VerticalItemDecorator(30))
 
         return binding.getRoot()
     }

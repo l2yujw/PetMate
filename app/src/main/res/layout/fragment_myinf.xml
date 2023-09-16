@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/brandWhite"
     tools:context=".myinf.MyinfFragment">
 
     <RelativeLayout
@@ -69,9 +70,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="47dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="205dp"
-            android:gravity="top"
+            android:textAlignment="center"
+            android:gravity="center"
             android:text="이름"
             android:textAppearance="@style/myinf_name" />
 
@@ -86,16 +88,25 @@
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/background_home_rectangle_1_2"
+            />
+
         <TextView
             android:id="@+id/lineInfo_myinf_user"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="250dp"
             android:gravity="top"
-            android:lineSpacingExtra="-6sp"
             android:text="한줄 소개"
             android:textAppearance="@style/myinf_introduce" />
 
@@ -105,7 +116,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="330dp"
             android:numColumns="3" />
 
         <Button
