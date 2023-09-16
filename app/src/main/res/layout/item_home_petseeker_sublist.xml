@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_home_petseeker_list_layout"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="150dp">
 
     <View
         android:id="@+id/item_home_petseeker_list_division"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/item_home_petseeker_list_division"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="한국 고양이"
         android:textAppearance="@style/petseeker_breed" />
 
@@ -43,7 +43,7 @@
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="12dp"
         android:layout_toEndOf="@id/item_home_petseeker_list_breed"
         android:scaleType="centerInside"
         android:src="@drawable/sex_female" />

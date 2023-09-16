@@ -51,16 +51,17 @@ class HomeShelterpetInfoFragment : Fragment() {
                 val bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream())
                 binding.tvShelterpetPetImage.setImageBitmap(bitmap)
             }.join()
+            var petName = obj.species
+            for (i in 0 until petName.length){
+
+            }
             binding.tvShelterpetPetName.text = obj.species
             binding.tvShelterpetPetSex.setImageResource(getSexImage(obj.gender))
-            binding.tvShelterpetPetDescription.text = obj.characteristic
             binding.tvShelterpetPetAge.text = "${2023 - obj.age}살"
-            binding.tvShelterpetPetAbout.text = "탈주닌자" + "에 대하여..."
             binding.tvShelterpetPetWeight.text = "${obj.weight.split("(")[0]}Kg"
             binding.tvShelterpetNeutered.text = "아니오"
             binding.tvShelterpetPetColor.text = obj.colorCd
-            binding.tvShelterpetPetCharac.text = "사람을 좋아하고 얌전함"
-            binding.tvShelterpetPetMoreInf.text = "탈주닌자" + "추가 정보"
+            binding.tvShelterpetPetCharac.text = obj.characteristic
 
             shelterpetInfoList.add(HomeShelterpetInfoData("발생장소", obj.discoveryPlace))
             shelterpetInfoList.add(HomeShelterpetInfoData("접수일시", obj.receiptDate))

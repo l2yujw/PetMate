@@ -67,6 +67,10 @@ class HomePetseekerFragment : Fragment() {
             }
         }
 
+        binding.btnCenterNumber.setOnClickListener{
+
+        }
+
         requestPetRecommendList(userIdx)
         requestRecentPetList("%")
 

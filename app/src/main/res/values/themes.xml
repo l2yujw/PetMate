@@ -238,7 +238,7 @@
     <style name="shelterpet_about">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">17sp</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
@@ -250,9 +250,10 @@
     </style>
 
     <style name="shelterpet_about_info">
-        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:lineHeight">26sp</item>
         <item name="android:textSize">17sp</item>
-        <item name="android:textColor">#A1A1A1</item>
+        <item name="android:textColor">#222222</item>
     </style>
 
     <style name="shelterpet_additionalinformation">
@@ -337,14 +338,14 @@
     <style name="petseeker_name">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">17sp</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
     <style name="petseeker_etc">
         <item name="android:fontFamily">@font/pretendard_regular</item>
-        <item name="android:lineHeight">17sp</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:lineHeight">13sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
@@ -358,21 +359,21 @@
     <style name="petseeker_breed">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">17sp</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#141415</item>
     </style>
 
     <style name="petseeker_color">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">13sp</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
     <style name="petseeker_feature">
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:lineHeight">10sp</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>
 
@@ -412,6 +413,7 @@
     </style>
 
     <style name="pet_main_nameSub">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">#5F5F63</item>
     </style>

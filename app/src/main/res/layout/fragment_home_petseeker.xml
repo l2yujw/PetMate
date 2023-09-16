@@ -114,7 +114,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petseeker_recommend"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
@@ -127,7 +127,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="150dp"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="390dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
 
@@ -135,11 +135,11 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petseeker_list"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="530dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="362dp"
+            android:layout_marginTop="410dp"
             android:background="@drawable/background_petseeker_rectangle_1"
             android:paddingHorizontal="24dp"
             android:paddingVertical="17dp" />
@@ -151,14 +151,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="168dp"
-            android:layout_marginTop="830dp"
+            android:layout_marginTop="960dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="835dp">
+            android:layout_marginTop="965dp">
         </RelativeLayout>
     </RelativeLayout>
 
