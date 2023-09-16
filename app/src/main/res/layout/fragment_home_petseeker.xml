@@ -22,7 +22,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
@@ -31,11 +31,11 @@
 
         <Button
             android:id="@+id/btn_home_petseeker_all"
-            android:layout_width="42dp"
-            android:layout_height="20dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="47dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="전체"
@@ -43,11 +43,11 @@
 
         <Button
             android:id="@+id/btn_home_petseeker_dog"
-            android:layout_width="42dp"
-            android:layout_height="20dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="102dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="강아지"
@@ -55,11 +55,11 @@
 
         <Button
             android:id="@+id/btn_home_petseeker_cat"
-            android:layout_width="42dp"
-            android:layout_height="20dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="157dp"
+            android:layout_marginStart="190dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="고양이"
@@ -67,11 +67,11 @@
 
         <Button
             android:id="@+id/btn_home_petseeker_etc"
-            android:layout_width="42dp"
-            android:layout_height="20dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="212dp"
+            android:layout_marginStart="260dp"
             android:layout_marginTop="111dp"
             android:background="@drawable/background_petseeker_rectangle_0"
             android:text="기타"
@@ -93,11 +93,13 @@
             android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="163dp" />
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="163dp"
+            android:popupTheme="@style/petseeker_center"
+            />
 
         <Button
-            android:id="@+id/btn_survey"
+            android:id="@+id/btn_centerNumber"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -105,7 +107,8 @@
             android:layout_marginStart="300dp"
             android:layout_marginTop="160dp"
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp"
-            android:text="센터전화" />
+            android:text="센터전화"
+            android:textAppearance="@style/petseeker_center"/>
 
 
         <androidx.viewpager2.widget.ViewPager2
@@ -132,7 +135,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_petseeker_list"
             android:layout_width="match_parent"
-            android:layout_height="385dp"
+            android:layout_height="450dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="30dp"
@@ -148,14 +151,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginHorizontal="168dp"
-            android:layout_marginTop="765dp"
+            android:layout_marginTop="830dp"
             app:ci_drawable="@drawable/indicator_purple"
             app:ci_drawable_unselected="@drawable/indicator_gray" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="770dp">
+            android:layout_marginTop="835dp">
         </RelativeLayout>
     </RelativeLayout>
 

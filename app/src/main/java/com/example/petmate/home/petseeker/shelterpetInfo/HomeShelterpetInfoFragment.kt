@@ -12,6 +12,7 @@ import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
+import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentHomeShelterpetInfoBinding
 import com.example.petmate.home.petseeker.HomePetseekerRecommendPetListInterfaceResponseResponseResult
 import com.example.petmate.pet.training.PetTrainingInterfaeResponseResult
@@ -75,7 +76,7 @@ class HomeShelterpetInfoFragment : Fragment() {
 
         binding.rcvShelterpetInf.adapter = boardAdapter
         binding.rcvShelterpetInf.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        
+        binding.rcvShelterpetInf.addItemDecoration(VerticalItemDecorator(5))
 
         return binding.getRoot()
     }

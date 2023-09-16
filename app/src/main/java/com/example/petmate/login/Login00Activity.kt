@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.databinding.ActivityLogin00Binding
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.navigation.BottomNavAnonyActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -79,7 +80,7 @@ class Login00Activity : AppCompatActivity() {
                     when (result?.code) {
                         200 -> {
                             Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, BottomNavActivity::class.java)
+                            val intent = Intent(applicationContext, BottomNavAnonyActivity::class.java)
 
                             GlobalUserIdx.setUserIdx(result.userIdx)
 

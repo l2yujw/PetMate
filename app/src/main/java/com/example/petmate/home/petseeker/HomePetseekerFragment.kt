@@ -38,48 +38,10 @@ class HomePetseekerFragment : Fragment() {
 
         val userIdx: Int = GlobalUserIdx.getUserIdx()
 
-
-
-        //val boardAdapterPetList = HomePetseekerListAdapter(getPetList())
-        //boardAdapterPetList.notifyDataSetChanged()
-
-        val indicatorList = binding.circleindicatorPetseekerPetlist
-
-        indicatorList.setViewPager(binding.viewpagerPetseekerList)
-        indicatorList.createIndicators(getPetList().size / 3, 0)
-
-        //binding.viewpagerPetseekerList.adapter = boardAdapterPetList
-        binding.viewpagerPetseekerList.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpagerPetseekerList.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                indicatorList.animatePageSelected(position)
-                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-            }
-        })
-
         binding.btnHomePetseekerAll.setOnClickListener { requestRecentPetList("%") }
         binding.btnHomePetseekerCat.setOnClickListener { requestRecentPetList("고양이") }
         binding.btnHomePetseekerDog.setOnClickListener { requestRecentPetList("개") }
         binding.btnHomePetseekerEtc.setOnClickListener { requestRecentPetList("기타축종") }
-
-        //val boardAdapterRecommend = HomePetseekerRecommendAdapter(getRecommendList())
-        //boardAdapterRecommend.notifyDataSetChanged()
-
-        val indicatorReccomend = binding.circleindicatorPetseekerRecommend
-
-        indicatorReccomend.setViewPager(binding.viewpagerPetseekerRecommend)
-        indicatorReccomend.createIndicators(getRecommendList().size, 0)
-
-        //binding.viewpagerPetseekerRecommend.adapter = boardAdapterRecommend
-        binding.viewpagerPetseekerRecommend.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpagerPetseekerRecommend.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                indicatorReccomend.animatePageSelected(position)
-                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-            }
-        })
 
 
         val SpinnerItems = arrayOf("센터1", "센터2", "센터3")

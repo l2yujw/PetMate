@@ -3,12 +3,8 @@
     <item
         android:id="@+id/homePetseekerFragment"
         android:icon="@drawable/bottommenu_home"
-        android:title="테스트"/>
+        android:title="홈"/>
 
-    <item
-        android:id="@+id/petMainFragment"
-        android:icon="@drawable/bottommenu_petinfo"
-        android:title="반려동물"/>
 
     <item
         android:id="@+id/communityFragment"

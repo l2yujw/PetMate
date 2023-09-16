@@ -1,244 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.petseeker.shelterpetInfo.HomeShelterpetInfoFragment">
 
-
-    <TextView
-        android:id="@+id/pet_mate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="47dp"
-        android:text="PET MATE"
-        android:textAppearance="@style/pet_mate" />
-
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/tv_shelterpet_pet_image"
-            android:layout_width="match_parent"
-            android:layout_height="215dp"
-            android:layout_marginTop="85dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/main_home_petseeker_titleimage_crop_480" />
+        <TextView
+            android:id="@+id/pet_mate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="47dp"
+            android:text="PET MATE"
+            android:textAppearance="@style/pet_mate" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/tv_shelterpet_pet_image"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_marginTop="85dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/main_home_petseeker_titleimage_crop_480" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="340dp"
+                android:background="@drawable/main_home_shelterpet_gradient"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_shelterpet_pet_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="19dp"
+                    android:text="탈주닌자"
+                    android:textAppearance="@style/pet_main_name" />
+
+                <TextView
+                    android:id="@+id/tv_shelterpet_pet_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="60dp"
+                    android:text="놀라버린 고양이"
+                    android:textAppearance="@style/pet_main_nameSub" />
+
+                <TextView
+                    android:id="@+id/tv_shelterpet_pet_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_toEndOf="@id/tv_shelterpet_pet_description"
+                    android:text="1살"
+                    android:textAppearance="@style/pet_main_nameSub" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="19dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="8dp">
+
+                    <ImageView
+                        android:id="@+id/tv_shelterpet_pet_sex"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
+                        android:src="@drawable/sex_female" />
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="460dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/login_password_png" />
+
+            <TextView
+                android:id="@+id/tv_shelterpet_petAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="460dp"
+                android:text="탈주닌자에 대하여..."
+                android:textAppearance="@style/shelterpet_about" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="490dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
+                        android:text="무게"
+                        android:textAppearance="@style/shelterpet_inf_" />
+
+                    <TextView
+                        android:id="@+id/tv_shelterpet_petWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="3.2kg"
+                        android:textAppearance="@style/shelterpet_inf_answer_" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
+                        android:text="중성화"
+                        android:textAppearance="@style/shelterpet_inf_" />
+
+
+                    <TextView
+                        android:id="@+id/tv_shelterpet_neutered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="아니오"
+                        android:textAppearance="@style/shelterpet_inf_answer_" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
+                        android:text="색상"
+                        android:textAppearance="@style/shelterpet_inf_" />
+
+                    <TextView
+                        android:id="@+id/tv_shelterpet_petColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="흰갈"
+                        android:textAppearance="@style/shelterpet_inf_answer_" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_shelterpet_petCharac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="560dp"
+                android:text="사람을 좋아하고 얌전함"
+                android:textAppearance="@style/shelterpet_about_info"/>
+
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="640dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/login_password_png" />
+
+            <TextView
+                android:id="@+id/tv_shelterpet_petMoreInf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="640dp"
+                android:text="탈주닌자 추가 정보"
+                android:textAppearance="@style/shelterpet_about_plus" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_shelterpet_inf"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="670dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </FrameLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="252dp"
-            android:background="@drawable/main_home_shelterpet_gradient"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_shelterpet_pet_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="19dp"
-                android:text="탈주닌자"
-                android:textAppearance="@style/pet_main_name" />
-
-            <TextView
-                android:id="@+id/tv_shelterpet_pet_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="60dp"
-                android:text="놀라버린 고양이"
-                android:textAppearance="@style/pet_main_nameSub" />
-
-            <TextView
-                android:id="@+id/tv_shelterpet_pet_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="60dp"
-                android:layout_toEndOf="@id/tv_shelterpet_pet_description"
-                android:text="1살"
-                android:textAppearance="@style/pet_main_nameSub" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="19dp"
-                android:layout_marginEnd="19dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="8dp">
-
-                <ImageView
-                    android:id="@+id/tv_shelterpet_pet_sex"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/background_home_shelterpet_sex_homepetcolor1_round_8_76dp"
-                    android:src="@drawable/sex_female" />
-
-            </androidx.cardview.widget.CardView>
-
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="840dp">
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="385dp"
-            android:scaleType="centerInside"
-            android:background="@drawable/login_password_png" />
-
-        <TextView
-            android:id="@+id/tv_shelterpet_petAbout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="388dp"
-            android:text="탈주닌자에 대하여..."
-            android:textAppearance="@style/shelterpet_about" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="415dp"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
-                android:gravity="center"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:text="무게"
-                    android:textAppearance="@style/shelterpet_inf_" />
-
-                <TextView
-                    android:id="@+id/tv_shelterpet_petWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="3.2kg"
-                    android:textAppearance="@style/shelterpet_inf_answer_" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
-                android:gravity="center"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:text="중성화"
-                    android:textAppearance="@style/shelterpet_inf_" />
-
-
-                <TextView
-                    android:id="@+id/tv_shelterpet_neutered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="아니오"
-                    android:textAppearance="@style/shelterpet_inf_answer_" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_home_shelterpet_info_homepetcolor2_round_17_51dp"
-                android:gravity="center"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:text="색상"
-                    android:textAppearance="@style/shelterpet_inf_" />
-
-                <TextView
-                    android:id="@+id/tv_shelterpet_petColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="흰갈"
-                    android:textAppearance="@style/shelterpet_inf_answer_" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_shelterpet_petCharac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="490dp"
-            android:text="사람을 좋아하고 얌전함"
-            android:textAppearance="@style/shelterpet_about_info"/>
-
-        <ImageView
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="582dp"
-            android:scaleType="centerInside"
-            android:background="@drawable/login_password_png" />
-
-        <TextView
-            android:id="@+id/tv_shelterpet_petMoreInf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="580dp"
-            android:text="탈주닌자 추가 정보"
-            android:textAppearance="@style/shelterpet_about_plus" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcv_shelterpet_inf"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="620dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    </FrameLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="790dp">
     </RelativeLayout>
-</RelativeLayout>
+
+</ScrollView>

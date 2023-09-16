@@ -321,7 +321,15 @@
     <style name="petseeker_catagory">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:lineHeight">10sp</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#111111</item>
+    </style>
+
+    <style name="petseeker_center">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:lineHeight">10sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:letterSpacing">-0.03</item>
         <item name="android:textColor">#111111</item>
     </style>
