@@ -26,8 +26,6 @@ class Login00Activity : AppCompatActivity() {
         binding = ActivityLogin00Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //auth = FirebaseAuth.getInstance()
-
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPwd.text.toString()
@@ -80,7 +78,7 @@ class Login00Activity : AppCompatActivity() {
                     when (result?.code) {
                         200 -> {
                             Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, BottomNavAnonyActivity::class.java)
+                            val intent = Intent(applicationContext, BottomNavActivity::class.java)
 
                             GlobalUserIdx.setUserIdx(result.userIdx)
 

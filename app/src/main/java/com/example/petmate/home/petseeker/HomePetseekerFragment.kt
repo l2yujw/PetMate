@@ -1,15 +1,19 @@
 package com.example.petmate.home.petseeker
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.viewpager2.widget.ViewPager2
@@ -26,6 +30,7 @@ class HomePetseekerFragment : Fragment() {
 
     lateinit var binding: FragmentHomePetseekerBinding
     private val TAG = "HomePetseekerFragment123"
+    var telArray = arrayOf<String>("010-1111-1111", "010-2222-2222", "010-3333-3333", "010-4444-4444", "010-5555-5555")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +73,7 @@ class HomePetseekerFragment : Fragment() {
         }
 
         binding.btnCenterNumber.setOnClickListener{
-
+            showPoppup(binding.btnCenterNumber)
         }
 
         requestPetRecommendList(userIdx)
@@ -281,5 +286,25 @@ class HomePetseekerFragment : Fragment() {
         //recommendList.add(HomePetseekerRecommendData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg", "한국 고양이", "수컷", "흰색, 갈색", "사람을 좋아하고 얌전함"))
 
         return recommendList
+    }
+
+    private fun showPoppup(v: View) {
+        val popup = PopupMenu(activity?.applicationContext, v)
+        for (i in telArray.indices) {
+            popup.menu.add(Menu.NONE, i, Menu.NONE, telArray[i])
+        }
+
+        popup.setOnMenuItemClickListener { item ->
+            val intent: Intent
+            when (item?.itemId) {
+                item.itemId -> {
+                    item.setTitle(telArray[item.itemId])
+                    intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telArray[item.itemId]))
+                    startActivity(intent)
+                }
+            }
+            false
+        }
+        popup.show()
     }
 }
