@@ -121,7 +121,7 @@ class HomePetownerFragment : Fragment() {
         binding.tvHavepetComment.text = "날씨 정보를 불러올 수 없어요"
 
         //TODO 날씨. 위치 정보를 기반으로 날씨 정보 요청
-        requestLocation()
+//        requestLocation()
 
         binding.btnWalk.setOnClickListener {
             val intent = Intent(requireContext(), WalkActivity::class.java)
@@ -253,10 +253,7 @@ class HomePetownerFragment : Fragment() {
                     // 각 날짜 배열 시간 설정
 //                    for (i in 0..23) weatherArr[i].fcstTime = it[i].fcstTime
 
-                    //TODO 추후에 토스트 메시지 제거
-                    //토스트 띄우기
-                    Toast.makeText(requireContext(), it[0].fcstDate + ", " + it[0].fcstTime + "의 날씨 정보입니다.", Toast.LENGTH_SHORT).show()
-                    Log.d("WEATHER TEST", "날씨 정보 성공")
+                    Log.d("WEATHER TEST", it[0].fcstDate + ", " + it[0].fcstTime + "의 날씨 정보")
 
                     // 리사이클러 뷰에 데이터 연결
                     binding.rcvHavepetWeather.adapter = HomePetownerWeatherAdapter(weatherArr)
