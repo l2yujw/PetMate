@@ -318,8 +318,8 @@ class HomePetownerFragment : Fragment() {
 
         val petList = ArrayList<HomePetownerPetlistData>()
         val am = resources.assets
-        petList.add(HomePetownerPetlistData("aaaaaa", BitmapFactory.decodeStream(am.open("pet1.jpg"))))
-        petList.add(HomePetownerPetlistData("bbbb", BitmapFactory.decodeStream(am.open("pet1.jpg"))))
+        petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg"))
+        petList.add(HomePetownerPetlistData("bbbb", "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg"))
 
         return petList
     }
@@ -361,9 +361,6 @@ class HomePetownerFragment : Fragment() {
                                 petIdxList.addlist(item.petIdx)
                                 Log.d(TAG, "onResponse: $item")
 
-                                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
-                                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-
                                 val randomtext = ArrayList<String>()
 
                                 /*randomtext.add("반려동물은 우리 삶에 \n무한한 사랑을 채워줍니다.")
@@ -382,7 +379,7 @@ class HomePetownerFragment : Fragment() {
                                 randomtext.add("오늘은 다른 친구들과 함께 놀고 싶어요!")
                                 randomtext.add("간식이 먹고 싶어요~")
 
-                                petList.add(HomePetownerPetlistData(randomtext.get(Random.nextInt(0,randomtext.size)), bitmap))
+                                petList.add(HomePetownerPetlistData(randomtext.get(Random.nextInt(0,randomtext.size)), item.image))
                             }
                             val boardAdapterPetList = HomePetownerPetlistAdapter(petList)
                             boardAdapterPetList.notifyDataSetChanged()

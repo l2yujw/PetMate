@@ -39,8 +39,7 @@ class MyinfPicListAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResul
     inner class MyinfPicListViewHolder(binding: ItemMyinfPiclistBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun setItem(item: MyInfPicInterfaceResponseResult) {
-
-            if(item.image.isBlank() || item.image == "" || item.image=="null"){
+            if(item.image.isBlank() || item.image == ""){
                 val tempimagelist = ArrayList<String>()
                 tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
@@ -52,11 +51,7 @@ class MyinfPicListAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResul
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imgMyinfPic)             // 이미지를 넣을 뷰
-            }else{
-                Log.d("MyinfPicListAdapter", "setItem: ${item}")
-                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
-                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                binding.imgMyinfPic.setImageBitmap(bitmap)
+            }else if(item.image.endsWith(".png") ||item.image.endsWith(".jpg")||item.image.endsWith(".jpeg") ) {
                 Glide.with(binding.imgMyinfPic)
                     .load(item.image)                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
@@ -64,9 +59,11 @@ class MyinfPicListAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResul
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imgMyinfPic)             // 이미지를 넣을 뷰
+            }else{
+                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                binding.imgMyinfPic.setImageBitmap(bitmap)
             }
-            val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
-            val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
 
         }
     }
