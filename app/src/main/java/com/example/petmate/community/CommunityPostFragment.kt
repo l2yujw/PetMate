@@ -43,27 +43,25 @@ class CommunityPostFragment : Fragment() {
         val bundle = arguments
         val obj = bundle?.getParcelable<CommunityInterfaceResponseResult>("Postdata")
 
-        Log.d(TAG, "bundle : ${obj}")
+        val list = ArrayList<CommunityInterfaceResponseResult>()
         if (obj != null) {
-            Log.d(TAG, "postIdx : ${obj.postIdx}")
-            //Log.d(TAG, "userImage : ${obj.userImage}")
-            Log.d(TAG, "nickName : ${obj.nickName}")
-            Log.d(TAG, "title : ${obj.title}")
-            Log.d(TAG, "detail : ${obj.detail}")
+            list.add(obj)
+            binding.nickNameCommunityPost.text = obj.nickName
+            binding.titleCommunityPost.text = obj.title
+            binding.tvCommunityPostContext.text = obj.detail
 
-
-            val encodeByte = Base64.decode(obj.image, Base64.NO_WRAP)
+            val encodeByte = Base64.decode(obj.userImage, Base64.NO_WRAP)
             val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-            //Log.d(TAG, "image : ${bitmap}")
-
+            binding.userImageCocmmunityPost.setImageBitmap(bitmap)
         }
 
-        val adapterPostList = CommunityPostAdapter(getPostList())
+
+        val adapterPostList = CommunityPostAdapter(list)
         adapterPostList.notifyDataSetChanged()
 
-        indicator.createIndicators(getPostList().size, 0)
+        indicator.createIndicators(list.size, 0)
 
-        binding.viewpagerCommunityPost.adapter = CommunityPostAdapter(getPostList())
+        binding.viewpagerCommunityPost.adapter = CommunityPostAdapter(list)
         binding.viewpagerCommunityPost.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.viewpagerCommunityPost.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -72,6 +70,7 @@ class CommunityPostFragment : Fragment() {
                 //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
             }
         })
+
 
         return binding.getRoot()
     }

@@ -61,6 +61,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                 val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
                 binding.imgCommunityBoard.setImageBitmap(bitmap)
                 binding.nickNameCommunityBoard.text = item.nickName
+                binding.titleCommunityBoard.text = item.title
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
 
             }else{
@@ -76,6 +77,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                     .into(binding.imgCommunityBoard)             // 이미지를 넣을 뷰
 
                 binding.nickNameCommunityBoard.text = item.nickName
+                binding.titleCommunityBoard.text = item.title
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
             }
         }
