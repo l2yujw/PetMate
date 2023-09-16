@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.R
@@ -25,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import kotlin.random.Random
 
 class PetMainFragment : Fragment() {
 
@@ -204,9 +206,33 @@ class PetMainFragment : Fragment() {
                                         binding.walkRecordPetSex.setImageResource(R.drawable.sex_female)
                                     }
 
-                                    val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
-                                    val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                                    binding.tvMainPetImage.setImageBitmap(bitmap)
+
+                                    if(item.image.isBlank() || item.image == ""){
+                                        val tempimagelist = ArrayList<String>()
+                                        tempimagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
+                                        tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
+                                        tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
+                                        Glide.with(binding.tvMainPetImage)
+                                            .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
+                                            .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                                            .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                                            .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                                            .centerInside()                                 // scaletype
+                                            .into(binding.tvMainPetImage)             // 이미지를 넣을 뷰
+                                    }else if(item.image.endsWith(".png") ||item.image.endsWith(".jpg")||item.image.endsWith(".jpeg") ) {
+                                        Log.d(TAG, "onResponse: ${item.image}")
+                                        Glide.with(binding.tvMainPetImage)
+                                            .load(item.image)                         // 불러올 이미지 URL
+                                            .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
+                                            .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
+                                            .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
+                                            .centerInside()// scaletype
+                                            .into(binding.tvMainPetImage)             // 이미지를 넣을 뷰
+                                    }else{
+                                        val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                                        val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                                        binding.tvMainPetImage.setImageBitmap(bitmap)
+                                    }
 
                                     petMainHealthData.add(PetMainHealthData("접종 예정일\n${item.vaccination}\n"))
                                     petMainHealthData.add(PetMainHealthData("구충제 예정일\n${item.helminthic}\n"))
@@ -322,8 +348,8 @@ class PetMainFragment : Fragment() {
     private fun getMypetList(): ArrayList<PetMainMypetData> {
         val recommendList = java.util.ArrayList<PetMainMypetData>()
         val am = resources.assets
-        recommendList.add(PetMainMypetData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
-        recommendList.add(PetMainMypetData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
+        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
+        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
 
 
         return recommendList

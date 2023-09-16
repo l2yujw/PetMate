@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/item_home_petseeker_list_division"
             android:layout_alignParentStart="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/cat2_temp" />
     </androidx.cardview.widget.CardView>
 
