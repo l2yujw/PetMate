@@ -103,11 +103,16 @@ class HomePetseekerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val item = result.result[0]
-                            requestRecommendPetList(item.recommend)
+                            if(!item.recommend.isNullOrEmpty()) {
+                                requestRecommendPetList(item.recommend)
+                            }else{
+                                requestRecommendPetList("@")
+                            }
                         }
 
                         else -> {
-                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                            Log.d(TAG, "getRecommend onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                            requestRecommendPetList("@")
                         }
                     }
 
@@ -199,7 +204,7 @@ class HomePetseekerFragment : Fragment() {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: HomePetseekerRecommendPetListInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "getRecommendPetList onResponse 성공: " + result?.toString());
 
                     when (result?.code) {
                         200 -> {
@@ -226,7 +231,7 @@ class HomePetseekerFragment : Fragment() {
                         }
 
                         else -> {
-                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                            Log.d(TAG, "getRecommendPetList onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
                         }
                     }
 
