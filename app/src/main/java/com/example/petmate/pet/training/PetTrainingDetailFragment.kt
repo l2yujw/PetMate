@@ -32,8 +32,8 @@ class PetTrainingDetailFragment : Fragment() {
     ): View? {
 
         val bundle = arguments
-        val obj = bundle?.getParcelable<PetTrainingInterfaeResponseResult>("trainingInfo")
-
+        val obj = bundle?.getParcelable<PetTrainingInterfaceResponseResult>("trainingInfo")
+        Log.d(TAG, "PetTrainingDetailFragment onCreateView: ${obj}")
         Log.d(TAG, "${obj}")
         if (obj != null) {
             Log.d(TAG, "${obj.trainingIdx}")

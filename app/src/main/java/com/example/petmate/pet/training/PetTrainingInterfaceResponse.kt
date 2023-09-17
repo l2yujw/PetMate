@@ -16,11 +16,11 @@ data class PetTrainingInterfaceResponse(
     var message: String,
 
     @SerializedName("result")
-    var result: ArrayList<PetTrainingInterfaeResponseResult>
+    var result: ArrayList<PetTrainingInterfaceResponseResult>
 
 )
 
-data class PetTrainingInterfaeResponseResult (
+data class PetTrainingInterfaceResponseResult (
     @SerializedName("trainingIdx")
     var trainingIdx:Int,
 
@@ -62,12 +62,12 @@ data class PetTrainingInterfaeResponseResult (
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<PetTrainingInterfaeResponseResult> {
-        override fun createFromParcel(parcel: Parcel): PetTrainingInterfaeResponseResult {
-            return PetTrainingInterfaeResponseResult(parcel)
+    companion object CREATOR : Parcelable.Creator<PetTrainingInterfaceResponseResult> {
+        override fun createFromParcel(parcel: Parcel): PetTrainingInterfaceResponseResult {
+            return PetTrainingInterfaceResponseResult(parcel)
         }
 
-        override fun newArray(size: Int): Array<PetTrainingInterfaeResponseResult?> {
+        override fun newArray(size: Int): Array<PetTrainingInterfaceResponseResult?> {
             return arrayOfNulls(size)
         }
     }

@@ -29,7 +29,7 @@ class PetTrainingFragment : Fragment() {
     lateinit var binding: FragmentPetTrainingBinding
     private val TAG = "PetTrainingFragment123"
     lateinit var adapterTrainingList : PetTrainingListAdapter
-    lateinit var trainingList : ArrayList<PetTrainingInterfaeResponseResult>
+    lateinit var trainingList : ArrayList<PetTrainingInterfaceResponseResult>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
