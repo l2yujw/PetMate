@@ -41,6 +41,7 @@ class HomePetseekerFragment : Fragment() {
 
         val bundle = arguments
         val obj = bundle?.getString("isUser")
+        Log.d("dddd","petseekerobj"+obj)
 
         if(obj == "isUser"){
             val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
@@ -162,8 +163,10 @@ class HomePetseekerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val list = result.result
+                            val bundle = arguments
+                            val obj = bundle?.getString("isUser")
 
-                            val boardAdapterPetList = HomePetseekerListAdapter(list)
+                            val boardAdapterPetList = HomePetseekerListAdapter(list, obj)
                             boardAdapterPetList.notifyDataSetChanged()
 
                             val indicatorList = binding.circleindicatorPetseekerPetlist
@@ -222,8 +225,11 @@ class HomePetseekerFragment : Fragment() {
                     when (result?.code) {
                         200 -> {
                             val list = result.result
+                            val bundle = arguments
+                            val obj = bundle?.getString("isUser")
+                            Log.d("dddd","petseekrrecommendobj"+obj)
 
-                            val boardAdapterRecommend = HomePetseekerRecommendAdapter(list)
+                            val boardAdapterRecommend = HomePetseekerRecommendAdapter(list, obj)
 
                             val indicatorReccomend = binding.circleindicatorPetseekerRecommend
                             boardAdapterRecommend.notifyDataSetChanged()

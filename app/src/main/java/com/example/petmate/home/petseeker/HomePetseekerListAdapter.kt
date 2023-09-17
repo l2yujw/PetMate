@@ -13,7 +13,7 @@ import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.ItemHomePetseekerListBinding
 
 
-class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>) : RecyclerView.Adapter<HomePetseekerListAdapter.PetseekerListViewHolder>() {
+class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>, val isUser: String?) : RecyclerView.Adapter<HomePetseekerListAdapter.PetseekerListViewHolder>() {
 
     lateinit var binding: ItemHomePetseekerListBinding
 
@@ -40,7 +40,9 @@ class HomePetseekerListAdapter(val itemList: ArrayList<HomePetseekerRecommendPet
     inner class PetseekerListViewHolder(binding: ItemHomePetseekerListBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun test(petListDivision: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>){
-            val adapterHomePetseekerList2 = HomePetseekerListSubAdapter(petListDivision)
+            Log.d("dddd","petseekrrecommendAdapterobj"+isUser)
+
+            val adapterHomePetseekerList2 = HomePetseekerListSubAdapter(petListDivision, isUser)
 
             binding.rcvPetseekerList.adapter = adapterHomePetseekerList2
             binding.rcvPetseekerList.layoutManager = LinearLayoutManager(binding.rcvPetseekerList.context,LinearLayoutManager.VERTICAL, false)

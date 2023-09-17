@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
@@ -25,8 +26,22 @@ class HomeShelterpetInfoFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
-            findNavController().navigate(R.id.action_homeShelterpetInfoFragment_to_homePetseekerFragment)
+        val bundle = arguments
+        val obj = bundle?.getString("isUser")
+
+        if(obj == "isUser"){
+            val bundle = Bundle()
+            bundle.putString("isUser","isUser")
+            Log.d("dddd",obj)
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
+                findNavController().navigate(R.id.action_homeShelterpetInfoFragment_to_homePetseekerFragment,bundle)
+            }
+        }
+        else{
+            Log.d("dddd","Ddd")
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
+                findNavController().navigate(R.id.action_homeShelterpetInfoFragment_to_homePetseekerFragment)
+            }
         }
 
     }

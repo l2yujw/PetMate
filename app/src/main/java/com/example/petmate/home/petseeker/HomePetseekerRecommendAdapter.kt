@@ -12,7 +12,7 @@ import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemHomePetseekerRecommendBinding
 
-class HomePetseekerRecommendAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>) : RecyclerView.Adapter<HomePetseekerRecommendAdapter.PetseekerReccomendViewHolder>() {
+class HomePetseekerRecommendAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>,val isUser: String?) : RecyclerView.Adapter<HomePetseekerRecommendAdapter.PetseekerReccomendViewHolder>() {
 
     lateinit var binding: ItemHomePetseekerRecommendBinding
     private lateinit var itemClickListener : OnItemClickListener
@@ -52,6 +52,9 @@ class HomePetseekerRecommendAdapter(val itemList: ArrayList<HomePetseekerRecomme
             binding.itemHomePetseekerRecommendLayout.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putParcelable("ShelterpetInfo",item)
+                if(isUser == "isUser"){
+                    bundle.putString("isUser","isUser")
+                }
                 it.findNavController().navigate(R.id.action_homePetseekerFragment_to_homeShelterpetInfoFragment,bundle)
             }
         }

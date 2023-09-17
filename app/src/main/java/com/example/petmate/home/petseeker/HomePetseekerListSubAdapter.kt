@@ -13,7 +13,7 @@ import com.example.petmate.R
 import com.example.petmate.databinding.ItemHomePetseekerSublistBinding
 import com.example.petmate.home.petseeker.HomePetseekerListSubAdapter.PetseekerSubListViewHolder
 
-class HomePetseekerListSubAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>) : RecyclerView.Adapter<PetseekerSubListViewHolder>(){
+class HomePetseekerListSubAdapter(val itemList: ArrayList<HomePetseekerRecommendPetListInterfaceResponseResponseResult>, val isUser: String?) : RecyclerView.Adapter<PetseekerSubListViewHolder>(){
 
     lateinit var binding: ItemHomePetseekerSublistBinding
     private lateinit var itemClickListener : OnItemClickListener
@@ -42,6 +42,10 @@ class HomePetseekerListSubAdapter(val itemList: ArrayList<HomePetseekerRecommend
             binding.itemHomePetseekerListLayout.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putParcelable("ShelterpetInfo",item)
+                if(isUser == "isUser"){
+                    bundle.putString("isUser","isUser")
+                }
+                Log.d("dddd","petseekrrecommendAdapterobj"+isUser)
                 it.findNavController().navigate(R.id.action_homePetseekerFragment_to_homeShelterpetInfoFragment,bundle)
             }
             Glide.with(binding.itemHomePetseekerListImage)
