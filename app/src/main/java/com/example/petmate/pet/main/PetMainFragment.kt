@@ -22,6 +22,7 @@ import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetMainBinding
+import com.example.petmate.myinf.MyinfPhotoActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -105,11 +106,8 @@ class PetMainFragment : Fragment() {
 
         binding.btnAddPet.setOnClickListener{
             //갤러리 호출
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            //멀티 선택 기능
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-            activityResult.launch(intent)
+            val intent = Intent(requireContext(), PetMainAddPetActivity::class.java)
+            startActivity(intent)
         }
 
         return binding.getRoot()
