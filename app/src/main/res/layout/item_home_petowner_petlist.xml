@@ -33,7 +33,7 @@
         android:layout_height="match_parent"
         android:layout_alignStart="@id/activity_main_home_havepet_petlist_division"
         android:gravity="center"
-        android:text="랜덤 문구 삽입\n(산책 일정이 있을 시 산책여부, 제안/\n반려동물 나이 등)"
+        android:text="랜덤문장"
         android:textAppearance="@style/petowner_randomtext" />
 
 </RelativeLayout>

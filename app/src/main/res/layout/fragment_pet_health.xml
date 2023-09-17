@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="19dp"
-                android:text="탈주닌자"
+                android:text="반려동물"
                 android:textAppearance="@style/pet_main_name" />
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="60dp"
-                android:text="놀라버린 고양이"
+                android:text="반려동물 종"
                 android:textAppearance="@style/pet_main_nameSub" />
 
             <TextView

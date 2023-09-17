@@ -8,6 +8,8 @@ import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.petmate.HorizontalItemDecorator
+import com.example.petmate.RightItemDecorator
 import com.example.petmate.databinding.ActivityMyinfPhotoBinding
 
 class MyinfPhotoActivity : AppCompatActivity() {
@@ -30,6 +32,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
         //recyclerView 설정
         binding.rcvMyinfPhotoPost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rcvMyinfPhotoPost.adapter = myInfPhotoAdapter
+        binding.rcvMyinfPhotoPost.addItemDecoration(RightItemDecorator(20))
 
         //버튼 이벤트
         binding.btnPost.setOnClickListener {
@@ -40,10 +43,6 @@ class MyinfPhotoActivity : AppCompatActivity() {
             //멀티 선택 기능
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             activityResult.launch(intent)
-            if(imageList == null){
-                binding.btnPost.visibility = View.INVISIBLE
-                binding.rcvMyinfPhotoPost.visibility = View.VISIBLE
-            }
         }
 
         binding.btnAddPost.setOnClickListener{
@@ -73,6 +72,10 @@ class MyinfPhotoActivity : AppCompatActivity() {
             }else{ //싱글 이미지
                 val imageUri = it.data!!.data
                 imageList.add(imageUri!!)
+            }
+            if(imageList != null){
+                binding.btnPost.visibility = View.INVISIBLE
+                binding.rcvMyinfPhotoPost.visibility = View.VISIBLE
             }
             myInfPhotoAdapter.notifyDataSetChanged()
         }

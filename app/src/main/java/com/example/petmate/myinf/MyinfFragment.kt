@@ -111,6 +111,7 @@ class MyinfFragment : Fragment() {
                             for(item in result.result){
                                 list.add(MyinfUserListData(item.image))
                             }
+                            binding.btnPost.visibility = View.VISIBLE
 
                             val adapterMyinfUserList = MyinfUserListAdapter(list)
 

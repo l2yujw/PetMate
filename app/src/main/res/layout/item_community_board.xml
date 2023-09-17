@@ -24,7 +24,7 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="12dp"
         android:lineSpacingExtra="-9sp"
-        android:text="l2yu_"
+        android:text="제목"
         android:textAppearance="@style/community_id" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="33dp"
         android:gravity="top"
-        android:text="경기도"
+        android:text="유저명"
         android:textAppearance="@style/community_area" />
 
 

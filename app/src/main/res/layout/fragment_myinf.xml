@@ -19,7 +19,7 @@
             android:layout_marginTop="54dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Ryu_"
+            android:text="User"
             android:textAppearance="@style/myinf_id" />
 
         <TextView
@@ -107,7 +107,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="250dp"
             android:gravity="top"
-            android:text="한줄 소개"
+            android:text="비회원 계정입니다!"
             android:textAppearance="@style/myinf_introduce" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -129,6 +129,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/background_home_rectangle_1_2"
             android:elevation="4dp"
+            android:visibility="invisible"
             android:textAppearance="@style/myinf_introduce"
             android:text="게시물 등록"
             />
