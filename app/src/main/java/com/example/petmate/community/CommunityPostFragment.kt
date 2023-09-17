@@ -14,7 +14,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.petmate.R
 import com.example.petmate.databinding.FragmentCommunityPostBinding
-import com.example.petmate.pet.training.PetTrainingInterfaeResponseResult
 import me.relex.circleindicator.CircleIndicator3
 import kotlin.random.Random
 

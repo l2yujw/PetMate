@@ -2,7 +2,6 @@ package com.example.petmate.home.petseeker.shelterpetInfo
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,7 +14,6 @@ import com.example.petmate.R
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentHomeShelterpetInfoBinding
 import com.example.petmate.home.petseeker.HomePetseekerRecommendPetListInterfaceResponseResponseResult
-import com.example.petmate.pet.training.PetTrainingInterfaeResponseResult
 import java.net.URL
 import kotlin.concurrent.thread
 
