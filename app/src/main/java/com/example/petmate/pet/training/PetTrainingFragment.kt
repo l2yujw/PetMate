@@ -112,7 +112,7 @@ class PetTrainingFragment : Fragment() {
             override fun onResponse(call: Call<PetTrainingInterfaceResponse>, response: retrofit2.Response<PetTrainingInterfaceResponse>) {
                 if (response.isSuccessful) {
                     val result: PetTrainingInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    //Log.d(TAG, "onResponse 성공: " + result?.toString());
 
                     when (result?.code) {
                         200 -> {

@@ -17,6 +17,7 @@ class PetTrainingDetailAdapter(val itemList: ArrayList<PetTrainingDetailData>) :
     override fun onBindViewHolder(holder: TrainingDetailViewHolder, position: Int) {
         holder.level.text = itemList[position].level
         holder.detail.text = itemList[position].detail
+
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +25,7 @@ class PetTrainingDetailAdapter(val itemList: ArrayList<PetTrainingDetailData>) :
     }
 
     inner class TrainingDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val level = itemView.findViewById<TextView>(R.id.pet_tarining_1_level)
-        val detail = itemView.findViewById<TextView>(R.id.pet_tarining_1_detail)
+        val level = itemView.findViewById<TextView>(R.id.pet_tarining_level)
+        val detail = itemView.findViewById<TextView>(R.id.pet_tarining_detail)
     }
 }
