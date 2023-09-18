@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
 import android.util.Log
 import android.view.Window
 import android.widget.Button
@@ -18,14 +19,12 @@ import androidx.core.app.ActivityCompat
 import com.example.petmate.R
 
 
-class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
+class Login10PetseekerActivity : Activity() {
 
     val PERM_STORAGE = 9
     val REQ_GALLERY = 12
     lateinit var context: Context
     var petImage: Uri? = null
-
-//    private val intent = Intent(this, Login10Activity::class.java)
 
     lateinit var addImage: ImageButton
 
@@ -36,7 +35,6 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         setContentView(R.layout.item_login_petseeker)
-//        setResult(RESULT_CANCELED, intent)
 
         requirePermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERM_STORAGE)
 
@@ -61,13 +59,6 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
         }
     }
 
-    /*override fun onClick(v: View) {
-        when (v.id) {
-            R.id.btn_login_perowner_complete -> finish()
-            else -> {}
-        }
-    }*/
-
     fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = MediaStore.Images.Media.CONTENT_TYPE
@@ -75,18 +66,20 @@ class Login10PetseekerActivity : Activity()/*, View.OnClickListener*/ {
     }
 
     fun requirePermissions(permissions: Array<String>, requestCode: Int) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            permissionGranted(requestCode)
-        } else {
-            ActivityCompat.requestPermissions(this, permissions, requestCode)
-        }
+        ActivityCompat.requestPermissions(this, permissions, requestCode)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
             permissionGranted(requestCode)
         } else {
-            permissionDenied(requestCode)
+            if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                Log.d("requestPermission", "requestPermission: granted")
+                permissionGranted(requestCode)
+            } else {
+                Log.d("requestPermission", "requestPermission: denied")
+                permissionDenied(requestCode)
+            }
         }
     }
 
