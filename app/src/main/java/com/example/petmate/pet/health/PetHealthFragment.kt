@@ -130,7 +130,7 @@ class PetHealthFragment : Fragment() {
                             binding.tvHealthWeightCondition.text = "정상"
                             binding.tvHealthQuantity.text = "${reqQuantity}g"
                             binding.tvHealthKcal.text = "$reqKcal"
-                            binding.petHealthKnow.text = "알고 계셨나요?"
+                            binding.petHealthKnow.text = "TIP: 치석 제거에는 껌 보다는 양치가 효과적이에요"
 
 
                             val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
