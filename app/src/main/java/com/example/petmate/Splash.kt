@@ -1,6 +1,5 @@
 package com.example.petmate
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,10 +9,10 @@ import com.example.petmate.login.Login00Activity
 class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        moveMain(3) //1초 후 main activity 로 넘어감
+        moveMain(2.5) //1초 후 main activity 로 넘어감
     }
 
-    private fun moveMain(sec: Int) {
+    private fun moveMain(sec: Double) {
         Handler().postDelayed(Runnable {
             //new Intent(현재 context, 이동할 activity)
             val intent = Intent(applicationContext, Login00Activity::class.java)
