@@ -73,7 +73,8 @@
             android:layout_marginEnd="35dp"
             android:text="Finish" />
 
-        <RelativeLayout
+        <Spinner
+            android:id="@+id/walk_category_search_spinner"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_alignEnd="@id/activity_walk_0_division"
@@ -82,7 +83,7 @@
             android:layout_marginTop="135dp"
             android:layout_marginEnd="5dp">
 
-        </RelativeLayout>
+        </Spinner>
 
         <RelativeLayout
             android:layout_width="0dp"

@@ -118,7 +118,7 @@ class PetHealthFragment : Fragment() {
                         200 -> {
                             val item = result.result[0]
                             val reqKcal = calculReqKcal(item)
-                            val reqQuantity = (reqKcal / 3.7).toInt() // 성견 사료g당 칼로리인 3.7kcal로 임의 설정// 출처 : 헬스경향(http://www.k-health.com)
+                            val reqQuantity = (reqKcal / 3.7).toInt() // 성견 사료g당 평균 칼로리인 3.7kcal로 임의 설정// 출처 : 헬스경향(http://www.k-health.com)
 
                             binding.petHealthPetname.text = item.name
                             binding.petHealthPetdescription.text = "${item.category} ${item.species}"

@@ -1,46 +1,40 @@
 package com.example.petmate.walk
 
 import android.Manifest
-import android.app.Activity
-import android.app.Service
-import android.app.Service.START_NOT_STICKY
+import android.R
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.IBinder
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.location.LocationManagerCompat
-import androidx.core.location.LocationManagerCompat.getCurrentLocation
 import androidx.lifecycle.lifecycleScope
 import com.example.petmate.databinding.ActivityWalkBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import net.daum.android.map.coord.MapCoordLatLng
-import net.daum.mf.map.api.MapCurrentLocationMarker
+import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapPolyline
 import net.daum.mf.map.api.MapView
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Math.round
-import java.text.SimpleDateFormat
 import java.time.Duration
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.Period
-import java.time.format.DateTimeFormatter
-import java.util.Date
-import java.util.Locale
-import kotlin.properties.Delegates
+import kotlin.reflect.typeOf
 
 
 class WalkActivity : AppCompatActivity() {
@@ -69,6 +63,12 @@ class WalkActivity : AppCompatActivity() {
     //start 버튼을 눌러서 시작을 했는지 확인하는 변수
     private var isStarted: Boolean = false
 
+    //카카오맵 api 주변 검색을 위한 url
+    private val BASE_URL = "https://dapi.kakao.com/"
+
+    private val spinnerSearchCategoryList = listOf("동물병원", "카페#반려동물", "공원#반려동물")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWalkBinding.inflate(layoutInflater)
@@ -86,6 +86,7 @@ class WalkActivity : AppCompatActivity() {
         lm = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         //경로를 추가하기 위한 MapPolyline 객체 초기화
         mapPolyline = MapPolyline()
+        mapView.removeAllPolylines()
         //경로를 그리기 위한 PolylineService 생성
 //        polylineService = PolylineService(mapView, mapPolyline, lm, applicationContext)
 
@@ -107,6 +108,38 @@ class WalkActivity : AppCompatActivity() {
                 Toast.makeText(this, "경로를 추적하고 있지 않습니다.", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val myAdapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, spinnerSearchCategoryList)
+        binding.walkCategorySearchSpinner.adapter = myAdapter
+        binding.walkCategorySearchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                //아이템이 클릭 되면 맨 위부터 position 0번부터 순서대로 동작하게 됩니다.
+                val currentLocation = getCurrentLocation(lm)
+                when(position) {
+                    0   ->  {
+                        lifecycleScope.launch {
+                            searchKeyword(currentLocation!!.longitude.toString(), currentLocation.latitude.toString(), "5000", spinnerSearchCategoryList[0])
+                            Log.d("test_search", "동물병원 선택")
+                        }
+                    }
+                    1   ->  {
+                        lifecycleScope.launch {
+                            searchKeyword(currentLocation!!.longitude.toString(), currentLocation.latitude.toString(), "5000", spinnerSearchCategoryList[1])
+                            Log.d("test_search", "동물병원 선택")
+                        }
+                    }
+                    2 -> {
+                        lifecycleScope.launch {
+                            searchKeyword(currentLocation!!.longitude.toString(), currentLocation.latitude.toString(), "5000", spinnerSearchCategoryList[2])
+                            Log.d("test_search", "동물병원 선택")
+                        }
+                    }
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
     }
 
     //start 버튼을 눌렀을 때 실행되는 함수
@@ -121,6 +154,7 @@ class WalkActivity : AppCompatActivity() {
             //이동 시간을 구하기 위한 시작 시간 정보 보관
             startTime = LocalTime.now()
             //이동 경로를 체크하기 위해 변수를 초기화
+            mapPolyline = MapPolyline()
             mapView.removeAllPolylines()
             checkLoadBoolean = true
             isStarted = true
@@ -200,5 +234,56 @@ class WalkActivity : AppCompatActivity() {
             mapView.addPolyline(mapPolyline)
             delay(1000)
         }
+    }
+
+    private fun searchKeyword(longitude: String, latitude: String, radius: String, keyword: String) {
+        //OkHttp 라이브러리를 이용해서 더 자세한 로그를 확인하여 오류를 더 쉽게 해결할 수 있도록
+        val clientBuilder = OkHttpClient.Builder()
+        val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        clientBuilder.addInterceptor(loggingInterceptor)
+
+        val retrofit = Retrofit.Builder() // Retrofit 구성
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(clientBuilder.build())
+            .build()
+
+
+        val api = retrofit.create(WalkKakaoAPI::class.java) // 통신 인터페이스를 객체로 생성
+        val call = api.getSearchKeyword(longitude, latitude, radius, keyword) // 검색 조건
+
+        // API 서버에 요청
+        call.enqueue(object: Callback<WalkNearPlaceKeywordSearchResult> {
+
+            override fun onResponse(
+                call: Call<WalkNearPlaceKeywordSearchResult>,
+                response: Response<WalkNearPlaceKeywordSearchResult>
+            ) {
+                mapView.removeAllPOIItems()
+                // 통신 성공 (검색 결과는 response.body()에 담겨있음)
+                Log.d("test_search", "Raw: ${response.raw()}")
+                Log.d("test_search", "Body: ${response.body()}")
+
+                val result = response.body()!!.documents
+                for (i in result){
+                    Log.d("test_search", "${i.x}, ${i.y}")
+                    val marker = MapPOIItem()
+                    Log.d("test_search", "marker 설정 들어옴 ${i.x}, ${i.y}")
+                    val mapPoint = MapPoint.mapPointWithGeoCoord(i.y.toDouble(), i.x.toDouble())
+                    marker.itemName = i.place_name
+                    marker.mapPoint = mapPoint
+                    marker.tag = 0;
+                    marker.markerType = MapPOIItem.MarkerType.BluePin
+                    marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                    mapView.addPOIItem(marker)
+                }
+            }
+
+            override fun onFailure(call: Call<WalkNearPlaceKeywordSearchResult>, t: Throwable) {
+                // 통신 실패
+                Log.w("test_search", "통신 실패: ${t.message}")
+            }
+        })
     }
 }

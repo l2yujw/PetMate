@@ -92,7 +92,7 @@ class Login10PetseekerActivity : Activity() {
     fun permissionDenied(requestCode: Int) {
         when (requestCode) {
             PERM_STORAGE -> {
-                Toast.makeText(this, "공용 저장소 권한을 승인해야 엡을 정상적으로 사용할 수 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "공용 저장소 권한을 승인해야 앱을 정상적으로 사용할 수 있습니다.", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }

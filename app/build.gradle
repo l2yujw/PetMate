@@ -101,6 +101,13 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libDaumMapAndroid.jar')
 
+    // KaKao Map API 에서 주변 위치 검색을 위한 요청 라이브러리
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //주변 위치 검색 요청 오류를 해결하기 위해 로그를 확인하는 용도로 추가한 인터셉터 라이브러리
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
     // login
     implementation 'com.android.volley:volley:1.2.1'
 
