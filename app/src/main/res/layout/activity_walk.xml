@@ -42,14 +42,22 @@
     <RelativeLayout
         android:id="@+id/slide_layout"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:background="@drawable/background_petseeker_rectangle_1">
+        android:layout_height="300dp"
+        android:background="@drawable/background_pet_walk_slide">
 
         <View
             android:id="@+id/activity_walk_0_division"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_centerHorizontal="true" />
+
+        <View
+            android:layout_width="65dp"
+            android:layout_height="13dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/background_pet_walk_slide_button" />
 
         <Button
             android:id="@+id/walk_start"
@@ -60,7 +68,9 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="5dp"
-            android:text="Start" />
+            android:background="@drawable/background_pet_walk_start"
+            android:text="Start"
+            android:textAppearance="@style/petowner_walk_start" />
 
         <Button
             android:id="@+id/walk_finish"
@@ -71,7 +81,9 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="35dp"
-            android:text="Finish" />
+            android:background="@drawable/background_pet_walk_finish"
+            android:text="Finish"
+            android:textAppearance="@style/petowner_walk_start" />
 
         <Spinner
             android:id="@+id/walk_category_search_spinner"

@@ -318,6 +318,12 @@
         <item name="android:textColor">#000000</item>
     </style>
 
+    <style name="petowner_walk_start">
+        <item name="android:fontFamily">@font/font_sf_pro_rounded_semibold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
     <style name="item_petowner_time">
         <item name="android:fontFamily">@font/pretendard_semibold</item>
         <item name="android:lineHeight">14sp</item>
