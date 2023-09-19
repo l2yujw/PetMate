@@ -34,7 +34,7 @@ class HomePetseekerFragment : Fragment() {
 
     lateinit var binding: FragmentHomePetseekerBinding
     private val TAG = "HomePetseekerFragment123"
-    var telArray = arrayOf<String>("010-1111-1111", "010-2222-2222", "010-3333-3333", "010-4444-4444", "010-5555-5555")
+    var telArray = arrayOf<String>("031-5189-7099", "031-228-3328")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +63,7 @@ class HomePetseekerFragment : Fragment() {
         binding.btnHomePetseekerEtc.setOnClickListener { requestRecentPetList("기타축종") }
 
 
-        val SpinnerItems = arrayOf("센터1", "센터2", "센터3")
+        val SpinnerItems = arrayOf("전체","남양동물보호센터", "수원시 동물보호센터")
         val adapterSpinner = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, SpinnerItems)
         binding.spinnerPetseeker.adapter = adapterSpinner
         binding.spinnerPetseeker.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -71,12 +71,18 @@ class HomePetseekerFragment : Fragment() {
                 //아이템이 클릭 되면 맨 위부터 position 0번부터 순서대로 동작하게 됩니다.
                 when (position) {
                     0 -> {
+                        requestCareNmList(" ")
                     }
 
                     1 -> {
+                        requestCareNmList(binding.spinnerPetseeker.selectedItem.toString())
+                    }
+                    2->{
+                        requestCareNmList(binding.spinnerPetseeker.selectedItem.toString())
                     }
                     //...
                     else -> {
+                        requestCareNmList(binding.spinnerPetseeker.selectedItem.toString())
                     }
                 }
             }
@@ -87,13 +93,83 @@ class HomePetseekerFragment : Fragment() {
         }
 
         binding.btnCenterNumber.setOnClickListener{
-            showPoppup(binding.btnCenterNumber)
+            //showPoppup(binding.btnCenterNumber)
+
+            val intent: Intent
+            val item = binding.spinnerPetseeker.selectedItemId
+            if(item >0) {
+                intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telArray[item.toInt()-1]))
+                startActivity(intent)
+            }else{
+                Toast.makeText(context, "선택~~", Toast.LENGTH_SHORT).show()
+            }
         }
 
         requestPetRecommendList(userIdx)
         requestRecentPetList("%")
 
         return binding.getRoot()
+    }
+
+    private fun requestCareNmList(careNm:String){
+        //고정
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.124.16.204:3000/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        //
+        val service = retrofit.create(HomePetseekerInterface::class.java);
+        service.getCareNmList(careNm).enqueue(object : Callback<HomePetseekerRecommendPetListInterfaceResponse> {
+
+            override fun onResponse(call: Call<HomePetseekerRecommendPetListInterfaceResponse>, response: retrofit2.Response<HomePetseekerRecommendPetListInterfaceResponse>) {
+                if (response.isSuccessful) {
+                    // 정상적으로 통신이 성고된 경우
+                    val result: HomePetseekerRecommendPetListInterfaceResponse? = response.body()
+                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+
+                    when (result?.code) {
+                        200 -> {
+                            val list = result.result
+                            val bundle = arguments
+                            val obj = bundle?.getString("isUser")
+
+                            val boardAdapterPetList = HomePetseekerListAdapter(list, obj)
+                            boardAdapterPetList.notifyDataSetChanged()
+
+                            val indicatorList = binding.circleindicatorPetseekerPetlist
+
+                            indicatorList.setViewPager(binding.viewpagerPetseekerList)
+                            indicatorList.createIndicators(list.size / 3, 0)
+
+                            binding.viewpagerPetseekerList.adapter = boardAdapterPetList
+                            binding.viewpagerPetseekerList.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                            binding.viewpagerPetseekerList.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                                override fun onPageSelected(position: Int) {
+                                    super.onPageSelected(position)
+                                    indicatorList.animatePageSelected(position)
+                                    //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+
+                        }
+
+                        else -> {
+                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                        }
+                    }
+
+                } else {
+                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
+                    Log.d(TAG, "onResponse 실패" + response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<HomePetseekerRecommendPetListInterfaceResponse>, t: Throwable) {
+                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
+                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+            }
+        })
     }
 
     private fun requestPetRecommendList(userIdx: Int) {
