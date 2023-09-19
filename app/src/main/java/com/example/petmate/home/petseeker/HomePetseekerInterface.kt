@@ -15,4 +15,6 @@ interface HomePetseekerInterface {
     @GET("HomePetseeker/getcategorypetlist")
     fun getCategoryPetList(@Query("category") category:String): Call<HomePetseekerRecommendPetListInterfaceResponse>
 
+    @GET("HomePetseeker/getCareNm")
+    fun getCareNmList(@Query("careNm") careNm:String): Call<HomePetseekerRecommendPetListInterfaceResponse>
 }

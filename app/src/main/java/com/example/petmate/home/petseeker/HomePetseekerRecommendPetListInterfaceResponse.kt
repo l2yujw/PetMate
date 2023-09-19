@@ -66,7 +66,10 @@ data class HomePetseekerRecommendPetListInterfaceResponseResponseResult (
     var careAddr:String,
 
     @SerializedName("officetel")
-    var officetel:String
+    var officetel:String,
+
+    @SerializedName("careNm")
+    var careNm:String
     ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -81,6 +84,7 @@ data class HomePetseekerRecommendPetListInterfaceResponseResponseResult (
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readInt(),
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
