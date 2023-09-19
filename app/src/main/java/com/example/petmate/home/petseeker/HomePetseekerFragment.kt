@@ -101,7 +101,7 @@ class HomePetseekerFragment : Fragment() {
                 intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telArray[item.toInt()-1]))
                 startActivity(intent)
             }else{
-                Toast.makeText(context, "선택~~", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "보호소를 선택해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
 
