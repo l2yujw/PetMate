@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface WalkKakaoAPI {
     // 카카오 API 인증키 [필수]
-    @Headers("Authorization: KakaoAK c5e0286295d2fe6f8c2283e2c2101ee5")
+    @Headers("Authorization: KakaoAK 621c889e0678eaf2ae4d854d900ebbf3")
     @GET("/v2/local/search/keyword.json") // Keyword.json의 정보를 받아옴
     fun getSearchKeyword(
         @Query("x") x: String,
