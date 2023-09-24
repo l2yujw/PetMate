@@ -2,6 +2,7 @@ package com.example.petmate.community
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import com.google.gson.annotations.SerializedName
 
 data class CommunityInterfaceResponse(

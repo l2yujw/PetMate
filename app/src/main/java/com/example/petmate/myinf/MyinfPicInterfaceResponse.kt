@@ -66,3 +66,14 @@ data class MyInfPicInterfaceResponseResult(
         }
     }
 }
+
+data class MyinfaddPostInterfaceResponse(
+    @SerializedName("isSuccess")
+    var isSuccess: Boolean,
+
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("message")
+    var message: String
+)

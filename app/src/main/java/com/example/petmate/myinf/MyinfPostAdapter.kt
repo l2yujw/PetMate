@@ -18,6 +18,7 @@ import kotlin.random.Random
 class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>) : RecyclerView.Adapter<MyinfPostAdapter.MyinfPostViewHolder>()  {
 
     lateinit var binding: ItemMyinfPostBinding
+    private val TAG = "MyinfPostAdapter"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyinfPostAdapter.MyinfPostViewHolder {
         binding = ItemMyinfPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -51,17 +52,21 @@ class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>)
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imageMyinfPost)             // 이미지를 넣을
-            }else{
-                val encodeByte = Base64.decode(item.userImage, Base64.NO_WRAP)
-                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                binding.imageMyinfPost.setImageBitmap(bitmap)
-                Glide.with(binding.imageMyinfPost)
+            }else if(item.image.endsWith(".png") ||item.image.endsWith(".jpg")||item.image.endsWith(".jpeg") ) {
+                Glide.with(binding.userImageMyinfPost)
                     .load(item.image)                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
                     .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
                     .centerInside()                                 // scaletype
                     .into(binding.imageMyinfPost)             // 이미지를 넣을 뷰
+            }else{
+                val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+                val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+                Log.d(TAG, "item.userImage : ${item.image}")
+                Log.d(TAG, "encodeByte : ${encodeByte}")
+                Log.d(TAG, "bitmap : ${bitmap}")
+                binding.imageMyinfPost.setImageBitmap(bitmap)
             }
 
             if(item.userImage.isBlank() || item.userImage == ""){
