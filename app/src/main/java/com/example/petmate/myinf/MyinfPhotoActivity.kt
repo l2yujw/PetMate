@@ -122,7 +122,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
         }
     }
 
-    fun uriToString(uri:Uri): String {
+    private fun uriToString(uri:Uri): String {
         val inputStream: InputStream? = applicationContext.contentResolver.openInputStream(uri)
         val bytes: ByteArray? = inputStream?.readBytes()
         inputStream?.close()
@@ -143,32 +143,4 @@ class MyinfPhotoActivity : AppCompatActivity() {
             return " "
         }
     }
-
-    fun bitmapToByteArray(bitmap:Bitmap):String{
-        var image = ""
-        val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
-        val byteArray = stream.toByteArray()
-        image = "&image="+byteArrayToBinaryString(byteArray)
-        return image
-    }
-
-    private fun byteArrayToBinaryString(byteArray: ByteArray): String {
-        val sb = StringBuilder()
-        for(item in byteArray){
-            sb.append(byteToBinaryString(item))
-        }
-        return sb.toString()
-    }
-
-    fun byteToBinaryString(n: Byte): String {
-        val sb = StringBuilder("00000000")
-        for (bit in 0..7) {
-            if (n.toInt() shr bit and 1 > 0) {
-                sb.setCharAt(7 - bit, '1')
-            }
-        }
-        return sb.toString()
-    }
-
 }
