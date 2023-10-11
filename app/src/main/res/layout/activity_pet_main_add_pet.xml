@@ -16,9 +16,9 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="26dp"
-            android:layout_marginStart="300dp"
+            android:layout_marginEnd="30dp"
             android:text="등록하기"
             android:background="@drawable/background_home_rectangle_1_2"
             android:textAppearance="@style/pet_inf_post"
@@ -44,12 +44,14 @@
             app:layout_constraintTop_toTopOf="@+id/et_petadd_name"
             app:layout_constraintBottom_toBottomOf="@+id/et_petadd_name"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
             android:gravity="end"
             android:text="반려동물 이름 : "/>
         <EditText
             android:id="@+id/et_petadd_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
             app:layout_constraintTop_toBottomOf="@+id/iv_petMain_add"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_name"
+            android:layout_marginEnd="30dp"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 강아지, 고양이"/>
@@ -87,6 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_category"
+            android:layout_marginEnd="30dp"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 골든 리트리버, 포메라니안"/>
@@ -106,6 +110,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_species"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) M, F"/>
 
@@ -124,6 +129,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_gender"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 1, 2"/>
 
@@ -142,6 +148,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_age"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 2.3, 1.5"/>
 
@@ -159,6 +166,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/et_petadd_weight"
+            android:layout_marginEnd="30dp"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:datePickerMode="spinner"
@@ -178,6 +186,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/dp_petadd_vaccination"
+            android:layout_marginEnd="30dp"
             app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:datePickerMode="spinner"

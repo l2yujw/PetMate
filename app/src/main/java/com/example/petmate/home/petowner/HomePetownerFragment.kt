@@ -62,8 +62,10 @@ class HomePetownerFragment : Fragment() {
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
     lateinit var indicator: CircleIndicator3
+
     private var viewpagerIdx = 0
-    var telArray = arrayOf<String>("010-1111-1111", "010-2222-2222", "010-3333-3333", "010-4444-4444", "010-5555-5555")
+    var telArray = arrayOf<String>("02-364-3517", "02-393-7577", "02-393-3588", "02-701-7580", "02-333-7750")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
