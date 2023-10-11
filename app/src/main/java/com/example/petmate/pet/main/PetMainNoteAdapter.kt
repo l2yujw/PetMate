@@ -23,6 +23,6 @@ class PetMainNoteAdapter(val itemList: ArrayList<PetMainNoteData>) : RecyclerVie
     }
 
     inner class PetMainNoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val note = itemView.findViewById<TextView>(R.id.main_note_text)
+        val note: TextView = itemView.findViewById<TextView>(R.id.main_note_text)
     }
 }

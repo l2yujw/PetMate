@@ -2,10 +2,6 @@ package com.example.petmate.login
 
 import com.google.gson.annotations.SerializedName
 
-
-/**
- * loginService의 Response인 JSON 형식에 맞춰 받기 위한 data class
- */
 data class CheckEmailResponse(
 
     @SerializedName("isSuccess")

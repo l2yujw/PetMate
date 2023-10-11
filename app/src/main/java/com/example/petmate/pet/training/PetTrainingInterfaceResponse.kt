@@ -46,8 +46,7 @@ data class PetTrainingInterfaceResponseResult (
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readInt()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(trainingIdx)

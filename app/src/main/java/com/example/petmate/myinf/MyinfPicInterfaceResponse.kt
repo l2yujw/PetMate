@@ -45,8 +45,7 @@ data class MyInfPicInterfaceResponseResult(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
-    ) {
-    }
+    )
 
     override fun describeContents(): Int {
         TODO("Not yet implemented")

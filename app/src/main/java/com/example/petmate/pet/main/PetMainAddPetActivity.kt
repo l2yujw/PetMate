@@ -14,15 +14,12 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.petmate.GlobalUserIdx
 import com.example.petmate.R
+import com.example.petmate.Tool
 import com.example.petmate.databinding.ActivityPetMainAddPetBinding
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
-import java.util.Date
 
 class PetMainAddPetActivity : AppCompatActivity() {
 
@@ -53,25 +50,21 @@ class PetMainAddPetActivity : AppCompatActivity() {
     }
 
     private fun addPetRelationship() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
 
-        val service = retrofit.create(PetMainInterface::class.java);
+        val retrofit = Tool.getRetrofit()
+
+        val service = retrofit.create(PetMainInterface::class.java)
         service.addPetRelationship(insertpetIdx,GlobalUserIdx.getUserIdx()).enqueue(object : Callback<PetDetailaddInterfaceResponse> {
 
             override fun onResponse(call: Call<PetDetailaddInterfaceResponse>, response: retrofit2.Response<PetDetailaddInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetDetailaddInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
-                            Toast.makeText(applicationContext, "${insertpetIdx} 관계정보 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "$insertpetIdx 관계정보 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                         }
 
                         else -> {
@@ -87,7 +80,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<PetDetailaddInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "addPetRelationship onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "addPetRelationship onFailure 에러: " + t.message.toString())
             }
         })
     }
@@ -113,25 +106,20 @@ class PetMainAddPetActivity : AppCompatActivity() {
         val weight = binding.etPetaddWeight.text.toString().toFloat()
         val bcs = 3
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+        val retrofit = Tool.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java);
+        val service = retrofit.create(PetMainInterface::class.java)
         service.addPetDetail(insertpetIdx,vaccination,helminthic,weight,bcs).enqueue(object : Callback<PetDetailaddInterfaceResponse> {
 
             override fun onResponse(call: Call<PetDetailaddInterfaceResponse>, response: retrofit2.Response<PetDetailaddInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetDetailaddInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
-                            Toast.makeText(applicationContext, "${insertpetIdx} 상세정보 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "$insertpetIdx 상세정보 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                         }
 
                         else -> {
@@ -147,7 +135,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<PetDetailaddInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "addPetDetail onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "addPetDetail onFailure 에러: " + t.message.toString())
             }
         })
     }
@@ -161,21 +149,16 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
         val imageUrl = uriToString(imageURI)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+        val retrofit = Tool.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java);
+        val service = retrofit.create(PetMainInterface::class.java)
         service.addPet(category, species, imageUrl, name, gender, age).enqueue(object : Callback<PetaddInterfaceResponse> {
 
             override fun onResponse(call: Call<PetaddInterfaceResponse>, response: retrofit2.Response<PetaddInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetaddInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -198,7 +181,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<PetaddInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "addPet onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "addPet onFailure 에러: " + t.message.toString())
             }
         })
     }
@@ -208,16 +191,16 @@ class PetMainAddPetActivity : AppCompatActivity() {
         val bytes: ByteArray? = inputStream?.readBytes()
         inputStream?.close()
 
-        if (bytes != null) {
+        return if (bytes != null) {
             val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 
             val byteArrayOutputStream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
             val byteArray = byteArrayOutputStream.toByteArray()
-            return Base64.encodeToString(byteArray, Base64.NO_WRAP)
+            Base64.encodeToString(byteArray, Base64.NO_WRAP)
         }else{
             Log.d(TAG, "uriToString: image load 실패")
-            return " "
+            " "
         }
     }
 

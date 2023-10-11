@@ -1,34 +1,23 @@
 package com.example.petmate.community
 
-import android.graphics.BitmapFactory
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
-import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.RightItemDecorator
+import com.example.petmate.Tool
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentCommunityBinding
-import com.example.petmate.home.petowner.HomePetownerInterface
-import com.example.petmate.home.petowner.HomePetownerInterfaceResponse
-import com.example.petmate.home.petowner.HomePetownerPetlistAdapter
-import com.example.petmate.home.petowner.HomePetownerPetlistData
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.Date
 import kotlin.concurrent.thread
 
@@ -44,7 +33,7 @@ class CommunityFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentCommunityBinding.inflate(inflater)
 
@@ -55,13 +44,9 @@ class CommunityFragment : Fragment() {
     }
 
     private fun requestPopularList(){
-        //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         val now = System.currentTimeMillis()
         val date = Date(now);
         val sdf = SimpleDateFormat("yyyy-MM-dd")
@@ -119,20 +104,16 @@ class CommunityFragment : Fragment() {
 
             override fun onFailure(call: Call<CommunityInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
 
     }
 
     private fun requestBoardList(){
-        //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         val now = System.currentTimeMillis()
         val date = Date(now);
         val sdf = SimpleDateFormat("yyyy-MM-dd")
@@ -185,28 +166,9 @@ class CommunityFragment : Fragment() {
 
             override fun onFailure(call: Call<CommunityInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
 
-    }
-    private fun getPopularList(): ArrayList<CommunityPopularData>{
-        val popularList = ArrayList<CommunityPopularData>()
-
-        popularList.add(CommunityPopularData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-        popularList.add(CommunityPopularData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
-        popularList.add(CommunityPopularData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
-
-        return popularList
-    }
-
-    private fun getBoardList(): ArrayList<CommunityBoardData>{
-        val boardList = ArrayList<CommunityBoardData>()
-
-        boardList.add(CommunityBoardData("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"))
-        boardList.add(CommunityBoardData("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg"))
-        boardList.add(CommunityBoardData( "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg"))
-
-        return boardList
     }
 }

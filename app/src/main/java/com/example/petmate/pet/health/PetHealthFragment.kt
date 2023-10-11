@@ -11,18 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
+import com.example.petmate.Tool
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetHealthBinding
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.util.ArrayList
 import java.util.Calendar
 
 class PetHealthFragment : Fragment() {
@@ -31,20 +27,13 @@ class PetHealthFragment : Fragment() {
     var petIdx = 0
     private val TAG = "PetHealthFragment123"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            findNavController().navigate(R.id.action_petHealthFragment_to_petMainFragment)
-        }
-    }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPetHealthBinding.inflate(inflater)
 
         petIdx = arguments?.getInt("petIdx") ?: 0
         Log.d(TAG, "petIdx : $petIdx")
 
-        getInfoList()
         requestInfo(petIdx)
 
         binding.tvHealthVaccination.setOnClickListener{
@@ -87,7 +76,7 @@ class PetHealthFragment : Fragment() {
                         .show()
                 }
                 .setNegativeButton("아니요"
-                ) { dialog, id ->
+                ) { _, _ ->
                     Toast.makeText(findNavController().context, "접종 후에 날짜를 변경할 수 있습니다.", Toast.LENGTH_SHORT).show()
                 }
             dlg.show()
@@ -97,13 +86,8 @@ class PetHealthFragment : Fragment() {
     }
 
     private fun requestInfo(petIdx: Int) {
-//고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
 
         val service = retrofit.create(PetHealthInterface::class.java);
         service.getInfo(petIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
@@ -112,7 +96,7 @@ class PetHealthFragment : Fragment() {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성공된 경우
                     val result: PetHealthInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -137,16 +121,10 @@ class PetHealthFragment : Fragment() {
                             val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
                             binding.petHealthImage.setImageBitmap(bitmap)
 
-
-
-
-                            binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
                             binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
 
                             //item 간격 결정
                             binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
-
                         }
 
                         else -> {
@@ -162,21 +140,10 @@ class PetHealthFragment : Fragment() {
 
             override fun onFailure(call: Call<PetHealthInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }
-
-    private fun getRecordList(): ArrayList<PetHealthData> {
-        val recordList = ArrayList<PetHealthData>()
-
-        recordList.add(PetHealthData("2021.05.30"))
-        recordList.add(PetHealthData("2022.05.30"))
-        recordList.add(PetHealthData("2023.05.30"))
-
-        return recordList
-    }
-
 
     // 성별
     private fun getSexImage(sex: String): Int {
@@ -185,28 +152,6 @@ class PetHealthFragment : Fragment() {
             "암컷", "F" -> R.drawable.sex_female
             else -> R.drawable.sex_male
         }
-    }
-
-    private fun getInfoList() {
-        binding.petHealthPetname.text = "탈주닌자"
-        binding.petHealthPetdescription.text = "놀라버린 고양이"
-        binding.petHealthPetage.text = "1살"
-        binding.petHealthSexImage.setImageResource(getSexImage("수컷"))
-        binding.tvHealthVaccination.text = "2024.05.30"
-        binding.tvHealthHelminthic.text = "2024.05.30"
-        binding.tvHealthWeight.text = "5"
-        binding.tvHealthWeightCondition.text = "정상"
-        binding.tvHealthQuantity.text = "500"
-        binding.tvHealthKcal.text = "250"
-        binding.petHealthKnow.text = "알고 계셨나요?"
-
-
-        binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
-        binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-
-        //item 간격 결정
-        binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
     }
 
     private fun calculReqKcal(item: PetHealthInterfaceResponseResult): Int {

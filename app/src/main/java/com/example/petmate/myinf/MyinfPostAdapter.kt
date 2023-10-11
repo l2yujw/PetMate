@@ -6,13 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.petmate.R
-import com.example.petmate.community.CommunityBoardData
-import com.example.petmate.databinding.ItemCommunityBoardBinding
 import com.example.petmate.databinding.ItemMyinfPostBinding
-import com.example.petmate.home.petseeker.HomePetseekerRecommendPetListInterfaceResponseResponseResult
 import kotlin.random.Random
 
 class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>) : RecyclerView.Adapter<MyinfPostAdapter.MyinfPostViewHolder>()  {
@@ -28,8 +24,8 @@ class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>)
     }
 
     override fun onBindViewHolder(holder: MyinfPostAdapter.MyinfPostViewHolder, position: Int) {
-        var itemSubList = ArrayList<MyInfPicInterfaceResponseResult>()
-        Log.d("MyinfPostAdapter", "onBindViewHolder: ${itemSubList}")
+        val itemSubList = ArrayList<MyInfPicInterfaceResponseResult>()
+        Log.d("MyinfPostAdapter", "onBindViewHolder: $itemSubList")
         holder.setItem(itemList[position])
     }
 
@@ -46,7 +42,7 @@ class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>)
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
                 Glide.with(binding.imageMyinfPost)
-                    .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
+                    .load(tempimagelist[Random.nextInt(0,3)])                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
                     .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
@@ -63,9 +59,9 @@ class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>)
             }else{
                 val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
                 val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                Log.d(TAG, "item.userImage : ${item.image}")
-                Log.d(TAG, "encodeByte : ${encodeByte}")
-                Log.d(TAG, "bitmap : ${bitmap}")
+                val d = Log.d(TAG, "item.userImage : ${item.image}")
+                Log.d(TAG, "encodeByte : $encodeByte")
+                Log.d(TAG, "bitmap : $bitmap")
                 binding.imageMyinfPost.setImageBitmap(bitmap)
             }
 
@@ -75,7 +71,7 @@ class MyinfPostAdapter(val itemList: ArrayList<MyInfPicInterfaceResponseResult>)
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
                 Glide.with(binding.userImageMyinfPost)
-                    .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
+                    .load(tempimagelist[Random.nextInt(0,3)])                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
                     .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지

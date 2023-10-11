@@ -3,7 +3,6 @@ package com.example.petmate.home.petseeker
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +44,7 @@ class HomePetseekerListSubAdapter(val itemList: ArrayList<HomePetseekerRecommend
                 if(isUser == "isUser"){
                     bundle.putString("isUser","isUser")
                 }
-                Log.d("dddd","petseekrrecommendAdapterobj"+isUser)
+                Log.d("dddd", "petseekrrecommendAdapterobj$isUser")
                 it.findNavController().navigate(R.id.action_homePetseekerFragment_to_homeShelterpetInfoFragment,bundle)
             }
             Glide.with(binding.itemHomePetseekerListImage)

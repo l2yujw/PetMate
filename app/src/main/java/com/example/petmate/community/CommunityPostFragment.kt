@@ -26,20 +26,16 @@ class CommunityPostFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            findNavController().navigate(R.id.action_communityPostFragment_to_communityFragment)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCommunityPostBinding.inflate(inflater)
         indicator = binding.circleindicatorCommunityPost
         indicator.setViewPager(binding.viewpagerCommunityPost)
 
-        Log.d(TAG, "CommunityPostFragment123")
 
         val bundle = arguments
         val obj = bundle?.getParcelable<CommunityInterfaceResponseResult>("Postdata")
@@ -47,7 +43,7 @@ class CommunityPostFragment : Fragment() {
         val list = ArrayList<CommunityInterfaceResponseResult>()
         if (obj != null) {
             list.add(obj)
-            if(obj.nickName.isNullOrBlank()){
+            if(obj.nickName.isBlank()){
                 binding.nickNameCommunityPost.text = "익명"
             }else{
                 binding.nickNameCommunityPost.text = obj.nickName
@@ -55,7 +51,7 @@ class CommunityPostFragment : Fragment() {
             binding.titleCommunityPost.text = obj.title
             binding.tvCommunityPostContext.text = obj.detail
             Log.d(TAG, "onCreateView: ${obj}")
-            if(obj.userImage.isNullOrBlank() || obj.userImage == ""){
+            if(obj.userImage.isBlank() || obj.userImage == ""){
                 val tempuserImagelist = ArrayList<String>()
                 tempuserImagelist.add("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg")
                 tempuserImagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
@@ -96,21 +92,10 @@ class CommunityPostFragment : Fragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 indicator.animatePageSelected(position)
-                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
             }
         })
 
 
-        return binding.getRoot()
-    }
-
-    private fun getPostList(): ArrayList<CommunityPostData> {//혹시 모를 일을위해 여기를 먼저 깔아놓고 불러온걸 덮어쓰면 시간이 맞을듯?
-
-        val postList = ArrayList<CommunityPostData>()
-        val am = resources.assets
-        postList.add(CommunityPostData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
-        postList.add(CommunityPostData(BitmapFactory.decodeStream(am.open("pet1.jpg"))))
-
-        return postList
+        return binding.root
     }
 }

@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
 import android.util.Log
 import android.view.Window
 import android.widget.Button
@@ -21,12 +20,12 @@ import com.example.petmate.R
 
 class Login10PetseekerActivity : Activity() {
 
-    val PERM_STORAGE = 9
-    val REQ_GALLERY = 12
+    private val PERM_STORAGE = 9
+    private val REQ_GALLERY = 12
     lateinit var context: Context
-    var petImage: Uri? = null
+    private var petImage: Uri? = null
 
-    lateinit var addImage: ImageButton
+    private lateinit var addImage: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,13 +58,13 @@ class Login10PetseekerActivity : Activity() {
         }
     }
 
-    fun openGallery() {
+    private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = MediaStore.Images.Media.CONTENT_TYPE
         startActivityForResult(intent, REQ_GALLERY)
     }
 
-    fun requirePermissions(permissions: Array<String>, requestCode: Int) {
+    private fun requirePermissions(permissions: Array<String>, requestCode: Int) {
         ActivityCompat.requestPermissions(this, permissions, requestCode)
     }
 
@@ -83,13 +82,13 @@ class Login10PetseekerActivity : Activity() {
         }
     }
 
-    fun permissionGranted(requestCode: Int) {
+    private fun permissionGranted(requestCode: Int) {
         when (requestCode) {
             PERM_STORAGE -> initViews()
         }
     }
 
-    fun permissionDenied(requestCode: Int) {
+    private fun permissionDenied(requestCode: Int) {
         when (requestCode) {
             PERM_STORAGE -> {
                 Toast.makeText(this, "공용 저장소 권한을 승인해야 앱을 정상적으로 사용할 수 있습니다.", Toast.LENGTH_SHORT).show()
@@ -98,7 +97,7 @@ class Login10PetseekerActivity : Activity() {
         }
     }
 
-    fun initViews() {
+    private fun initViews() {
         addImage.setOnClickListener {
             openGallery()
         }
