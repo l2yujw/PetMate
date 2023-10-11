@@ -12,25 +12,22 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.Tool
 import com.example.petmate.databinding.ActivityMyinfPhotoBinding
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
-import java.sql.Blob
 
 class MyinfPhotoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMyinfPhotoBinding
 
-    lateinit var myInfPhotoAdapter: MyinfPhotoAdapter
+    private lateinit var myInfPhotoAdapter: MyinfPhotoAdapter
 
-    var imageList: ArrayList<Uri> = ArrayList()
+    private var imageList: ArrayList<Uri> = ArrayList()
 
-    lateinit var imageUri:Uri
+    private lateinit var imageUri:Uri
 
     private val TAG = "MyinfPhotoActivity123"
 
@@ -42,11 +39,6 @@ class MyinfPhotoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         myInfPhotoAdapter = MyinfPhotoAdapter(imageList, this)
-
-//        //recyclerView 설정
-//        binding.rcvMyinfPhotoPost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-//        binding.rcvMyinfPhotoPost.adapter = myInfPhotoAdapter
-//        binding.rcvMyinfPhotoPost.addItemDecoration(RightItemDecorator(20))
 
         //버튼 이벤트
         binding.imageviewPost.setOnClickListener {
@@ -61,28 +53,19 @@ class MyinfPhotoActivity : AppCompatActivity() {
             val userIdx = GlobalUserIdx.getUserIdx()
             val title = binding.editPostTitle.text.toString()
             val detail = binding.editPostDetail.text.toString()
-            val image = binding.imageviewPost.drawable.current
-            val bitmap = Bitmap.createBitmap(image.intrinsicWidth,image.intrinsicHeight, Bitmap.Config.ARGB_8888)
-            val bitmap1 = Bitmap.createScaledBitmap(bitmap, 400, 240, true);
-
 
             val phototoString = uriToString(imageUri)
-//고정
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.124.16.204:3000/")
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-            //
 
-            val service = retrofit.create(MyinfInterface::class.java);
+            val retrofit = Tool.getRetrofit()
+
+            val service = retrofit.create(MyinfInterface::class.java)
             service.addPost(userIdx,title,detail,phototoString).enqueue(object : Callback<MyinfaddPostInterfaceResponse> {
 
                 override fun onResponse(call: Call<MyinfaddPostInterfaceResponse>, response: retrofit2.Response<MyinfaddPostInterfaceResponse>) {
                     if (response.isSuccessful) {
                         // 정상적으로 통신이 성고된 경우
                         val result: MyinfaddPostInterfaceResponse? = response.body()
-                        Log.d(TAG, "PopularList onResponse 성공: " + result?.toString());
+                        Log.d(TAG, "PopularList onResponse 성공: " + result?.toString())
 
                         when (result?.code) {
                             200 -> {
@@ -103,7 +86,7 @@ class MyinfPhotoActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<MyinfaddPostInterfaceResponse>, t: Throwable) {
                     // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                    Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                    Log.d(TAG, "onFailure 에러: " + t.message.toString())
                 }
             })
         }
@@ -127,20 +110,16 @@ class MyinfPhotoActivity : AppCompatActivity() {
         val bytes: ByteArray? = inputStream?.readBytes()
         inputStream?.close()
 
-        if (bytes != null) {
-            var bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-
-            //bitmap = Bitmap.createScaledBitmap(bitmap, 800, 480, true)
-
+        return if (bytes != null) {
+            val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 
             val byteArrayOutputStream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
             val byteArray = byteArrayOutputStream.toByteArray()
-            val image = Base64.encodeToString(byteArray, Base64.NO_WRAP)
-            return image
+            Base64.encodeToString(byteArray, Base64.NO_WRAP)
         }else{
             Log.d(TAG, "uriToString: image load 실패")
-            return " "
+            " "
         }
     }
 }

@@ -2,7 +2,6 @@ package com.example.petmate.pet.main
 
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -10,9 +9,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -20,30 +16,23 @@ import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.R
+import com.example.petmate.Tool
 import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.databinding.FragmentPetMainBinding
-import com.example.petmate.myinf.MyinfPhotoActivity
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import kotlin.random.Random
 
 class PetMainFragment : Fragment() {
 
     lateinit var binding: FragmentPetMainBinding
-    var imageList: ArrayList<Uri> = ArrayList()
 
     private val TAG = "PetMainFragment123"
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentPetMainBinding.inflate(inflater)
         binding.tvMainPetName.text = "탈주닌자"
         binding.tvMainPetAge.text = "특징" + "나이"
@@ -84,7 +73,7 @@ class PetMainFragment : Fragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 indicatorMypet.animatePageSelected(position)
-                Log.d(TAG, "position : ${position}")
+                Log.d(TAG, "position : $position")
                 requestPetInfo(petIdxList[position])
                 requestPetTrainingInfo(petIdxList[position])
             }
@@ -110,26 +99,21 @@ class PetMainFragment : Fragment() {
             startActivity(intent)
         }
 
-        return binding.getRoot()
+        return binding.root
     }
 
     private fun requestPetTrainingInfo(petIdx: Int) {
-//고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
 
-        val service = retrofit.create(PetMainInterface::class.java);
+        val retrofit = Tool.getRetrofit()
+
+        val service = retrofit.create(PetMainInterface::class.java)
         service.getStar(petIdx).enqueue(object : Callback<PetMainInterfaceStarResponse> {
 
             override fun onResponse(call: Call<PetMainInterfaceStarResponse>, response: retrofit2.Response<PetMainInterfaceStarResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetMainInterfaceStarResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -167,28 +151,23 @@ class PetMainFragment : Fragment() {
 
             override fun onFailure(call: Call<PetMainInterfaceStarResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }
 
     private fun requestPetInfo(petIdx:Int) {
         //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+        val retrofit = Tool.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java);
+        val service = retrofit.create(PetMainInterface::class.java)
         service.getInfo(petIdx).enqueue(object : Callback<PetMainInterfaceResponse> {
 
             override fun onResponse(call: Call<PetMainInterfaceResponse>, response: retrofit2.Response<PetMainInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetMainInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -252,22 +231,6 @@ class PetMainFragment : Fragment() {
                                     findNavController().navigate(R.id.action_petMainFragment_to_petHealthFragment, bundle)
                                 }
                             })
-                            //건강정보
-
-                            //훈련
-                            /*val adapterCheckedTrainingList = PetMainTrainingAdapter(getCheckedTrainingList())
-                            adapterCheckedTrainingList.notifyDataSetChanged()
-                            binding.rcvPetMainTraining.adapter = adapterCheckedTrainingList
-                            binding.rcvPetMainTraining.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-                            adapterCheckedTrainingList.setItemClickListener(object : OnItemClickListener {
-                                override fun onClick(v: View, position: Int) {
-                                    val bundle = Bundle()
-                                    bundle.putInt("petIdx", petIdx)
-                                    findNavController().navigate(R.id.action_petMainFragment_to_petTrainingFragment, bundle)
-                                }
-                            })*/
-                            //훈련
                         }
 
                         else -> {
@@ -283,35 +246,9 @@ class PetMainFragment : Fragment() {
 
             override fun onFailure(call: Call<PetMainInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
-    }
-
-    //결과 가져오기
-    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()){
-
-        //결과 코드 OK , 결가값 null 아니면
-        if(it.resultCode == AppCompatActivity.RESULT_OK){
-
-            //멀티 선택은 clipData
-            if(it.data!!.clipData != null){ //멀티 이미지
-
-                //선택한 이미지 갯수
-                val count = it.data!!.clipData!!.itemCount
-
-                for(index in 0 until count){
-                    //이미지 담기
-                    val imageUri = it.data!!.clipData!!.getItemAt(index).uri
-                    //이미지 추가
-                    imageList.add(imageUri)
-                }
-            }else{ //싱글 이미지
-                val imageUri = it.data!!.data
-                imageList.add(imageUri!!)
-            }
-        }
     }
 
     private fun getNoteList(): ArrayList<PetMainNoteData> {
@@ -345,10 +282,8 @@ class PetMainFragment : Fragment() {
 
     private fun getMypetList(): ArrayList<PetMainMypetData> {
         val recommendList = java.util.ArrayList<PetMainMypetData>()
-        val am = resources.assets
         recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
         recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
-
 
         return recommendList
     }

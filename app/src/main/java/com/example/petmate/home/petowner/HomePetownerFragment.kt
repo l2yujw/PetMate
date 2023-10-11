@@ -28,6 +28,7 @@ import com.example.petmate.GlobalPetIdxList
 import com.example.petmate.GlobalUserIdx
 import com.example.petmate.HorizontalItemDecorator
 import com.example.petmate.R
+import com.example.petmate.Tool
 import com.example.petmate.databinding.FragmentHomePetownerBinding
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherAdapter
 import com.example.petmate.home.petowner.weather.HomePetownerWeatherCommon
@@ -61,6 +62,7 @@ class HomePetownerFragment : Fragment() {
     private var curPoint: Point? = null    // 현재 위치의 격자 좌표를 저장할 포인트
     lateinit var binding: FragmentHomePetownerBinding
     lateinit var indicator: CircleIndicator3
+    private var viewpagerIdx = 0
     var telArray = arrayOf<String>("010-1111-1111", "010-2222-2222", "010-3333-3333", "010-4444-4444", "010-5555-5555")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,33 +92,8 @@ class HomePetownerFragment : Fragment() {
         val userIdx: Int = GlobalUserIdx.getUserIdx()
 
 
-        //예비용으로 미리 깔아두기
-        val boardAdapterPetList = HomePetownerPetlistAdapter(getPetList())
-        boardAdapterPetList.notifyDataSetChanged()
-
-        indicator.createIndicators(getPetList().size, 0)
-
-        binding.viewpagerPetownerPetlist.adapter = HomePetownerPetlistAdapter(getPetList())
-        binding.viewpagerPetownerPetlist.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpagerPetownerPetlist.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                indicator.animatePageSelected(position)
-                //Toast.makeText(requireContext(), "${position + 1} 페이지 선택됨", Toast.LENGTH_SHORT).show()
-            }
-        })
-        //예비용으로 미리 깔아두기
-
         requestPetList(userIdx)
 
-        //예비용으로 미리 깔아두기
-        val boardAdapterScheduleList = HomePetownerScheduleAdapter(getScheduleList())
-        boardAdapterScheduleList.notifyDataSetChanged()
-        //스케쥴 눌렀을 때 나오는 화면 구성해야 할듯
-        binding.rcvHavepetSchedule.adapter = boardAdapterScheduleList
-        binding.rcvHavepetSchedule.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        //예비용으로 미리 깔아두기
 
         requestScheduleList(userIdx)
 
@@ -127,6 +104,7 @@ class HomePetownerFragment : Fragment() {
 
         binding.btnWalk.setOnClickListener {
             val intent = Intent(requireContext(), WalkActivity::class.java)
+            intent.putExtra("petIdx",GlobalPetIdxList.getlist()[viewpagerIdx])
             startActivity(intent)
         }
 
@@ -141,7 +119,7 @@ class HomePetownerFragment : Fragment() {
             findNavController().navigate(R.id.action_homePetownerFragment_to_homePetseekerFragment, bundle)
         }
 
-        return binding.getRoot()
+        return binding.root
     }
 
 
@@ -165,10 +143,10 @@ class HomePetownerFragment : Fragment() {
         // (페이지 번호 = 1, 한 페이지 결과 수 = 60, 응답 자료 형식-"JSON", 발표 날싸, 발표 시각, 예보지점 좌표)
         val call = HomePetownerWeatherObject.getRetrofitService().getWeather(1, 300, "JSON", weatherBaseDate, weatherBaseTime, nx, ny)
         Log.d("WEATHER TEST", "날씨 정보 가져오기")
-        Log.d("WEATHER TEST", "날씨 정보" + weatherBaseDate + "+" + weatherBaseTime + "+" + nx + "+" + ny)
+        Log.d("WEATHER TEST", "날씨 정보$weatherBaseDate+$weatherBaseTime+$nx+$ny")
 
         // 비동기적으로 실행하기
-        call.enqueue(object : retrofit2.Callback<WEATHER> {
+        call.enqueue(object : Callback<WEATHER> {
             // 응답 성공 시
             override fun onResponse(call: Call<WEATHER>, response: Response<WEATHER>) {
                 Log.d("WEATHER TEST", "날씨 정보 응답")
@@ -205,13 +183,13 @@ class HomePetownerFragment : Fragment() {
                             HomePetownerWeatherData(),
                             HomePetownerWeatherData()
                         )
-                    var weather8h = Array<String>(8, { "" })
+                    val weather8h = Array<String>(8) { "" }
                     /*for (k in 1..23) {
                         weatherArr.plus(HomePetownerWeatherData())
                     }*/
 
                     // 배열 채우기
-                    var index = 0
+                    var index: Int
                     var subIndex = -1
 //                    val totalCount = response.body()!!.response.body.totalCount - 1
                     val totalCount = it.size - 1
@@ -321,65 +299,30 @@ class HomePetownerFragment : Fragment() {
         }
     }
 
-    private fun getPetList(): ArrayList<HomePetownerPetlistData> {//혹시 모를 일을위해 여기를 먼저 깔아놓고 불러온걸 덮어쓰면 시간이 맞을듯?
-
-        val petList = ArrayList<HomePetownerPetlistData>()
-        val am = resources.assets
-        petList.add(HomePetownerPetlistData("aaaaaa", "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg"))
-        petList.add(HomePetownerPetlistData("bbbb", "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg"))
-
-        return petList
-    }
-
-    private fun getScheduleList(): ArrayList<HomePetownerScheduleData> {//혹시 모를 일을위해 여기를 먼저 깔아놓고 불러온걸 덮어쓰면 시간이 맞을듯?
-        val scheduleList = ArrayList<HomePetownerScheduleData>()
-
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-        scheduleList.add(HomePetownerScheduleData("08:00 am", "MainText", "SubText"))
-
-        return scheduleList
-    }
-
     private fun requestPetList(userIdx: Int) {
-        //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
-        val service = retrofit.create(HomePetownerInterface::class.java);
-        Log.d(TAG, "requestPetList: ${userIdx}")
+
+        val retrofit = Tool.getRetrofit()
+
+        val service = retrofit.create(HomePetownerInterface::class.java)
+        Log.d(TAG, "requestPetList: $userIdx")
         service.getPetList(userIdx).enqueue(object : Callback<HomePetownerInterfaceResponse> {
 
-            override fun onResponse(call: Call<HomePetownerInterfaceResponse>, response: retrofit2.Response<HomePetownerInterfaceResponse>) {
+            override fun onResponse(call: Call<HomePetownerInterfaceResponse>, response: Response<HomePetownerInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: HomePetownerInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
                             val petIdxList = GlobalPetIdxList
                             petIdxList.clearlist()
-                            var petList = ArrayList<HomePetownerPetlistData>()
+                            val petList = ArrayList<HomePetownerPetlistData>()
                             for (item in result.result) {
                                 petIdxList.addlist(item.petIdx)
                                 Log.d(TAG, "onResponse: $item")
 
                                 val randomtext = ArrayList<String>()
-
-                                /*randomtext.add("반려동물은 우리 삶에 \n무한한 사랑을 채워줍니다.")
-                                randomtext.add("반려동물과 함께하는 시간은\n 항상 특별한 순간입니다.")
-                                randomtext.add("반려동물은\n 우리의 가장 충실한 친구입니다.")
-                                randomtext.add("반려동물은 우리에게\n 무조건적인 사랑을 가르쳐줍니다.")
-                                randomtext.add("반려동물은 우리의 일상을\n 더 밝고 행복하게 만들어줍니다.")
-                                randomtext.add("반려동물은 항상 우리 곁에 있어주는\n 특별한 존재입니다.")
-                                randomtext.add("반려동물은 언제나 우리를 웃게 해주는\n 비밀 무기입니다.")
-                                randomtext.add("반려동물은 우리에게\n 무한한 행복을 선물합니다.")
-                                randomtext.add("반려동물은 우리 삶에\n 더 많은 의미를 부여해줍니다.")
-                                randomtext.add("반려동물과 함께하는 순간은\n 금이 간다고 할 만큼 소중합니다.")*/
 
                                 randomtext.add("오늘은 산책하기 좋은 날씨에요!")
                                 randomtext.add("오늘은 집에서 쉬고 싶어요~")
@@ -417,20 +360,16 @@ class HomePetownerFragment : Fragment() {
 
             override fun onFailure(call: Call<HomePetownerInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
 
     }
 
     private fun requestScheduleList(userIdx: Int) {
-        //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         Log.d(TAG, "requestScheduleList: ENTER")
         val now = System.currentTimeMillis()
         val date = Date(now)
@@ -438,20 +377,20 @@ class HomePetownerFragment : Fragment() {
         //val getDate = sdf.format(date)
         val getDate = "20230910"
         //val sendDate = Date(getDate)
-        val service = retrofit.create(HomePetownerInterface::class.java);
+        val service = retrofit.create(HomePetownerInterface::class.java)
         service.getPetScheduleList(userIdx, getDate).enqueue(object : Callback<PetScheduleInterfaceResponse> {
 
-            override fun onResponse(call: Call<PetScheduleInterfaceResponse>, response: retrofit2.Response<PetScheduleInterfaceResponse>) {
+            override fun onResponse(call: Call<PetScheduleInterfaceResponse>, response: Response<PetScheduleInterfaceResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
                     val result: PetScheduleInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
                             val Schedulelist = ArrayList<HomePetownerScheduleData>()
                             for (item in result.result) {
-                                var time = item.time.split(":")[0] + ":" + item.time.split(":")[1]
+                                val time = item.time.split(":")[0] + ":" + item.time.split(":")[1]
                                 Schedulelist.add(HomePetownerScheduleData(time, ("${item.name}:${item.schedulename}"), item.detail))
                             }
 
@@ -477,7 +416,7 @@ class HomePetownerFragment : Fragment() {
 
             override fun onFailure(call: Call<PetScheduleInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }
@@ -492,7 +431,7 @@ class HomePetownerFragment : Fragment() {
             val intent: Intent
             when (item?.itemId) {
                 item.itemId -> {
-                    item.setTitle(telArray[item.itemId])
+                    item.title = telArray[item.itemId]
                     intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telArray[item.itemId]))
                     startActivity(intent)
                 }

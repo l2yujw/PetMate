@@ -2,7 +2,6 @@ package com.example.petmate.pet.main
 
 import android.graphics.BitmapFactory
 import android.util.Base64
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +36,7 @@ class PetMainMypetAdapter(val itemList: ArrayList<PetMainMypetData>) : RecyclerV
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_640.jpg")
                 tempimagelist.add("https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_640.jpg")
                 Glide.with(binding.imgPetMainMypet)
-                    .load(tempimagelist.get(Random.nextInt(0,3)))                         // 불러올 이미지 URL
+                    .load(tempimagelist[Random.nextInt(0,3)])                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
                     .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
                     .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지

@@ -25,7 +25,7 @@ class PetTrainingDetailAdapter(val itemList: ArrayList<PetTrainingDetailData>) :
     }
 
     inner class TrainingDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val level = itemView.findViewById<TextView>(R.id.pet_tarining_level)
-        val detail = itemView.findViewById<TextView>(R.id.pet_tarining_detail)
+        val level: TextView = itemView.findViewById<TextView>(R.id.pet_tarining_level)
+        val detail: TextView = itemView.findViewById<TextView>(R.id.pet_tarining_detail)
     }
 }

@@ -8,18 +8,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.petmate.databinding.ActivityLogin00Binding
 import com.example.petmate.navigation.BottomNavActivity
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.Tool
 import com.example.petmate.navigation.BottomNavAnonyActivity
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 // Tool -> Firebase -> Authentication -> 아무거나 클릭후 add
 class Login00Activity : AppCompatActivity() {
 
     private lateinit var binding : ActivityLogin00Binding
-    //lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +40,6 @@ class Login00Activity : AppCompatActivity() {
         }
 
         binding.btnAnonymousLogin.setOnClickListener{
-            //anonymousLogin()
-            //login("11@naver.com","1234")
             val intent = Intent(this, BottomNavAnonyActivity::class.java)
             startActivity(intent)
         }
@@ -50,24 +47,10 @@ class Login00Activity : AppCompatActivity() {
     }
 
     private fun login(email:String, password:String){
-        /*auth.signInWithEmailAndPassword(email,password) // 로그인
-            .addOnCompleteListener {
-                    result->
-                if(result.isSuccessful){
-                    var intent = Intent(this, BottomNavActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                }
-            }*/
 
-        //고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+        val retrofit = Tool.getRetrofit()
 
-        val service = retrofit.create(LoginInterface::class.java);
+        val service = retrofit.create(LoginInterface::class.java)
 
         service.getLogin(email,password).enqueue(object : Callback<LoginInterfaceResponse> {
 
@@ -75,7 +58,6 @@ class Login00Activity : AppCompatActivity() {
                 if(response.isSuccessful){
                     // 정상적으로 통신이 성고된 경우
                     val result: LoginInterfaceResponse? = response.body()
-                    Log.d("Login1", "onResponse 성공: " + result?.toString());
 
                     when (result?.code) {
                         200 -> {
@@ -106,21 +88,8 @@ class Login00Activity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                 Toast.makeText(applicationContext, "통신 실패", Toast.LENGTH_SHORT).show()
-                Log.d("Login1", "onFailure 에러: " + t.message.toString());
+                Log.d("Login1", "onFailure 에러: " + t.message.toString())
             }
         })
     }
-
-    /*fun anonymousLogin(){
-        auth.signInAnonymously()
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    var intent = Intent(this, BottomNavAnonyActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                } else {
-                    //회원가입에 실패했을 때의 코드 추가
-                }
-            }
-    }*/
 }

@@ -2,25 +2,24 @@ package com.example.petmate.home.petseeker
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 
 class HomePetseekerRecommendData(
-    var dataIdx:Int,
-    var noticeNumber:String,
-    var imageUrl:String,
-    var receiptDate:String,
-    var species:String,
-    var gender:String,
-    var discoveryPlace:String,
-    var characteristic:String,
-    var publicNoticeStart:String,
-    var publicNoticeEnd:String,
-    var colorCd:String,
-    var age:Int,
-    var weight:String,
-    var orgNm:String,
-    var careAddr:String,
-    var officetel:String
+    private var dataIdx:Int,
+    private var noticeNumber:String,
+    private var imageUrl:String,
+    private var receiptDate:String,
+    private var species:String,
+    private var gender:String,
+    private var discoveryPlace:String,
+    private var characteristic:String,
+    private var publicNoticeStart:String,
+    private var publicNoticeEnd:String,
+    private var colorCd:String,
+    private var age:Int,
+    private var weight:String,
+    private var orgNm:String,
+    private var careAddr:String,
+    private var officetel:String
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -39,9 +38,7 @@ class HomePetseekerRecommendData(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
-    ) {
-    }
-
+    )
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(dataIdx)
         parcel.writeString(noticeNumber)

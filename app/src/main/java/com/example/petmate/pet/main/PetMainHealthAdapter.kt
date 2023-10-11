@@ -33,6 +33,6 @@ class PetMainHealthAdapter(val itemList: ArrayList<PetMainHealthData>) : Recycle
     }
 
     inner class PetMainHealthViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val health = itemView.findViewById<TextView>(R.id.main_health_text)
+        val health: TextView = itemView.findViewById<TextView>(R.id.main_health_text)
     }
 }

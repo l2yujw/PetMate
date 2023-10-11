@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.petmate.GlobalPetIdxList
@@ -15,12 +14,10 @@ import com.example.petmate.VerticalItemDecorator
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.HorizontalItemDecorator
+import com.example.petmate.Tool
 import com.example.petmate.databinding.FragmentPetTrainingBinding
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.net.URL
 import kotlin.concurrent.thread
 
@@ -30,18 +27,11 @@ class PetTrainingFragment : Fragment() {
     private val TAG = "PetTrainingFragment123"
     lateinit var adapterTrainingList : PetTrainingListAdapter
     lateinit var trainingList : ArrayList<PetTrainingInterfaceResponseResult>
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(this){
-            findNavController().navigate(R.id.action_petTrainingFragment_to_petMainFragment)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentPetTrainingBinding.inflate(inflater)
         val petIdx = GlobalPetIdxList.getlist()[0]
@@ -59,15 +49,9 @@ class PetTrainingFragment : Fragment() {
         binding.trainingRead2.setOnClickListener { readWithLevel(2,petIdx) }
         binding.trainingRead3.setOnClickListener { readWithLevel(3,petIdx) }
         binding.trainingSearchBtn.setOnClickListener {
-            var text = binding.trainingSearch.text.toString()
+            val text = binding.trainingSearch.text.toString()
             readWithname(text,petIdx)
         }
-
-
-
-
-
-
         //item 간격 결정
         binding.rcvPetTrainingList.addItemDecoration(HorizontalItemDecorator(20))
         binding.rcvPetTrainingList.addItemDecoration(VerticalItemDecorator(20))
@@ -81,7 +65,7 @@ class PetTrainingFragment : Fragment() {
 
             }
         })
-        return binding.getRoot()
+        return binding.root
     }
 
     private fun getPetImageList(): ArrayList<PetTrainingListData>{
@@ -93,26 +77,21 @@ class PetTrainingFragment : Fragment() {
         return petTrainingList
     }
     private fun readAll(petIdx: Int) {
-//고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         val list = ArrayList<PetTrainingListData>()
         adapterTrainingList = PetTrainingListAdapter(list)
         Log.d(TAG, "readAll: 어디감")
 
         binding.rcvPetTrainingList.adapter = adapterTrainingList
         binding.rcvPetTrainingList.layoutManager = GridLayoutManager(requireContext(), 2)
-        val service = retrofit.create(PetTrainingInterface::class.java);
+        val service = retrofit.create(PetTrainingInterface::class.java)
         service.readAll(petIdx).enqueue(object : Callback<PetTrainingInterfaceResponse> {
 
             override fun onResponse(call: Call<PetTrainingInterfaceResponse>, response: retrofit2.Response<PetTrainingInterfaceResponse>) {
                 if (response.isSuccessful) {
                     val result: PetTrainingInterfaceResponse? = response.body()
-                    //Log.d(TAG, "onResponse 성공: " + result?.toString());
 
                     when (result?.code) {
                         200 -> {
@@ -143,32 +122,27 @@ class PetTrainingFragment : Fragment() {
             }
             override fun onFailure(call: Call<PetTrainingInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }
 
     private fun readWithLevel(level: Int, petIdx:Int) {
-//고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         val list = ArrayList<PetTrainingListData>()
         adapterTrainingList = PetTrainingListAdapter(list)
-        Log.d(TAG, "readAll: 어디감")
 
         binding.rcvPetTrainingList.adapter = adapterTrainingList
         binding.rcvPetTrainingList.layoutManager = GridLayoutManager(requireContext(), 2)
-        val service = retrofit.create(PetTrainingInterface::class.java);
+        val service = retrofit.create(PetTrainingInterface::class.java)
         service.readWithLevel(level,petIdx).enqueue(object : Callback<PetTrainingInterfaceResponse> {
 
             override fun onResponse(call: Call<PetTrainingInterfaceResponse>, response: retrofit2.Response<PetTrainingInterfaceResponse>) {
                 if (response.isSuccessful) {
                     val result: PetTrainingInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -199,33 +173,28 @@ class PetTrainingFragment : Fragment() {
             }
             override fun onFailure(call: Call<PetTrainingInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }
 
 
     private fun readWithname(name:String, petIdx:Int) {
-//고정
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.16.204:3000/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-        //
+
+        val retrofit = Tool.getRetrofit()
+
         val list = ArrayList<PetTrainingListData>()
         adapterTrainingList = PetTrainingListAdapter(list)
-        Log.d(TAG, "readAll: 어디감")
 
         binding.rcvPetTrainingList.adapter = adapterTrainingList
         binding.rcvPetTrainingList.layoutManager = GridLayoutManager(requireContext(), 2)
-        val service = retrofit.create(PetTrainingInterface::class.java);
+        val service = retrofit.create(PetTrainingInterface::class.java)
         service.readWithName(name,petIdx).enqueue(object : Callback<PetTrainingInterfaceResponse> {
 
             override fun onResponse(call: Call<PetTrainingInterfaceResponse>, response: retrofit2.Response<PetTrainingInterfaceResponse>) {
                 if (response.isSuccessful) {
                     val result: PetTrainingInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString());
+                    Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
@@ -256,7 +225,7 @@ class PetTrainingFragment : Fragment() {
             }
             override fun onFailure(call: Call<PetTrainingInterfaceResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString());
+                Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
     }

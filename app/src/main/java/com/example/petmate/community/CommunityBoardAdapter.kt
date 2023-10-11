@@ -1,9 +1,7 @@
 package com.example.petmate.community
 
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.petmate.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.databinding.ItemCommunityBoardBinding
-import java.io.ByteArrayOutputStream
 import kotlin.random.Random
 
 
@@ -70,7 +67,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                 binding.imgCommunityBoard.setImageBitmap(bitmap)
             }
 
-            if(item.userImage.isNullOrBlank()|| item.userImage=="" || item.userImage=="NULL") {//유저 이미지
+            if(item.userImage.isBlank()|| item.userImage=="" || item.userImage=="NULL") {//유저 이미지
                 Glide.with(binding.userImageCommunityBoard)
                     .load("https://cdn-icons-png.flaticon.com/128/4863/4863153.png")                         // 불러올 이미지 URL
                     .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
@@ -92,7 +89,7 @@ class CommunityBoardAdapter(val itemList: ArrayList<CommunityInterfaceResponseRe
                 binding.userImageCommunityBoard.setImageBitmap(bitmap)
             }
 
-            if(item.nickName.isNullOrBlank()) {
+            if(item.nickName.isBlank()) {
                 binding.nickNameCommunityBoard.text = "익명"
             }else{
                 binding.nickNameCommunityBoard.text = item.nickName
