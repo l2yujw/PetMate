@@ -2,9 +2,12 @@ package com.example.petmate.home.petseeker
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,16 +17,22 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.net.toUri
 import androidx.viewpager2.widget.ViewPager2
+import com.example.petmate.Classifier
 import com.example.petmate.GlobalUserIdx
 import com.example.petmate.Tool
 import com.example.petmate.databinding.FragmentHomePetseekerBinding
 import retrofit2.Call
 import retrofit2.Callback
+import java.io.IOException
+import java.util.Locale
+
 class HomePetseekerFragment : Fragment() {
 
     lateinit var binding: FragmentHomePetseekerBinding
     private val TAG = "HomePetseekerFragment123"
+    private lateinit var classifier: Classifier
     var telArray = arrayOf<String>("031-5189-7099", "031-228-3328")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -269,6 +278,27 @@ class HomePetseekerFragment : Fragment() {
                             val bundle = arguments
                             val obj = bundle?.getString("isUser")
                             Log.d("dddd", "petseekrrecommendobj$obj")
+                            val item = list[0]
+
+                            var bitmap: Bitmap? = null
+                            try {
+                                bitmap = if (Build.VERSION.SDK_INT >= 28) {
+                                    val src = ImageDecoder.createSource(requireContext().contentResolver, item.imageUrl.toUri())
+                                    ImageDecoder.decodeBitmap(src)
+                                } else {
+                                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, item.imageUrl.toUri())
+                                }
+                            } catch (exception: IOException) {
+                            }
+                            bitmap?.let {
+                                val output = classifier.classify(bitmap)
+                                val resultStr =
+                                    String.format(Locale.ENGLISH, "class : %s, prob : %.2f%%", output.first, output.second * 100)
+                                binding.run {
+                                    Log.d("dddd",output.first)
+                                }
+                            }
+
 
                             val boardAdapterRecommend = HomePetseekerRecommendAdapter(list, obj)
 
