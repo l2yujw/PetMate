@@ -12,6 +12,7 @@ import com.example.petmate.KeepStateFragment
 import com.example.petmate.R
 import com.example.petmate.databinding.ActivityBottomNavBinding
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.Tool
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -36,12 +37,7 @@ class BottomNavActivity : AppCompatActivity(){
 
         if(userIdx != 0){
 
-            //고정
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.124.16.204:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            //
+            val retrofit = Tool.getRetrofit()
 
             val service = retrofit.create(CheckUserPetInterface::class.java)
 
