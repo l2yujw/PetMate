@@ -8,7 +8,7 @@ class Tool {
     companion object {
         fun getRetrofit(): Retrofit {
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.124.16.204:3000/")
+                .baseUrl("http://3.34.34.132:3000/")
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
