@@ -5,6 +5,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,21 +16,29 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.example.petmate.Classifier
 import com.example.petmate.R
+import com.example.petmate.databinding.ItemLoginPetseekerBinding
+import java.io.IOException
+import java.util.Locale
 
 
 class Login10PetseekerActivity : Activity() {
-
+    private lateinit var classifier: Classifier
     private val PERM_STORAGE = 9
     private val REQ_GALLERY = 12
     lateinit var context: Context
     private var petImage: Uri? = null
+    var tfliteresult: String = ""
 
     private lateinit var addImage: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        initClassifier()
 
         //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -48,7 +58,9 @@ class Login10PetseekerActivity : Activity() {
             val intent = Intent(this, Login10Activity::class.java)
             if (petImage != null) {
                 Log.d("petImage", "Image selected")
-                intent.putExtra("petImage", petImage)
+                //intent.putExtra("petImage", petImage)
+                intent.putExtra("result",tfliteresult)
+                Toast.makeText(this, tfliteresult, Toast.LENGTH_SHORT).show()
                 setResult(RESULT_OK, intent)
             } else {
                 Log.d("petImage", "Image not selected")
@@ -109,13 +121,28 @@ class Login10PetseekerActivity : Activity() {
             when (requestCode) {
                 REQ_GALLERY -> {
                     data?.data?.let { uri ->
+                        val selectedImage = uri
+                        val src = ImageDecoder.createSource(contentResolver, selectedImage)
+                        val bitmap = ImageDecoder.decodeBitmap(src)
+                        val output = classifier.classify(bitmap)
+                        val resultStr =
+                            String.format(Locale.ENGLISH, "class : %s, prob : %.2f%%", output.first, output.second * 100)
+                        //Toast.makeText(applicationContext, output.first, Toast.LENGTH_SHORT).show()
+
                         addImage.setImageURI(uri)
                         petImage = uri
+                        tfliteresult = output.first
                     }
                 }
             }
         }
     }
-
-
+    private fun initClassifier() {
+        classifier = Classifier(this, Classifier.IMAGENET_CLASSIFY_MODEL)
+        try {
+            classifier.init()
+        } catch (exception: IOException) {
+            Toast.makeText(this, "Can not init Classifier!!", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
