@@ -47,6 +47,7 @@ class Classifier(private var context: Context, private val modelName: String) {
         outputs[0] = outputBuffer.buffer.rewind()
         model.run(inputs, outputs)
         val output = TensorLabel(labels, outputBuffer).mapWithFloatValue
+        Log.d("classify123", "classify: 1231231123123")
         return argmax(output)
     }
 
@@ -76,7 +77,7 @@ class Classifier(private var context: Context, private val modelName: String) {
     }
 
     companion object {
-        const val IMAGENET_CLASSIFY_MODEL = "petMate.tflite"
-        const val LABEL_FILE = "petMate.txt"
+        const val IMAGENET_CLASSIFY_MODEL = "model_unquant.tflite"
+        const val LABEL_FILE = "labels.txt"
     }
 }

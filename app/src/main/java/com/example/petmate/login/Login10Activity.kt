@@ -14,11 +14,17 @@ import com.example.petmate.databinding.ActivityLogin10Binding
 import retrofit2.Call
 import retrofit2.Callback
 
+private val convertList=listOf("[개] 골든 리트리버","[개] 그레이 하운드","[개] 그레이트 피레니즈","[개] 닥스훈트","[개] 달마시안","[개] 도베르만","도사","[개] 라브라도 리트리버","[고양이] 러시안 블루","[고양이] 레그돌",
+"[개] 로트와일러","[개] 말라뮤트","[개] 말티즈","[개] 미니어쳐 핀셔","[개] 베들링턴 테리어","[고양이] 벵갈","[개] 보더 콜리","[개] 보스턴 테리어","[개] 불독","[고양이] 브리티시 쇼트헤어",
+"[개] 비글","[개] 비숑 프리제","[개] 사모예드","[개] 삽살개","[개] 샤페이","[고양이] 샴","[개] 셰퍼드","[개] 슈나우져","[고양이] 스코티시폴드","[개] 스피츠",
+"[고양이] 스핑크스","[개] 시바","[개] 시베리안 허스키","[개] 시츄","[개] 요크셔 테리어","[개] 웰시 코기","[개] 진도견","[개] 차우차우","[개] 치와와","[개] 코카 스파니엘",
+"[개] 푸들","[개] 퍼그","[고양이] 페르시안","[개] 포메라니안","[개] 프렌치 불독")
 
 class Login10Activity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLogin10Binding
     private var petImage: Uri? = null
+    private var tflitereulst:String=""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +52,9 @@ class Login10Activity : AppCompatActivity() {
             } else if (!verifyEmail(email)) {
                 Toast.makeText(this, "이메일 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
             } else if (!binding.btnLoginPetowner.isSelected && !binding.btnLoginPetseeker.isSelected) {
-                Toast.makeText(this, "반려동물 유무를 선택해 주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "반려동물 유무를 선택해주세요.", Toast.LENGTH_SHORT).show()
+            } else if(!binding.btnLoginPetowner.isSelected && tflitereulst==""){
+                Toast.makeText(this, "반려동물 없음 클릭 후 사진을 선택해주세요.", Toast.LENGTH_SHORT).show()
             } else {
                 register(name, email, password/*,petowner*/)    // TODO petowner 변수는 반려동물이 있으면 true, 없으면 false. 관심동물 이미지는 전역변수인 petImage: Uri?로 할당.
             }
@@ -156,13 +164,9 @@ class Login10Activity : AppCompatActivity() {
     private val petseekerForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         Log.d("petImage", "data transformed")
         if (result.resultCode == RESULT_OK) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                petImage = intent.getParcelableExtra("petImage", Uri::class.java)
-                Log.d("petImage", "selected")
-            } else {
-                petImage = intent.getParcelableExtra("petImage")
-                Log.d("petImage", "selected")
-            }
+            val test= result.data!!.getStringExtra("result")
+            tflitereulst = convertList[test!!.split(" ")[0].toInt()]
+            Toast.makeText(this, tflitereulst, Toast.LENGTH_SHORT).show()
         } else {
             Log.d("petImage", "not selected")
             binding.btnLoginPetowner.isSelected = false

@@ -278,27 +278,6 @@ class HomePetseekerFragment : Fragment() {
                             val bundle = arguments
                             val obj = bundle?.getString("isUser")
                             Log.d("dddd", "petseekrrecommendobj$obj")
-                            val item = list[0]
-
-                            var bitmap: Bitmap? = null
-                            try {
-                                bitmap = if (Build.VERSION.SDK_INT >= 28) {
-                                    val src = ImageDecoder.createSource(requireContext().contentResolver, item.imageUrl.toUri())
-                                    ImageDecoder.decodeBitmap(src)
-                                } else {
-                                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, item.imageUrl.toUri())
-                                }
-                            } catch (exception: IOException) {
-                            }
-                            bitmap?.let {
-                                val output = classifier.classify(bitmap)
-                                val resultStr =
-                                    String.format(Locale.ENGLISH, "class : %s, prob : %.2f%%", output.first, output.second * 100)
-                                binding.run {
-                                    Log.d("dddd",output.first)
-                                }
-                            }
-
 
                             val boardAdapterRecommend = HomePetseekerRecommendAdapter(list, obj)
 
