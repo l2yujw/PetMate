@@ -2,7 +2,6 @@ package com.example.petmate.login
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -24,7 +23,7 @@ class Login10Activity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLogin10Binding
     private var petImage: Uri? = null
-    private var tflitereulst:String=""
+    private var tfliteresult:String=""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +52,7 @@ class Login10Activity : AppCompatActivity() {
                 Toast.makeText(this, "이메일 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
             } else if (!binding.btnLoginPetowner.isSelected && !binding.btnLoginPetseeker.isSelected) {
                 Toast.makeText(this, "반려동물 유무를 선택해주세요.", Toast.LENGTH_SHORT).show()
-            } else if(!binding.btnLoginPetowner.isSelected && tflitereulst==""){
+            } else if(!binding.btnLoginPetowner.isSelected && tfliteresult==""){
                 Toast.makeText(this, "반려동물 없음 클릭 후 사진을 선택해주세요.", Toast.LENGTH_SHORT).show()
             } else {
                 register(name, email, password/*,petowner*/)    // TODO petowner 변수는 반려동물이 있으면 true, 없으면 false. 관심동물 이미지는 전역변수인 petImage: Uri?로 할당.
@@ -106,7 +105,7 @@ class Login10Activity : AppCompatActivity() {
 
                     when (result?.code) {
                         200 -> {
-                            service.postCreateUser(name, email, password).enqueue(object : Callback<LoginInterfaceResponse> {
+                            service.postCreateUser(name, email, password,tfliteresult).enqueue(object : Callback<LoginInterfaceResponse> {
 
                                 override fun onResponse(call: Call<LoginInterfaceResponse>, response: retrofit2.Response<LoginInterfaceResponse>) {
                                     if (response.isSuccessful) {
@@ -165,8 +164,8 @@ class Login10Activity : AppCompatActivity() {
         Log.d("petImage", "data transformed")
         if (result.resultCode == RESULT_OK) {
             val test= result.data!!.getStringExtra("result")
-            tflitereulst = convertList[test!!.split(" ")[0].toInt()]
-            Toast.makeText(this, tflitereulst, Toast.LENGTH_SHORT).show()
+            tfliteresult = convertList[test!!.split(" ")[0].toInt()]
+            Toast.makeText(this, tfliteresult, Toast.LENGTH_SHORT).show()
         } else {
             Log.d("petImage", "not selected")
             binding.btnLoginPetowner.isSelected = false

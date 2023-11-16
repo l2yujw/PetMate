@@ -15,6 +15,6 @@ interface LoginInterface {
     @GET("/User/checkemail")
     fun getCheckEmail(@Query("email") email:String): Call<CheckEmailResponse>
     @POST("/User/insert")
-    fun postCreateUser(@Query("name") name:String, @Query("email") email:String, @Query("pw") pw:String):Call<LoginInterfaceResponse>
+    fun postCreateUser(@Query("name") name:String, @Query("email") email:String, @Query("pw") pw:String,@Query("recommend") tfliteresult:String):Call<LoginInterfaceResponse>
 
 }
