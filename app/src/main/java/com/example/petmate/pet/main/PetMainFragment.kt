@@ -288,4 +288,5 @@ class PetMainFragment : Fragment() {
         return recommendList
     }
 
+
 }
