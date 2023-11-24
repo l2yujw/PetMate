@@ -1,26 +1,24 @@
 package com.example.petmate.home.petowner
 
 import android.Manifest
+import android.R.attr.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
-import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -45,9 +43,6 @@ import me.relex.circleindicator.CircleIndicator3
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.sql.Date
 import java.util.Calendar
 import java.util.Locale
@@ -443,4 +438,9 @@ class HomePetownerFragment : Fragment() {
         popup.show()
     }
 
+    override fun onResume() {
+        super.onResume()
+//        (context as FragmentActivity).supportFragmentManager.beginTransaction().detach(this).commit()
+//        (context as FragmentActivity).supportFragmentManager.beginTransaction().attach(this).commit()
+    }
 }
