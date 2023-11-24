@@ -6,9 +6,9 @@ import retrofit2.http.Query
 
 interface HomePetownerInterface {
 
-    @GET("HomePetowner/userIdx")
+    @GET("/HomePetowner/userIdx")
     fun getPetList(@Query("userIdx") userIdx:Int): Call<HomePetownerInterfaceResponse>
 
-    @GET("HomePetowner/schedule")
+    @GET("/HomePetowner/schedule")
     fun getPetScheduleList(@Query("userIdx") userIdx:Int, @Query("date") date:String):Call<PetScheduleInterfaceResponse>
 }

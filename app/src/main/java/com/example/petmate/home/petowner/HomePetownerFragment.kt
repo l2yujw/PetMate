@@ -375,9 +375,9 @@ class HomePetownerFragment : Fragment() {
         Log.d(TAG, "requestScheduleList: ENTER")
         val now = System.currentTimeMillis()
         val date = Date(now)
-        val sdf = SimpleDateFormat("yyyyMMdd")
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
         //val getDate = sdf.format(date)
-        val getDate = "20230910"
+        val getDate = "2023-09-10"
         //val sendDate = Date(getDate)
         val service = retrofit.create(HomePetownerInterface::class.java)
         service.getPetScheduleList(userIdx, getDate).enqueue(object : Callback<PetScheduleInterfaceResponse> {

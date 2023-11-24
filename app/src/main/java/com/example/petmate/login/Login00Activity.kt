@@ -61,7 +61,7 @@ class Login00Activity : AppCompatActivity() {
 
                     when (result?.code) {
                         200 -> {
-                            Toast.makeText(applicationContext, result.message+result.userIdx, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(applicationContext, BottomNavActivity::class.java)
 
                             GlobalUserIdx.setUserIdx(result.userIdx)
@@ -71,10 +71,10 @@ class Login00Activity : AppCompatActivity() {
 
                         }
                         201 -> {
-                            Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(applicationContext, result.message, Toast.LENGTH_SHORT).show()
                         }
                         else -> {
-                            Toast.makeText(applicationContext, "ㅈ버그발생 보내는 데이터가 문제임", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(applicationContext, "ㅈ버그발생 보내는 데이터가 문제임", Toast.LENGTH_SHORT).show()
                         }
                     }
 

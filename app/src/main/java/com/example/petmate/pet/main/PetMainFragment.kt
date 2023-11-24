@@ -37,7 +37,7 @@ class PetMainFragment : Fragment() {
         binding.tvMainPetName.text = "탈주닌자"
         binding.tvMainPetAge.text = "특징" + "나이"
         val petIdxList = GlobalPetIdxList.getlist()
-
+        Log.d(TAG, "onCreateView: "+petIdxList[0]+","+petIdxList[1])
 
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
         adapterNoteList.notifyDataSetChanged()
