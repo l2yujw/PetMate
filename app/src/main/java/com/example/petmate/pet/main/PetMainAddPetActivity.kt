@@ -38,8 +38,6 @@ class PetMainAddPetActivity : AppCompatActivity() {
             //갤러리 호출
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
-            //멀티 선택 기능
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             activityResult.launch(intent)
         }
 

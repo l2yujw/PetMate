@@ -37,13 +37,13 @@ class PetMainFragment : Fragment() {
         binding.tvMainPetName.text = "탈주닌자"
         binding.tvMainPetAge.text = "특징" + "나이"
         val petIdxList = GlobalPetIdxList.getlist()
-        Log.d(TAG, "onCreateView: "+petIdxList[0]+","+petIdxList[1])
+        Log.d(TAG, "onCreateView: "+petIdxList)
 
         val adapterNoteList = PetMainNoteAdapter(getNoteList())
         adapterNoteList.notifyDataSetChanged()
 
 
-        val adapterMyPetList = PetMainMypetAdapter(getMypetList())
+        val adapterMyPetList = PetMainMypetAdapter(getMypetList(GlobalPetIdxList.getlist().size))
         adapterMyPetList.notifyDataSetChanged()
 
         val indicatorMypet = binding.circleindicatorPetmainMypet
@@ -94,7 +94,6 @@ class PetMainFragment : Fragment() {
         })
 
         binding.btnAddPet.setOnClickListener{
-            //갤러리 호출
             val intent = Intent(requireContext(), PetMainAddPetActivity::class.java)
             startActivity(intent)
         }
@@ -280,10 +279,11 @@ class PetMainFragment : Fragment() {
         return checkedTrainingList
     }
 
-    private fun getMypetList(): ArrayList<PetMainMypetData> {
+    private fun getMypetList(cnt:Int): ArrayList<PetMainMypetData> {
         val recommendList = java.util.ArrayList<PetMainMypetData>()
-        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
-        recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
+        for (i in 0..cnt) {
+            recommendList.add(PetMainMypetData("https://cdn.pixabay.com/photo/2022/08/06/13/58/jindo-dog-7368686_640.jpg"))
+        }
 
         return recommendList
     }
