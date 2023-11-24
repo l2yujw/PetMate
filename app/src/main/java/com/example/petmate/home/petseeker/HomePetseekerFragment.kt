@@ -1,6 +1,7 @@
 package com.example.petmate.home.petseeker
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -16,11 +17,14 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petmate.Classifier
 import com.example.petmate.GlobalUserIdx
+import com.example.petmate.R
 import com.example.petmate.Tool
 import com.example.petmate.databinding.FragmentHomePetseekerBinding
 import retrofit2.Call
@@ -315,5 +319,15 @@ class HomePetseekerFragment : Fragment() {
                 Log.d(TAG, "onFailure 에러: " + t.message.toString())
             }
         })
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_homePetseekerFragment_to_homePetownerFragment)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 }
