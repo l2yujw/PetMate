@@ -34,6 +34,8 @@ class PetHealthFragment : Fragment() {
         petIdx = arguments?.getInt("petIdx") ?: 0
         Log.d(TAG, "petIdx : $petIdx")
 
+
+        getInfoList()
         requestInfo(petIdx)
 
         binding.tvHealthVaccination.setOnClickListener{
@@ -167,4 +169,35 @@ class PetHealthFragment : Fragment() {
         }
         return (k * RER).toInt()
     }
+    private fun getInfoList() {
+        binding.petHealthPetname.text = "탈주닌자"
+        binding.petHealthPetdescription.text = "놀라버린 고양이"
+        binding.petHealthPetage.text = "1살"
+        binding.petHealthSexImage.setImageResource(getSexImage("수컷"))
+        binding.tvHealthVaccination.text = "2024.05.30"
+        binding.tvHealthHelminthic.text = "2024.05.30"
+        binding.tvHealthWeight.text = "5"
+        binding.tvHealthWeightCondition.text = "정상"
+        binding.tvHealthQuantity.text = "500"
+        binding.tvHealthKcal.text = "250"
+        binding.petHealthKnow.text = "알고 계셨나요?"
+
+
+        binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
+        binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+
+        //item 간격 결정
+        binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
+    }
+    private fun getRecordList(): ArrayList<PetHealthData> {
+        val recordList = ArrayList<PetHealthData>()
+
+        recordList.add(PetHealthData("2021.05.30"))
+        recordList.add(PetHealthData("2022.05.30"))
+        recordList.add(PetHealthData("2023.05.30"))
+
+        return recordList
+    }
+
 }
