@@ -22,10 +22,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // url 변수 지정
-        buildConfigField "String", "WEATHER_URL", properties['url.weather']
+//        buildConfigField "String", "WEATHER_URL", properties['url.weather']
 
         // api key 변수 지정
-        buildConfigField "String", "WEATHER_API_KEY", properties['api.key']
+//        buildConfigField "String", "WEATHER_API_KEY", properties['api.key']
 
     }
 
