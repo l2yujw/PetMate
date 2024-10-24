@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brandWhite"
-    tools:context=".community.CommunityFragment">
+    tools:context=".ui.community.fragment.CommunityFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

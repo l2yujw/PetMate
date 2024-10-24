@@ -8,7 +8,7 @@
     android:gravity="bottom"
     app:umanoDragView="@id/slide_layout"
     app:umanoPanelHeight="145dp"
-    tools:context=".walk.WalkActivity">
+    tools:context=".ui.walk.activity.WalkActivity">
 
     <RelativeLayout
         android:id="@+id/KakaoMapView"

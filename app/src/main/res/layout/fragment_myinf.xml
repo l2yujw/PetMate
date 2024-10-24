@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brandWhite"
-    tools:context=".myinf.MyinfFragment">
+    tools:context=".ui.myinf.fragment.MyinfFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

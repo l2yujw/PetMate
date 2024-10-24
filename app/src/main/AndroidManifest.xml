@@ -29,7 +29,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Splash"
+            android:name=".ui.splash.Splash"
             android:theme="@style/splash"
             android:screenOrientation="portrait"
             android:exported="true">
@@ -39,31 +39,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pet.main.PetMainAddPetActivity"
+            android:name=".ui.pet.main.activity.PetMainAddPetActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".myinf.MyinfPhotoActivity"
+            android:name=".ui.myinf.activity.MyinfPhotoActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".navigation.BottomNavAnonyActivity"
+            android:name=".ui.navigation.BottomNavAnonyActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".walk.WalkActivity"
+            android:name=".ui.walk.activity.WalkActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".login.Login10Activity"
+            android:name=".ui.login.Login10Activity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".navigation.BottomNavActivity"
+            android:name=".ui.navigation.BottomNavActivity"
             android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".login.Login00Activity"
+            android:name=".ui.login.Login00Activity"
             android:screenOrientation="portrait"
             android:exported="true">
             <!--<intent-filter>
@@ -72,7 +72,7 @@
             </intent-filter>-->
         </activity>
         <activity
-            android:name=".login.Login10PetseekerActivity"
+            android:name=".ui.login.Login10PetseekerActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" />
 

@@ -8,7 +8,7 @@
 
     <keep_state_fragment
         android:id="@+id/homePetownerFragment"
-        android:name="com.example.petmate.home.petowner.HomePetownerFragment"
+        android:name="com.example.petmate.ui.home.petowner.fragment.HomePetownerFragment"
         app:popUpToSaveState="true"
         android:label="fragment_home_petowner"
         tools:layout="@layout/fragment_home_petowner" >
@@ -33,7 +33,7 @@
 
     <keep_state_fragment
         android:id="@+id/petMainFragment"
-        android:name="com.example.petmate.pet.main.PetMainFragment"
+        android:name="com.example.petmate.ui.pet.main.fragment.PetMainFragment"
         app:popUpToSaveState="true"
         android:label="fragment_pet_main"
         tools:layout="@layout/fragment_pet_main" >
@@ -49,7 +49,7 @@
 
     <keep_state_fragment
         android:id="@+id/petTrainingFragment"
-        android:name="com.example.petmate.pet.training.PetTrainingFragment"
+        android:name="com.example.petmate.ui.training.fragment.PetTrainingFragment"
         app:popUpToSaveState="true"
         android:label="fragment_pet_training"
         tools:layout="@layout/fragment_pet_training" >
@@ -63,7 +63,7 @@
 
     <keep_state_fragment
         android:id="@+id/communityFragment"
-        android:name="com.example.petmate.community.CommunityFragment"
+        android:name="com.example.petmate.ui.community.fragment.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" >
         <action
@@ -73,7 +73,7 @@
 
     <keep_state_fragment
         android:id="@+id/myinfFragment"
-        android:name="com.example.petmate.myinf.MyinfFragment"
+        android:name="com.example.petmate.ui.myinf.fragment.MyinfFragment"
         android:label="fragment_myinf"
         tools:layout="@layout/fragment_myinf" >
         <action
@@ -83,7 +83,7 @@
 
     <keep_state_fragment
         android:id="@+id/petHealthFragment"
-        android:name="com.example.petmate.pet.health.PetHealthFragment"
+        android:name="com.example.petmate.ui.pet.health.fragment.PetHealthFragment"
         android:label="fragment_pet_health"
         tools:layout="@layout/fragment_pet_health" >
         <action
@@ -93,7 +93,7 @@
 
     <keep_state_fragment
         android:id="@+id/petTrainingDetailFragment"
-        android:name="com.example.petmate.pet.training.PetTrainingDetailFragment"
+        android:name="com.example.petmate.ui.training.fragment.PetTrainingDetailFragment"
         android:label="fragment_pet_training_detail"
         tools:layout="@layout/fragment_pet_training_detail" >
         <action
@@ -111,7 +111,7 @@
     </keep_state_fragment>
     <keep_state_fragment
         android:id="@+id/communityPostFragment"
-        android:name="com.example.petmate.community.CommunityPostFragment"
+        android:name="com.example.petmate.ui.community.fragment.CommunityPostFragment"
         android:label="fragment_community_post"
         tools:layout="@layout/fragment_community_post" >
         <action
@@ -120,7 +120,7 @@
     </keep_state_fragment>
     <keep_state_fragment
         android:id="@+id/myinfPostFragment"
-        android:name="com.example.petmate.myinf.MyinfPostFragment"
+        android:name="com.example.petmate.ui.myinf.fragment.MyinfPostFragment"
         android:label="fragment_myinf_post"
         tools:layout="@layout/fragment_myinf_post" >
         <action
