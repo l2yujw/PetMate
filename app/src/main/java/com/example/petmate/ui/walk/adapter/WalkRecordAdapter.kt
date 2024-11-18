@@ -31,12 +31,12 @@ class WalkRecordAdapter(
         fun bind(item: WalkRecordData) {
             binding.apply {
                 walkRecordGuardian.text = item.guardian
-                walkRecordTrainingtime.text = item.trainingtime
+                walkRecordTrainingtime.text = item.trainingTime
                 walkRecordCalories.text = item.calories
-                walkRecordAvgfrequency.text = item.avgfrequency
-                walkRecordMaxfrequency.text = item.maxfrequency
+                walkRecordAvgfrequency.text = item.avgFrequency
+                walkRecordMaxfrequency.text = item.maxFrequency
                 walkRecordBreaks.text = item.breaks
-                walkRecordBreaktimes.text = item.breaktimes
+                walkRecordBreaktimes.text = item.breakTimes
             }
         }
     }
