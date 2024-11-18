@@ -6,7 +6,7 @@
     tools:context=".ui.training.fragment.PetTrainingFragment">
 
     <TextView
-        android:id="@+id/pet_mate"
+        android:id="@+id/tv_pet_mate_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -24,7 +24,7 @@
         android:background="@drawable/background_pet_training_search_petcolor5_roundstroke_12dp">
 
         <ImageView
-            android:id="@+id/training_search_btn"
+            android:id="@+id/iv_training_search"
             android:layout_width="28dp"
             android:layout_height="29dp"
             android:layout_centerVertical="true"
@@ -33,7 +33,7 @@
             android:src="@drawable/search" />
 
         <EditText
-            android:id="@+id/training_search"
+            android:id="@+id/et_training_search"
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:layout_centerVertical="true"
@@ -67,7 +67,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/training_read_all"
+            android:id="@+id/btn_read_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division2"
@@ -80,7 +80,7 @@
             android:textSize="13sp" />
 
         <Button
-            android:id="@+id/training_read_1"
+            android:id="@+id/btn_level_one"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division2"
@@ -109,7 +109,7 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/training_read_2"
+            android:id="@+id/btn_level_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@id/activity_main_pet_training_division3"
@@ -122,7 +122,7 @@
             android:textSize="13sp" />
 
         <Button
-            android:id="@+id/training_read_3"
+            android:id="@+id/btn_level_three"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignStart="@id/activity_main_pet_training_division3"
@@ -144,7 +144,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_pet_training_list"
+        android:id="@+id/rv_pet_training_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"

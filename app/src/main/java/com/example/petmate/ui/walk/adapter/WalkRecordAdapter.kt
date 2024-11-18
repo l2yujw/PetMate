@@ -1,42 +1,43 @@
 package com.example.petmate.ui.walk.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.petmate.R
+import com.example.petmate.databinding.ItemWalkRecordListBinding
 import com.example.petmate.ui.walk.data.WalkRecordData
 
-class WalkRecordAdapter(val itemList: ArrayList<WalkRecordData>) : RecyclerView.Adapter<WalkRecordAdapter.WalkRecordViewHolder>() {
+class WalkRecordAdapter(
+    private val itemList: List<WalkRecordData> // 불변성을 유지하기 위해 List 사용
+) : RecyclerView.Adapter<WalkRecordAdapter.WalkRecordViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalkRecordViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_walk_record_list, parent, false)
-        return WalkRecordViewHolder(view)
+        val binding = ItemWalkRecordListBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return WalkRecordViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: WalkRecordViewHolder, position: Int) {
-        holder.guardian.text = itemList[position].guardian
-        holder.trainingtime.text = itemList[position].trainingtime
-        holder.calories.text = itemList[position].calories
-        holder.avgfrequency.text = itemList[position].avgfrequency
-        holder.maxfrequency.text = itemList[position].maxfrequency
-        holder.breaks.text = itemList[position].breaks
-        holder.breaktimes.text = itemList[position].breaktimes
+        holder.bind(itemList[position])
     }
 
-    override fun getItemCount(): Int {
-        return itemList.count()
-    }
+    override fun getItemCount(): Int = itemList.size
 
-    inner class WalkRecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val guardian = itemView.findViewById<TextView>(R.id.walk_record_guardian)
-        val trainingtime = itemView.findViewById<TextView>(R.id.walk_record_trainingtime)
-        val calories = itemView.findViewById<TextView>(R.id.walk_record_calories)
-        val avgfrequency = itemView.findViewById<TextView>(R.id.walk_record_avgfrequency)
-        val maxfrequency = itemView.findViewById<TextView>(R.id.walk_record_maxfrequency)
-        val breaks = itemView.findViewById<TextView>(R.id.walk_record_breaks)
-        val breaktimes = itemView.findViewById<TextView>(R.id.walk_record_breaktimes)
-    }
+    inner class WalkRecordViewHolder(private val binding: ItemWalkRecordListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(item: WalkRecordData) {
+            binding.apply {
+                walkRecordGuardian.text = item.guardian
+                walkRecordTrainingtime.text = item.trainingtime
+                walkRecordCalories.text = item.calories
+                walkRecordAvgfrequency.text = item.avgfrequency
+                walkRecordMaxfrequency.text = item.maxfrequency
+                walkRecordBreaks.text = item.breaks
+                walkRecordBreaktimes.text = item.breaktimes
+            }
+        }
+    }
 }

@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/pet_health_image"
+            android:id="@+id/iv_health_image"
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:layout_marginTop="100dp"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/pet_health_petname"
+                android:id="@+id/tv_health_pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
@@ -54,7 +54,7 @@
                 android:textAppearance="@style/pet_main_name" />
 
             <TextView
-                android:id="@+id/pet_health_petdescription"
+                android:id="@+id/tv_health_pet_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="19dp"
@@ -63,17 +63,17 @@
                 android:textAppearance="@style/pet_main_nameSub" />
 
             <TextView
-                android:id="@+id/pet_health_petage"
+                android:id="@+id/tv_health_pet_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
-                android:layout_toEndOf="@id/pet_health_petdescription"
+                android:layout_toEndOf="@id/tv_health_pet_description"
                 android:text="1살"
                 android:textAppearance="@style/pet_main_nameSub" />
 
             <ImageView
-                android:id="@+id/pet_health_sex_image"
+                android:id="@+id/iv_health_sex_image"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
@@ -113,7 +113,7 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
             app:layout_constraintBottom_toTopOf="@+id/pet_health_dewormer"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record_layout"
+            app:layout_constraintEnd_toStartOf="@+id/rl_health_vaccination_record"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +146,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_vaccination_record_layout"
+            app:layout_constraintEnd_toStartOf="@+id/rl_health_vaccination_record"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +172,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_vaccination_record_layout"
+            android:id="@+id/rl_health_vaccination_record"
             android:layout_width="0dp"
             android:layout_height="138dp"
             android:layout_marginStart="10dp"
@@ -204,13 +204,13 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_layout_text_weight"
+            android:id="@+id/rl_health_weight"
             android:layout_width="0dp"
             android:layout_height="22dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="587dp"
             android:layout_marginEnd="10dp"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_text_feed"
+            app:layout_constraintEnd_toStartOf="@+id/rl_health_feed"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -231,7 +231,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_layout_text_feed"
+            android:id="@+id/rl_health_feed"
             android:layout_width="0dp"
             android:layout_height="22dp"
             android:layout_marginStart="10dp"
@@ -240,7 +240,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="4.5"
-            app:layout_constraintStart_toEndOf="@+id/pet_health_layout_text_weight"
+            app:layout_constraintStart_toEndOf="@+id/rl_health_weight"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -258,14 +258,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_layout_weight"
+            android:id="@+id/rl_health_weights"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="615dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/background_pet_health_vaccination_petcolor9_round_15dp"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_feed"
+            app:layout_constraintEnd_toStartOf="@+id/rl_health_layout_feed"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
@@ -276,7 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_alignParentBottom="true"
-                android:layout_toStartOf="@id/tv_health_weight_kgtext"
+                android:layout_toStartOf="@id/tv_health_weight_kg_text"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -285,7 +285,7 @@
                 android:textAppearance="@style/pet_health_vaccination_duedate1" />
 
             <TextView
-                android:id="@+id/tv_health_weight_kgtext"
+                android:id="@+id/tv_health_weight_kg_text"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_alignParentBottom="true"
@@ -309,16 +309,16 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_layout_feed"
+            android:id="@+id/rl_health_layout_feed"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="615dp"
             android:background="@drawable/background_pet_health_vaccination_homepetcolor2_round_15dp"
-            app:layout_constraintEnd_toStartOf="@+id/pet_health_layout_kcal"
+            app:layout_constraintEnd_toStartOf="@+id/rl_health_layout_kcal"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintStart_toEndOf="@+id/pet_health_layout_weight"
+            app:layout_constraintStart_toEndOf="@+id/rl_health_weights"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -342,7 +342,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/pet_health_layout_kcal"
+            android:id="@+id/rl_health_layout_kcal"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginStart="10dp"
@@ -352,7 +352,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintStart_toEndOf="@+id/pet_health_layout_feed"
+            app:layout_constraintStart_toEndOf="@+id/rl_health_layout_feed"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -377,7 +377,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/pet_health_know"
+            android:id="@+id/tv_health_know"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginHorizontal="30dp"

@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/pet_mate"
+            android:id="@+id/tv_pet_mate_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -30,7 +30,7 @@
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
 
         <Button
-            android:id="@+id/btn_home_petseeker_all"
+            android:id="@+id/btn_filter_all"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -42,7 +42,7 @@
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:id="@+id/btn_home_petseeker_dog"
+            android:id="@+id/btn_filter_dog"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -54,7 +54,7 @@
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:id="@+id/btn_home_petseeker_cat"
+            android:id="@+id/btn_filter_cat"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -66,7 +66,7 @@
             android:textAppearance="@style/petseeker_catagory" />
 
         <Button
-            android:id="@+id/btn_home_petseeker_etc"
+            android:id="@+id/btn_filter_others"
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -88,7 +88,7 @@
             android:background="@drawable/background_home_1_roundrectangle_homepetcolor3_round_20dp" />
 
         <Spinner
-            android:id="@+id/spinner_petseeker"
+            android:id="@+id/spinner_filter_options"
             android:layout_width="245dp"
             android:layout_height="32dp"
             android:layout_alignParentStart="true"
@@ -99,7 +99,7 @@
             />
 
         <Button
-            android:id="@+id/btn_centerNumber"
+            android:id="@+id/btn_call_center"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -112,7 +112,7 @@
 
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager_petseeker_recommend"
+            android:id="@+id/vp_pet_seeker_recommend"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_alignParentStart="true"
@@ -121,7 +121,7 @@
             android:layout_marginTop="230dp" />
 
         <me.relex.circleindicator.CircleIndicator3
-            android:id="@+id/circleindicator_petseeker_recommend"
+            android:id="@+id/ci_pet_seeker_recommend"
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_alignParentStart="true"
@@ -133,7 +133,7 @@
 
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager_petseeker_list"
+            android:id="@+id/vp_pet_seeker_list"
             android:layout_width="match_parent"
             android:layout_height="530dp"
             android:layout_alignParentStart="true"
@@ -145,7 +145,7 @@
             android:paddingVertical="17dp" />
 
         <me.relex.circleindicator.CircleIndicator3
-            android:id="@+id/circleindicator_petseeker_petlist"
+            android:id="@+id/ci_pet_seeker_list"
             android:layout_width="match_parent"
             android:layout_height="9dp"
             android:layout_alignParentStart="true"

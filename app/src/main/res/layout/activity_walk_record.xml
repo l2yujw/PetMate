@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/pet_mate"
+        android:id="@+id/tv_pet_mate_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -27,12 +27,14 @@
             android:layout_marginTop="85dp">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_pet_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="35dp">
 
                 <ImageView
+                    android:id="@+id/iv_pet_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -42,6 +44,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_pet_info"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:layout_marginHorizontal="30dp"
@@ -87,7 +90,7 @@
                 app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:id="@+id/walk_record_pet_sex"
+                    android:id="@+id/iv_walk_record_pet_sex"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"

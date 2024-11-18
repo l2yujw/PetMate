@@ -43,7 +43,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".ui.myinf.activity.MyinfPhotoActivity"
+            android:name=".ui.myinfo.activity.MyInfoPhotoActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
@@ -55,7 +55,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".ui.login.Login10Activity"
+            android:name=".ui.login.LoginRegisterActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
@@ -63,7 +63,7 @@
             android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".ui.login.Login00Activity"
+            android:name=".ui.login.LoginMainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <!--<intent-filter>
@@ -72,7 +72,7 @@
             </intent-filter>-->
         </activity>
         <activity
-            android:name=".ui.login.Login10PetseekerActivity"
+            android:name=".ui.login.LoginPetSeekerActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" />
 

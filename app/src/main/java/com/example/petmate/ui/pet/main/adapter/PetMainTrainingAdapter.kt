@@ -9,19 +9,19 @@ import com.example.petmate.core.util.OnItemClickListener
 import com.example.petmate.R
 import com.example.petmate.ui.pet.main.data.PetMainTrainingData
 
-class PetMainTrainingAdapter(val itemList: ArrayList<PetMainTrainingData>) : RecyclerView.Adapter<PetMainTrainingAdapter.PetMainTrainingiewHolder>() {
+class PetMainTrainingAdapter(val itemList: List<PetMainTrainingData>) : RecyclerView.Adapter<PetMainTrainingAdapter.PetMainTrainingViewHolder>() {
 
     private lateinit var itemClickListener : OnItemClickListener
 
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainTrainingiewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainTrainingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_training, parent, false)
-        return PetMainTrainingiewHolder(view)
+        return PetMainTrainingViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: PetMainTrainingiewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PetMainTrainingViewHolder, position: Int) {
         holder.checkedTraining.text = itemList[position].checkedTraining
         holder.itemView.setOnClickListener{
             itemClickListener.onClick(it, position)
@@ -32,7 +32,7 @@ class PetMainTrainingAdapter(val itemList: ArrayList<PetMainTrainingData>) : Rec
         return itemList.count()
     }
 
-    inner class PetMainTrainingiewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val checkedTraining: TextView = itemView.findViewById<TextView>(R.id.main_checkedtraining_text)
+    inner class PetMainTrainingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val checkedTraining: TextView = itemView.findViewById(R.id.main_checkedtraining_text)
     }
 }

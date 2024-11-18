@@ -7,46 +7,58 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.petmate.core.util.OnItemClickListener
 import com.example.petmate.databinding.ItemPetTrainingListBinding
 import com.example.petmate.ui.training.data.PetTrainingListData
+import com.example.petmate.util.GlideHelper
 
-class PetTrainingListAdapter(val itemList: ArrayList<PetTrainingListData>) : RecyclerView.Adapter<PetTrainingListAdapter.PetTrainingListViewHolder>() {
+class PetTrainingListAdapter(
+    private var trainingItems: ArrayList<PetTrainingListData> // 더 명확한 변수명
+) : RecyclerView.Adapter<PetTrainingListAdapter.PetTrainingListViewHolder>() {
 
-    private lateinit var itemClickListener : OnItemClickListener
-    lateinit var binding: ItemPetTrainingListBinding
+    private var onItemClickListener: OnItemClickListener? = null
 
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
+    // 클릭 리스너 설정
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.onItemClickListener = listener
+    }
+
+    // 데이터 갱신 메서드 (효율적인 데이터 변경 처리)
+    fun updateTrainingItems(newItems: List<PetTrainingListData>) {
+        trainingItems.clear()
+        trainingItems.addAll(newItems)
+        notifyDataSetChanged() // 전체 데이터 변경 시 RecyclerView 갱신
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetTrainingListViewHolder {
-        binding = ItemPetTrainingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPetTrainingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PetTrainingListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PetTrainingListViewHolder, position: Int) {
-        val item = itemList[position]
-        holder.setItem(item)
-        holder.itemView.setOnClickListener{
-            itemClickListener.onClick(it, position)
+        holder.bind(trainingItems[position])
+        holder.itemView.setOnClickListener { view ->
+            onItemClickListener?.onClick(view, position)
         }
     }
 
-    override fun getItemCount(): Int {
-        return itemList.size
-    }
+    override fun getItemCount(): Int = trainingItems.size
 
-    inner class PetTrainingListViewHolder(binding: ItemPetTrainingListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun setItem(item: PetTrainingListData) {
-            binding.imgPetTraining.setImageBitmap(item.trainingImg)
-            if(item.isStar) {
-                binding.imgPetTrainingStar.visibility = View.VISIBLE
-            }
-            /*Glide.with(binding.imgPetTraining)
-                .load(item.trainingImg)                         // 불러올 이미지 URL
-                .fallback(R.drawable.background_glide_init)                 // 로드할 URL이 비어있을 경우 표시할 이미지
-                .error(R.drawable.background_glide_init)                    // 로딩 에러 발생 시 표시할 이미지
-                .placeholder(R.drawable.background_glide_init)  // 이미지 로딩 시작하기 전에 표시할 이미지
-                .centerInside()                                 // scaletype
-                .into(binding.imgPetTraining)             // 이미지를 넣을 뷰*/
+    // ViewHolder 클래스
+    inner class PetTrainingListViewHolder(private val binding: ItemPetTrainingListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        // 개별 아이템 데이터 바인딩
+        fun bind(trainingItem: PetTrainingListData) {
+            loadImage(trainingItem.imageUrl)
+            setStarVisibility(trainingItem.isStar)
+        }
+
+        // Glide를 사용해 이미지 로드
+        private fun loadImage(imageUrl: String) {
+            GlideHelper.loadImage(binding.imgPetTraining, imageUrl)
+        }
+
+        // 즐겨찾기 여부에 따라 별 아이콘 표시
+        private fun setStarVisibility(isStarred: Boolean) {
+            binding.imgPetTrainingStar.visibility = if (isStarred) View.VISIBLE else View.GONE
         }
     }
 }

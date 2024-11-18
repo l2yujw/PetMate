@@ -12,13 +12,13 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.petmate.core.util.GlobalUserIdx
+import com.example.petmate.core.util.GlobalUserId
 import com.example.petmate.R
-import com.example.petmate.core.network.Tool
+import com.example.petmate.core.network.NetworkClient
 import com.example.petmate.databinding.ActivityPetMainAddPetBinding
-import com.example.petmate.remote.api.pet.main.PetMainInterface
-import com.example.petmate.remote.response.pet.main.PetDetailaddInterfaceResponse
-import com.example.petmate.remote.response.pet.main.PetaddInterfaceResponse
+import com.example.petmate.remote.api.pet.main.PetMainService
+import com.example.petmate.remote.response.pet.main.PetMainDetailCreateResponse
+import com.example.petmate.remote.response.pet.main.PetMainCreateResponse
 import retrofit2.Call
 import retrofit2.Callback
 import java.io.ByteArrayOutputStream
@@ -36,7 +36,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //버튼 이벤트
-        binding.ivPetMainAdd.setOnClickListener {
+        binding.ivPetImage.setOnClickListener {
 
             //갤러리 호출
             val intent = Intent(Intent.ACTION_PICK)
@@ -44,7 +44,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
             activityResult.launch(intent)
         }
 
-        binding.btnPetMainAddPet.setOnClickListener{
+        binding.btnAddPet.setOnClickListener{
             addPet()
             finish()
         }
@@ -52,15 +52,15 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
     private fun addPetRelationship() {
 
-        val retrofit = Tool.getRetrofit()
+        val retrofit = NetworkClient.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java)
-        service.addPetRelationship(insertpetIdx, GlobalUserIdx.getUserIdx()).enqueue(object : Callback<PetDetailaddInterfaceResponse> {
+        val service = retrofit.create(PetMainService::class.java)
+        service.addPetRelationship(insertpetIdx, GlobalUserId.getUserId()).enqueue(object : Callback<PetMainDetailCreateResponse> {
 
-            override fun onResponse(call: Call<PetDetailaddInterfaceResponse>, response: retrofit2.Response<PetDetailaddInterfaceResponse>) {
+            override fun onResponse(call: Call<PetMainDetailCreateResponse>, response: retrofit2.Response<PetMainDetailCreateResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
-                    val result: PetDetailaddInterfaceResponse? = response.body()
+                    val result: PetMainDetailCreateResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
@@ -79,7 +79,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<PetDetailaddInterfaceResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PetMainDetailCreateResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                 Log.d(TAG, "addPetRelationship onFailure 에러: " + t.message.toString())
             }
@@ -87,7 +87,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
     }
 
     private fun addPetDetail() {
-        val datePicker = findViewById<DatePicker>(R.id.dp_petadd_vaccination)
+        val datePicker = findViewById<DatePicker>(R.id.dp_vaccination_date)
 
         // DatePicker에서 선택한 날짜 가져오기
         val year = datePicker.year
@@ -96,7 +96,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
         val vaccination = "$year-$month-$dayOfMonth"
 
-        val datepicker1 = findViewById<DatePicker>(R.id.dp_petadd_helminthic)
+        val datepicker1 = findViewById<DatePicker>(R.id.dp_deworming_date)
 
         val year1 = datepicker1.year
         val month1 = datepicker1.month+1
@@ -104,18 +104,18 @@ class PetMainAddPetActivity : AppCompatActivity() {
 
         val helminthic = "$year1-$month1-$dayOfMonth1"
 
-        val weight = binding.etPetaddWeight.text.toString().toFloat()
+        val weight = binding.etPetWeight.text.toString().toFloat()
         val bcs = 3
 
-        val retrofit = Tool.getRetrofit()
+        val retrofit = NetworkClient.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java)
-        service.addPetDetail(insertpetIdx,vaccination,helminthic,weight,bcs).enqueue(object : Callback<PetDetailaddInterfaceResponse> {
+        val service = retrofit.create(PetMainService::class.java)
+        service.addPetDetail(insertpetIdx,vaccination,helminthic,weight,bcs).enqueue(object : Callback<PetMainDetailCreateResponse> {
 
-            override fun onResponse(call: Call<PetDetailaddInterfaceResponse>, response: retrofit2.Response<PetDetailaddInterfaceResponse>) {
+            override fun onResponse(call: Call<PetMainDetailCreateResponse>, response: retrofit2.Response<PetMainDetailCreateResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
-                    val result: PetDetailaddInterfaceResponse? = response.body()
+                    val result: PetMainDetailCreateResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
@@ -134,7 +134,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<PetDetailaddInterfaceResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PetMainDetailCreateResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                 Log.d(TAG, "addPetDetail onFailure 에러: " + t.message.toString())
             }
@@ -142,29 +142,29 @@ class PetMainAddPetActivity : AppCompatActivity() {
     }
 
     private fun addPet() {
-        val category = binding.etPetaddCategory.text.toString()
-        val species = binding.etPetaddSpecies.text.toString()
-        val name = binding.etPetaddName.text.toString()
-        val gender = binding.etPetaddGender.text.toString()
-        val age = Integer.parseInt(binding.etPetaddAge.text.toString())
+        val category = binding.etPetCategory.text.toString()
+        val species = binding.etPetSpecies.text.toString()
+        val name = binding.etPetName.text.toString()
+        val gender = binding.etPetGender.text.toString()
+        val age = Integer.parseInt(binding.etPetAge.text.toString())
 
         val imageUrl = uriToString(imageURI)
 
-        val retrofit = Tool.getRetrofit()
+        val retrofit = NetworkClient.getRetrofit()
 
-        val service = retrofit.create(PetMainInterface::class.java)
-        service.addPet(category, species, imageUrl, name, gender, age).enqueue(object : Callback<PetaddInterfaceResponse> {
+        val service = retrofit.create(PetMainService::class.java)
+        service.addPet(category, species, imageUrl, name, gender, age).enqueue(object : Callback<PetMainCreateResponse> {
 
-            override fun onResponse(call: Call<PetaddInterfaceResponse>, response: retrofit2.Response<PetaddInterfaceResponse>) {
+            override fun onResponse(call: Call<PetMainCreateResponse>, response: retrofit2.Response<PetMainCreateResponse>) {
                 if (response.isSuccessful) {
                     // 정상적으로 통신이 성고된 경우
-                    val result: PetaddInterfaceResponse? = response.body()
+                    val result: PetMainCreateResponse? = response.body()
                     Log.d(TAG, "onResponse 성공: " + result?.toString())
 
                     when (result?.code) {
                         200 -> {
-                            Toast.makeText(applicationContext, "새로운 반려동물 등록에 성공하였습니다.${result.petIdx}", Toast.LENGTH_SHORT).show()
-                            insertpetIdx = result.petIdx
+                            Toast.makeText(applicationContext, "새로운 반려동물 등록에 성공하였습니다.${result.petId}", Toast.LENGTH_SHORT).show()
+                            insertpetIdx = result.petId
                             addPetDetail()
                             addPetRelationship()
                         }
@@ -180,7 +180,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<PetaddInterfaceResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PetMainCreateResponse>, t: Throwable) {
                 // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
                 Log.d(TAG, "addPet onFailure 에러: " + t.message.toString())
             }
@@ -212,7 +212,7 @@ class PetMainAddPetActivity : AppCompatActivity() {
         //결과 코드 OK , 결가값 null 아니면
         if(it.resultCode == RESULT_OK){
             imageURI = it.data!!.data!!
-            binding.ivPetMainAdd.setImageURI(imageURI)
+            binding.ivPetImage.setImageURI(imageURI)
         }
     }
 }

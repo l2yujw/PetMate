@@ -16,12 +16,12 @@ data class PetRelationshipResponse(
 
     @SerializedName("result")
     var result:List<PetRelationshipResult>
-
 )
-data class PetRelationshipResult(
-    @SerializedName("petIdx")
-    var petIdx:Int,
 
-    @SerializedName("userIdx")
-    var userIdx:Int
+data class PetRelationshipResult(
+    @SerializedName("petId")
+    var petId:Int,
+
+    @SerializedName("userId")
+    var userId:Int
 )

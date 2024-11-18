@@ -8,7 +8,7 @@
 
     <keep_state_fragment
         android:id="@+id/homePetownerFragment"
-        android:name="com.example.petmate.ui.home.petowner.fragment.HomePetownerFragment"
+        android:name="com.example.petmate.ui.home.petowner.fragment.PetOwnerFragment"
         app:popUpToSaveState="true"
         android:label="fragment_home_petowner"
         tools:layout="@layout/fragment_home_petowner" >
@@ -73,7 +73,7 @@
 
     <keep_state_fragment
         android:id="@+id/myinfFragment"
-        android:name="com.example.petmate.ui.myinf.fragment.MyinfFragment"
+        android:name="com.example.petmate.ui.myinfo.fragment.MyInfoFragment"
         android:label="fragment_myinf"
         tools:layout="@layout/fragment_myinf" >
         <action
@@ -102,7 +102,7 @@
     </keep_state_fragment>
     <keep_state_fragment
         android:id="@+id/homeShelterpetInfoFragment"
-        android:name="com.example.petmate.home.petseeker.shelterpetInfo.HomeShelterpetInfoFragment"
+        android:name="com.example.petmate.ui.home.petseeker.shelterpetInfo.fragment.ShelterPetInfoFragment"
         android:label="fragment_home_shelterpet_info"
         tools:layout="@layout/fragment_home_shelterpet_info" >
         <action
@@ -120,7 +120,7 @@
     </keep_state_fragment>
     <keep_state_fragment
         android:id="@+id/myinfPostFragment"
-        android:name="com.example.petmate.ui.myinf.fragment.MyinfPostFragment"
+        android:name="com.example.petmate.ui.myinfo.fragment.MyInfoPostFragment"
         android:label="fragment_myinf_post"
         tools:layout="@layout/fragment_myinf_post" >
         <action

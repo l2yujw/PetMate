@@ -5,7 +5,7 @@
     android:background="@drawable/background_map_rectangle_0">
 
     <ImageView
-        android:id="@+id/userImage_community_board"
+        android:id="@+id/iv_community_board"
         android:layout_width="37dp"
         android:layout_height="37dp"
         android:layout_alignParentStart="true"
@@ -16,7 +16,7 @@
 />
 
     <TextView
-        android:id="@+id/title_community_board"
+        android:id="@+id/tv_title_community_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -28,7 +28,7 @@
         android:textAppearance="@style/community_id" />
 
     <TextView
-        android:id="@+id/nickName_community_board"
+        android:id="@+id/tv_nickname_community_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

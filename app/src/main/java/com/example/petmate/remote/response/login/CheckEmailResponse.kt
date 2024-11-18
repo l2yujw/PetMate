@@ -12,6 +12,4 @@ data class CheckEmailResponse(
 
     @SerializedName("message")
     var message:String
-
-
 )

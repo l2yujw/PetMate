@@ -11,7 +11,7 @@
     tools:context=".ui.walk.activity.WalkActivity">
 
     <RelativeLayout
-        android:id="@+id/KakaoMapView"
+        android:id="@+id/rl_kakao_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/brandWhite">
@@ -26,7 +26,7 @@
             android:background="@drawable/background_map_rectangle_0" />
 
         <EditText
-            android:id="@+id/walk_search"
+            android:id="@+id/et_walk_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -46,7 +46,7 @@
         android:background="@drawable/background_pet_walk_slide">
 
         <View
-            android:id="@+id/activity_walk_0_division"
+            android:id="@+id/divider_walk_activity"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_centerHorizontal="true" />
@@ -60,10 +60,10 @@
             android:background="@drawable/background_pet_walk_slide_button" />
 
         <Button
-            android:id="@+id/walk_start"
+            android:id="@+id/btn_walk_start"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_alignEnd="@id/activity_walk_0_division"
+            android:layout_alignEnd="@id/divider_walk_activity"
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="60dp"
@@ -73,10 +73,10 @@
             android:textAppearance="@style/petowner_walk_start" />
 
         <Button
-            android:id="@+id/walk_finish"
+            android:id="@+id/btn_walk_finish"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_alignStart="@id/activity_walk_0_division"
+            android:layout_alignStart="@id/divider_walk_activity"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="60dp"
@@ -86,10 +86,10 @@
             android:textAppearance="@style/petowner_walk_start" />
 
         <Spinner
-            android:id="@+id/walk_category_search_spinner"
+            android:id="@+id/spinner_walk_category"
             android:layout_width="0dp"
             android:layout_height="110dp"
-            android:layout_alignEnd="@id/activity_walk_0_division"
+            android:layout_alignEnd="@id/divider_walk_activity"
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="135dp"
@@ -100,7 +100,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="110dp"
-            android:layout_alignStart="@id/activity_walk_0_division"
+            android:layout_alignStart="@id/divider_walk_activity"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="135dp"
@@ -111,7 +111,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="110dp"
-            android:layout_alignEnd="@id/activity_walk_0_division"
+            android:layout_alignEnd="@id/divider_walk_activity"
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="260dp"
@@ -122,7 +122,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="110dp"
-            android:layout_alignStart="@id/activity_walk_0_division"
+            android:layout_alignStart="@id/divider_walk_activity"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="260dp"

@@ -7,15 +7,16 @@ import com.example.petmate.core.util.OnItemClickListener
 import com.example.petmate.databinding.ItemPetHealthRecordBinding
 import com.example.petmate.ui.pet.health.data.PetHealthData
 
-class PetHealthAdapter(val itemList: ArrayList<PetHealthData>) : RecyclerView.Adapter<PetHealthAdapter.PetHealthViewHolder>(){
-    private lateinit var itemClickListener : OnItemClickListener
-    lateinit var binding: ItemPetHealthRecordBinding
+class PetHealthAdapter(private val itemList: List<PetHealthData>) : RecyclerView.Adapter<PetHealthAdapter.PetHealthViewHolder>() {
+
+    private var itemClickListener: OnItemClickListener? = null
+
     fun setItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetHealthViewHolder {
-        binding = ItemPetHealthRecordBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPetHealthRecordBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PetHealthViewHolder(binding)
     }
 
@@ -25,14 +26,14 @@ class PetHealthAdapter(val itemList: ArrayList<PetHealthData>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: PetHealthViewHolder, position: Int) {
         val item = itemList[position]
-        holder.setItem(item)
-        holder.itemView.setOnClickListener{
-            itemClickListener.onClick(it, position)
+        holder.bind(item)
+        holder.itemView.setOnClickListener {
+            itemClickListener?.onClick(it, position)
         }
     }
 
-    inner class PetHealthViewHolder(binding: ItemPetHealthRecordBinding) : RecyclerView.ViewHolder(binding.root){
-        fun setItem(item: PetHealthData) {
+    inner class PetHealthViewHolder(private val binding: ItemPetHealthRecordBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: PetHealthData) {
             binding.petHealthVaccinationRecord.text = item.record
         }
     }

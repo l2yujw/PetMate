@@ -7,21 +7,21 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petmate.R
-import com.example.petmate.core.network.Tool
-import com.example.petmate.core.decorator.VerticalItemDecorator
+import com.example.petmate.core.decorator.VerticalDividerItemDecorator
+import com.example.petmate.core.network.NetworkClient
 import com.example.petmate.databinding.FragmentPetHealthBinding
-import com.example.petmate.remote.api.pet.health.PetHealthInterface
-import com.example.petmate.remote.response.pet.health.PetHealthInterfaceResponse
-import com.example.petmate.remote.response.pet.health.PetHealthInterfaceResponseResult
+import com.example.petmate.remote.api.pet.health.PetHealthService
+import com.example.petmate.remote.response.pet.health.PetHealthResponse
+import com.example.petmate.remote.response.pet.health.PetHealthResult
 import com.example.petmate.ui.pet.health.adapter.PetHealthAdapter
 import com.example.petmate.ui.pet.health.data.PetHealthData
 import retrofit2.Call
@@ -31,189 +31,139 @@ import java.util.Calendar
 class PetHealthFragment : Fragment() {
 
     lateinit var binding: FragmentPetHealthBinding
-    var petIdx = 0
+    private var petId = 0
     private val TAG = "PetHealthFragment123"
-
+    private val MALE = "수컷"
+    private val FEMALE = "암컷"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPetHealthBinding.inflate(inflater)
 
-        petIdx = arguments?.getInt("petIdx") ?: 0
-        Log.d(TAG, "petIdx : $petIdx")
+        petId = arguments?.getInt("petIdx") ?: 0
+        Log.d(TAG, "petIdx : $petId")
 
-
+        setupClickListeners()
         getInfoList()
-        requestInfo(petIdx)
-
-        binding.tvHealthVaccination.setOnClickListener{
-            val dlg = AlertDialog.Builder(findNavController().context)
-            dlg.setTitle("접종").setMessage("예방접종 하셨나요?")
-                .setPositiveButton("예"
-                ) { dialog, id ->
-                    val cal = Calendar.getInstance()
-                    val data = DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                        binding.tvHealthVaccination.text = "${cal.get(Calendar.YEAR)}-${cal.get(Calendar.MONTH)}-${cal.get(Calendar.DAY_OF_MONTH)}"
-                    }
-                    DatePickerDialog(findNavController().context, data, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
-                        .apply {
-                            //1개월 간격으로 접종
-                            cal.add(Calendar.MONTH, 1)
-                        }
-                        .show()
-                }
-                .setNegativeButton("아니요"
-                ) { dialog, id ->
-                    Toast.makeText(findNavController().context, "접종 후에 날짜를 변경할 수 있습니다.", Toast.LENGTH_SHORT).show()
-                }
-            dlg.show()
-        }
-
-        binding.tvHealthVaccination.setOnClickListener{
-            val dlg = AlertDialog.Builder(findNavController().context)
-            dlg.setTitle("복용").setMessage("구충제 복용 하셨나요?")
-                .setPositiveButton("예"
-                ) { dialog, id ->
-                    val cal = Calendar.getInstance()
-                    val data = DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                        binding.tvHealthVaccination.text = "${cal.get(Calendar.YEAR)}-${cal.get(Calendar.MONTH)}-${cal.get(Calendar.DAY_OF_MONTH)}"
-                    }
-                    DatePickerDialog(findNavController().context, data, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
-                        .apply {
-                            //2개월 간격으로 복용
-                            cal.add(Calendar.MONTH, 2)
-                        }
-                        .show()
-                }
-                .setNegativeButton("아니요"
-                ) { _, _ ->
-                    Toast.makeText(findNavController().context, "접종 후에 날짜를 변경할 수 있습니다.", Toast.LENGTH_SHORT).show()
-                }
-            dlg.show()
-        }
+        requestInfo(petId)
 
         return binding.root
     }
 
+    private fun setupClickListeners() {
+        binding.tvHealthVaccination.setOnClickListener {
+            showDatePickerDialog("예방접종 하셨나요?", "접종 후에 날짜를 변경할 수 있습니다.", 1)
+        }
+
+        binding.tvHealthHelminthic.setOnClickListener {
+            showDatePickerDialog("구충제 복용 하셨나요?", "복용 후에 날짜를 변경할 수 있습니다.", 2)
+        }
+    }
+
+    private fun showDatePickerDialog(title: String, message: String, monthIncrement: Int) {
+        val dlg = AlertDialog.Builder(requireContext())
+        dlg.setTitle(title)
+            .setPositiveButton("예") { _, _ ->
+                val cal = Calendar.getInstance()
+                val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                    binding.tvHealthVaccination.text = "$year-${month + 1}-$day"
+                }
+                DatePickerDialog(requireContext(), dateSetListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).apply {
+                    cal.add(Calendar.MONTH, monthIncrement)
+                }.show()
+            }
+            .setNegativeButton("아니요") { _, _ ->
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }.show()
+    }
+
     private fun requestInfo(petIdx: Int) {
-
-        val retrofit = Tool.getRetrofit()
-
-        val service = retrofit.create(PetHealthInterface::class.java);
-        service.getInfo(petIdx).enqueue(object : Callback<PetHealthInterfaceResponse> {
-
-            override fun onResponse(call: Call<PetHealthInterfaceResponse>, response: retrofit2.Response<PetHealthInterfaceResponse>) {
+        val retrofit = NetworkClient.getRetrofit()
+        val service = retrofit.create(PetHealthService::class.java)
+        service.getPetHealthDetails(petIdx).enqueue(object : Callback<PetHealthResponse> {
+            override fun onResponse(call: Call<PetHealthResponse>, response: retrofit2.Response<PetHealthResponse>) {
                 if (response.isSuccessful) {
-                    // 정상적으로 통신이 성공된 경우
-                    val result: PetHealthInterfaceResponse? = response.body()
-                    Log.d(TAG, "onResponse 성공: " + result?.toString())
+                    val result: PetHealthResponse? = response.body()
+                    Log.d(TAG, "onResponse 성공: $result")
 
-                    when (result?.code) {
-                        200 -> {
-                            val item = result.result[0]
-                            val reqKcal = calculReqKcal(item)
-                            val reqQuantity = (reqKcal / 3.7).toInt() // 성견 사료g당 평균 칼로리인 3.7kcal로 임의 설정// 출처 : 헬스경향(http://www.k-health.com)
-
-                            binding.petHealthPetname.text = item.name
-                            binding.petHealthPetdescription.text = "${item.category} ${item.species}"
-                            binding.petHealthPetage.text = "${item.age}살"
-                            binding.petHealthSexImage.setImageResource(getSexImage(item.gender))
-                            binding.tvHealthVaccination.text = item.vaccination
-                            binding.tvHealthHelminthic.text = item.helminthic
-                            binding.tvHealthWeight.text = item.weight.toString()
-                            binding.tvHealthWeightCondition.text = "정상"
-                            binding.tvHealthQuantity.text = "${reqQuantity}g"
-                            binding.tvHealthKcal.text = "$reqKcal"
-                            binding.petHealthKnow.text = "TIP: 치석 제거에는 껌 보다는 양치가 효과적이에요"
-
-
-                            val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
-                            val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-                            binding.petHealthImage.setImageBitmap(bitmap)
-
-                            binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-                            //item 간격 결정
-                            binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
-                        }
-
-                        else -> {
-                            Log.d(TAG, "onResponse: ㅈ버그발생 보내는 데이터가 문제임 ")
+                    result?.let {
+                        if (it.code == 200) {
+                            val item = it.result[0]
+                            updateUI(item)
+                        } else {
+                            Log.d(TAG, "onResponse: 에러 발생")
                         }
                     }
-
                 } else {
-                    // 통신이 실패한 경우(응답 코드 3xx, 4xx 등)
-                    Log.d(TAG, "onResponse 실패" + response.code())
+                    Log.d(TAG, "onResponse 실패: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<PetHealthInterfaceResponse>, t: Throwable) {
-                // 통신 실패 (인터넷 끊킴, 예외 발생 등 시스템적인 이유)
-                Log.d(TAG, "onFailure 에러: " + t.message.toString())
+            override fun onFailure(call: Call<PetHealthResponse>, t: Throwable) {
+                Log.d(TAG, "onFailure 에러: ${t.message}")
             }
         })
     }
 
-    // 성별
+    private fun updateUI(item: PetHealthResult) {
+        val reqKcal = calculateReqKcal(item)
+        val reqQuantity = (reqKcal / 3.7).toInt()
+
+        binding.tvHealthPetName.text = item.name
+        binding.tvHealthPetDescription.text = "${item.category} ${item.species}"
+        binding.tvHealthPetAge.text = "${item.age}살"
+        binding.ivHealthSexImage.setImageResource(getSexImage(item.gender))
+        binding.tvHealthVaccination.text = item.vaccination
+        binding.tvHealthHelminthic.text = item.helminthic
+        binding.tvHealthWeight.text = item.weight.toString()
+        binding.tvHealthWeightCondition.text = "정상"
+        binding.tvHealthQuantity.text = "${reqQuantity}g"
+        binding.tvHealthKcal.text = "$reqKcal"
+        binding.tvHealthKnow.text = "TIP: 치석 제거에는 껌 보다는 양치가 효과적이에요"
+
+        val encodeByte = Base64.decode(item.image, Base64.NO_WRAP)
+        val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+        binding.ivHealthImage.setImageBitmap(bitmap)
+
+        binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
+    }
+
+    private fun calculateReqKcal(item: PetHealthResult): Int {
+        val RER = (item.weight * 30) + 70
+        val k = when {
+            item.age < 1 -> 3.0
+            item.age <= 2 -> 1.5
+            else -> 1.6
+        }
+        return (k * RER).toInt()
+    }
+
     private fun getSexImage(sex: String): Int {
         return when (sex) {
-            "수컷", "M" -> R.drawable.sex_male
-            "암컷", "F" -> R.drawable.sex_female
+            MALE, "M" -> R.drawable.sex_male
+            FEMALE, "F" -> R.drawable.sex_female
             else -> R.drawable.sex_male
         }
     }
 
-    private fun calculReqKcal(item: PetHealthInterfaceResponseResult): Int {
-        val RER = (item.weight * 30) + 70
-        var k = 1.6
-        if (item.age < 1) {
-            k = 3.0
-        } else if (item.age <= 2) {
-            //성견 평균 상수값
-            //체중감량 1, 과체중,노령견 1.2~1.4, 중성화 1.6, 비 중성화 1.8 인데
-            //따로 체크받는게 없어서 임의로 중간값을 사용함
-            k = 1.5
-        }
-        return (k * RER).toInt()
-    }
     private fun getInfoList() {
-        binding.petHealthPetname.text = "탈주닌자"
-        binding.petHealthPetdescription.text = "놀라버린 고양이"
-        binding.petHealthPetage.text = "1살"
-        binding.petHealthSexImage.setImageResource(getSexImage("수컷"))
-        binding.tvHealthVaccination.text = "2024.05.30"
-        binding.tvHealthHelminthic.text = "2024.05.30"
-        binding.tvHealthWeight.text = "5"
-        binding.tvHealthWeightCondition.text = "정상"
-        binding.tvHealthQuantity.text = "500"
-        binding.tvHealthKcal.text = "250"
-        binding.petHealthKnow.text = "알고 계셨나요?"
-
-
-        binding.rcvHealthRecord.adapter = PetHealthAdapter(getRecordList())
         binding.rcvHealthRecord.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-
-        //item 간격 결정
-        binding.rcvHealthRecord.addItemDecoration(VerticalItemDecorator(10))
+        binding.rcvHealthRecord.addItemDecoration(VerticalDividerItemDecorator(10))
     }
+
     private fun getRecordList(): ArrayList<PetHealthData> {
-        val recordList = ArrayList<PetHealthData>()
-
-        recordList.add(PetHealthData("2021.05.30"))
-        recordList.add(PetHealthData("2022.05.30"))
-        recordList.add(PetHealthData("2023.05.30"))
-
-        return recordList
+        return arrayListOf(
+            PetHealthData("2021.05.30"),
+            PetHealthData("2022.05.30"),
+            PetHealthData("2023.05.30")
+        )
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val callback = object : OnBackPressedCallback(true) {
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigate(R.id.action_petHealthFragment_to_petMainFragment)
             }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+        })
     }
 }

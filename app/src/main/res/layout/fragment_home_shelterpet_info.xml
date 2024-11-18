@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.petseeker.shelterpetInfo.HomeShelterpetInfoFragment">
+    tools:context=".ui.home.petseeker.shelterpetInfo.fragment.ShelterPetInfoFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/pet_mate"
+            android:id="@+id/tv_pet_mate_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/tv_shelterpet_pet_image"
+                android:id="@+id/iv_shelter_pet_image"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_marginTop="85dp"
@@ -41,7 +41,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_shelterpet_pet_name"
+                    android:id="@+id/tv_shelter_pet_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="19dp"
@@ -50,7 +50,7 @@
                     android:textAppearance="@style/pet_main_name" />
 
                 <TextView
-                    android:id="@+id/tv_shelterpet_pet_age"
+                    android:id="@+id/tv_shelter_pet_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -68,7 +68,7 @@
                     app:cardCornerRadius="8dp">
 
                     <ImageView
-                        android:id="@+id/tv_shelterpet_pet_sex"
+                        android:id="@+id/tv_shelter_pet_sex"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
@@ -108,7 +108,7 @@
                         android:textAppearance="@style/shelterpet_inf_" />
 
                     <TextView
-                        android:id="@+id/tv_shelterpet_petWeight"
+                        android:id="@+id/tv_shelter_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -139,7 +139,7 @@
 
 
                     <TextView
-                        android:id="@+id/tv_shelterpet_neutered"
+                        android:id="@+id/tv_shelter_pet_neutered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -168,7 +168,7 @@
                         android:textAppearance="@style/shelterpet_inf_" />
 
                     <TextView
-                        android:id="@+id/tv_shelterpet_petColor"
+                        android:id="@+id/tv_shelter_pet_color"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -181,7 +181,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_shelterpet_petCharac"
+                android:id="@+id/tv_shelter_pet_character"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginHorizontal="38dp"
@@ -198,7 +198,7 @@
                 android:background="@drawable/login_password_png" />
 
             <TextView
-                android:id="@+id/tv_shelterpet_petMoreInf"
+                android:id="@+id/tv_shelter_pet_more_Inf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
@@ -207,7 +207,7 @@
                 android:textAppearance="@style/shelterpet_about_plus" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_shelterpet_inf"
+                android:id="@+id/rv_shelter_pet_inf"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:layout_marginHorizontal="30dp"

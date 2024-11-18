@@ -6,8 +6,6 @@ import android.util.Log
 class HomePetownerWeatherCommon {
     // baseTime 설정하기
     fun getBaseTime(HH: String/*, m: String*/): String {
-        var result = ""
-
         /*// 45분 전이면
         if (m.toInt() < 45) {
             // 0시면 2330
@@ -24,19 +22,16 @@ class HomePetownerWeatherCommon {
         // 45분 이후면 바로 정보 받아오기
         else result = h + "30"*/
 
-        Log.d("WEATHER TEST", "날씨 정보 HHmm" + HH)
-        when (HH) {
-            "02", "03", "04" -> result = "0200"
-            "05", "06", "07" -> result = "0500"
-            "08", "09", "10" -> result = "0800"
-            "11", "12", "13" -> result = "1100"
-            "14", "15", "16" -> result = "1400"
-            "17", "18", "19" -> result = "1700"
-            "20", "21", "22" -> result = "2000"
-            else -> result = "2300"
+        return when (HH) {
+            "02", "03", "04" -> "0200"
+            "05", "06", "07" -> "0500"
+            "08", "09", "10" -> "0800"
+            "11", "12", "13" -> "1100"
+            "14", "15", "16" -> "1400"
+            "17", "18", "19" -> "1700"
+            "20", "21", "22" -> "2000"
+            else -> "2300"
         }
-
-        return result
 
         //TODO 기상 예보 초단기에서 단기예보로 바꾸기
         /*

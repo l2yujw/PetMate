@@ -1,29 +1,30 @@
 package com.example.petmate.ui.pet.main.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.petmate.R
+import com.example.petmate.databinding.ItemPetMainNoteBinding
 import com.example.petmate.ui.pet.main.data.PetMainNoteData
 
-class PetMainNoteAdapter(val itemList: ArrayList<PetMainNoteData>) : RecyclerView.Adapter<PetMainNoteAdapter.PetMainNoteViewHolder>() {
+class PetMainNoteAdapter(private val noteList: List<PetMainNoteData>) :
+    RecyclerView.Adapter<PetMainNoteAdapter.PetMainNoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetMainNoteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pet_main_note, parent, false)
-        return PetMainNoteViewHolder(view)
+        val binding = ItemPetMainNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PetMainNoteViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PetMainNoteViewHolder, position: Int) {
-        holder.note.text = itemList[position].note
+        holder.bind(noteList[position])
     }
 
-    override fun getItemCount(): Int {
-        return itemList.count()
-    }
+    override fun getItemCount(): Int = noteList.size
 
-    inner class PetMainNoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val note: TextView = itemView.findViewById<TextView>(R.id.main_note_text)
+    inner class PetMainNoteViewHolder(private val binding: ItemPetMainNoteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: PetMainNoteData) {
+            binding.mainNoteText.text = item.note
+        }
     }
 }

@@ -12,7 +12,7 @@
         android:layout_height="0dp">
 
         <Button
-            android:id="@+id/btn_petMain_addPet"
+            android:id="@+id/btn_add_pet"
             android:layout_width="100dp"
             android:layout_height="40dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -25,10 +25,10 @@
             />
 
         <ImageView
-            android:id="@+id/iv_petMain_add"
+            android:id="@+id/iv_pet_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_petMain_addPet"
+            app:layout_constraintTop_toBottomOf="@+id/btn_add_pet"
             android:layout_marginTop="6dp"
             android:text="+"
             android:textSize="200dp"
@@ -38,156 +38,156 @@
             />
 
         <TextView
-            android:id="@+id/tv_petadd_name"
+            android:id="@+id/tv_pet_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_name"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_name"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_name"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="30dp"
             android:gravity="end"
             android:text="반려동물 이름 : "/>
         <EditText
-            android:id="@+id/et_petadd_name"
+            android:id="@+id/et_pet_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/iv_petMain_add"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toBottomOf="@+id/iv_pet_image"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 흰둥이"/>
 
         <TextView
-            android:id="@+id/tv_petadd_category"
+            android:id="@+id/tv_pet_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_category"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_category"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_category"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_category"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="반려동물 종 : "/>
         <EditText
-            android:id="@+id/et_petadd_category"
+            android:id="@+id/et_pet_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_name"
             android:layout_marginEnd="30dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 강아지, 고양이"/>
 
         <TextView
-            android:id="@+id/tv_petadd_species"
+            android:id="@+id/tv_pet_species"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_species"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_species"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_species"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_species"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="반려동물 종 : "/>
         <EditText
-            android:id="@+id/et_petadd_species"
+            android:id="@+id/et_pet_species"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_category"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_category"
             android:layout_marginEnd="30dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 골든 리트리버, 포메라니안"/>
 
         <TextView
-            android:id="@+id/tv_petadd_gender"
+            android:id="@+id/tv_pet_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_gender"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_gender"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_gender"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_gender"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="반려동물 성별 : "/>
         <EditText
-            android:id="@+id/et_petadd_gender"
+            android:id="@+id/et_pet_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_species"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_species"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) M, F"/>
 
         <TextView
-            android:id="@+id/tv_petadd_age"
+            android:id="@+id/tv_pet_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_age"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_age"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_age"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_age"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="반려동물 나이 : "/>
         <EditText
-            android:id="@+id/et_petadd_age"
+            android:id="@+id/et_pet_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_gender"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_gender"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 1, 2"/>
 
         <TextView
-            android:id="@+id/tv_petadd_weight"
+            android:id="@+id/tv_pet_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/et_petadd_weight"
-            app:layout_constraintBottom_toBottomOf="@+id/et_petadd_weight"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/et_pet_weight"
+            app:layout_constraintBottom_toBottomOf="@+id/et_pet_weight"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="반려동물 체중 : "/>
         <EditText
-            android:id="@+id/et_petadd_weight"
+            android:id="@+id/et_pet_weight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_age"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_age"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="ex) 2.3, 1.5"/>
 
         <TextView
-            android:id="@+id/tv_petadd_vaccination"
+            android:id="@+id/tv_vaccination_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/dp_petadd_vaccination"
-            app:layout_constraintBottom_toBottomOf="@+id/dp_petadd_vaccination"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/dp_vaccination_date"
+            app:layout_constraintBottom_toBottomOf="@+id/dp_vaccination_date"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="예방 접종일 : "/>
         <DatePicker
-            android:id="@+id/dp_petadd_vaccination"
+            android:id="@+id/dp_vaccination_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/et_petadd_weight"
+            app:layout_constraintTop_toBottomOf="@+id/et_pet_weight"
             android:layout_marginEnd="30dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:datePickerMode="spinner"
             android:calendarViewShown="false"/>
 
         <TextView
-            android:id="@+id/tv_petadd_helminthic"
+            android:id="@+id/tv_deworming_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/dp_petadd_helminthic"
-            app:layout_constraintBottom_toBottomOf="@+id/dp_petadd_helminthic"
-            app:layout_constraintEnd_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintTop_toTopOf="@+id/dp_deworming_date"
+            app:layout_constraintBottom_toBottomOf="@+id/dp_deworming_date"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pet_name"
             android:gravity="end"
             android:text="구충제 복용일 : "/>
         <DatePicker
-            android:id="@+id/dp_petadd_helminthic"
+            android:id="@+id/dp_deworming_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/dp_petadd_vaccination"
+            app:layout_constraintTop_toBottomOf="@+id/dp_vaccination_date"
             android:layout_marginEnd="30dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_petadd_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_pet_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:datePickerMode="spinner"
             android:calendarViewShown="false"/>

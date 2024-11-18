@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brandWhite"
-    tools:context=".ui.myinf.activity.MyinfPhotoActivity">
+    tools:context=".ui.myinfo.activity.MyInfoPhotoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/edit_post_title"
+            android:id="@+id/et_post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:text="게시글 제목을 입력해 주세요"
 
-            app:layout_constraintBottom_toTopOf="@+id/imageview_post" />
+            app:layout_constraintBottom_toTopOf="@+id/iv_post_image" />
 
         <Button
-            android:id="@+id/btn_addPost"
+            android:id="@+id/btn_post_submit"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageview_post"
+            android:id="@+id/iv_post_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_alignParentStart="true"
@@ -47,10 +47,10 @@
             android:text="+"
             android:textSize="200sp"
             android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@+id/btn_addPost" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_post_submit" />
 
         <EditText
-            android:id="@+id/edit_post_detail"
+            android:id="@+id/et_post_content"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:layout_alignParentStart="true"
@@ -66,7 +66,7 @@
             android:translationY="-0.65sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_post" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_post_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
